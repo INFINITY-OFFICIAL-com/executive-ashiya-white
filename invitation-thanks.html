@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>送信完了 | EXECUTIVE ASHIYA</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F4;
+      --gold: #8B6F1F;
+      --gold-dark: #6A521A;
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28, 31, 46, 0.55);
+      --ink-faint: rgba(28, 31, 46, 0.22);
+      --ink-line: rgba(28, 31, 46, 0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .thanks-container {
+      text-align: center;
+      max-width: 540px;
+      animation: fadeIn 1s ease both;
+    }
+
+    .thanks-emblem {
+      margin-bottom: 2.5rem;
+      opacity: 0.5;
+    }
+
+    .thanks-emblem svg path,
+    .thanks-emblem svg line {
+      stroke: var(--gold);
+    }
+
+    .thanks-brand {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .thanks-sub {
+      font-size: 0.5rem;
+      letter-spacing: 0.35em;
+      color: var(--ink-faint);
+      margin-bottom: 3.5rem;
+    }
+
+    .thanks-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold-dark);
+      margin: 0 auto 3.5rem;
+    }
+
+    .thanks-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.4rem;
+      letter-spacing: 0.25em;
+      color: var(--ink);
+      margin-bottom: 3rem;
+    }
+
+    .thanks-text {
+      font-size: 0.72rem;
+      line-height: 2.6;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+      margin-bottom: 4rem;
+    }
+
+    .back-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 1px solid var(--gold);
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+
+    .back-link:hover::before {
+      transform: translateX(0);
+    }
+
+    .back-link span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s;
+    }
+
+    .back-link:hover span {
+      color: var(--bg);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .thanks-text {
+        font-size: 0.68rem;
+        line-height: 2.4;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thanks-container">
+    <div class="thanks-emblem">
+      <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 2 L42 22 L22 42 L2 22 Z" stroke-width="0.6" opacity="0.8"/>
+        <path d="M22 10 L34 22 L22 34 L10 22 Z" stroke-width="0.5" opacity="0.6"/>
+        <line x1="22" y1="0" x2="22" y2="44" stroke-width="0.4" opacity="0.4"/>
+        <line x1="0" y1="22" x2="44" y2="22" stroke-width="0.4" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <span class="thanks-brand">EXECUTIVE ASHIYA</span>
+    <div class="thanks-sub">INVITATION REQUEST</div>
+
+    <div class="thanks-divider"></div>
+
+    <h1 class="thanks-title">THANK YOU</h1>
+
+    <p class="thanks-text">
+      リクエストを受理いたしました。<br><br>
+      弊社のサービスは年間限られた枠の中で、<br>
+      最高のリソースを投入するため、<br>
+      すべてのご要望にお応えできない場合がございます。<br><br>
+      内容を確認の上、2営業日以内に<br>
+      代表・福田より直接ご連絡を差し上げます。
+    </p>
+
+    <a href="/" class="back-link"><span>&larr;&ensp;BACK TO TOP</span></a>
+  </div>
+
+</body>
+</html>

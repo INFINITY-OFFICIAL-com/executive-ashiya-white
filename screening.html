@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXECUTIVE ASHIYA | スクリーニングフォーム</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F4;
+      --gold: #8B6F1F;
+      --gold-light: #B8954A;
+      --gold-dark: #6A521A;
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28, 31, 46, 0.55);
+      --ink-faint: rgba(28, 31, 46, 0.22);
+      --ink-line: rgba(28, 31, 46, 0.13);
+      --field-bg: #FFFFFF;
+      --field-border: rgba(28, 31, 46, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── PASSWORD SCREEN ─── */
+    #password-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 2rem;
+    }
+
+    .pw-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .pw-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .pw-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .pw-input-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      margin-bottom: 2rem;
+    }
+
+    .pw-input-wrap::before,
+    .pw-input-wrap::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 1px;
+      background: var(--gold-dark);
+    }
+
+    .pw-input-wrap::before { left: -28px; }
+    .pw-input-wrap::after { right: -28px; }
+
+    #pw-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--gold-dark);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.5em;
+      text-align: center;
+      padding: 0.5rem 0;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    #pw-input:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    #pw-input::placeholder {
+      color: var(--ink-faint);
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+    }
+
+    #pw-error {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: #A03A3A;
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 1.5rem;
+      min-height: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    #pw-error.show { opacity: 1; }
+
+    .pw-btn {
+      background: transparent;
+      border: 1px solid var(--gold-dark);
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      padding: 0.9rem 3rem;
+      cursor: pointer;
+      transition: all 0.4s;
+    }
+
+    .pw-btn:hover {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+    }
+
+    .pw-ornament {
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--gold-dark);
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+    }
+
+    .pw-ornament::before,
+    .pw-ornament::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold-dark);
+    }
+
+    /* ─── MAIN FORM ─── */
+    #main-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+
+    #main-content.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Header */
+    .header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--ink-line);
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .header-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .header-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      color: var(--ink-soft);
+    }
+
+    /* Content */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: '—';
+      margin: 0 1rem;
+      color: var(--gold-dark);
+    }
+
+    .intro-text {
+      font-size: 0.75rem;
+      line-height: 2.2;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-bottom: 4rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .form-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-note {
+      font-size: 0.6rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+      line-height: 1.8;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: var(--field-bg);
+      border: 1px solid var(--field-border);
+      border-bottom: 1px solid var(--gold-dark);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: all 0.3s;
+      letter-spacing: 0.05em;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+      background: #FFFFFF;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--ink-faint);
+      font-size: 0.65rem;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.9;
+    }
+
+    .form-select {
+      cursor: pointer;
+    }
+
+    .form-select option {
+      background: var(--field-bg);
+      color: var(--ink);
+    }
+
+    /* Grid inputs */
+    .input-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .input-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Checkboxes */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .checkbox-item span {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 3.5rem 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--ink-line);
+    }
+
+    .divider-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      color: var(--gold-dark);
+      white-space: nowrap;
+    }
+
+    /* Required badge */
+    .required {
+      font-size: 0.5rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* Submit */
+    .submit-wrap {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--ink-line);
+      position: relative;
+    }
+
+    .submit-wrap::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .submit-note {
+      font-size: 0.6rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.1em;
+      line-height: 2;
+      margin-bottom: 2.5rem;
+    }
+
+    .submit-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.45em;
+      padding: 1.2rem 4rem;
+      cursor: pointer;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+
+    .submit-btn:hover::before {
+      transform: translateX(0);
+    }
+
+    .submit-btn span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s;
+    }
+
+    .submit-btn:hover span {
+      color: var(--bg);
+    }
+
+    /* Success */
+    #success-msg {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    #success-msg .success-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    #success-msg p {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      line-height: 2.5;
+      color: var(--ink-soft);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--ink-line);
+    }
+
+    .footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-dark);
+    }
+
+    /* Fade in animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-group {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .form-group:nth-child(1) { animation-delay: 0.1s; }
+    .form-group:nth-child(2) { animation-delay: 0.15s; }
+    .form-group:nth-child(3) { animation-delay: 0.2s; }
+    .form-group:nth-child(4) { animation-delay: 0.25s; }
+    .form-group:nth-child(5) { animation-delay: 0.3s; }
+    .form-group:nth-child(6) { animation-delay: 0.35s; }
+    .form-group:nth-child(7) { animation-delay: 0.4s; }
+    .form-group:nth-child(8) { animation-delay: 0.45s; }
+  </style>
+</head>
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="password-screen">
+  <div class="pw-logo">EXECUTIVE ASHIYA</div>
+  <div class="pw-sub">PRIVATE SCREENING</div>
+  <div class="pw-label">ACCESS CODE</div>
+  <div class="pw-input-wrap">
+    <input type="password" id="pw-input" maxlength="8" placeholder="••••••••" autocomplete="off">
+  </div>
+  <div id="pw-error">アクセスコードが正しくありません</div>
+  <button class="pw-btn" onclick="checkPassword()"><span>ENTER</span></button>
+  <div class="pw-ornament">CONFIDENTIAL</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+
+  <header class="header">
+    <div class="header-logo">EXECUTIVE ASHIYA</div>
+    <div class="header-sub">SCREENING FORM — CONFIDENTIAL</div>
+  </header>
+
+  <div class="content">
+
+    <div class="section-title">審査申請フォーム</div>
+
+    <p class="intro-text">
+      本フォームは、弊社よりアクセスコードをお送りした方のみご記入いただけます。<br>
+      ご記入内容は厳重に管理し、審査以外の目的には使用いたしません。<br>
+      内容を確認の上、担当者より3営業日以内にご連絡いたします。
+    </p>
+
+    <form name="ea-screening" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="screening-form">
+      <input type="hidden" name="form-name" value="ea-screening">
+      <input type="hidden" name="bot-field" style="display:none">
+
+      <!-- Q1 -->
+      <div class="form-group">
+        <div class="form-number">Q 01</div>
+        <label class="form-label">基本情報<span class="required">必須</span></label>
+        <div class="form-note">氏名・年齢・役職または肩書き・ご住所をご記入ください。</div>
+        <div class="input-grid" style="margin-bottom:0.8rem;">
+          <input type="text" name="氏名" class="form-input" placeholder="氏名" required>
+          <input type="text" name="年齢" class="form-input" placeholder="年齢">
+        </div>
+        <input type="text" name="役職肩書き" class="form-input" placeholder="役職・肩書き" style="margin-bottom:0.8rem;">
+        <input type="text" name="住所" class="form-input" placeholder="ご住所（市区町村まで）">
+      </div>
+
+      <!-- Q2 -->
+      <div class="form-group">
+        <div class="form-number">Q 02</div>
+        <label class="form-label">現在の健康状態<span class="required">必須</span></label>
+        <div class="form-note">現在の健康課題・気になっている体の状態をご自由にお書きください。</div>
+        <textarea name="健康課題" class="form-textarea" placeholder="例）睡眠の質が低い、慢性的な疲労感がある、体重管理が難しい、など" required></textarea>
+      </div>
+
+      <!-- Q3 -->
+      <div class="form-group">
+        <div class="form-number">Q 03</div>
+        <label class="form-label">生活習慣</label>
+        <div class="form-note">現在の生活習慣についてお聞かせください。</div>
+        <div class="input-grid" style="margin-bottom:0.8rem;">
+          <input type="text" name="平均睡眠時間" class="form-input" placeholder="平均睡眠時間（例：5時間）">
+          <input type="text" name="週平均労働時間" class="form-input" placeholder="週平均労働時間（例：60時間）">
+        </div>
+        <div class="input-grid">
+          <input type="text" name="運動習慣" class="form-input" placeholder="運動習慣（例：週2回ゴルフ）">
+          <input type="text" name="飲酒喫煙" class="form-input" placeholder="飲酒・喫煙（例：週3回飲酒）">
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="form-group">
+        <div class="form-number">Q 04</div>
+        <label class="form-label">訪問環境</label>
+        <div class="form-note">ご自宅またはオフィスでのトレーニングスペースの有無と、訪問可能な時間帯をお知らせください。</div>
+        <input type="text" name="トレーニングスペース" class="form-input" placeholder="スペースの有無（例：自宅リビング使用可）" style="margin-bottom:0.8rem;">
+        <input type="text" name="訪問可能時間帯" class="form-input" placeholder="訪問可能な時間帯（例：平日朝6〜8時、土日午前中）">
+      </div>
+
+      <!-- Q5 -->
+      <div class="form-group">
+        <div class="form-number">Q 05</div>
+        <label class="form-label">ご利用目的</label>
+        <div class="form-note">当てはまるものをすべてお選びください。</div>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="利用目的" value="健康改善">
+            <span>健康改善</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="利用目的" value="パフォーマンス向上">
+            <span>パフォーマンス向上</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="利用目的" value="家族・パートナーのケア">
+            <span>家族・パートナーのケア</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="利用目的" value="生活の最適化">
+            <span>生活の最適化</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="form-group">
+        <div class="form-number">Q 06</div>
+        <label class="form-label">ご希望のプラン・契約形態</label>
+        <div class="form-note">ご希望のプランと契約形態をお選びください。</div>
+        <select name="希望プラン" class="form-select" style="margin-bottom:0.8rem;">
+          <option value="" disabled selected>希望プランをお選びください</option>
+          <option value="プラチナ会員(入会金300万・年会費900万)">プラチナ会員（入会金300万・年会費900万）</option>
+          <option value="エグゼクティブ会員(入会金150万・年会費600万)">エグゼクティブ会員（入会金150万・年会費600万）</option>
+          <option value="未定">未定・ご相談したい</option>
+        </select>
+        <div class="input-grid">
+          <select name="契約形態" class="form-select">
+            <option value="" disabled selected>契約形態</option>
+            <option value="個人契約">個人契約</option>
+            <option value="法人契約">法人契約</option>
+          </select>
+          <input type="text" name="開始希望時期" class="form-input" placeholder="開始希望時期（例：2026年6月）">
+        </div>
+      </div>
+
+      <div class="divider">
+        <span class="divider-text">MOST IMPORTANT</span>
+      </div>
+
+      <!-- Q7 -->
+      <div class="form-group">
+        <div class="form-number">Q 07</div>
+        <label class="form-label">お問い合わせの理由<span class="required">必須</span></label>
+        <div class="form-note">このサービスにお問い合わせいただいた理由を、具体的にお書きください。<br>記述の内容が審査において最も重要な判断材料となります。</div>
+        <textarea name="問い合わせ理由" class="form-textarea" style="min-height:160px;" placeholder="具体的な理由・背景・現在の課題感などをご記入ください。" required></textarea>
+      </div>
+
+      <!-- Q8 -->
+      <div class="form-group">
+        <div class="form-number">Q 08</div>
+        <label class="form-label">ご紹介者について</label>
+        <div class="form-note">ご紹介をいただいた場合のみご記入ください。</div>
+        <div class="input-grid">
+          <input type="text" name="紹介者名" class="form-input" placeholder="紹介者のお名前">
+          <input type="text" name="紹介者との関係" class="form-input" placeholder="紹介者との関係">
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-wrap">
+        <p class="submit-note">
+          送信後、3営業日以内に担当者よりご連絡いたします。<br>
+          ご記入内容は厳重に管理し、審査以外の目的には使用いたしません。
+        </p>
+        <button type="submit" class="submit-btn"><span>SUBMIT APPLICATION</span></button>
+      </div>
+
+    </form>
+
+    <div id="success-msg">
+      <div class="success-icon">—</div>
+      <p>
+        お申し込みを受け付けました。<br><br>
+        内容を確認の上、3営業日以内に<br>
+        担当者よりご連絡いたします。<br><br>
+        EXECUTIVE ASHIYA
+      </p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-text">© EXECUTIVE ASHIYA —株式会社REFIT — CONFIDENTIAL</div>
+  </footer>
+
+</div>
+
+<script>
+  const CORRECT_PASSWORD = '48291736';
+
+  function checkPassword() {
+    const input = document.getElementById('pw-input').value;
+    const error = document.getElementById('pw-error');
+    if (input === CORRECT_PASSWORD) {
+      document.getElementById('password-screen').style.opacity = '0';
+      document.getElementById('password-screen').style.transition = 'opacity 0.6s';
+      setTimeout(() => {
+        document.getElementById('password-screen').style.display = 'none';
+        const main = document.getElementById('main-content');
+        main.style.display = 'block';
+        setTimeout(() => main.style.opacity = '1', 10);
+      }, 600);
+    } else {
+      error.classList.add('show');
+      document.getElementById('pw-input').value = '';
+      setTimeout(() => error.classList.remove('show'), 3000);
+    }
+  }
+
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // Netlify form success
+  const form = document.getElementById('screening-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      }).then(() => {
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      }).catch(() => {
+        alert('送信に失敗しました。時間をおいて再度お試しください。');
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
