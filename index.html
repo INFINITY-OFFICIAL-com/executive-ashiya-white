@@ -1062,6 +1062,93 @@
       display: block;
     }
 
+    /* ════════ CONE DIAGRAM ════════ */
+    .cone-diagram {
+      max-width: 680px;
+      margin: 5rem auto 0;
+      padding: 0 2rem;
+    }
+    .cone-layer {
+      text-align: center;
+      padding: 2.8rem 2rem;
+      position: relative;
+    }
+    .cone-layer-top {
+      background: var(--ink);
+      clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
+      z-index: 2;
+    }
+    .cone-layer-divider {
+      width: 60%;
+      height: 1px;
+      background: var(--gold);
+      margin: -1px auto 0;
+      position: relative;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.8s 0.6s ease;
+    }
+    .cone-layer-divider.visible { opacity: 1; }
+    .cone-layer-bottom {
+      background: var(--ink);
+      clip-path: polygon(12% 0, 88% 0, 62% 100%, 38% 100%);
+      padding: 2.4rem 2rem 3.2rem;
+      margin-top: -1px;
+      z-index: 1;
+    }
+    .cone-layer-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .cone-layer-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+    .cone-layer-top,
+    .cone-layer-bottom {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .cone-layer-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cone-layer-bottom.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+    .cone-text {
+      max-width: 680px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .cone-text p {
+      font-size: 0.78rem;
+      line-height: 2.4;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    @media (max-width: 880px) {
+      .cone-diagram { max-width: 100%; margin-top: 3.5rem; }
+      .cone-layer-top { clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); padding: 2rem 1.5rem; }
+      .cone-layer-bottom { clip-path: polygon(8% 0, 92% 0, 68% 100%, 32% 100%); padding: 1.8rem 1.5rem 2.6rem; }
+      .cone-layer-en { font-size: 0.6rem; }
+      .cone-layer-ja { font-size: 0.75rem; }
+      .cone-text p { font-size: 0.72rem; line-height: 2.2; }
+    }
+
     /* ════════ CONCIERGE / MEMBER PRIVILEGES ════════ */
     #concierge {
       max-width: none;
@@ -2467,39 +2554,130 @@
       <h2 class="section-title">Comprehensive Care</h2>
       <span class="section-title-ja">包 括 的 な ケ ア</span>
       <p class="section-intro">
-        EXECUTIVE ASHIYAは、パーソナルトレーニングだけでなく、栄養設計・医療連携・メンタルケアまでを一貫して提供する包括的ヘルスケアコンシェルジュです。すべてのサービスは完全訪問型で、専属チームがご自宅やオフィスへ直接伺います。
+        パーソナルトレーニング・栄養設計・医療連携・メンタルケア——<br>
+        EXECUTIVE ASHIYAは、健康のあらゆる側面を包括的にカバーする<br class="sp-hide">ヘルスケアコンシェルジュです。<br>
+        すべてのサービスは完全訪問型。専属チームがご自宅やオフィスへ直接伺います。
       </p>
     </div>
-    <div class="service-grid">
-      <div class="service-item fade">
-        <span class="service-num">01 / 03</span>
-        <span class="s-en">TRAINING &amp; CONDITIONING</span>
-        <h3 class="s-title">専属パーソナルトレーニング<br>＆ コンディショニング</h3>
-        <p class="s-desc">
-          専属トレーナーがご自宅・オフィスへ伺う、完全プライベートセッション。身体データと目標に基づく個別プログラムに加え、ストレッチ・ボディケア・コンディショニングまでを統合。鍛えるだけでなく、整える。常に最高の状態へ導きます。
-        </p>
+
+    <!-- Inverted Cone Diagram -->
+    <div class="cone-diagram fade">
+      <div class="cone-layer cone-layer-top">
+        <span class="cone-layer-en">DAILY CARE</span>
+        <span class="cone-layer-ja">日々のケア</span>
       </div>
-      <div class="service-item fade">
-        <span class="service-num">02 / 03</span>
-        <span class="s-en">NUTRITION &amp; HEALTH DESIGN</span>
-        <h3 class="s-title">栄養設計<br>＆ ヘルスモニタリング</h3>
-        <p class="s-desc">
-          血液データ・体質を踏まえた完全オーダーメイドの栄養戦略。食事設計からサプリメント処方まで一貫対応。体組成測定・バイタルチェックによる定期モニタリングで、数値に基づく健康管理を実現します。
-        </p>
-      </div>
-      <div class="service-item fade">
-        <span class="service-num">03 / 03</span>
-        <span class="s-en">MEDICAL &amp; TOTAL WELLNESS</span>
-        <h3 class="s-title">医療連携<br>＆ トータルウェルネス</h3>
-        <p class="s-desc">
-          信頼できる医療機関・整骨院・鍼灸院とのネットワークを通じ、トレーニングだけでは届かない領域までチーム体制でサポート。メンタルウェルネス・ストレスマネジメントまで包括的にカバーし、心身の両面から最適なコンディションを追求します。
-        </p>
+      <div class="cone-layer-divider"></div>
+      <div class="cone-layer cone-layer-bottom">
+        <span class="cone-layer-en">LIFETIME ACCESS</span>
+        <span class="cone-layer-ja">人生の機会</span>
       </div>
     </div>
-    <div class="services-image fade">
-      <img src="services-space.webp" alt="Luxury wellness lounge with skylight" width="1200" height="600" loading="lazy" />
+
+    <div class="cone-text fade">
+      <p>
+        日々のトレーニングや栄養管理といった「Daily Care」が土台となり、<br class="sp-hide">
+        医療連携・メンタルケア・特別な体験へとつながる「Lifetime Access」を実現する。<br class="sp-hide">
+        この循環こそが、EXECUTIVE ASHIYAの提供する価値です。
+      </p>
     </div>
   </section>
+
+  <!-- ════════ CONCIERGE / MEMBER PRIVILEGES ════════ -->
+  <section id="concierge">
+    <div class="concierge-inner">
+      <span class="section-label with-rule">MEMBER PRIVILEGES</span>
+      <h2 class="section-title fade">Exclusive Concierge</h2>
+      <span class="section-title-ja fade">会 員 特 権 サ ー ビ ス</span>
+
+      <div class="concierge-grid">
+        <div class="concierge-card fade" data-concierge="medical" onclick="openConcierge('medical')">
+          <div class="concierge-card-bg" style="background-image:url('concierge-medical.webp')"></div>
+          <div class="concierge-card-overlay"></div>
+          <div class="concierge-card-body">
+            <span class="concierge-card-num">01</span>
+            <span class="concierge-card-en">Medical Access</span>
+            <span class="concierge-card-ja">医 療 ア ク セ ス</span>
+            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+          </div>
+        </div>
+
+        <div class="concierge-card fade" data-concierge="aesthetic" onclick="openConcierge('aesthetic')">
+          <div class="concierge-card-bg" style="background-image:url('concierge-spa.webp')"></div>
+          <div class="concierge-card-overlay"></div>
+          <div class="concierge-card-body">
+            <span class="concierge-card-num">02</span>
+            <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
+            <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
+            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+          </div>
+        </div>
+
+        <div class="concierge-card fade" data-concierge="culinary" onclick="openConcierge('culinary')">
+          <div class="concierge-card-bg" style="background-image:url('concierge-culinary.webp')"></div>
+          <div class="concierge-card-overlay"></div>
+          <div class="concierge-card-body">
+            <span class="concierge-card-num">03</span>
+            <span class="concierge-card-en">Culinary &amp; Nutrition</span>
+            <span class="concierge-card-ja">食 ・ 栄 養</span>
+            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="concierge-note fade">
+        上記サービスはExecutive Ashiya会員の特権として手配可能です。ご利用時は実費を申し受けます。
+        <span class="concierge-note-en">These services are available exclusively to members of Executive Ashiya. Actual costs are billed separately upon use.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Concierge Detail Panels -->
+  <div class="concierge-detail" id="concierge-medical" onclick="closeConcierge(event)">
+    <div class="concierge-detail-inner">
+      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <span class="concierge-detail-num">01</span>
+      <span class="concierge-detail-en">Medical Access</span>
+      <span class="concierge-detail-ja">医 療 ア ク セ ス</span>
+      <div class="concierge-detail-line"></div>
+      <ul class="concierge-detail-list">
+        <li>国内最高峰の人間ドック・高度検査施設の最優先予約</li>
+        <li>遺伝子検査・マイクロバイオーム解析・ホルモン検査等の最先端検査手配</li>
+        <li>国内外の専門医によるセカンドオピニオン取得</li>
+        <li>予防医療・再生医療・アンチエイジング治療のクリニック紹介</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concierge-detail" id="concierge-aesthetic" onclick="closeConcierge(event)">
+    <div class="concierge-detail-inner">
+      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <span class="concierge-detail-num">02</span>
+      <span class="concierge-detail-en">Aesthetic &amp; Body Care</span>
+      <span class="concierge-detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
+      <div class="concierge-detail-line"></div>
+      <ul class="concierge-detail-list">
+        <li>美容医療クリニックの優先手配</li>
+        <li>美容鍼・高級エステ・プライベートスパの予約</li>
+        <li>ボディケアセラピストの自宅派遣</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concierge-detail" id="concierge-culinary" onclick="closeConcierge(event)">
+    <div class="concierge-detail-inner">
+      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <span class="concierge-detail-num">03</span>
+      <span class="concierge-detail-en">Culinary &amp; Nutrition</span>
+      <span class="concierge-detail-ja">食 ・ 栄 養</span>
+      <div class="concierge-detail-line"></div>
+      <ul class="concierge-detail-list">
+        <li>ミシュランシェフの自宅派遣</li>
+        <li>高級オーガニック食材・海外健康食品の取り寄せ</li>
+        <li>予約困難な名店への優先予約</li>
+      </ul>
+    </div>
+  </div>
+
 
   <!-- ════════ LOGO TICKER ════════ -->
   <div class="logo-ticker">
@@ -2644,7 +2822,7 @@
     <p class="ticker-disclaimer">All trademarks and logos are the property of their respective owners. Displayed to represent world-class standards integrated into our service.</p>
   </div>
 
-  <!-- ═════��══ FEATURE QUOTE ═════���══ -->
+  <!-- ════════ FEATURE QUOTE ════════ -->
   <div class="feature-quote">
     <p class="feature-quote-text">
       最高の資産は、健康である。<br>
@@ -2653,100 +2831,8 @@
     <span class="feature-quote-attr">— EXECUTIVE ASHIYA</span>
   </div>
 
-  <!-- ════════ CONCIERGE / MEMBER PRIVILEGES ════════ -->
-  <section id="concierge">
-    <div class="concierge-inner">
-      <span class="section-label with-rule">MEMBER PRIVILEGES</span>
-      <h2 class="section-title fade">Exclusive Concierge</h2>
-      <span class="section-title-ja fade">会 員 特 権 サ ー ビ ス</span>
-
-      <div class="concierge-grid">
-        <div class="concierge-card fade" data-concierge="medical" onclick="openConcierge('medical')">
-          <div class="concierge-card-bg" style="background-image:url('concierge-medical.webp')"></div>
-          <div class="concierge-card-overlay"></div>
-          <div class="concierge-card-body">
-            <span class="concierge-card-num">01</span>
-            <span class="concierge-card-en">Medical Access</span>
-            <span class="concierge-card-ja">医 療 ア ク セ ス</span>
-            <span class="concierge-card-arrow">VIEW DETAILS →</span>
-          </div>
-        </div>
-
-        <div class="concierge-card fade" data-concierge="aesthetic" onclick="openConcierge('aesthetic')">
-          <div class="concierge-card-bg" style="background-image:url('concierge-spa.webp')"></div>
-          <div class="concierge-card-overlay"></div>
-          <div class="concierge-card-body">
-            <span class="concierge-card-num">02</span>
-            <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
-            <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
-            <span class="concierge-card-arrow">VIEW DETAILS →</span>
-          </div>
-        </div>
-
-        <div class="concierge-card fade" data-concierge="culinary" onclick="openConcierge('culinary')">
-          <div class="concierge-card-bg" style="background-image:url('concierge-culinary.webp')"></div>
-          <div class="concierge-card-overlay"></div>
-          <div class="concierge-card-body">
-            <span class="concierge-card-num">03</span>
-            <span class="concierge-card-en">Culinary &amp; Nutrition</span>
-            <span class="concierge-card-ja">食 ・ 栄 養</span>
-            <span class="concierge-card-arrow">VIEW DETAILS →</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="concierge-note fade">
-        上記サービスはExecutive Ashiya会員の特権として手配可能です。ご利用時は実費を申し受けます。
-        <span class="concierge-note-en">These services are available exclusively to members of Executive Ashiya. Actual costs are billed separately upon use.</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- Concierge Detail Panels -->
-  <div class="concierge-detail" id="concierge-medical" onclick="closeConcierge(event)">
-    <div class="concierge-detail-inner">
-      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-      <span class="concierge-detail-num">01</span>
-      <span class="concierge-detail-en">Medical Access</span>
-      <span class="concierge-detail-ja">医 療 ア ク セ ス</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>国内最高峰の人間ドック・高度検査施設の最優先予約</li>
-        <li>遺伝子検査・マイクロバイオーム解析・ホルモン検査等の最先端検査手配</li>
-        <li>国内外の専門医によるセカンドオピニオン取得</li>
-        <li>予防医療・再生医療・アンチエイジング治療のクリニック紹介</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="concierge-detail" id="concierge-aesthetic" onclick="closeConcierge(event)">
-    <div class="concierge-detail-inner">
-      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-      <span class="concierge-detail-num">02</span>
-      <span class="concierge-detail-en">Aesthetic &amp; Body Care</span>
-      <span class="concierge-detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>美容医療クリニックの優先手配</li>
-        <li>美容鍼・高級エステ・プライベートスパの予約</li>
-        <li>ボディケアセラピストの自宅派遣</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="concierge-detail" id="concierge-culinary" onclick="closeConcierge(event)">
-    <div class="concierge-detail-inner">
-      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-      <span class="concierge-detail-num">03</span>
-      <span class="concierge-detail-en">Culinary &amp; Nutrition</span>
-      <span class="concierge-detail-ja">食 ・ 栄 養</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>ミシュランシェフの自宅派遣</li>
-        <li>高級オーガニック食材・海外健康食品の取り寄せ</li>
-        <li>予約困難な名店への優先予約</li>
-      </ul>
-    </div>
+  <div class="services-image fade">
+    <img src="services-space.webp" alt="Luxury wellness lounge with skylight" width="1200" height="600" loading="lazy" />
   </div>
 
   <div class="diamond-divider fade"><span></span></div>
@@ -3214,6 +3300,20 @@
     document.querySelectorAll('.fade').forEach(el => {
       if (!el.classList.contains('join-step')) observer.observe(el);
     });
+
+    // Cone diagram layer animation
+    const coneDiagram = document.querySelector('.cone-diagram');
+    if (coneDiagram) {
+      const coneObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.cone-layer-top, .cone-layer-bottom, .cone-layer-divider').forEach(el => el.classList.add('visible'));
+            coneObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      coneObserver.observe(coneDiagram);
+    }
 
     // Count-up animation with odometer-style digit rolling
     function animateCount(el) {
