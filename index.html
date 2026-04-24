@@ -1076,17 +1076,52 @@
     .concierge-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
+      gap: 3px;
       margin-top: 4rem;
     }
     .concierge-card {
-      padding: 4rem 2.8rem 3.5rem;
       position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       text-align: left;
-      border-right: 1px solid var(--ink-line);
     }
-    .concierge-card:last-child {
-      border-right: none;
+    .concierge-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.8s ease;
+    }
+    .concierge-card:hover .concierge-card-bg {
+      transform: scale(1.05);
+    }
+    .concierge-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.55) 60%,
+        rgba(0,0,0,0.78) 100%
+      );
+      transition: background 0.5s;
+    }
+    .concierge-card:hover .concierge-card-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.25) 0%,
+        rgba(0,0,0,0.65) 60%,
+        rgba(0,0,0,0.85) 100%
+      );
+    }
+    .concierge-card-body {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 2.4rem;
     }
     .concierge-card-num {
       display: block;
@@ -1095,16 +1130,16 @@
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       color: var(--gold);
-      margin-bottom: 2rem;
+      margin-bottom: 1.4rem;
     }
     .concierge-card-en {
       display: block;
       font-family: var(--serif-en);
       font-weight: 300;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      letter-spacing: 0.08em;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin-bottom: 0.4rem;
       line-height: 1.3;
     }
     .concierge-card-ja {
@@ -1112,36 +1147,128 @@
       font-family: var(--serif-jp);
       font-size: 0.68rem;
       letter-spacing: 0.3em;
-      color: var(--ink-soft);
-      margin-bottom: 2.4rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0;
     }
-    .concierge-card-line {
+    .concierge-card-arrow {
+      display: inline-block;
+      margin-top: 1.4rem;
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      opacity: 0.8;
+      transition: opacity 0.3s, letter-spacing 0.3s;
+    }
+    .concierge-card:hover .concierge-card-arrow {
+      opacity: 1;
+      letter-spacing: 0.4em;
+    }
+    /* Detail panel */
+    .concierge-detail {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .concierge-detail.open {
+      display: flex;
+      opacity: 1;
+    }
+    .concierge-detail-inner {
+      background: #fff;
+      max-width: 600px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 4rem 3rem 3rem;
+      position: relative;
+    }
+    .concierge-detail-close {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      width: 28px;
+      height: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .concierge-detail-close::before,
+    .concierge-detail-close::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 1px;
+      background: var(--ink-soft);
+      transition: background 0.3s;
+    }
+    .concierge-detail-close::before { transform: translate(-50%,-50%) rotate(45deg); }
+    .concierge-detail-close::after { transform: translate(-50%,-50%) rotate(-45deg); }
+    .concierge-detail-close:hover::before,
+    .concierge-detail-close:hover::after { background: var(--ink); }
+    .concierge-detail-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .concierge-detail-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .concierge-detail-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+    }
+    .concierge-detail-line {
       width: 32px;
       height: 1px;
       background: var(--gold);
       opacity: 0.6;
       margin-bottom: 2rem;
     }
-    .concierge-list {
+    .concierge-detail-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    .concierge-list li {
+    .concierge-detail-list li {
       font-family: var(--serif-jp);
       font-weight: 300;
-      font-size: 0.78rem;
-      line-height: 2.2;
+      font-size: 0.82rem;
+      line-height: 2.4;
       letter-spacing: 0.04em;
       color: var(--ink-soft);
-      padding-left: 1em;
-      text-indent: -1em;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
     }
-    .concierge-list li::before {
+    .concierge-detail-list li::before {
       content: '—';
       color: var(--gold);
       margin-right: 0.6em;
-      font-size: 0.7rem;
     }
     .concierge-note {
       max-width: 800px;
@@ -1166,14 +1293,10 @@
       #concierge { padding: 6rem 1.6rem 5rem; }
       .concierge-grid {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 3px;
       }
-      .concierge-card {
-        border-right: none;
-        border-bottom: 1px solid var(--ink-line);
-        padding: 3rem 0.5rem;
-      }
-      .concierge-card:last-child { border-bottom: none; }
+      .concierge-card { min-height: 300px; }
+      .concierge-detail-inner { padding: 3rem 2rem 2rem; }
     }
 
     /* ════════ TRACK RECORD ════════ */
@@ -2436,41 +2559,37 @@
       <span class="section-title-ja fade">会 員 特 権 サ ー ビ ス</span>
 
       <div class="concierge-grid">
-        <div class="concierge-card fade">
-          <span class="concierge-card-num">01</span>
-          <span class="concierge-card-en">Medical Access</span>
-          <span class="concierge-card-ja">医 療 ア ク セ ス</span>
-          <div class="concierge-card-line"></div>
-          <ul class="concierge-list">
-            <li>国内最高峰の人間ドック・高度検査施設の最優先予約</li>
-            <li>遺伝子検査・マイクロバイオーム解析・ホルモン検査等の最先端検査手配</li>
-            <li>国内外の専門医によるセカンドオピニオン取得</li>
-            <li>予防医療・再生医療・アンチエイジング治療のクリニック紹介</li>
-          </ul>
+        <div class="concierge-card fade" data-concierge="medical" onclick="openConcierge('medical')">
+          <div class="concierge-card-bg" style="background-image:url('concierge-medical.webp')"></div>
+          <div class="concierge-card-overlay"></div>
+          <div class="concierge-card-body">
+            <span class="concierge-card-num">01</span>
+            <span class="concierge-card-en">Medical Access</span>
+            <span class="concierge-card-ja">医 療 ア ク セ ス</span>
+            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+          </div>
         </div>
 
-        <div class="concierge-card fade">
-          <span class="concierge-card-num">02</span>
-          <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
-          <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
-          <div class="concierge-card-line"></div>
-          <ul class="concierge-list">
-            <li>美容医療クリニックの優先手配</li>
-            <li>美容鍼・高級エステ・プライベートスパの予約</li>
-            <li>ボディケアセラピストの自宅派遣</li>
-          </ul>
+        <div class="concierge-card fade" data-concierge="aesthetic" onclick="openConcierge('aesthetic')">
+          <div class="concierge-card-bg" style="background-image:url('concierge-spa.webp')"></div>
+          <div class="concierge-card-overlay"></div>
+          <div class="concierge-card-body">
+            <span class="concierge-card-num">02</span>
+            <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
+            <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
+            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+          </div>
         </div>
 
-        <div class="concierge-card fade">
-          <span class="concierge-card-num">03</span>
-          <span class="concierge-card-en">Culinary &amp; Nutrition</span>
-          <span class="concierge-card-ja">食 ・ 栄 養</span>
-          <div class="concierge-card-line"></div>
-          <ul class="concierge-list">
-            <li>ミシュランシェフの自宅派遣</li>
-            <li>高級オーガニック食材・海外健康食品の取り寄せ</li>
-            <li>予約困難な名店への優先予約</li>
-          </ul>
+        <div class="concierge-card fade" data-concierge="culinary" onclick="openConcierge('culinary')">
+          <div class="concierge-card-bg" style="background-image:url('concierge-culinary.webp')"></div>
+          <div class="concierge-card-overlay"></div>
+          <div class="concierge-card-body">
+            <span class="concierge-card-num">03</span>
+            <span class="concierge-card-en">Culinary &amp; Nutrition</span>
+            <span class="concierge-card-ja">食 ・ 栄 養</span>
+            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+          </div>
         </div>
       </div>
 
@@ -2480,6 +2599,53 @@
       </p>
     </div>
   </section>
+
+  <!-- Concierge Detail Panels -->
+  <div class="concierge-detail" id="concierge-medical" onclick="closeConcierge(event)">
+    <div class="concierge-detail-inner">
+      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <span class="concierge-detail-num">01</span>
+      <span class="concierge-detail-en">Medical Access</span>
+      <span class="concierge-detail-ja">医 療 ア ク セ ス</span>
+      <div class="concierge-detail-line"></div>
+      <ul class="concierge-detail-list">
+        <li>国内最高峰の人間ドック・高度検査施設の最優先予約</li>
+        <li>遺伝子検査・マイクロバイオーム解析・ホルモン検査等の最先端検査手配</li>
+        <li>国内外の専門医によるセカンドオピニオン取得</li>
+        <li>予防医療・再生医療・アンチエイジング治療のクリニック紹介</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concierge-detail" id="concierge-aesthetic" onclick="closeConcierge(event)">
+    <div class="concierge-detail-inner">
+      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <span class="concierge-detail-num">02</span>
+      <span class="concierge-detail-en">Aesthetic &amp; Body Care</span>
+      <span class="concierge-detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
+      <div class="concierge-detail-line"></div>
+      <ul class="concierge-detail-list">
+        <li>美容医療クリニックの優先手配</li>
+        <li>美容鍼・高級エステ・プライベートスパの予約</li>
+        <li>ボディケアセラピストの自宅派遣</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concierge-detail" id="concierge-culinary" onclick="closeConcierge(event)">
+    <div class="concierge-detail-inner">
+      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <span class="concierge-detail-num">03</span>
+      <span class="concierge-detail-en">Culinary &amp; Nutrition</span>
+      <span class="concierge-detail-ja">食 ・ 栄 養</span>
+      <div class="concierge-detail-line"></div>
+      <ul class="concierge-detail-list">
+        <li>ミシュランシェフの自宅派遣</li>
+        <li>高級オーガニック食材・海外健康食品の取り寄せ</li>
+        <li>予約困難な名店への優先予約</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="diamond-divider fade"><span></span></div>
 
@@ -3074,6 +3240,32 @@
       });
     }
 
+
+    // ════════ CONCIERGE DETAIL MODAL ════════
+    function openConcierge(id) {
+      const panel = document.getElementById('concierge-' + id);
+      if (!panel) return;
+      panel.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => { panel.classList.add('open'); });
+    }
+    function closeConcierge(e, force) {
+      if (!force && e.target !== e.currentTarget) return;
+      const panel = e.target.closest('.concierge-detail');
+      if (!panel) return;
+      panel.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { panel.style.display = 'none'; }, 400);
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.concierge-detail.open').forEach(p => {
+          p.classList.remove('open');
+          document.body.style.overflow = '';
+          setTimeout(() => { p.style.display = 'none'; }, 400);
+        });
+      }
+    });
 
     // ════════ HERO SCROLL HINT FADE ON SCROLL ════════
     const scrollHint = document.querySelector('.hero-scroll-hint');
