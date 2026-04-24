@@ -172,6 +172,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: clip;
     }
 
     body {
@@ -2120,7 +2121,7 @@
       .hamburger { display: flex; }
       section { padding: 6rem 1.6rem; }
       #members { padding: 6rem 1.6rem; }
-      .feature-quote { padding: 3.5rem 1.6rem; }
+      .feature-quote { padding: 3.5rem 1.6rem; background-attachment: scroll; }
       .service-grid { grid-template-columns: 1fr; }
       .plan-grid { grid-template-columns: 1fr; gap: 3rem; }
       .plan-item { padding: 3rem 2rem; }
@@ -2648,6 +2649,13 @@
   </div>
 
   <div class="diamond-divider fade"><span></span></div>
+
+  <div style="text-align:center; padding: 4rem 2rem 2rem;">
+    <span class="section-num fade">— Ⅲ —</span>
+    <span class="section-label with-rule fade">TRACK RECORD</span>
+    <h2 class="section-title fade">Proven Results</h2>
+    <span class="section-title-ja fade">確 か な 実 績</span>
+  </div>
 
   <!-- ════════ TRACK RECORD (Scroll-driven Map Zoom) ════════ -->
   <div class="zoom-scroll-spacer" id="track-record-spacer">
