@@ -172,7 +172,6 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: clip;
     }
 
     body {
@@ -186,7 +185,7 @@
       line-height: 2.0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -1165,43 +1164,73 @@
       opacity: 1;
       letter-spacing: 0.4em;
     }
-    /* Detail panel */
+    /* ═══ CINEMATIC DETAIL MODAL ═══ */
     .concierge-detail {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background-size: cover;
+      background-position: center;
       justify-content: center;
       align-items: center;
-      opacity: 0;
-      transition: opacity 0.4s;
+    }
+    .concierge-detail::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8,10,16,0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
     .concierge-detail.open {
       display: flex;
-      opacity: 1;
+      animation: cDetailOverlayIn 0.7s ease forwards;
     }
+    @keyframes cDetailOverlayIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .concierge-detail.closing {
+      animation: cDetailOverlayOut 0.5s ease forwards;
+    }
+    @keyframes cDetailOverlayOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+    /* Background images per modal */
+    #concierge-medical  { background-image: url('concierge-medical.webp'); }
+    #concierge-aesthetic { background-image: url('concierge-spa.webp'); }
+    #concierge-culinary  { background-image: url('concierge-culinary.webp'); }
+
     .concierge-detail-inner {
-      background: #fff;
-      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
       width: 90%;
       max-height: 85vh;
       overflow-y: auto;
-      padding: 4rem 3rem 3rem;
-      position: relative;
-    }
-    .concierge-detail-close {
-      position: absolute;
-      top: 1.4rem;
-      right: 1.4rem;
-      width: 28px;
-      height: 28px;
+      padding: 3rem 2rem 3rem;
+      text-align: center;
       background: none;
-      border: none;
+    }
+    /* Close button — fixed top-right, refined */
+    .concierge-detail-close {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
       cursor: pointer;
       padding: 0;
+      z-index: 2;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .concierge-detail-close:hover {
+      border-color: var(--gold);
+      transform: rotate(90deg);
     }
     .concierge-detail-close::before,
     .concierge-detail-close::after {
@@ -1209,67 +1238,114 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 20px;
+      width: 18px;
       height: 1px;
-      background: var(--ink-soft);
+      background: rgba(255,255,255,0.6);
       transition: background 0.3s;
     }
     .concierge-detail-close::before { transform: translate(-50%,-50%) rotate(45deg); }
-    .concierge-detail-close::after { transform: translate(-50%,-50%) rotate(-45deg); }
+    .concierge-detail-close::after  { transform: translate(-50%,-50%) rotate(-45deg); }
     .concierge-detail-close:hover::before,
-    .concierge-detail-close:hover::after { background: var(--ink); }
+    .concierge-detail-close:hover::after { background: var(--gold); }
+
+    /* Typography — all white on dark */
+    .concierge-detail .concierge-detail-num,
+    .concierge-detail .concierge-detail-en,
+    .concierge-detail .concierge-detail-ja {
+      opacity: 0;
+      transform: translateY(12px);
+    }
     .concierge-detail-num {
       display: block;
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
+      font-size: 0.7rem;
+      letter-spacing: 0.45em;
       color: var(--gold);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.6rem;
     }
     .concierge-detail-en {
       display: block;
       font-family: var(--serif-en);
       font-weight: 300;
-      font-size: 1.5rem;
-      letter-spacing: 0.06em;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      letter-spacing: 0.1em;
+      color: #fff;
+      margin-bottom: 0.5rem;
     }
     .concierge-detail-ja {
       display: block;
       font-family: var(--serif-jp);
-      font-size: 0.68rem;
-      letter-spacing: 0.3em;
-      color: var(--ink-soft);
-      margin-bottom: 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.45em;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2.8rem;
     }
-    .concierge-detail-line {
-      width: 32px;
+    /* Gold line — animates width */
+    .concierge-detail .concierge-detail-line {
+      width: 0;
       height: 1px;
-      background: var(--gold);
-      opacity: 0.6;
-      margin-bottom: 2rem;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 2.8rem;
+      opacity: 0;
     }
+    /* Detail list — white text */
     .concierge-detail-list {
       list-style: none;
       padding: 0;
       margin: 0;
+      text-align: left;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .concierge-detail-list li {
       font-family: var(--serif-jp);
       font-weight: 300;
-      font-size: 0.82rem;
-      line-height: 2.4;
-      letter-spacing: 0.04em;
-      color: var(--ink-soft);
-      padding-left: 1.2em;
-      text-indent: -1.2em;
+      font-size: 0.84rem;
+      line-height: 2.2;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.85);
+      padding: 0.7rem 0 0.7rem 1.6em;
+      text-indent: -1.6em;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      opacity: 0;
+      transform: translateY(14px);
     }
+    .concierge-detail-list li:last-child { border-bottom: none; }
     .concierge-detail-list li::before {
-      content: '—';
+      content: '◆';
       color: var(--gold);
-      margin-right: 0.6em;
+      margin-right: 0.7em;
+      font-size: 0.45rem;
+      vertical-align: middle;
+    }
+    /* ─── Staggered animations (trigger on .open) ─── */
+    .concierge-detail.open .concierge-detail-num {
+      animation: cDetailFadeUp 0.6s 0.15s ease forwards;
+    }
+    .concierge-detail.open .concierge-detail-en {
+      animation: cDetailFadeUp 0.6s 0.25s ease forwards;
+    }
+    .concierge-detail.open .concierge-detail-ja {
+      animation: cDetailFadeUp 0.6s 0.35s ease forwards;
+    }
+    .concierge-detail.open .concierge-detail-line {
+      animation: cDetailGoldLine 0.9s 0.45s ease forwards;
+    }
+    .concierge-detail.open .concierge-detail-list li:nth-child(1) { animation: cDetailFadeUp 0.5s 0.6s ease forwards; }
+    .concierge-detail.open .concierge-detail-list li:nth-child(2) { animation: cDetailFadeUp 0.5s 0.75s ease forwards; }
+    .concierge-detail.open .concierge-detail-list li:nth-child(3) { animation: cDetailFadeUp 0.5s 0.9s ease forwards; }
+    .concierge-detail.open .concierge-detail-list li:nth-child(4) { animation: cDetailFadeUp 0.5s 1.05s ease forwards; }
+    .concierge-detail.open .concierge-detail-list li:nth-child(5) { animation: cDetailFadeUp 0.5s 1.2s ease forwards; }
+
+    @keyframes cDetailFadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes cDetailGoldLine {
+      from { width: 0; opacity: 0; }
+      to   { width: 100%; opacity: 0.7; }
     }
     .concierge-note {
       max-width: 800px;
@@ -1297,7 +1373,10 @@
         gap: 3px;
       }
       .concierge-card { min-height: 300px; }
-      .concierge-detail-inner { padding: 3rem 2rem 2rem; }
+      .concierge-detail-inner { padding: 2.5rem 1.6rem 2rem; }
+      .concierge-detail-close { top: 1.2rem; right: 1.2rem; width: 38px; height: 38px; }
+      .concierge-detail-en { letter-spacing: 0.06em; }
+      .concierge-detail-list li { font-size: 0.78rem; }
     }
 
     /* ════════ TRACK RECORD ════════ */
@@ -1305,6 +1384,7 @@
     .zoom-scroll-spacer {
       height: 600vh;
       position: relative;
+      background: #1a1f2e;
     }
     .zoom-viewport {
       position: sticky;
@@ -1333,6 +1413,20 @@
       filter: invert(0.92) brightness(1.1) contrast(1.15) saturate(0);
     }
     .zoom-layer-japan { opacity: 1; }
+
+    /* Intro title — visible at start, fades out as map zoom begins */
+    .zoom-intro {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26,31,46,0.85);
+      opacity: 1;
+      transition: opacity 0.6s;
+    }
 
     /* Scanline overlay */
     .zoom-scanline {
@@ -2223,7 +2317,14 @@
       stroke: #fff;
     }
 
-    /* ════════ DARK→WHITE TRANSITION ════════ */
+    /* ════════ WHITE→DARK TRANSITION (before map) ════════ */
+    .white-to-dark-transition {
+      height: 120px;
+      background: linear-gradient(to bottom, var(--bg) 0%, #1a1f2e 100%);
+      margin-bottom: -1px;
+    }
+
+    /* ════════ DARK→WHITE TRANSITION (after map) ════════ */
     .zoom-to-white-transition {
       height: 120px;
       background: linear-gradient(to bottom, #1a1f2e 0%, var(--bg) 100%);
@@ -2650,16 +2751,19 @@
 
   <div class="diamond-divider fade"><span></span></div>
 
-  <div style="text-align:center; padding: 4rem 2rem 2rem;">
-    <span class="section-num fade">— Ⅲ —</span>
-    <span class="section-label with-rule fade">TRACK RECORD</span>
-    <h2 class="section-title fade">Proven Results</h2>
-    <span class="section-title-ja fade">確 か な 実 績</span>
-  </div>
+  <!-- White → Dark transition into map section -->
+  <div class="white-to-dark-transition"></div>
 
   <!-- ════════ TRACK RECORD (Scroll-driven Map Zoom) ════════ -->
   <div class="zoom-scroll-spacer" id="track-record-spacer">
     <div class="zoom-viewport" id="track-record">
+      <!-- Intro title (visible before animation starts, fades out) -->
+      <div class="zoom-intro" id="zoom-intro">
+        <span class="section-num" style="color: var(--gold);">— Ⅲ —</span>
+        <span class="section-label with-rule" style="color: rgba(255,255,255,0.6);">TRACK RECORD</span>
+        <h2 class="section-title" style="color: #fff;">Proven Results</h2>
+        <span class="section-title-ja" style="color: rgba(255,255,255,0.45);">確 か な 実 績</span>
+      </div>
       <!-- Map layers -->
       <div class="zoom-layer zoom-layer-japan"><img src="map-japan.png" alt="" /></div>
       <div class="zoom-layer zoom-layer-kansai"><img src="map-kansai.png" alt="" /></div>
@@ -3260,17 +3364,24 @@
     function closeConcierge(e, force) {
       if (!force && e.target !== e.currentTarget) return;
       const panel = e.target.closest('.concierge-detail');
-      if (!panel) return;
-      panel.classList.remove('open');
+      if (!panel || panel.classList.contains('closing')) return;
+      panel.classList.add('closing');
       document.body.style.overflow = '';
-      setTimeout(() => { panel.style.display = 'none'; }, 400);
+      setTimeout(() => {
+        panel.classList.remove('open', 'closing');
+        panel.style.display = 'none';
+      }, 500);
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         document.querySelectorAll('.concierge-detail.open').forEach(p => {
-          p.classList.remove('open');
+          if (p.classList.contains('closing')) return;
+          p.classList.add('closing');
           document.body.style.overflow = '';
-          setTimeout(() => { p.style.display = 'none'; }, 400);
+          setTimeout(() => {
+            p.classList.remove('open', 'closing');
+            p.style.display = 'none';
+          }, 500);
         });
       }
     });
@@ -3288,6 +3399,7 @@
       const spacer = document.getElementById('track-record-spacer');
       if (!spacer) return;
 
+      const intro = document.getElementById('zoom-intro');
       const layerJapan = spacer.querySelector('.zoom-layer-japan');
       const layerKansai = spacer.querySelector('.zoom-layer-kansai');
       const layerAshiya = spacer.querySelector('.zoom-layer-ashiya');
@@ -3311,6 +3423,7 @@
 
       // Animated state (lerped values)
       const state = {
+        introOp: 1,
         japanScale: 1, japanOp: 1,
         kansaiScale: 0.85, kansaiOp: 0,
         ashiyaScale: 0.85, ashiyaOp: 0,
@@ -3325,6 +3438,9 @@
         const spacerH = spacer.offsetHeight;
         const vh = window.innerHeight;
         const p = Math.max(0, Math.min(1, (-rect.top) / (spacerH - vh)));
+
+        // Intro title — fades out at 0-8% of scroll
+        const introOp = 1 - smoothStep(0.0, 0.08, p);
 
         // Japan (0 - 0.20)
         const japanScale = 1 + p * 3;
@@ -3352,6 +3468,7 @@
         const cp = smoothStep(0.38, 0.50, p);
 
         return {
+          introOp,
           japanScale, japanOp,
           kansaiScale, kansaiOp,
           ashiyaScale, ashiyaOp,
@@ -3370,6 +3487,10 @@
         }
 
         // Apply
+        if (intro) {
+          intro.style.opacity = state.introOp;
+          if (state.introOp < 0.01) intro.style.pointerEvents = 'none';
+        }
         layerJapan.style.transform = `scale(${state.japanScale})`;
         layerJapan.style.opacity = state.japanOp;
         layerKansai.style.transform = `scale(${state.kansaiScale})`;
