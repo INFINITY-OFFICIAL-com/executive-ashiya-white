@@ -111,6 +111,33 @@
             }
           }
         ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://executive-ashiya.com/#concierge-medical",
+        "name": "Medical Access",
+        "alternateName": "医療アクセス",
+        "description": "国内最高峰の人間ドック最優先予約、遺伝子検査・マイクロバイオーム解析手配、セカンドオピニオン取得、予防医療・再生医療クリニック紹介",
+        "provider": { "@id": "https://executive-ashiya.com/#organization" },
+        "serviceType": "Healthcare Concierge"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://executive-ashiya.com/#concierge-aesthetic",
+        "name": "Aesthetic & Body Care",
+        "alternateName": "美容・ボディケア",
+        "description": "美容医療クリニック優先手配、美容鍼・高級エステ・プライベートスパ予約、ボディケアセラピスト自宅派遣",
+        "provider": { "@id": "https://executive-ashiya.com/#organization" },
+        "serviceType": "Beauty & Wellness Concierge"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://executive-ashiya.com/#concierge-culinary",
+        "name": "Culinary & Nutrition",
+        "alternateName": "食・栄養",
+        "description": "ミシュランシェフ自宅派遣、高級オーガニック食材取り寄せ、予約困難な名店への優先予約",
+        "provider": { "@id": "https://executive-ashiya.com/#organization" },
+        "serviceType": "Culinary Concierge"
       }
     ]
   }
@@ -123,8 +150,8 @@
   <style>
     :root {
       --bg: #FFFFFF;             /* pure white */
-      --bg-alt: #FAF8F4;        /* warm off-white for sections */
-      --bg-deep: #F2EEE6;       /* slightly deeper for accent panels */
+      --bg-alt: #FFFFFF;        /* pure white */
+      --bg-deep: #FFFFFF;       /* pure white */
       --bg-card: #FFFFFF;       /* card white */
       --ink: #1C1F2E;           /* deep navy-charcoal */
       --ink-soft: rgba(28, 31, 46, 0.68);
@@ -143,7 +170,9 @@
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -156,6 +185,7 @@
       line-height: 2.0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -166,15 +196,49 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--ink-line);
-      transition: background 0.4s, border-color 0.4s;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
     }
     header.scrolled {
       background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--ink-line);
     }
+    /* Hero上: 白文字 */
+    header.header-hero .logo,
+    header.header-hero .nav-link {
+      color: rgba(255,255,255,0.85);
+    }
+    header.header-hero .nav-link:hover {
+      color: #fff;
+    }
+    header.header-hero .nav-cta {
+      background: transparent;
+      border-color: rgba(255,255,255,0.5);
+      color: #fff;
+    }
+    header.header-hero .nav-cta:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+    header.header-hero .logo-ja {
+      color: rgba(255,255,255,0.5);
+    }
+    header.header-hero .hamburger span {
+      background: #fff;
+    }
+    /* scrolled時は通常色に戻す */
+    header.scrolled .logo { color: var(--ink); }
+    header.scrolled .logo-ja { color: var(--ink-soft); }
+    header.scrolled .nav-link { color: var(--ink-soft); }
+    header.scrolled .nav-link:hover { color: var(--ink); }
+    header.scrolled .nav-cta { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+    header.scrolled .nav-cta:hover { background: var(--gold); border-color: var(--gold); }
+    header.scrolled .hamburger span { background: var(--ink); }
     nav.primary {
       max-width: 1320px;
       margin: 0 auto;
@@ -317,30 +381,43 @@
     #hero {
       position: relative;
       display: flex;
-      flex-direction: column;
-      background: var(--bg);
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      height: 100svh;
+      max-width: none;
+      padding: 0;
+      background: #000;
       overflow: hidden;
-      padding-bottom: 0;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-video-sp { display: none; }
+    @media (max-width: 880px) {
+      .hero-video-pc { display: none; }
+      .hero-video-sp { display: block; }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 1;
     }
     .hero-text {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 5.5rem 2rem 3rem;
+      padding: 2rem;
       text-align: center;
-    }
-    .hero-image {
-      position: relative;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      overflow: hidden;
-    }
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
     }
 
     .hero-roman {
@@ -349,7 +426,7 @@
       font-style: italic;
       font-size: 0.7rem;
       letter-spacing: 0.4em;
-      color: var(--gold);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 2rem;
     }
     .hero-roman::before,
@@ -358,17 +435,16 @@
       display: inline-block;
       width: 24px;
       height: 1px;
-      background: var(--gold);
+      background: rgba(255,255,255,0.5);
       vertical-align: middle;
       margin: 0 1.2rem;
-      opacity: 0.6;
     }
     .brand-en {
       font-family: var(--serif-en);
       font-weight: 300;
       font-size: clamp(2.4rem, 6vw, 4.8rem);
       letter-spacing: 0.26em;
-      color: var(--ink);
+      color: #fff;
       margin: 0;
       line-height: 1.1;
       position: relative;
@@ -378,7 +454,7 @@
       font-weight: 200;
       font-size: 0.72rem;
       letter-spacing: 0.7em;
-      color: var(--ink-soft);
+      color: rgba(255,255,255,0.75);
       margin: 1.4rem 0 0;
       position: relative;
     }
@@ -387,7 +463,7 @@
       font-weight: 300;
       font-size: clamp(1.05rem, 2.4vw, 1.55rem);
       letter-spacing: 0.18em;
-      color: var(--ink);
+      color: #fff;
       margin: 3rem 0 0;
       line-height: 2.2;
       position: relative;
@@ -398,7 +474,7 @@
       font-weight: 300;
       font-size: 0.72rem;
       letter-spacing: 0.34em;
-      color: var(--gold);
+      color: rgba(255,255,255,0.8);
       margin: 2.4rem 0 0;
       position: relative;
     }
@@ -420,8 +496,7 @@
       font-family: var(--serif-en);
       font-size: 0.5rem;
       letter-spacing: 0.35em;
-      color: var(--gold);
-      opacity: 0.5;
+      color: rgba(255,255,255,0.7);
     }
     .hero-scroll-hint svg {
       width: 16px;
@@ -429,10 +504,9 @@
       animation: scrollArrowBounce 2s ease-in-out infinite;
     }
     .hero-scroll-hint svg path {
-      stroke: var(--gold);
+      stroke: rgba(255,255,255,0.7);
       fill: none;
       stroke-width: 1.5;
-      opacity: 0.5;
     }
     @keyframes heroHintIn {
       from { opacity: 0; transform: translateX(-50%) translateY(10px); }
@@ -447,6 +521,7 @@
       background: var(--bg-alt);
       border-top: 1px solid var(--ink-line);
       border-bottom: 1px solid var(--ink-line);
+      max-width: none;
       padding: 9rem 2rem;
       text-align: center;
       position: relative;
@@ -455,7 +530,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle at 50% 40%, rgba(139, 111, 31, 0.06), transparent 60%);
+      background-image: none;
       pointer-events: none;
     }
     .members-inner {
@@ -987,10 +1062,124 @@
       display: block;
     }
 
+    /* ════════ CONCIERGE / MEMBER PRIVILEGES ════════ */
+    #concierge {
+      max-width: none;
+      background: #fff;
+      padding: 9rem 2rem 8rem;
+      text-align: center;
+    }
+    .concierge-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .concierge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+    }
+    .concierge-card {
+      padding: 4rem 2.8rem 3.5rem;
+      position: relative;
+      text-align: left;
+      border-right: 1px solid var(--ink-line);
+    }
+    .concierge-card:last-child {
+      border-right: none;
+    }
+    .concierge-card-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+    .concierge-card-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .concierge-card-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
+      margin-bottom: 2.4rem;
+    }
+    .concierge-card-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 2rem;
+    }
+    .concierge-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .concierge-list li {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: 0.78rem;
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      padding-left: 1em;
+      text-indent: -1em;
+    }
+    .concierge-list li::before {
+      content: '—';
+      color: var(--gold);
+      margin-right: 0.6em;
+      font-size: 0.7rem;
+    }
+    .concierge-note {
+      max-width: 800px;
+      margin: 4rem auto 0;
+      padding-top: 3rem;
+      border-top: 1px solid var(--ink-line);
+      font-size: 0.72rem;
+      line-height: 2.2;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .concierge-note-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: rgba(0,0,0,0.3);
+      margin-top: 0.8rem;
+    }
+    @media (max-width: 880px) {
+      #concierge { padding: 6rem 1.6rem 5rem; }
+      .concierge-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .concierge-card {
+        border-right: none;
+        border-bottom: 1px solid var(--ink-line);
+        padding: 3rem 0.5rem;
+      }
+      .concierge-card:last-child { border-bottom: none; }
+    }
+
     /* ════════ TRACK RECORD ════════ */
     /* ════════ ZOOM MAP SCROLL ANIMATION ════════ */
     .zoom-scroll-spacer {
-      height: 350vh;
+      height: 600vh;
       position: relative;
     }
     .zoom-viewport {
@@ -999,7 +1188,7 @@
       height: 100vh;
       width: 100%;
       overflow: hidden;
-      background: #0d1219;
+      background: #1a1f2e;
       text-align: center;
     }
     .zoom-layer {
@@ -1009,14 +1198,15 @@
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: none;
       will-change: opacity, transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
     .zoom-layer img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(2.2) contrast(1.1) saturate(1.3);
+      filter: invert(0.92) brightness(1.1) contrast(1.15) saturate(0);
     }
     .zoom-layer-japan { opacity: 1; }
 
@@ -1028,8 +1218,8 @@
         0deg,
         transparent,
         transparent 2px,
-        rgba(0,0,0,0.06) 2px,
-        rgba(0,0,0,0.06) 4px
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
       );
       pointer-events: none;
       z-index: 2;
@@ -1132,9 +1322,9 @@
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s, transform 0.8s;
-      background: rgba(8,12,18,0.82);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(26,31,46,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .zoom-content .track-stats {
       display: grid;
@@ -1711,14 +1901,14 @@
       font-family: var(--serif-en);
       font-size: 0.65rem;
       letter-spacing: 0.32em;
-      color: var(--bg);
-      background: var(--ink);
-      border: 1px solid var(--ink);
+      color: #fff;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.6);
       transition: background 0.4s, border-color 0.4s, letter-spacing 0.4s;
     }
     .hero-cta:hover {
-      background: var(--gold);
-      border-color: var(--gold);
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
       letter-spacing: 0.4em;
     }
 
@@ -1819,10 +2009,10 @@
       .zoom-content .track-client-item:nth-child(4) { border-right: none; }
       .zoom-coords { bottom: 1.2rem; left: 1.2rem; }
       .zoom-location-label { bottom: 1.2rem; right: 1.2rem; }
-      .zoom-scroll-spacer { height: 300vh; }
+      .zoom-scroll-spacer { height: 550vh; }
       .join-paths { grid-template-columns: 1fr; }
       .join-steps { grid-template-columns: 1fr; }
-      .hero-text { padding: 5rem 1.6rem 2rem; }
+      .hero-text { padding: 2rem 1.6rem; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
       .services-image { width: 100%; margin-left: 0; margin-right: 0; }
       .pw-form { flex-direction: column; max-width: 280px; }
@@ -1912,7 +2102,7 @@
     /* ════════ DARK→WHITE TRANSITION ════════ */
     .zoom-to-white-transition {
       height: 120px;
-      background: linear-gradient(to bottom, #0d1219 0%, var(--bg) 100%);
+      background: linear-gradient(to bottom, #1a1f2e 0%, var(--bg) 100%);
       margin-top: -1px;
     }
 
@@ -2003,6 +2193,9 @@
 
   <!-- ════════ HERO ════════ -->
   <section id="hero">
+    <video class="hero-video hero-video-pc" src="hero-bg.mp4" autoplay muted loop playsinline></video>
+    <video class="hero-video hero-video-sp" src="hero-bg-sp.mp4" autoplay muted loop playsinline></video>
+    <div class="hero-overlay"></div>
     <div class="hero-text">
       <div class="hero-roman fade">EST. ASHIYA</div>
       <h1 class="brand-en fade">EXECUTIVE ASHIYA</h1>
@@ -2010,120 +2203,6 @@
       <p class="catch fade">健康寿命を、生涯最大の資産に。</p>
       <p class="hero-exclusive fade">— By Invitation Only —</p>
       <a href="invitation-request.html" class="hero-cta fade">REQUEST INVITATION</a>
-    </div>
-    <div class="hero-image">
-      <img src="hero-new.jpg" alt="EXECUTIVE ASHIYA hero" loading="eager" fetchpriority="high" />
-    </div>
-    <div class="hero-scroll-hint">
-      <span>SCROLL</span>
-      <svg viewBox="0 0 16 24"><path d="M8 0 L8 20 M2 14 L8 20 L14 14"/></svg>
-    </div>
-  </section>
-
-  <!-- ════════ MEMBERS / PASSWORD GATE ════════ -->
-  <section id="members" aria-label="会員限定">
-    <div class="members-inner">
-      <span class="m-label">MEMBERS ONLY</span>
-      <h2 class="m-title">Private Plan &amp; Pricing</h2>
-      <p class="m-title-ja">会 員 限 定 プ ラ ン</p>
-      <p class="m-desc">
-        料金・詳細プランは、審査通過者のみにご案内しております。<br>
-        パスワードをご入力ください。
-      </p>
-
-      <div class="pw-form fade visible">
-        <label for="pw-input" class="visually-hidden">会員限定パスワード</label>
-        <input type="password" class="pw-input" id="pw-input" placeholder="PASSWORD" autocomplete="off" />
-        <button class="pw-btn" id="pw-btn" onclick="checkPassword()">ENTER</button>
-      </div>
-      <p class="pw-error" id="pw-error" role="alert" aria-live="polite">— incorrect —</p>
-      <p class="pw-help">審査通過者にメールでお送りしたパスワードを入力してください。</p>
-    </div>
-
-    <!-- 会員限定コンテンツ -->
-    <div id="members-content">
-      <div class="diamond-divider"><span></span></div>
-      <span class="section-label">PLAN OVERVIEW</span>
-      <h3 class="section-title">Membership</h3>
-      <p class="section-title-ja">会 員 プ ラ ン 一 覧</p>
-
-      <div class="plan-grid">
-        <div class="plan-item featured">
-          <span class="plan-label">PLATINUM</span>
-          <p class="plan-title">Biological Architecture</p>
-          <div class="plan-price-table">
-            <div class="plan-price-row">
-              <span class="plan-price-label">ENTRY FEE</span>
-              <span class="plan-price-amount">¥3,000,000</span>
-            </div>
-            <div class="plan-price-row">
-              <span class="plan-price-label">ANNUAL FEE</span>
-              <span class="plan-price-amount">¥9,000,000</span>
-            </div>
-            <div class="plan-price-row total">
-              <span class="plan-price-label">FIRST YEAR</span>
-              <span class="plan-price-amount">¥12,000,000</span>
-            </div>
-          </div>
-          <p class="plan-tax-note">all prices include tax</p>
-          <ul class="plan-features">
-            <li>専属パーソナルセッション：月4回（60分）</li>
-            <li>24時間コンディションサポート（Oura Ring連動）</li>
-            <li>管理栄養士によるフルオーダー食事管理</li>
-            <li>パーソナルサプリメント処方・毎月提供</li>
-            <li>ヘルスケアコンシェルジュ（回数制限なし）</li>
-            <li>スペシャルセッション招待：年4回<span class="plan-feature-sub">著名トレーナー・ヨガ／ピラティス講師招聘</span></li>
-            <li>出張・旅行時専属同行サービス（国内）</li>
-            <li>プレミアムギフト：入会時提供</li>
-          </ul>
-        </div>
-
-        <div class="plan-item">
-          <span class="plan-label">EXECUTIVE</span>
-          <p class="plan-title">Absolute Guardian</p>
-          <div class="plan-price-table">
-            <div class="plan-price-row">
-              <span class="plan-price-label">ENTRY FEE</span>
-              <span class="plan-price-amount">¥1,500,000</span>
-            </div>
-            <div class="plan-price-row">
-              <span class="plan-price-label">ANNUAL FEE</span>
-              <span class="plan-price-amount">¥6,000,000</span>
-            </div>
-            <div class="plan-price-row total">
-              <span class="plan-price-label">FIRST YEAR</span>
-              <span class="plan-price-amount">¥7,500,000</span>
-            </div>
-          </div>
-          <p class="plan-tax-note">all prices include tax</p>
-          <ul class="plan-features">
-            <li>専属パーソナルセッション：月2回（60分）</li>
-            <li>24時間コンディションサポート（Oura Ring連動）</li>
-            <li>管理栄養士による食事サポート</li>
-            <li>ヘルスケアコンシェルジュ（回数制限なし）</li>
-            <li>プレミアムギフト：入会時提供</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="plan-options">
-        <span class="plan-options-title">ADDITIONAL SERVICES</span>
-        <p class="plan-options-sub">オプションサービス（会員様向け）</p>
-        <ul class="plan-options-list">
-          <li>
-            <span>家族・パートナー健康サポート</span>
-            <span class="plan-options-fee">料金要相談</span>
-          </li>
-          <li>
-            <span>出張・旅行時専属同行サービス（海外）</span>
-            <span class="plan-options-fee">¥1,000,000 / 日</span>
-          </li>
-        </ul>
-      </div>
-
-      <p class="plan-link-flow">
-        ご入会の流れは <a href="#how-to-join">HOW TO JOIN</a> をご確認ください。
-      </p>
     </div>
   </section>
 
@@ -2349,6 +2428,61 @@
     <span class="feature-quote-attr">— EXECUTIVE ASHIYA</span>
   </div>
 
+  <!-- ════════ CONCIERGE / MEMBER PRIVILEGES ════════ -->
+  <section id="concierge">
+    <div class="concierge-inner">
+      <span class="section-label with-rule">MEMBER PRIVILEGES</span>
+      <h2 class="section-title fade">Exclusive Concierge</h2>
+      <span class="section-title-ja fade">会 員 特 権 サ ー ビ ス</span>
+
+      <div class="concierge-grid">
+        <div class="concierge-card fade">
+          <span class="concierge-card-num">01</span>
+          <span class="concierge-card-en">Medical Access</span>
+          <span class="concierge-card-ja">医 療 ア ク セ ス</span>
+          <div class="concierge-card-line"></div>
+          <ul class="concierge-list">
+            <li>国内最高峰の人間ドック・高度検査施設の最優先予約</li>
+            <li>遺伝子検査・マイクロバイオーム解析・ホルモン検査等の最先端検査手配</li>
+            <li>国内外の専門医によるセカンドオピニオン取得</li>
+            <li>予防医療・再生医療・アンチエイジング治療のクリニック紹介</li>
+          </ul>
+        </div>
+
+        <div class="concierge-card fade">
+          <span class="concierge-card-num">02</span>
+          <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
+          <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
+          <div class="concierge-card-line"></div>
+          <ul class="concierge-list">
+            <li>美容医療クリニックの優先手配</li>
+            <li>美容鍼・高級エステ・プライベートスパの予約</li>
+            <li>ボディケアセラピストの自宅派遣</li>
+          </ul>
+        </div>
+
+        <div class="concierge-card fade">
+          <span class="concierge-card-num">03</span>
+          <span class="concierge-card-en">Culinary &amp; Nutrition</span>
+          <span class="concierge-card-ja">食 ・ 栄 養</span>
+          <div class="concierge-card-line"></div>
+          <ul class="concierge-list">
+            <li>ミシュランシェフの自宅派遣</li>
+            <li>高級オーガニック食材・海外健康食品の取り寄せ</li>
+            <li>予約困難な名店への優先予約</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="concierge-note fade">
+        上記サービスはExecutive Ashiya会員の特権として手配可能です。ご利用時は実費を申し受けます。
+        <span class="concierge-note-en">These services are available exclusively to members of Executive Ashiya. Actual costs are billed separately upon use.</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="diamond-divider fade"><span></span></div>
+
   <!-- ════════ TRACK RECORD (Scroll-driven Map Zoom) ════════ -->
   <div class="zoom-scroll-spacer" id="track-record-spacer">
     <div class="zoom-viewport" id="track-record">
@@ -2479,6 +2613,113 @@
     </div>
 
     <p class="join-note fade">※ 紹介状をお持ちの方は STEP 02 からスタートいただけます</p>
+  </section>
+
+  <!-- ════════ MEMBERS / PASSWORD GATE ════════ -->
+  <section id="members" aria-label="会員限定">
+    <div class="members-inner">
+      <span class="m-label">MEMBERS ONLY</span>
+      <h2 class="m-title">Private Plan &amp; Pricing</h2>
+      <p class="m-title-ja">会 員 限 定 プ ラ ン</p>
+      <p class="m-desc">
+        料金・詳細プランは、審査通過者のみにご案内しております。<br>
+        パスワードをご入力ください。
+      </p>
+
+      <div class="pw-form fade visible">
+        <label for="pw-input" class="visually-hidden">会員限定パスワード</label>
+        <input type="password" class="pw-input" id="pw-input" placeholder="PASSWORD" autocomplete="off" />
+        <button class="pw-btn" id="pw-btn" onclick="checkPassword()">ENTER</button>
+      </div>
+      <p class="pw-error" id="pw-error" role="alert" aria-live="polite">— incorrect —</p>
+      <p class="pw-help">審査通過者にメールでお送りしたパスワードを入力してください。</p>
+    </div>
+
+    <!-- 会員限定コンテンツ -->
+    <div id="members-content">
+      <div class="diamond-divider"><span></span></div>
+      <span class="section-label">PLAN OVERVIEW</span>
+      <h3 class="section-title">Membership</h3>
+      <p class="section-title-ja">会 員 プ ラ ン 一 覧</p>
+
+      <div class="plan-grid">
+        <div class="plan-item featured">
+          <span class="plan-label">PLATINUM</span>
+          <p class="plan-title">Biological Architecture</p>
+          <div class="plan-price-table">
+            <div class="plan-price-row">
+              <span class="plan-price-label">ENTRY FEE</span>
+              <span class="plan-price-amount">¥3,000,000</span>
+            </div>
+            <div class="plan-price-row">
+              <span class="plan-price-label">ANNUAL FEE</span>
+              <span class="plan-price-amount">¥9,000,000</span>
+            </div>
+            <div class="plan-price-row total">
+              <span class="plan-price-label">FIRST YEAR</span>
+              <span class="plan-price-amount">¥12,000,000</span>
+            </div>
+          </div>
+          <p class="plan-tax-note">all prices include tax</p>
+          <ul class="plan-features">
+            <li>専属パーソナルセッション：月4回（60分）</li>
+            <li>24時間コンディションサポート（Oura Ring連動）</li>
+            <li>管理栄養士によるフルオーダー食事管理</li>
+            <li>パーソナルサプリメント処方・毎月提供</li>
+            <li>ヘルスケアコンシェルジュ（回数制限なし）</li>
+            <li>スペシャルセッション招待：年4回<span class="plan-feature-sub">著名トレーナー・ヨガ／ピラティス講師招聘</span></li>
+            <li>出張・旅行時専属同行サービス（国内）</li>
+            <li>プレミアムギフト：入会時提供</li>
+          </ul>
+        </div>
+
+        <div class="plan-item">
+          <span class="plan-label">EXECUTIVE</span>
+          <p class="plan-title">Absolute Guardian</p>
+          <div class="plan-price-table">
+            <div class="plan-price-row">
+              <span class="plan-price-label">ENTRY FEE</span>
+              <span class="plan-price-amount">¥1,500,000</span>
+            </div>
+            <div class="plan-price-row">
+              <span class="plan-price-label">ANNUAL FEE</span>
+              <span class="plan-price-amount">¥6,000,000</span>
+            </div>
+            <div class="plan-price-row total">
+              <span class="plan-price-label">FIRST YEAR</span>
+              <span class="plan-price-amount">¥7,500,000</span>
+            </div>
+          </div>
+          <p class="plan-tax-note">all prices include tax</p>
+          <ul class="plan-features">
+            <li>専属パーソナルセッション：月2回（60分）</li>
+            <li>24時間コンディションサポート（Oura Ring連動）</li>
+            <li>管理栄養士による食事サポート</li>
+            <li>ヘルスケアコンシェルジュ（回数制限なし）</li>
+            <li>プレミアムギフト：入会時提供</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-options">
+        <span class="plan-options-title">ADDITIONAL SERVICES</span>
+        <p class="plan-options-sub">オプションサービス（会員様向け）</p>
+        <ul class="plan-options-list">
+          <li>
+            <span>家族・パートナー健康サポート</span>
+            <span class="plan-options-fee">料金要相談</span>
+          </li>
+          <li>
+            <span>出張・旅行時専属同行サービス（海外）</span>
+            <span class="plan-options-fee">¥1,000,000 / 日</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="plan-link-flow">
+        ご入会の流れは <a href="#how-to-join">HOW TO JOIN</a> をご確認ください。
+      </p>
+    </div>
   </section>
 
   <!-- ════════ FAQ ════════ -->
@@ -2636,25 +2877,37 @@
       }, 2400);
     });
 
-    // Nav scroll effect + dark mode over zoom section
+    // Nav scroll effect + dark mode over zoom section + hero transparent
     const headerEl = document.querySelector('header');
+    const heroEl = document.getElementById('hero');
     const zoomSpacer = document.getElementById('track-record-spacer');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) headerEl.classList.add('scrolled');
-      else headerEl.classList.remove('scrolled');
+
+    function updateHeader() {
+      const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : 0;
+      const inHero = heroBottom > 60;
 
       // Dark header when overlapping zoom section
+      let inZoom = false;
       if (zoomSpacer) {
         const zRect = zoomSpacer.getBoundingClientRect();
-        const inZoom = zRect.top < 60 && zRect.bottom > 60;
-        if (inZoom) {
-          headerEl.classList.add('header-dark');
-          headerEl.classList.remove('scrolled');
-        } else {
-          headerEl.classList.remove('header-dark');
-        }
+        inZoom = zRect.top < 60 && zRect.bottom > 60;
       }
-    }, { passive: true });
+
+      if (inZoom) {
+        headerEl.classList.add('header-dark');
+        headerEl.classList.remove('scrolled', 'header-hero');
+      } else if (inHero) {
+        headerEl.classList.add('header-hero');
+        headerEl.classList.remove('scrolled', 'header-dark');
+      } else {
+        headerEl.classList.add('scrolled');
+        headerEl.classList.remove('header-hero', 'header-dark');
+      }
+    }
+
+    // 初期状態を設定
+    headerEl.classList.add('header-hero');
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
     // Mobile nav
     function toggleMobileNav() {
@@ -2835,7 +3088,6 @@
       const spacer = document.getElementById('track-record-spacer');
       if (!spacer) return;
 
-      const viewport = spacer.querySelector('.zoom-viewport');
       const layerJapan = spacer.querySelector('.zoom-layer-japan');
       const layerKansai = spacer.querySelector('.zoom-layer-kansai');
       const layerAshiya = spacer.querySelector('.zoom-layer-ashiya');
@@ -2845,83 +3097,108 @@
       const locLabel = spacer.querySelector('.zoom-location-label');
       const content = spacer.querySelector('.zoom-content');
 
-      let ticking = false;
+      // Smooth easing
+      function smoothStep(edge0, edge1, x) {
+        const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+        return t * t * (3 - 2 * t);
+      }
+      function easeOutQuad(t) { return 1 - (1 - t) * (1 - t); }
 
-      function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const rect = spacer.getBoundingClientRect();
-          const spacerH = spacer.offsetHeight;
-          const vh = window.innerHeight;
-
-          // progress 0 → 1 through the spacer
-          let progress = Math.max(0, Math.min(1, (-rect.top) / (spacerH - vh)));
-
-          // Phase 1: Japan (0 - 0.25) → zoom in
-          // Phase 2: Kansai (0.25 - 0.55) → zoom in
-          // Phase 3: Ashiya + content (0.55 - 1.0)
-
-          // Japan layer
-          const japanScale = 1 + progress * 3;
-          const japanOpacity = progress < 0.3 ? 1 : Math.max(0, 1 - (progress - 0.3) / 0.1);
-          layerJapan.style.transform = `scale(${japanScale})`;
-          layerJapan.style.opacity = japanOpacity;
-
-          // Kansai layer
-          const kansaiStart = 0.2;
-          const kansaiEnd = 0.6;
-          let kansaiOpacity = 0;
-          let kansaiScale = 0.8;
-          if (progress > kansaiStart && progress < kansaiEnd + 0.15) {
-            const kp = (progress - kansaiStart) / (kansaiEnd - kansaiStart);
-            kansaiOpacity = kp < 0.3 ? kp / 0.3 : (kp > 0.85 ? Math.max(0, 1 - (kp - 0.85) / 0.15) : 1);
-            kansaiScale = 0.8 + kp * 2;
-          }
-          layerKansai.style.transform = `scale(${kansaiScale})`;
-          layerKansai.style.opacity = kansaiOpacity;
-
-          // Ashiya layer
-          const ashiyaStart = 0.5;
-          let ashiyaOpacity = 0;
-          let ashiyaScale = 0.8;
-          if (progress > ashiyaStart) {
-            const ap = (progress - ashiyaStart) / (1 - ashiyaStart);
-            ashiyaOpacity = Math.min(1, ap / 0.25);
-            ashiyaScale = 0.8 + ap * 0.4;
-          }
-          layerAshiya.style.transform = `scale(${ashiyaScale})`;
-          layerAshiya.style.opacity = ashiyaOpacity;
-
-          // Grid overlay
-          grid.style.opacity = progress > 0.15 ? Math.min(1, (progress - 0.15) / 0.2) : 0;
-
-          // Coords
-          coords.style.opacity = progress > 0.2 ? Math.min(0.9, (progress - 0.2) / 0.15) : 0;
-
-          // Pin
-          pin.style.opacity = progress > 0.6 ? Math.min(1, (progress - 0.6) / 0.15) : 0;
-
-          // Location label
-          locLabel.style.opacity = progress > 0.65 ? Math.min(0.6, (progress - 0.65) / 0.15) : 0;
-
-          // Content
-          const contentStart = 0.7;
-          if (progress > contentStart) {
-            const cp = Math.min(1, (progress - contentStart) / 0.2);
-            content.style.opacity = cp;
-            content.style.transform = `translateY(${30 * (1 - cp)}px)`;
-          } else {
-            content.style.opacity = 0;
-            content.style.transform = 'translateY(30px)';
-          }
-
-          ticking = false;
-        });
+      // Lerp for frame interpolation — eliminates choppiness
+      function lerp(current, target, speed) {
+        return current + (target - current) * speed;
       }
 
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      // Animated state (lerped values)
+      const state = {
+        japanScale: 1, japanOp: 1,
+        kansaiScale: 0.85, kansaiOp: 0,
+        ashiyaScale: 0.85, ashiyaOp: 0,
+        gridOp: 0, coordsOp: 0, pinOp: 0, locOp: 0,
+        contentOp: 0, contentY: 30
+      };
+      const LERP_SPEED = 0.12;
+      let animating = false;
+
+      function getTargets() {
+        const rect = spacer.getBoundingClientRect();
+        const spacerH = spacer.offsetHeight;
+        const vh = window.innerHeight;
+        const p = Math.max(0, Math.min(1, (-rect.top) / (spacerH - vh)));
+
+        // Japan (0 - 0.20)
+        const japanScale = 1 + p * 3;
+        const japanOp = 1 - smoothStep(0.12, 0.22, p);
+
+        // Kansai (0.10 - 0.35)
+        const kansaiFadeIn = smoothStep(0.10, 0.18, p);
+        const kansaiFadeOut = 1 - smoothStep(0.28, 0.38, p);
+        const kansaiOp = kansaiFadeIn * kansaiFadeOut;
+        const kp = Math.max(0, Math.min(1, (p - 0.10) / 0.28));
+        const kansaiScale = 0.85 + easeOutQuad(kp) * 1.8;
+
+        // Ashiya (0.25 - 0.40)
+        const ashiyaOp = smoothStep(0.25, 0.38, p);
+        const ap = Math.max(0, Math.min(1, (p - 0.25) / 0.25));
+        const ashiyaScale = 0.85 + easeOutQuad(ap) * 0.35;
+
+        // UI elements
+        const gridOp = smoothStep(0.08, 0.20, p);
+        const coordsOp = smoothStep(0.12, 0.25, p) * 0.9;
+        const pinOp = smoothStep(0.30, 0.40, p);
+        const locOp = smoothStep(0.32, 0.42, p) * 0.6;
+
+        // Content — appears at 40% and stays fully visible for remaining 60%
+        const cp = smoothStep(0.38, 0.50, p);
+
+        return {
+          japanScale, japanOp,
+          kansaiScale, kansaiOp,
+          ashiyaScale, ashiyaOp,
+          gridOp, coordsOp, pinOp, locOp,
+          contentOp: cp, contentY: 30 * (1 - cp)
+        };
+      }
+
+      function tick() {
+        const target = getTargets();
+        let settled = true;
+
+        for (const key in target) {
+          state[key] = lerp(state[key], target[key], LERP_SPEED);
+          if (Math.abs(state[key] - target[key]) > 0.001) settled = false;
+        }
+
+        // Apply
+        layerJapan.style.transform = `scale(${state.japanScale})`;
+        layerJapan.style.opacity = state.japanOp;
+        layerKansai.style.transform = `scale(${state.kansaiScale})`;
+        layerKansai.style.opacity = state.kansaiOp;
+        layerAshiya.style.transform = `scale(${state.ashiyaScale})`;
+        layerAshiya.style.opacity = state.ashiyaOp;
+        grid.style.opacity = state.gridOp;
+        coords.style.opacity = state.coordsOp;
+        pin.style.opacity = state.pinOp;
+        locLabel.style.opacity = state.locOp;
+        content.style.opacity = state.contentOp;
+        content.style.transform = `translateY(${state.contentY}px)`;
+
+        if (!settled) {
+          requestAnimationFrame(tick);
+        } else {
+          animating = false;
+        }
+      }
+
+      function startAnimation() {
+        if (!animating) {
+          animating = true;
+          requestAnimationFrame(tick);
+        }
+      }
+
+      window.addEventListener('scroll', startAnimation, { passive: true });
+      startAnimation();
     })();
   </script>
 </body>
