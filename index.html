@@ -1062,91 +1062,109 @@
       display: block;
     }
 
-    /* ════════ CONE DIAGRAM ════════ */
-    .cone-diagram {
-      max-width: 680px;
+    /* ════════ 3D CONE VISUALIZATION ════════ */
+    .cone-scene {
+      perspective: 1000px;
+      perspective-origin: 50% 40%;
+      max-width: 480px;
       margin: 5rem auto 0;
       padding: 0 2rem;
     }
-    .cone-layer {
-      text-align: center;
-      padding: 2.8rem 2rem;
-      position: relative;
-    }
-    .cone-layer-top {
-      background: var(--ink);
-      clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
-      z-index: 2;
-    }
-    .cone-layer-divider {
-      width: 60%;
-      height: 1px;
-      background: var(--gold);
-      margin: -1px auto 0;
-      position: relative;
-      z-index: 3;
+    .cone-3d {
+      transform-style: preserve-3d;
       opacity: 0;
-      transition: opacity 0.8s 0.6s ease;
+      transform: rotateX(0deg) rotateY(0deg);
+      transition: opacity 1s ease, transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .cone-layer-divider.visible { opacity: 1; }
-    .cone-layer-bottom {
-      background: var(--ink);
-      clip-path: polygon(12% 0, 88% 0, 62% 100%, 38% 100%);
-      padding: 2.4rem 2rem 3.2rem;
-      margin-top: -1px;
-      z-index: 1;
+    .cone-3d.visible { opacity: 1; }
+    .cone-3d.is-3d {
+      animation: coneAnimate 16s ease-in-out infinite;
     }
-    .cone-layer-en {
-      display: block;
+    @keyframes coneAnimate {
+      0%   { transform: rotateX(0deg)  rotateY(0deg); }
+      12%  { transform: rotateX(22deg) rotateY(8deg); }
+      50%  { transform: rotateX(18deg) rotateY(-12deg); }
+      88%  { transform: rotateX(22deg) rotateY(8deg); }
+      100% { transform: rotateX(0deg)  rotateY(0deg); }
+    }
+    .cone-svg { width: 100%; height: auto; display: block; }
+    .cone-svg .cone-text-en {
       font-family: var(--serif-en);
-      font-size: 0.68rem;
-      letter-spacing: 0.35em;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
+      font-style: italic;
     }
-    .cone-layer-ja {
-      display: block;
+    .cone-svg .cone-text-ja {
       font-family: var(--serif-jp);
-      font-size: 0.82rem;
-      letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.7);
       font-weight: 300;
     }
-    .cone-layer-top,
-    .cone-layer-bottom {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    .cone-svg .cone-text-detail {
+      font-family: var(--serif-en);
+      font-weight: 300;
     }
-    .cone-layer-top.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* Cone description panels */
+    .cone-info {
+      max-width: 740px;
+      margin: 4.5rem auto 0;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
     }
-    .cone-layer-bottom.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: 0.3s;
+    .cone-info-item {
+      display: flex;
+      gap: 1.2rem;
     }
-    .cone-text {
+    .cone-info-marker {
+      width: 2px;
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
+    .cone-info-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .cone-info-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+    .cone-info-item p {
+      font-size: 0.72rem;
+      line-height: 2.2;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+
+    /* Cone concept text */
+    .cone-concept {
       max-width: 680px;
-      margin: 4rem auto 0;
+      margin: 3.5rem auto 0;
       padding: 0 2rem;
       text-align: center;
     }
-    .cone-text p {
-      font-size: 0.78rem;
+    .cone-concept p {
+      font-size: 0.76rem;
       line-height: 2.4;
       color: var(--ink-soft);
       letter-spacing: 0.04em;
       margin: 0;
     }
+
     @media (max-width: 880px) {
-      .cone-diagram { max-width: 100%; margin-top: 3.5rem; }
-      .cone-layer-top { clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); padding: 2rem 1.5rem; }
-      .cone-layer-bottom { clip-path: polygon(8% 0, 92% 0, 68% 100%, 32% 100%); padding: 1.8rem 1.5rem 2.6rem; }
-      .cone-layer-en { font-size: 0.6rem; }
-      .cone-layer-ja { font-size: 0.75rem; }
-      .cone-text p { font-size: 0.72rem; line-height: 2.2; }
+      .cone-scene { max-width: 320px; margin-top: 3.5rem; }
+      .cone-info { grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+      .cone-info-item p { font-size: 0.68rem; }
+      .cone-concept p { font-size: 0.7rem; line-height: 2.1; }
     }
 
     /* ════════ CONCIERGE / MEMBER PRIVILEGES ════════ */
@@ -2560,24 +2578,77 @@
       </p>
     </div>
 
-    <!-- Inverted Cone Diagram -->
-    <div class="cone-diagram fade">
-      <div class="cone-layer cone-layer-top">
-        <span class="cone-layer-en">DAILY CARE</span>
-        <span class="cone-layer-ja">日々のケア</span>
-      </div>
-      <div class="cone-layer-divider"></div>
-      <div class="cone-layer cone-layer-bottom">
-        <span class="cone-layer-en">LIFETIME ACCESS</span>
-        <span class="cone-layer-ja">人生の機会</span>
+    <!-- 3D Inverted Cone Visualization -->
+    <div class="cone-scene">
+      <div class="cone-3d" id="cone3d">
+        <svg class="cone-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="coneUpperGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F5F0E8"/>
+              <stop offset="100%" stop-color="#EDE6D8"/>
+            </linearGradient>
+            <linearGradient id="coneLowerGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#E8E0D0"/>
+              <stop offset="100%" stop-color="#D6CCBA"/>
+            </linearGradient>
+            <linearGradient id="coneShadow" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(0,0,0,0.06)"/>
+              <stop offset="50%" stop-color="rgba(0,0,0,0)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0.08)"/>
+            </linearGradient>
+          </defs>
+          <!-- Upper body — DAILY CARE -->
+          <path d="M20,40 Q200,10 380,40 L294,260 Q200,275 106,260 Z" fill="url(#coneUpperGrad)" stroke="#8B6F1F" stroke-width="0.5"/>
+          <path d="M20,40 Q200,10 380,40 L294,260 Q200,275 106,260 Z" fill="url(#coneShadow)"/>
+          <!-- Top ellipse rim -->
+          <ellipse cx="200" cy="40" rx="180" ry="30" fill="none" stroke="#8B6F1F" stroke-width="1"/>
+          <!-- Gold divider at midpoint -->
+          <line x1="106" y1="260" x2="294" y2="260" stroke="#8B6F1F" stroke-width="1.2" stroke-dasharray="4,4"/>
+          <!-- Mid ellipse hint -->
+          <ellipse cx="200" cy="260" rx="94" ry="15" fill="none" stroke="#8B6F1F" stroke-width="0.5" opacity="0.5"/>
+          <!-- Lower body — LIFETIME ACCESS -->
+          <path d="M106,262 Q200,277 294,262 L200,500 Z" fill="url(#coneLowerGrad)" stroke="#8B6F1F" stroke-width="0.5"/>
+          <path d="M106,262 Q200,277 294,262 L200,500 Z" fill="url(#coneShadow)"/>
+          <!-- Tip accent -->
+          <circle cx="200" cy="500" r="3" fill="#8B6F1F"/>
+          <!-- Upper text -->
+          <text x="200" y="130" text-anchor="middle" class="cone-text-en" fill="#8B6F1F" font-size="15" letter-spacing="6">DAILY CARE</text>
+          <text x="200" y="158" text-anchor="middle" class="cone-text-ja" fill="#1C1F2E" font-size="12" letter-spacing="4">日 々 の ケ ア</text>
+          <text x="200" y="190" text-anchor="middle" class="cone-text-detail" fill="#6B6455" font-size="9" letter-spacing="1">Training · Nutrition · Conditioning</text>
+          <!-- Lower text -->
+          <text x="200" y="340" text-anchor="middle" class="cone-text-en" fill="#8B6F1F" font-size="13" letter-spacing="5">LIFETIME</text>
+          <text x="200" y="365" text-anchor="middle" class="cone-text-en" fill="#8B6F1F" font-size="13" letter-spacing="5">ACCESS</text>
+          <text x="200" y="395" text-anchor="middle" class="cone-text-ja" fill="#1C1F2E" font-size="11" letter-spacing="3">人 生 の 機 会</text>
+          <text x="200" y="425" text-anchor="middle" class="cone-text-detail" fill="#6B6455" font-size="8.5" letter-spacing="1">Medical · Mental · Experience</text>
+        </svg>
       </div>
     </div>
 
-    <div class="cone-text fade">
+    <!-- Cone Layer Descriptions -->
+    <div class="cone-info fade">
+      <div class="cone-info-item">
+        <div class="cone-info-marker" style="background:linear-gradient(180deg,#8B6F1F,#C4A94D)"></div>
+        <div>
+          <span class="cone-info-en">DAILY CARE</span>
+          <span class="cone-info-ja">日々のケア</span>
+          <p>パーソナルトレーニング・栄養設計・コンディショニングなど、<br>日常に寄り添う継続的なケアが健康資産の基盤を築きます。</p>
+        </div>
+      </div>
+      <div class="cone-info-item">
+        <div class="cone-info-marker" style="background:linear-gradient(180deg,#C4A94D,#8B6F1F)"></div>
+        <div>
+          <span class="cone-info-en">LIFETIME ACCESS</span>
+          <span class="cone-info-ja">人生の機会</span>
+          <p>医療連携・メンタルケア・特別な体験へのアクセスなど、<br>日々のケアの上に広がる、人生を豊かにする機会を提供します。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cone Concept -->
+    <div class="cone-concept fade">
       <p>
-        日々のトレーニングや栄養管理といった「Daily Care」が土台となり、<br class="sp-hide">
-        医療連携・メンタルケア・特別な体験へとつながる「Lifetime Access」を実現する。<br class="sp-hide">
-        この循環こそが、EXECUTIVE ASHIYAの提供する価値です。
+        日々の積み重ねが、人生のあらゆる可能性を開く——<br class="sp-hide">
+        この二層構造こそが、EXECUTIVE ASHIYAの提供する包括的ケアの本質です。
       </p>
     </div>
   </section>
@@ -3301,18 +3372,19 @@
       if (!el.classList.contains('join-step')) observer.observe(el);
     });
 
-    // Cone diagram layer animation
-    const coneDiagram = document.querySelector('.cone-diagram');
-    if (coneDiagram) {
+    // 3D Cone animation — 2D → 3D transition on scroll
+    const cone3d = document.getElementById('cone3d');
+    if (cone3d) {
       const coneObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.cone-layer-top, .cone-layer-bottom, .cone-layer-divider').forEach(el => el.classList.add('visible'));
+            cone3d.classList.add('visible');
+            setTimeout(() => { cone3d.classList.add('is-3d'); }, 800);
             coneObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.3 });
-      coneObserver.observe(coneDiagram);
+      coneObserver.observe(cone3d);
     }
 
     // Count-up animation with odometer-style digit rolling
