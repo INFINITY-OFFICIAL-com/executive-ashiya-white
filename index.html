@@ -1062,47 +1062,54 @@
       display: block;
     }
 
-    /* ════════ 3D CONE VISUALIZATION ════════ */
-    .cone-scene {
-      perspective: 1000px;
-      perspective-origin: 50% 40%;
+    /* ════════ DNA HELIX VISUALIZATION ════════ */
+    .helix-scene {
+      position: relative;
       max-width: 480px;
       margin: 5rem auto 0;
       padding: 0 2rem;
     }
-    .cone-3d {
-      transform-style: preserve-3d;
+    .helix-canvas { width: 100%; height: auto; display: block; }
+    .helix-label {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      pointer-events: none;
       opacity: 0;
-      transform: rotateX(0deg) rotateY(0deg);
-      transition: opacity 1s ease, transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: opacity 1s ease;
     }
-    .cone-3d.visible { opacity: 1; }
-    .cone-3d.is-3d {
-      animation: coneAnimate 16s ease-in-out infinite;
-    }
-    @keyframes coneAnimate {
-      0%   { transform: rotateX(0deg)  rotateY(0deg); }
-      12%  { transform: rotateX(22deg) rotateY(8deg); }
-      50%  { transform: rotateX(18deg) rotateY(-12deg); }
-      88%  { transform: rotateX(22deg) rotateY(8deg); }
-      100% { transform: rotateX(0deg)  rotateY(0deg); }
-    }
-    .cone-svg { width: 100%; height: auto; display: block; }
-    .cone-svg .cone-text-en {
+    .helix-label.visible { opacity: 1; }
+    .helix-label-top { top: 18%; }
+    .helix-label-bottom { bottom: 12%; }
+    .helix-label-en {
+      display: block;
       font-family: var(--serif-en);
       font-style: italic;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
     }
-    .cone-svg .cone-text-ja {
+    .helix-label-ja {
+      display: block;
       font-family: var(--serif-jp);
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      color: var(--ink);
       font-weight: 300;
     }
-    .cone-svg .cone-text-detail {
+    .helix-label-sub {
+      display: block;
       font-family: var(--serif-en);
-      font-weight: 300;
+      font-size: 0.52rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-soft);
+      margin-top: 0.3rem;
     }
 
-    /* Cone description panels */
-    .cone-info {
+    /* Helix description panels */
+    .helix-info {
       max-width: 740px;
       margin: 4.5rem auto 0;
       padding: 0 2rem;
@@ -1110,16 +1117,16 @@
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
     }
-    .cone-info-item {
+    .helix-info-item {
       display: flex;
       gap: 1.2rem;
     }
-    .cone-info-marker {
+    .helix-info-marker {
       width: 2px;
       flex-shrink: 0;
       border-radius: 1px;
     }
-    .cone-info-en {
+    .helix-info-en {
       display: block;
       font-family: var(--serif-en);
       font-style: italic;
@@ -1128,7 +1135,7 @@
       color: var(--gold);
       margin-bottom: 0.4rem;
     }
-    .cone-info-ja {
+    .helix-info-ja {
       display: block;
       font-family: var(--serif-jp);
       font-size: 0.88rem;
@@ -1137,7 +1144,7 @@
       font-weight: 300;
       margin-bottom: 0.8rem;
     }
-    .cone-info-item p {
+    .helix-info-item p {
       font-size: 0.72rem;
       line-height: 2.2;
       color: var(--ink-soft);
@@ -1145,14 +1152,14 @@
       margin: 0;
     }
 
-    /* Cone concept text */
-    .cone-concept {
+    /* Helix concept text */
+    .helix-concept {
       max-width: 680px;
       margin: 3.5rem auto 0;
       padding: 0 2rem;
       text-align: center;
     }
-    .cone-concept p {
+    .helix-concept p {
       font-size: 0.76rem;
       line-height: 2.4;
       color: var(--ink-soft);
@@ -1161,10 +1168,12 @@
     }
 
     @media (max-width: 880px) {
-      .cone-scene { max-width: 320px; margin-top: 3.5rem; }
-      .cone-info { grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
-      .cone-info-item p { font-size: 0.68rem; }
-      .cone-concept p { font-size: 0.7rem; line-height: 2.1; }
+      .helix-scene { max-width: 320px; margin-top: 3.5rem; }
+      .helix-label-en { font-size: 0.55rem; }
+      .helix-label-ja { font-size: 0.72rem; }
+      .helix-info { grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+      .helix-info-item p { font-size: 0.68rem; }
+      .helix-concept p { font-size: 0.7rem; line-height: 2.1; }
     }
 
     /* ════════ CONCIERGE / MEMBER PRIVILEGES ════════ */
@@ -2578,77 +2587,46 @@
       </p>
     </div>
 
-    <!-- 3D Inverted Cone Visualization -->
-    <div class="cone-scene">
-      <div class="cone-3d" id="cone3d">
-        <svg class="cone-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="coneUpperGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#F5F0E8"/>
-              <stop offset="100%" stop-color="#EDE6D8"/>
-            </linearGradient>
-            <linearGradient id="coneLowerGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#E8E0D0"/>
-              <stop offset="100%" stop-color="#D6CCBA"/>
-            </linearGradient>
-            <linearGradient id="coneShadow" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="rgba(0,0,0,0.06)"/>
-              <stop offset="50%" stop-color="rgba(0,0,0,0)"/>
-              <stop offset="100%" stop-color="rgba(0,0,0,0.08)"/>
-            </linearGradient>
-          </defs>
-          <!-- Upper body — DAILY CARE -->
-          <path d="M20,40 Q200,10 380,40 L294,260 Q200,275 106,260 Z" fill="url(#coneUpperGrad)" stroke="#8B6F1F" stroke-width="0.5"/>
-          <path d="M20,40 Q200,10 380,40 L294,260 Q200,275 106,260 Z" fill="url(#coneShadow)"/>
-          <!-- Top ellipse rim -->
-          <ellipse cx="200" cy="40" rx="180" ry="30" fill="none" stroke="#8B6F1F" stroke-width="1"/>
-          <!-- Gold divider at midpoint -->
-          <line x1="106" y1="260" x2="294" y2="260" stroke="#8B6F1F" stroke-width="1.2" stroke-dasharray="4,4"/>
-          <!-- Mid ellipse hint -->
-          <ellipse cx="200" cy="260" rx="94" ry="15" fill="none" stroke="#8B6F1F" stroke-width="0.5" opacity="0.5"/>
-          <!-- Lower body — LIFETIME ACCESS -->
-          <path d="M106,262 Q200,277 294,262 L200,500 Z" fill="url(#coneLowerGrad)" stroke="#8B6F1F" stroke-width="0.5"/>
-          <path d="M106,262 Q200,277 294,262 L200,500 Z" fill="url(#coneShadow)"/>
-          <!-- Tip accent -->
-          <circle cx="200" cy="500" r="3" fill="#8B6F1F"/>
-          <!-- Upper text -->
-          <text x="200" y="130" text-anchor="middle" class="cone-text-en" fill="#8B6F1F" font-size="15" letter-spacing="6">DAILY CARE</text>
-          <text x="200" y="158" text-anchor="middle" class="cone-text-ja" fill="#1C1F2E" font-size="12" letter-spacing="4">日 々 の ケ ア</text>
-          <text x="200" y="190" text-anchor="middle" class="cone-text-detail" fill="#6B6455" font-size="9" letter-spacing="1">Training · Nutrition · Conditioning</text>
-          <!-- Lower text -->
-          <text x="200" y="340" text-anchor="middle" class="cone-text-en" fill="#8B6F1F" font-size="13" letter-spacing="5">LIFETIME</text>
-          <text x="200" y="365" text-anchor="middle" class="cone-text-en" fill="#8B6F1F" font-size="13" letter-spacing="5">ACCESS</text>
-          <text x="200" y="395" text-anchor="middle" class="cone-text-ja" fill="#1C1F2E" font-size="11" letter-spacing="3">人 生 の 機 会</text>
-          <text x="200" y="425" text-anchor="middle" class="cone-text-detail" fill="#6B6455" font-size="8.5" letter-spacing="1">Medical · Mental · Experience</text>
-        </svg>
+    <!-- DNA Helix Visualization -->
+    <div class="helix-scene">
+      <canvas class="helix-canvas" id="helixCanvas" width="400" height="560"></canvas>
+      <div class="helix-label helix-label-top">
+        <span class="helix-label-en">DAILY CARE</span>
+        <span class="helix-label-ja">日々のケア</span>
+        <span class="helix-label-sub">Training · Nutrition · Conditioning</span>
+      </div>
+      <div class="helix-label helix-label-bottom">
+        <span class="helix-label-en">LIFETIME ACCESS</span>
+        <span class="helix-label-ja">人生の機会</span>
+        <span class="helix-label-sub">Medical · Mental · Experience</span>
       </div>
     </div>
 
-    <!-- Cone Layer Descriptions -->
-    <div class="cone-info fade">
-      <div class="cone-info-item">
-        <div class="cone-info-marker" style="background:linear-gradient(180deg,#8B6F1F,#C4A94D)"></div>
+    <!-- Helix Layer Descriptions -->
+    <div class="helix-info fade">
+      <div class="helix-info-item">
+        <div class="helix-info-marker" style="background:linear-gradient(180deg,#8B6F1F,#C4A94D)"></div>
         <div>
-          <span class="cone-info-en">DAILY CARE</span>
-          <span class="cone-info-ja">日々のケア</span>
+          <span class="helix-info-en">DAILY CARE</span>
+          <span class="helix-info-ja">日々のケア</span>
           <p>パーソナルトレーニング・栄養設計・コンディショニングなど、<br>日常に寄り添う継続的なケアが健康資産の基盤を築きます。</p>
         </div>
       </div>
-      <div class="cone-info-item">
-        <div class="cone-info-marker" style="background:linear-gradient(180deg,#C4A94D,#8B6F1F)"></div>
+      <div class="helix-info-item">
+        <div class="helix-info-marker" style="background:linear-gradient(180deg,#C4A94D,#8B6F1F)"></div>
         <div>
-          <span class="cone-info-en">LIFETIME ACCESS</span>
-          <span class="cone-info-ja">人生の機会</span>
+          <span class="helix-info-en">LIFETIME ACCESS</span>
+          <span class="helix-info-ja">人生の機会</span>
           <p>医療連携・メンタルケア・特別な体験へのアクセスなど、<br>日々のケアの上に広がる、人生を豊かにする機会を提供します。</p>
         </div>
       </div>
     </div>
 
-    <!-- Cone Concept -->
-    <div class="cone-concept fade">
+    <!-- Helix Concept -->
+    <div class="helix-concept fade">
       <p>
         日々の積み重ねが、人生のあらゆる可能性を開く——<br class="sp-hide">
-        この二層構造こそが、EXECUTIVE ASHIYAの提供する包括的ケアの本質です。
+        二つの螺旋が織りなす構造こそが、EXECUTIVE ASHIYAの包括的ケアの本質です。
       </p>
     </div>
   </section>
@@ -3372,20 +3350,118 @@
       if (!el.classList.contains('join-step')) observer.observe(el);
     });
 
-    // 3D Cone animation — 2D → 3D transition on scroll
-    const cone3d = document.getElementById('cone3d');
-    if (cone3d) {
-      const coneObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            cone3d.classList.add('visible');
-            setTimeout(() => { cone3d.classList.add('is-3d'); }, 800);
-            coneObserver.unobserve(entry.target);
+    // ═══ DNA Helix Animation ═══
+    (function(){
+      var hc = document.getElementById('helixCanvas');
+      if(!hc) return;
+      var ctx = hc.getContext('2d');
+      var dpr = Math.min(window.devicePixelRatio||1, 2);
+      var W=400, H=560;
+      hc.width=W*dpr; hc.height=H*dpr;
+      ctx.scale(dpr,dpr);
+
+      var cx=W/2, sY=40, eY=520, hH=eY-sY;
+      var R=80, turns=3, N=240, rI=20;
+      var g1='#8B6F1F', g2='#C4A94D';
+      var mY=sY+hH/2;
+      var prog=0, rot=0, go=false, done=false, t0=0;
+
+      function ease(t){return 1-Math.pow(1-t,3);}
+
+      function ln(ax,ay,bx,by,z,c){
+        var a=0.12+0.88*((z+1)/2);
+        var w=1+2*((z+1)/2);
+        ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);
+        ctx.strokeStyle=c;ctx.globalAlpha=a;ctx.lineWidth=w;
+        ctx.lineCap='round';ctx.stroke();ctx.globalAlpha=1;
+      }
+
+      function dt(x,y,c){
+        ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);
+        ctx.fillStyle=c;ctx.fill();
+      }
+
+      function render(){
+        ctx.clearRect(0,0,W,H);
+        var n=Math.floor(N*prog);
+        if(n<2)return;
+        var i,t,t2,a,a2,y,y2,x1,z1,x1n,x2,z2,x2n;
+
+        // Pass 1 — back strands (z < 0)
+        for(i=0;i<n;i++){
+          t=i/N; t2=(i+1)/N;
+          a=t*turns*Math.PI*2+rot; a2=t2*turns*Math.PI*2+rot;
+          y=sY+t*hH; y2=sY+t2*hH;
+          x1=cx+Math.cos(a)*R; z1=Math.sin(a); x1n=cx+Math.cos(a2)*R;
+          x2=cx+Math.cos(a+Math.PI)*R; z2=-z1; x2n=cx+Math.cos(a2+Math.PI)*R;
+          if(z1<0) ln(x1,y,x1n,y2,z1,g1);
+          if(z2<0) ln(x2,y,x2n,y2,z2,g2);
+        }
+
+        // Pass 2 — rungs
+        for(i=rI;i<n;i+=rI){
+          t=i/N; a=t*turns*Math.PI*2+rot;
+          y=sY+t*hH;
+          x1=cx+Math.cos(a)*R; x2=cx+Math.cos(a+Math.PI)*R;
+          ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x2,y);
+          ctx.strokeStyle='rgba(139,111,31,0.14)';ctx.lineWidth=0.8;ctx.stroke();
+        }
+
+        // Pass 3 — front strands (z >= 0)
+        for(i=0;i<n;i++){
+          t=i/N; t2=(i+1)/N;
+          a=t*turns*Math.PI*2+rot; a2=t2*turns*Math.PI*2+rot;
+          y=sY+t*hH; y2=sY+t2*hH;
+          x1=cx+Math.cos(a)*R; z1=Math.sin(a); x1n=cx+Math.cos(a2)*R;
+          x2=cx+Math.cos(a+Math.PI)*R; z2=-z1; x2n=cx+Math.cos(a2+Math.PI)*R;
+          if(z1>=0) ln(x1,y,x1n,y2,z1,g1);
+          if(z2>=0) ln(x2,y,x2n,y2,z2,g2);
+        }
+
+        // Nodes at rung-strand intersections (front only)
+        for(i=rI;i<n;i+=rI){
+          t=i/N; a=t*turns*Math.PI*2+rot;
+          y=sY+t*hH;
+          x1=cx+Math.cos(a)*R; z1=Math.sin(a);
+          x2=cx+Math.cos(a+Math.PI)*R; z2=-z1;
+          if(z1>=0) dt(x1,y,g1);
+          if(z2>=0) dt(x2,y,g2);
+        }
+
+        // Gold midline divider
+        if(prog>0.45){
+          ctx.save();ctx.globalAlpha=Math.min(1,(prog-0.45)*5);
+          ctx.setLineDash([4,4]);ctx.beginPath();
+          ctx.moveTo(cx-R-15,mY);ctx.lineTo(cx+R+15,mY);
+          ctx.strokeStyle=g1;ctx.lineWidth=0.8;ctx.stroke();
+          ctx.setLineDash([]);ctx.restore();
+        }
+      }
+
+      function tick(ts){
+        if(!t0) t0=ts;
+        if(go&&!done){
+          prog=Math.min(1,ease((ts-t0)/2500));
+          if(prog>=1) done=true;
+        }
+        if(done) rot+=0.003;
+        render();
+        requestAnimationFrame(tick);
+      }
+
+      new IntersectionObserver(function(es,obs){
+        es.forEach(function(e){
+          if(e.isIntersecting&&!go){
+            go=true; t0=0;
+            requestAnimationFrame(tick);
+            setTimeout(function(){
+              document.querySelectorAll('.helix-label').forEach(function(el){el.classList.add('visible');});
+            },800);
+            obs.unobserve(e.target);
           }
         });
-      }, { threshold: 0.3 });
-      coneObserver.observe(cone3d);
-    }
+      },{threshold:0.3}).observe(hc);
+    })();
 
     // Count-up animation with odometer-style digit rolling
     function animateCount(el) {
