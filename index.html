@@ -172,6 +172,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -185,7 +186,7 @@
       line-height: 2.0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: clip;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -2472,8 +2473,15 @@
 
     /* ════════ DARK→WHITE TRANSITION (after map) ════════ */
     .zoom-to-white-transition {
-      height: 120px;
-      background: linear-gradient(to bottom, #1a1f2e 0%, var(--bg) 100%);
+      height: 200px;
+      background: linear-gradient(to bottom,
+        #1a1f2e 0%,
+        #252a3a 25%,
+        #4a4d5c 45%,
+        #8a8880 62%,
+        #c8c2b8 78%,
+        var(--bg) 100%
+      );
       margin-top: -1px;
     }
 
@@ -2906,11 +2914,6 @@
   <div class="services-image fade">
     <img src="services-space.webp" alt="Luxury wellness lounge with skylight" width="1200" height="600" loading="lazy" />
   </div>
-
-  <div class="diamond-divider fade"><span></span></div>
-
-  <!-- White → Dark transition into map section -->
-  <div class="white-to-dark-transition"></div>
 
   <!-- ════════ TRACK RECORD (Scroll-driven Map Zoom) ════════ -->
   <div class="zoom-scroll-spacer" id="track-record-spacer">
