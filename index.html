@@ -801,7 +801,7 @@
     }
     .philosophy-body p { margin: 0 0 2rem; }
     .philosophy-signature {
-      margin-top: 3rem;
+      margin-top: 1.5rem;
       font-family: var(--serif-en);
       font-style: italic;
       font-size: 0.78rem;
@@ -1099,21 +1099,6 @@
       transition: width 1.2s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s;
     }
     .services-col.visible::before { width: 100%; }
-    /* Large decorative bg number */
-    .services-col::after {
-      content: attr(data-num);
-      position: absolute;
-      top: 0.8rem; right: 1.5rem;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 7rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.05;
-      pointer-events: none;
-      transition: opacity 1.5s ease 0.5s;
-    }
-    .services-col:not(.visible)::after { opacity: 0; }
     .services-col-num {
       display: block;
       font-family: var(--serif-en);
@@ -1126,18 +1111,19 @@
     .services-col-en {
       display: block;
       font-family: var(--serif-en);
-      font-style: italic;
+      font-weight: 300;
       font-size: 1.4rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       color: var(--ink);
       margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
     .services-col-ja {
       display: block;
       font-family: var(--serif-jp);
-      font-size: 0.88rem;
-      letter-spacing: 0.18em;
-      color: var(--ink);
+      font-size: 0.68rem;
+      letter-spacing: 0.4em;
+      color: var(--ink-soft);
       font-weight: 300;
       margin-bottom: 2.2rem;
     }
@@ -1203,7 +1189,6 @@
         margin-top: 3.5rem;
       }
       .services-col { padding: 2.5rem 1.8rem 2.5rem; }
-      .services-col::after { font-size: 5rem; }
       .services-col-en { font-size: 1.15rem; }
       .services-col p { font-size: 0.68rem; }
       .services-concept p { font-size: 0.7rem; line-height: 2.1; }
@@ -2592,7 +2577,7 @@
     <h2 class="section-title">Our Belief</h2>
     <span class="section-title-ja">私 た ち の 哲 学</span>
 
-    <p class="philosophy-lead">佳き時を、より長く。</p>
+    <p class="philosophy-lead">静謐な日々を生涯にわたり。</p>
 
     <div class="philosophy-body">
       <p>
@@ -2629,10 +2614,10 @@
 
     <!-- Services 2-Column -->
     <div class="services-cols">
-      <div class="services-col" data-num="01">
+      <div class="services-col">
         <span class="services-col-num">— 01</span>
-        <span class="services-col-en">Daily Care</span>
-        <span class="services-col-ja">日々のケア</span>
+        <span class="services-col-en">The Core Service</span>
+        <span class="services-col-ja">年間契約に含まれるサービス</span>
         <p>パーソナルトレーニング・栄養設計・コンディショニングなど、<br>日常に寄り添う継続的なケアが健康資産の基盤を築きます。</p>
         <ul class="services-col-tags">
           <li>PERSONAL TRAINING</li>
@@ -2640,10 +2625,10 @@
           <li>CONDITIONING</li>
         </ul>
       </div>
-      <div class="services-col" data-num="02">
+      <div class="services-col">
         <span class="services-col-num">— 02</span>
-        <span class="services-col-en">Lifetime Access</span>
-        <span class="services-col-ja">人生の機会</span>
+        <span class="services-col-en">Exclusive Member Access</span>
+        <span class="services-col-ja">会員様特権サービス</span>
         <p>医療連携・メンタルケア・特別な体験へのアクセスなど、<br>日々のケアの上に広がる、人生を豊かにする機会を提供します。</p>
         <ul class="services-col-tags">
           <li>MEDICAL NETWORK</li>
