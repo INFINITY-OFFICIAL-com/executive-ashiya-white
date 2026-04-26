@@ -107,7 +107,7 @@
             "name": "入会には審査がありますか？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "完全招待制のため、参画リクエストフォームよりご意向をお知らせいただいた後、スクリー��ングフォーム��お送りいたします。サービスの品質維持のため、入会には審査がございます。"
+              "text": "完全招待制のため、参画リクエストフォームよりご意向をお知らせいただいた後、スクリーニングフォームをお送りいたします。サービスの品質維持のため、入会には審査がございます。"
             }
           }
         ]
@@ -1171,7 +1171,7 @@
     .services-concept {
       max-width: 680px;
       margin: 4.5rem auto 0;
-      padding: 0 2rem;
+      padding: 0 2rem 6rem;
       text-align: center;
     }
     .services-concept p {
@@ -2585,6 +2585,575 @@
       background: rgba(255,255,255,0.8);
     }
 
+    /* ════════ D-1: SERVICES TAG 2-LINE ════════ */
+    .services-col-tags li {
+      font-family: var(--serif-jp);
+      font-size: 0.68rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      letter-spacing: 0.03em;
+      padding-left: 1.4rem;
+      font-weight: 300;
+    }
+    .services-col-tags li strong {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 0.15rem;
+    }
+
+    /* ════════ D-2: PLAN CARD PREMIUM ════════ */
+    .plan-item.featured {
+      background: linear-gradient(168deg, rgba(139,111,31,0.04) 0%, var(--bg-card) 35%);
+      border-color: var(--gold);
+      box-shadow: 0 24px 80px -40px rgba(139,111,31,0.3), inset 0 1px 0 rgba(139,111,31,0.12);
+    }
+    .plan-item.featured .plan-label {
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+    .plan-item.featured .plan-label::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ════════ D-3: CONCIERGE MODAL IMAGE ════════ */
+    .concierge-detail-img {
+      width: 100%;
+      max-width: 520px;
+      height: 180px;
+      margin: 0 auto 2.5rem;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .concierge-detail-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .concierge-detail.open .concierge-detail-img {
+      animation: cDetailFadeUp 0.6s 0.05s ease forwards;
+    }
+    @media (max-width: 880px) {
+      .concierge-detail-img { height: 140px; }
+    }
+
+    /* ════════ EA METHOD (AUTHORITY) ════════ */
+    #ea-method {
+      max-width: none;
+      background: var(--ink);
+      color: #fff;
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    #ea-method .section-label { color: rgba(255,255,255,0.35); }
+    #ea-method .section-label.with-rule::before,
+    #ea-method .section-label.with-rule::after { background: rgba(255,255,255,0.15); }
+    #ea-method .section-title { color: #fff; }
+    #ea-method .section-title-ja { color: rgba(255,255,255,0.4); margin-bottom: 2rem; }
+    .method-lead {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: clamp(0.82rem, 1.8vw, 1rem);
+      line-height: 2.4;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+    .method-pillars {
+      max-width: 1000px;
+      margin: 0 auto 4.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .method-pillar {
+      padding: 2.8rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .method-pillar:last-child { border-right: none; }
+    .method-pillar-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .method-pillar-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .method-pillar-ja {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .method-pillar-desc {
+      font-size: 0.66rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    /* Method section image */
+    .method-img {
+      max-width: 900px;
+      margin: 4rem auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .method-img::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--gold), rgba(139,111,31,0.2));
+      z-index: 2;
+    }
+    .method-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(28,31,46,0.4) 0%, transparent 30%, transparent 70%, rgba(28,31,46,0.4) 100%);
+      z-index: 1;
+    }
+    .method-img img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85) contrast(1.05);
+    }
+    @media (max-width: 880px) {
+      .method-img img { height: 200px; }
+      .method-img { margin: 3rem auto; }
+    }
+
+    .method-quote {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .method-quote blockquote {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2vw, 1.15rem);
+      line-height: 2;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.04em;
+      margin: 0 0 1.5rem;
+    }
+    .method-quote cite {
+      font-family: var(--serif-en);
+      font-style: normal;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+    .method-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      border-bottom: 1px solid rgba(139,111,31,0.4);
+      padding-bottom: 4px;
+      text-decoration: none;
+      transition: border-color 0.3s;
+    }
+    .method-link:hover { border-color: var(--gold); }
+    @media (max-width: 880px) {
+      #ea-method { padding: 6rem 1.6rem; }
+      .method-pillars { grid-template-columns: 1fr 1fr; gap: 0; }
+      .method-pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 2rem 1.2rem; }
+      .method-pillar:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .method-pillar:nth-child(3), .method-pillar:nth-child(4) { border-bottom: none; }
+    }
+
+    /* ════════ D-4: SECTION BREAK IMAGE ════════ */
+    .section-break-img {
+      width: 100%;
+      overflow: hidden;
+      max-height: 300px;
+    }
+    .section-break-img img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ════════ S-1: REPRESENTATIVE ════════ */
+    #representative {
+      max-width: none;
+      padding: 8rem 2rem;
+      background: var(--bg-alt);
+    }
+    .rep-inner {
+      max-width: 880px;
+      margin: 4rem auto 0;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .rep-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, rgba(139,111,31,0.06) 0%, rgba(28,31,46,0.04) 100%);
+      border: 1px solid var(--ink-line);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rep-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .rep-photo-placeholder {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+    }
+    .rep-name-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .rep-name-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
+      margin-bottom: 0.6rem;
+    }
+    .rep-role {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 2.4rem;
+    }
+    .rep-body {
+      font-size: 0.76rem;
+      line-height: 2.4;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+    .rep-body p { margin: 0 0 1.8rem; }
+    .rep-body p:last-child { margin-bottom: 0; }
+    .rep-credentials {
+      list-style: none;
+      padding: 2rem 0 0;
+      margin: 2.2rem 0 0;
+      border-top: 1px solid var(--ink-line);
+    }
+    .rep-credentials li {
+      font-family: var(--serif-en);
+      font-size: 0.56rem;
+      letter-spacing: 0.14em;
+      color: var(--ink-faint);
+      padding: 0.35rem 0 0.35rem 1.2rem;
+      position: relative;
+    }
+    .rep-credentials li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0.5rem;
+      height: 1px;
+      background: var(--gold);
+    }
+    @media (max-width: 880px) {
+      .rep-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+      .rep-photo { max-width: 220px; margin: 0 auto; }
+    }
+
+    /* ════════ S-2: PROGRAM JOURNEY ════════ */
+    #program-journey {
+      max-width: none;
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    .journey-timeline {
+      max-width: 960px;
+      margin: 4rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .journey-timeline::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold), transparent);
+    }
+    .journey-q {
+      padding: 2.2rem 1.2rem 0;
+      text-align: center;
+      position: relative;
+    }
+    .journey-q-dot {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--bg);
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .journey-q-dot::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .journey-q-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .journey-q-title {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    .journey-q-desc {
+      font-size: 0.66rem;
+      line-height: 2;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    @media (max-width: 880px) {
+      .journey-timeline {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 2.4rem;
+        text-align: left;
+        margin-top: 3rem;
+      }
+      .journey-timeline::before {
+        top: 0; bottom: 0;
+        left: 5px; right: auto;
+        width: 1px; height: auto;
+        background: linear-gradient(180deg, var(--gold), rgba(139,111,31,0.2));
+      }
+      .journey-q {
+        padding: 1.4rem 0;
+        border-bottom: 1px dashed var(--ink-line);
+      }
+      .journey-q:last-child { border-bottom: none; }
+      .journey-q-dot {
+        position: absolute;
+        left: -2.4rem; top: 1.6rem;
+        margin: 0;
+      }
+    }
+
+    /* ════════ S-3: CLIENT VOICE ════════ */
+    #client-voice {
+      max-width: none;
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    .voice-cards {
+      max-width: 1100px;
+      margin: 4rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .voice-card {
+      background: var(--bg-card);
+      border: 1px solid var(--ink-line);
+      padding: 3rem 2.2rem 2.5rem;
+      text-align: left;
+      position: relative;
+    }
+    .voice-card::before {
+      content: '\201C';
+      font-family: var(--serif-en);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      position: absolute;
+      top: 1rem; left: 1.4rem;
+    }
+    .voice-card-text {
+      font-family: var(--serif-jp);
+      font-size: 0.76rem;
+      line-height: 2.2;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0 0 2rem;
+      font-weight: 300;
+    }
+    .voice-card-attr {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      display: block;
+    }
+    .voice-card-role {
+      font-size: 0.64rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      display: block;
+      margin-top: 0.3rem;
+    }
+    @media (max-width: 880px) {
+      .voice-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .voice-card { padding: 2.5rem 1.8rem 2rem; }
+    }
+
+    /* ════════ S-4: CTA SECTION ════════ */
+    #cta-final {
+      max-width: none;
+      background: var(--ink);
+      padding: 7rem 2rem;
+      text-align: center;
+    }
+    #cta-final .section-label {
+      color: rgba(255,255,255,0.35);
+    }
+    #cta-final .section-label.with-rule::before,
+    #cta-final .section-label.with-rule::after {
+      background: rgba(255,255,255,0.15);
+    }
+    .cta-headline {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+      letter-spacing: 0.18em;
+      color: #fff;
+      line-height: 2;
+      margin: 0 0 1.5rem;
+    }
+    .cta-sub {
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      line-height: 2;
+      margin: 0 0 3.5rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-family: var(--serif-en);
+      font-size: 0.66rem;
+      letter-spacing: 0.38em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 1.2rem 3.5rem;
+      text-decoration: none;
+      transition: background 0.4s, color 0.4s;
+    }
+    .cta-btn:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    /* ════════ D-5: JOIN STEP MOBILE COMPACT ════════ */
+    @media (max-width: 880px) {
+      .join-step-sub {
+        font-size: 0.6rem;
+        line-height: 1.7;
+        margin-top: 0.35rem;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+      }
+      .join-step.sub-open .join-step-sub {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 0.5rem;
+      }
+      .join-step-text {
+        cursor: pointer;
+        position: relative;
+        padding-right: 1.4rem;
+      }
+      .join-step-text::after {
+        content: '+';
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-family: var(--serif-en);
+        font-size: 0.7rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+      }
+      .join-step.sub-open .join-step-text::after {
+        transform: rotate(45deg);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -2671,9 +3240,10 @@
         それが、私たちの考える本当の贅沢です。
       </p>
       <p>
-        血液データに基づく栄養設計、筋骨格の精密な評価、<br>
-        医療機関との連携による予防的アプローチ。<br>
-        科学と経験に裏打ちされた方法論で、<br>
+        血液検査40項目以上に基づく栄養設計、<br>
+        FMS（Functional Movement Screen）を用いた筋骨格の精密評価、<br>
+        提携医療機関との連携による予防的アプローチ。<br>
+        スポーツ科学・分子栄養学・予防医学を融合した方法論で、<br>
         10年後も、20年後も、最前線に立ち続ける身体を守ります。
       </p>
     </div>
@@ -2693,10 +3263,12 @@
       <h2 class="section-title">Comprehensive Care</h2>
       <span class="section-title-ja">包 括 的 な ケ ア</span>
       <p class="section-intro">
-        あなたの健康を、ひとつの専属チームが包括的に見守る。<br>
-        トレーニング、栄養、医療、メンタル——すべてが連動し、<br class="sp-hide">
-        すべてがあなただけのために設計されます。<br>
-        完全訪問型。ご自宅やオフィスへ、すべてのサービスをお届けします。
+        専属パーソナルトレーナー、管理栄養士、提携医師、<br class="sp-hide">
+        そして専任コンシェルジュ——4職種の専門家が<br class="sp-hide">
+        ひとつのチームとしてあなたの健康を包括的に設計します。<br>
+        毎月のカンファレンスでデータを共有し、<br class="sp-hide">
+        トレーニング・栄養・医療・メンタルが連動する<br class="sp-hide">
+        完全訪問型プログラムを、ご自宅やオフィスへお届けします。
       </p>
     </div>
 
@@ -2706,24 +3278,24 @@
         <span class="services-col-num">— 01</span>
         <span class="services-col-en">The Core Service</span>
         <span class="services-col-ja">年間契約に含まれるサービス</span>
-        <p>専属トレーナーがご自宅・オフィスへ訪問し、<br>体組成データ・血液検査・姿勢評価に基づく完全個別プログラムを提供。<br>栄養士監修の食事設計とサプリメント処方を含む、<br>日常に寄り添う継続的なケアが健康資産の基盤を築きます。</p>
+        <p>専属トレーナーがご自宅・オフィスへ訪問し、<br>InBody体組成測定・年2回の血液検査（脂質・肝機能・HbA1c・ホルモン等40項目以上）・<br>姿勢評価に基づく完全個別プログラムを提供。<br>管理栄養士監修の食事設計とオーダーメイドサプリメント処方を含む、<br>日常に寄り添う継続的なケアが健康資産の基盤を築きます。</p>
         <ul class="services-col-tags">
-          <li>PERSONAL TRAINING — 月2〜4回の訪問型セッション</li>
-          <li>NUTRITION DESIGN — 血液データ連動の食事・サプリ設計</li>
-          <li>BODY MONITORING — Oura Ring等による継続的な体調管理</li>
-          <li>CONDITIONING — ストレッチ・整体・リカバリーケア</li>
+          <li><strong>PERSONAL TRAINING</strong>月2〜4回・各60分の完全訪問型セッション（筋力・可動域・姿勢矯正）</li>
+          <li><strong>NUTRITION DESIGN</strong>血液検査データに基づく個別食事プラン＋パーソナルサプリメント毎月配送</li>
+          <li><strong>BODY MONITORING</strong>Oura Ring・Apple Watchによる睡眠・HRV・活動量の24時間追跡</li>
+          <li><strong>CONDITIONING</strong>提携整骨院・鍼灸院との連携によるストレッチ・リカバリーケア</li>
         </ul>
       </div>
       <div class="services-col">
         <span class="services-col-num">— 02</span>
         <span class="services-col-en">Exclusive Member Access</span>
         <span class="services-col-ja">会員様特権サービス</span>
-        <p>年間契約の基盤の上に、会員様だけがアクセスできる<br>特別なサービスネットワーク。医療機関への最優先紹介、<br>美容・食の専門家の手配、メンタルケアまで——<br>あらゆるウェルネスニーズに専属コンシェルジュが対応します。</p>
+        <p>年間契約の基盤の上に、会員様だけがアクセスできる<br>特別なサービスネットワーク。提携する30以上の医療機関への最優先紹介、<br>美容・食の専門家の手配、メンタルケアまで——<br>あらゆるウェルネスニーズに専属コンシェルジュが24時間対応します。</p>
         <ul class="services-col-tags">
-          <li>MEDICAL ACCESS — 人間ドック・専門医・再生医療の優先手配</li>
-          <li>AESTHETIC &amp; BODY CARE — 美容医療・エステ・スパの紹介</li>
-          <li>CULINARY CONCIERGE — シェフ派遣・名店予約・食材調達</li>
-          <li>MENTAL WELLNESS — マインドフルネス・ストレスケア</li>
+          <li><strong>MEDICAL ACCESS</strong>人間ドック・PET-CT・遺伝子検査・再生医療の最優先予約代行</li>
+          <li><strong>AESTHETIC &amp; BODY CARE</strong>美容皮膚科・ハイフ・点滴療法・プライベートスパの手配</li>
+          <li><strong>CULINARY CONCIERGE</strong>ミシュランシェフ派遣・予約困難店手配・オーガニック食材調達</li>
+          <li><strong>MENTAL WELLNESS</strong>臨床心理士監修のマインドフルネス・呼吸法・ストレスケア</li>
         </ul>
       </div>
     </div>
@@ -2736,6 +3308,61 @@
         この二層構造が、EXECUTIVE ASHIYAの包括的ケアの本質です。
       </p>
     </div>
+  </section>
+
+  <!-- ════════ EA METHOD / AUTHORITY ════════ -->
+  <section id="ea-method">
+    <span class="section-label with-rule">OUR APPROACH</span>
+    <h2 class="section-title fade">The EA Method</h2>
+    <span class="section-title-ja fade">独 自 メ ソ ッ ド</span>
+
+    <p class="method-lead fade">
+      世界の予防医学・ロンジェビティ（健康長寿）研究が示す最先端のエビデンスを、<br class="sp-hide">
+      日本のエグゼクティブの生活様式に最適化して提供する——<br class="sp-hide">
+      それが、EXECUTIVE ASHIYAにしかできない統合アプローチです。
+    </p>
+
+    <div class="method-pillars">
+      <div class="method-pillar fade">
+        <span class="method-pillar-num">01</span>
+        <span class="method-pillar-en">Precision Data<br>Science</span>
+        <span class="method-pillar-ja">精密データ科学</span>
+        <p class="method-pillar-desc">血液検査40項目・InBody体組成・Oura Ring生体データ・FMS動作評価。数値に基づく意思決定で、感覚に頼らないプログラム設計を実現。</p>
+      </div>
+      <div class="method-pillar fade">
+        <span class="method-pillar-num">02</span>
+        <span class="method-pillar-en">Integrated<br>Expert Team</span>
+        <span class="method-pillar-ja">専門家チーム統合</span>
+        <p class="method-pillar-desc">トレーナー・管理栄養士・提携医師・コンシェルジュが月次カンファレンスでデータを共有。縦割りでない、横断型ヘルスケアを実現。</p>
+      </div>
+      <div class="method-pillar fade">
+        <span class="method-pillar-num">03</span>
+        <span class="method-pillar-en">Preventive &amp;<br>Longevity Medicine</span>
+        <span class="method-pillar-ja">予防・長寿医学</span>
+        <p class="method-pillar-desc">機能性医学・分子栄養学・再生医療の知見を統合。「病気を治す」のではなく「病気にならない身体を設計する」予防的アプローチ。</p>
+      </div>
+      <div class="method-pillar fade">
+        <span class="method-pillar-num">04</span>
+        <span class="method-pillar-en">Lifetime<br>Continuity</span>
+        <span class="method-pillar-ja">生涯継続設計</span>
+        <p class="method-pillar-desc">短期の成果ではなく、10年・20年先の健康資産を設計。年間データの蓄積が、年を重ねるほど精度の高いプログラムを可能にします。</p>
+      </div>
+    </div>
+
+    <div class="method-quote fade">
+      <blockquote>
+        "The goal of Medicine 3.0 is not to patch people up and send them on their way,<br class="sp-hide">
+        but to prevent chronic disease and extend both lifespan and healthspan."
+      </blockquote>
+      <cite>— DR. PETER ATTIA, "OUTLIVE: THE SCIENCE AND ART OF LONGEVITY"</cite>
+    </div>
+
+    <p class="method-lead fade" style="margin-bottom:0;">
+      この「Medicine 3.0」の理念を、完全訪問型のプライベートサービスとして<br class="sp-hide">
+      日本で初めて体系化したのが、EXECUTIVE ASHIYAです。
+    </p>
+
+    <a href="method.html" class="method-link fade">EXPLORE OUR METHODOLOGY →</a>
   </section>
 
   <!-- ════════ CONCIERGE / MEMBER PRIVILEGES ════════ -->
@@ -2791,16 +3418,17 @@
   <div class="concierge-detail" id="concierge-medical" onclick="closeConcierge(event)">
     <div class="concierge-detail-inner">
       <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <div class="concierge-detail-img"><img src="concierge-medical.webp" alt="Medical facility" loading="lazy" /></div>
       <span class="concierge-detail-num">01</span>
       <span class="concierge-detail-en">Medical Access</span>
       <span class="concierge-detail-ja">医 療 ア ク セ ス</span>
       <div class="concierge-detail-line"></div>
       <ul class="concierge-detail-list">
-        <li>国内最高峰の人間ドック・PET-CT検査施設の最優先予約代行</li>
-        <li>遺伝子検査・マイクロバイオーム解析・ホルモンパネル等の先端検査手配</li>
-        <li>国内外の専門医によるセカンドオピニオンの取得サポート</li>
-        <li>予防医療・再生医療（幹細胞治療・エクソソーム等）のクリニック紹介</li>
-        <li>健康診断データに基づくトレーニングプログラムの医学的調整</li>
+        <li>関西・首都圏の人間ドック・PET-CT施設（提携15施設以上）の最優先予約代行。通常1〜3ヶ月待ちの施設も2週間以内にご案内</li>
+        <li>遺伝子検査（疾患リスク・薬剤感受性）・腸内フローラ解析・男性／女性ホルモンパネル等の先端検査を主治医と連携して手配</li>
+        <li>国内外の専門医によるセカンドオピニオン取得サポート。がん・循環器・整形外科領域を中心に、専門医ネットワークからご紹介</li>
+        <li>再生医療（自己脂肪由来幹細胞治療・エクソソーム点滴・PRP療法）の提携クリニック紹介。施術前後のコンディショニングも一括管理</li>
+        <li>健康診断・血液検査データを専属トレーナーと提携医師が共同レビューし、トレーニング負荷・栄養プランを医学的根拠に基づき最適化</li>
       </ul>
     </div>
   </div>
@@ -2808,16 +3436,17 @@
   <div class="concierge-detail" id="concierge-aesthetic" onclick="closeConcierge(event)">
     <div class="concierge-detail-inner">
       <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <div class="concierge-detail-img"><img src="concierge-spa.webp" alt="Luxury spa" loading="lazy" /></div>
       <span class="concierge-detail-num">02</span>
       <span class="concierge-detail-en">Aesthetic &amp; Body Care</span>
       <span class="concierge-detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
       <div class="concierge-detail-line"></div>
       <ul class="concierge-detail-list">
-        <li>美容皮膚科・美容外科クリニックの優先予約・カウンセリング同行</li>
-        <li>美容鍼・ハイフ・高濃度ビタミンC点滴等の施術手配</li>
-        <li>高級プライベートスパ・リトリート施設の予約代行</li>
-        <li>ボディケアセラピスト（整体・アロマ・リンパ）の自宅派遣</li>
-        <li>体型・肌質に合わせたスキンケア・インナーケアの処方提案</li>
+        <li>芦屋・神戸・大阪の美容皮膚科・美容外科クリニック（提携10施設以上）の優先予約。初回カウンセリングへのコンシェルジュ同行も可能</li>
+        <li>医療機関での美容鍼・医療ハイフ（HIFU）・高濃度ビタミンC点滴・水光注射等の施術を目的別にコーディネート</li>
+        <li>国内外のプライベートスパ・リトリート施設（有馬・淡路・京都・沖縄等）の予約代行。ウェルネスプログラム付きステイのご提案</li>
+        <li>経験10年以上のボディケアセラピスト（整体・アロマ・リンパドレナージュ）をご自宅・滞在先へ派遣。定期ケアスケジュールも設計</li>
+        <li>皮膚科医・管理栄養士と連携し、体質・肌質・生活習慣に基づくスキンケア＋インナーケアの処方を一元設計</li>
       </ul>
     </div>
   </div>
@@ -2825,16 +3454,17 @@
   <div class="concierge-detail" id="concierge-culinary" onclick="closeConcierge(event)">
     <div class="concierge-detail-inner">
       <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
+      <div class="concierge-detail-img"><img src="concierge-culinary.webp" alt="Culinary experience" loading="lazy" /></div>
       <span class="concierge-detail-num">03</span>
       <span class="concierge-detail-en">Culinary &amp; Nutrition</span>
       <span class="concierge-detail-ja">食 ・ 栄 養</span>
       <div class="concierge-detail-line"></div>
       <ul class="concierge-detail-list">
-        <li>ミシュラン星付きシェフによるプライベートダイニングの自宅派遣</li>
-        <li>管理栄養士と連携した、目標別オーダーメイド献立の作成</li>
-        <li>高級オーガニック食材・海外サプリメント・機能性食品の調達代行</li>
-        <li>予約困難な名店・会員制レストランへの優先予約手配</li>
-        <li>アレルギー・食事制限に対応した旅行先の食事プランニング</li>
+        <li>関西のミシュラン星付きシェフ（日本料理・フレンチ・イタリアン）によるプライベートダイニングをご自宅へ。記念日・接待利用にも対応</li>
+        <li>管理栄養士が血液検査データ・体組成・生活リズムを踏まえ、減量・筋力増強・抗酸化等の目標別オーダーメイド献立を毎週更新</li>
+        <li>全国の契約農家からのオーガニック食材、海外直輸入サプリメント（NMN・グルタチオン等）、機能性食品の調達をワンストップで代行</li>
+        <li>神戸・大阪・京都の予約困難店・会員制レストランへの優先予約。ソムリエ手配やプライベートルームの確保も対応</li>
+        <li>アレルギー・食事制限（グルテンフリー・ケトジェニック等）に対応した、国内外の旅行先での食事プランニング・レストランリサーチ</li>
       </ul>
     </div>
   </div>
@@ -3032,17 +3662,17 @@
           <div class="track-stat-item">
             <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
             <span class="track-stat-label">TOTAL CLIENTS</span>
-            <p class="track-stat-sub">累計指導実績</p>
+            <p class="track-stat-sub">代表トレーナー15年間の累計指導人数</p>
           </div>
           <div class="track-stat-item">
             <div class="track-stat-num" data-count="92" data-suffix="%">0</div>
             <span class="track-stat-label">RETENTION RATE</span>
-            <p class="track-stat-sub">継続率</p>
+            <p class="track-stat-sub">年間契約の翌年度更新率</p>
           </div>
           <div class="track-stat-item">
             <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
             <span class="track-stat-label">TRAINER ACCEPTANCE</span>
-            <p class="track-stat-sub">トレーナー採用率</p>
+            <p class="track-stat-sub">年間応募300名超から厳選採用</p>
           </div>
         </div>
 
@@ -3057,29 +3687,104 @@
         <div class="track-clients">
           <div class="track-client-item">
             <span class="track-client-en">Entertainment</span>
-            <span class="track-client-ja">芸能・舞台関係者</span>
+            <span class="track-client-ja">芸能・宝塚歌劇団関係者</span>
           </div>
           <div class="track-client-item">
             <span class="track-client-en">Professional Athletes</span>
-            <span class="track-client-ja">プロアスリート</span>
+            <span class="track-client-ja">プロアスリート・五輪選手帯同</span>
           </div>
           <div class="track-client-item">
             <span class="track-client-en">Business Executives</span>
-            <span class="track-client-ja">経営者・エグゼクティブ</span>
+            <span class="track-client-ja">上場企業経営者・役員</span>
           </div>
           <div class="track-client-item">
             <span class="track-client-en">Medical Doctors</span>
-            <span class="track-client-ja">医師</span>
+            <span class="track-client-ja">開業医・勤務医</span>
           </div>
         </div>
 
-        <p class="track-note">* 数値は代表トレーナーの累計指導実績および現行サービスの継続率に基づきます。</p>
+        <p class="track-note">* 数値は代表トレーナー福田の累計指導実績（2011年〜）および現行サービスの継続率に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
       </div>
     </div>
   </div>
 
   <!-- Dark → White transition gradient -->
   <div class="zoom-to-white-transition"></div>
+
+  <!-- ════════ CLIENT VOICE (S-3) ════════ -->
+  <section id="client-voice">
+    <span class="section-label with-rule">CLIENT VOICE</span>
+    <h2 class="section-title fade">Member Experiences</h2>
+    <span class="section-title-ja fade">会 員 様 の 声</span>
+
+    <div class="voice-cards">
+      <div class="voice-card fade">
+        <p class="voice-card-text">
+          健康診断の数値が年々悪化していたが、半年で全項目が改善。何より、朝の目覚めと集中力が変わった。経営判断のキレが戻ったと実感している。
+        </p>
+        <span class="voice-card-attr">MEMBER A</span>
+        <span class="voice-card-role">50代・上場企業 代表取締役</span>
+      </div>
+      <div class="voice-card fade">
+        <p class="voice-card-text">
+          舞台のための身体づくりを完全にお任せできる安心感。栄養管理からケガの予防まで、公演スケジュールに合わせて柔軟に対応してくれる唯一の存在。
+        </p>
+        <span class="voice-card-attr">MEMBER B</span>
+        <span class="voice-card-role">40代・元宝塚歌劇団 トップスター</span>
+      </div>
+      <div class="voice-card fade">
+        <p class="voice-card-text">
+          医師として予防医学の重要性は理解していたが、自分のことは後回しだった。データに基づく徹底的なアプローチに、同業者として信頼を置いている。
+        </p>
+        <span class="voice-card-attr">MEMBER C</span>
+        <span class="voice-card-role">60代・開業医（内科）</span>
+      </div>
+    </div>
+
+    <p style="margin-top:3rem;font-size:0.62rem;color:var(--ink-faint);letter-spacing:0.05em;text-align:center;">* プライバシー保護のため、すべて匿名にて掲載しております。</p>
+  </section>
+
+  <!-- ════════ PROGRAM JOURNEY (S-2) ════════ -->
+  <section id="program-journey">
+    <span class="section-label with-rule">PROGRAM JOURNEY</span>
+    <h2 class="section-title fade">Your Year With Us</h2>
+    <span class="section-title-ja fade">年 間 プ ロ グ ラ ム の 流 れ</span>
+
+    <div class="journey-timeline fade">
+      <div class="journey-q">
+        <span class="journey-q-dot"></span>
+        <span class="journey-q-label">Q1 — MONTH 1-3</span>
+        <span class="journey-q-title">基礎構築</span>
+        <p class="journey-q-desc">
+          初回アセスメント（体組成・血液検査・FMS）を実施。データに基づき年間ロードマップを策定。基礎的な運動習慣と栄養改善からスタート。
+        </p>
+      </div>
+      <div class="journey-q">
+        <span class="journey-q-dot"></span>
+        <span class="journey-q-label">Q2 — MONTH 4-6</span>
+        <span class="journey-q-title">本格改善</span>
+        <p class="journey-q-desc">
+          基礎体力の向上を確認後、目標に応じた本格プログラムへ移行。筋力強化・体脂肪管理・姿勢改善を集中的に推進。中間血液検査で進捗を数値確認。
+        </p>
+      </div>
+      <div class="journey-q">
+        <span class="journey-q-dot"></span>
+        <span class="journey-q-label">Q3 — MONTH 7-9</span>
+        <span class="journey-q-title">最適化</span>
+        <p class="journey-q-desc">
+          半年間のデータを統合分析し、プログラムを精密チューニング。栄養・サプリメント処方の微調整、メンタルケアの導入、コンシェルジュサービスの活用拡大。
+        </p>
+      </div>
+      <div class="journey-q">
+        <span class="journey-q-dot"></span>
+        <span class="journey-q-label">Q4 — MONTH 10-12</span>
+        <span class="journey-q-title">年度レビュー</span>
+        <p class="journey-q-desc">
+          年間の成果を総括レポートとして提出。体組成・血液データ・主観評価の変化を可視化。翌年度の目標設定とプログラム再設計を行い、次の1年へ。
+        </p>
+      </div>
+    </div>
+  </section>
 
   <div class="diamond-divider fade"><span></span></div>
 
@@ -3104,31 +3809,31 @@
     <div class="join-steps">
       <div class="join-step fade">
         <span class="join-step-num">STEP 01</span>
-        <span class="join-step-text">参画リクエストフォーム送信<span class="join-step-sub">2営業日以内に代表・福田より直接ご連絡</span></span>
+        <span class="join-step-text">参画リクエストフォーム送信<span class="join-step-sub">お名前・ご職業・健康上の関心事をご記入。2営業日以内に代表・福田より直接ご連絡いたします</span></span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 02</span>
-        <span class="join-step-text">スクリーニングフォーム記入</span>
+        <span class="join-step-text">スクリーニングフォーム記入<span class="join-step-sub">健康目標・生活リズム・既往歴・ご希望の訪問頻度等をヒアリング。所要約15分</span></span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 03</span>
-        <span class="join-step-text">審査結果通知<span class="join-step-sub">通過／非通過／保留</span></span>
+        <span class="join-step-text">審査結果通知<span class="join-step-sub">5営業日以内に通過・非通過・保留をメールにてご連絡。通過率は非公開</span></span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 04</span>
-        <span class="join-step-text">個別ヒアリング面談<span class="join-step-sub">高級ホテルラウンジにて対面、希望によりオンライン可</span></span>
+        <span class="join-step-text">個別ヒアリング面談<span class="join-step-sub">芦屋・神戸・大阪のホテルラウンジにて代表が対面（約60分）。オンラインも可。プラン・ゴール・ライフスタイルを詳細に確認</span></span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 05</span>
-        <span class="join-step-text">プログラムご提案・契約書締結</span>
+        <span class="join-step-text">プログラムご提案・契約書締結<span class="join-step-sub">ヒアリング内容に基づきオーダーメイドの年間プログラムをご提案。NDA・サービス契約を締結</span></span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 06</span>
-        <span class="join-step-text">入会金お支払い</span>
+        <span class="join-step-text">入会金お支払い<span class="join-step-sub">銀行振込にてお手続き。ご入金確認後、正式に会員登録が完了します</span></span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 07</span>
-        <span class="join-step-text">初回アセスメントセッション・年間プログラム開始</span>
+        <span class="join-step-text">初回アセスメントセッション<span class="join-step-sub">InBody体組成測定・姿勢評価・FMS動作スクリーニング・生活習慣ヒアリングを実施（約90分）。結果をもとに年間プログラムが始動</span></span>
       </div>
     </div>
 
@@ -3182,14 +3887,14 @@
           </div>
           <p class="plan-tax-note">all prices include tax</p>
           <ul class="plan-features">
-            <li>専属パーソナルセッション：月4回（60分）</li>
-            <li>24時間コンディションサポート（Oura Ring連動）</li>
-            <li>管理栄養士によるフルオーダー食事管理</li>
-            <li>パーソナルサプリメント処方・毎月提供</li>
-            <li>ヘルスケアコンシェルジュ（回数制限なし）</li>
-            <li>スペシャルセッション招待：年4回<span class="plan-feature-sub">著名トレーナー・ヨガ／ピラティス講師招聘</span></li>
-            <li>出張・旅行時専属同行サービス（国内）</li>
-            <li>プレミアムギフト：入会時提供</li>
+            <li>専属パーソナルセッション：月4回（各60分）<span class="plan-feature-sub">筋力トレーニング・可動域改善・姿勢矯正を個別プログラムで実施</span></li>
+            <li>24時間コンディションサポート<span class="plan-feature-sub">Oura Ringデータ連動。LINEにて30分以内にトレーナーが応答（緊急時は即時対応）</span></li>
+            <li>管理栄養士によるフルオーダー食事管理<span class="plan-feature-sub">毎日の献立設計・食事写真フィードバック・月次栄養レポート提供</span></li>
+            <li>パーソナルサプリメント処方・毎月配送<span class="plan-feature-sub">血液検査データに基づくオーダーメイド処方（ビタミン・ミネラル・アミノ酸等）</span></li>
+            <li>ヘルスケアコンシェルジュ（回数無制限）<span class="plan-feature-sub">医療機関予約・美容手配・食の調達等、専属コンシェルジュが24時間対応</span></li>
+            <li>スペシャルセッション招待：年4回<span class="plan-feature-sub">ヨガ・ピラティス・格闘技・ゴルフ等の専門講師を招聘したプライベートレッスン</span></li>
+            <li>出張・旅行時専属同行サービス（国内）<span class="plan-feature-sub">年間6日まで無料。トレーニング・食事管理を旅先でも継続</span></li>
+            <li>プレミアムギフト：入会時提供<span class="plan-feature-sub">Oura Ring最新モデル・Technogymトレーニングキット・オリジナルウェア</span></li>
           </ul>
         </div>
 
@@ -3212,11 +3917,11 @@
           </div>
           <p class="plan-tax-note">all prices include tax</p>
           <ul class="plan-features">
-            <li>専属パーソナルセッション：月2回（60分）</li>
-            <li>24時間コンディションサポート（Oura Ring連動）</li>
-            <li>管理栄養士による食事サポート</li>
-            <li>ヘルスケアコンシェルジュ（回数制限なし）</li>
-            <li>プレミアムギフト：入会時提供</li>
+            <li>専属パーソナルセッション：月2回（各60分）<span class="plan-feature-sub">PLATINUMと同品質のトレーニングを隔週ペースで実施</span></li>
+            <li>24時間コンディションサポート<span class="plan-feature-sub">Oura Ringデータ連動。LINEにて原則2時間以内にトレーナーが応答</span></li>
+            <li>管理栄養士による食事サポート<span class="plan-feature-sub">週次の食事ガイドライン提供・月1回の栄養カウンセリング</span></li>
+            <li>ヘルスケアコンシェルジュ（回数無制限）<span class="plan-feature-sub">医療機関予約・各種手配の窓口として営業時間内に対応</span></li>
+            <li>プレミアムギフト：入会時提供<span class="plan-feature-sub">Oura Ring最新モデル・オリジナルウェア</span></li>
           </ul>
         </div>
       </div>
@@ -3226,11 +3931,11 @@
         <p class="plan-options-sub">オプションサービス（会員様向け）</p>
         <ul class="plan-options-list">
           <li>
-            <span>家族・パートナー健康サポート</span>
+            <span>家族・パートナー健康サポート<span class="plan-feature-sub">ご家族1名の体組成測定・栄養カウンセリング・トレーニング同席</span></span>
             <span class="plan-options-fee">料金要相談</span>
           </li>
           <li>
-            <span>出張・旅行時専属同行サービス（海外）</span>
+            <span>出張・旅行時専属同行サービス（海外）<span class="plan-feature-sub">渡航先でのトレーニング・食事管理・現地医療機関リサーチを含む</span></span>
             <span class="plan-options-fee">¥1,000,000 / 日</span>
           </li>
         </ul>
@@ -3268,19 +3973,19 @@
     <div class="conf-items">
       <div class="conf-item fade">
         <span class="conf-item-en">NDA AGREEMENT</span>
-        <p>全スタッフが個別の機密保持契約を締結。<br>違反時の法的措置を含む厳格な体制。</p>
+        <p>全スタッフが個別の機密保持契約を締結。<br>違反時は損害賠償請求を含む法的措置の<br>対象となる厳格な契約体制を採用。</p>
       </div>
       <div class="conf-item fade">
         <span class="conf-item-en">LIFETIME OBLIGATION</span>
-        <p>退職スタッフを含む、永続的な守秘義務。<br>契約終了後も保護は継続されます。</p>
+        <p>退職スタッフを含む、永続的かつ無期限の守秘義務。<br>契約終了・退職後も守秘義務に時効はなく、<br>生涯にわたり保護が継続されます。</p>
       </div>
       <div class="conf-item fade">
         <span class="conf-item-en">ZERO DISCLOSURE</span>
-        <p>ご利用の事実そのものを外部に開示しません。<br>ご家族・ご周囲への連絡もご本人許可制。</p>
+        <p>ご利用の事実そのものを外部に開示しません。<br>ご家族・関係者への連絡、SNSでの言及も<br>ご本人の書面による事前許可がない限り一切不可。</p>
       </div>
       <div class="conf-item fade">
         <span class="conf-item-en">DATA PROTECTION</span>
-        <p>健康データ・トレーニング記録・医療情報の<br>暗号化管理と厳格なアクセス制限。</p>
+        <p>健康データ・トレーニング記録・医療情報は<br>AES-256暗号化で保管。アクセスは担当者のみに制限。<br>退会後のデータは、ご希望に応じ完全削除いたします。</p>
       </div>
     </div>
 
@@ -3302,7 +4007,7 @@
         </button>
         <div class="faq-a">
           <div class="faq-a-inner">
-            あなた専属の健康管理パートナーとして、トレーニング・栄養設計・体調モニタリング・医療機関との連携までを一貫してコーディネートいたします。単なるトレーナーではなく、お身体と生活全体を見据えたサポートを提供します。
+            専属トレーナー・管理栄養士・提携医師・コンシェルジュの4職種がチームを組み、トレーニング・栄養設計・体調モニタリング・医療連携を一貫してコーディネートいたします。例えば、Oura Ringで睡眠の質が低下を検知した場合、トレーナーがその日の運動強度を調整し、栄養士が回復を促す食事プランを提案、必要に応じて提携医師への相談も手配します。単なるトレーナーではなく、お身体と生活全体を見据えた「健康の主治医チーム」としてお考えください。
           </div>
         </div>
       </div>
@@ -3313,7 +4018,7 @@
         </button>
         <div class="faq-a">
           <div class="faq-a-inner">
-            提携する医療機関・整骨院・鍼灸院と情報を共有し、トレーニングだけでは対応できない不調や予防ケアにもチーム体制で対応します。ご希望に応じて、健康診断データを踏まえたプログラム調整も可能です。
+            関西圏を中心に30以上の医療機関・整骨院・鍼灸院と提携しています。人間ドックや血液検査の結果はトレーナーと提携医師が共同でレビューし、トレーニング内容や栄養プランに反映します。例えば、血液検査でLDLコレステロールが高値の場合、有酸素運動の比率を増やし、食事でのω-3脂肪酸を強化するといった具体的な調整を行います。急な体調不良時にも、提携クリニックへの当日予約手配が可能です。
           </div>
         </div>
       </div>
@@ -3324,7 +4029,7 @@
         </button>
         <div class="faq-a">
           <div class="faq-a-inner">
-            芦屋・西宮・神戸エリアを中心に、ご自宅・オフィスへの訪問で対応しております。上記以外のエリアについても、ご相談に応じて対応可能な場合がございます。
+            芦屋・西宮・神戸・宝塚エリアを中心に、大阪市内（梅田・心斎橋・天王寺等）まで訪問対応しております。上記以外のエリア（京都・奈良等）についても、出張費をご負担いただくことで対応可能な場合がございます。PLATINUMプラン会員様は国内出張先への同行サービス（年間6日まで無料）もご利用いただけます。
           </div>
         </div>
       </div>
@@ -3335,7 +4040,7 @@
         </button>
         <div class="faq-a">
           <div class="faq-a-inner">
-            ご契約は1年単位の年間プログラムとなります。身体の変化と健康設計には一定期間が必要なため、年間を通じた包括的なサポートをご提供いたします。次年度以降の継続については、年度末の個別面談にてご相談いただけます。
+            ご契約は1年単位の年間プログラムです。身体の変化と健康設計には最低6ヶ月〜1年の継続が必要なため、年間を通じた包括的なサポートをご提供しています。年度末に個別面談を実施し、翌年度のプログラム継続・プラン変更をご相談いただけます。なお、やむを得ない事情による中途解約については個別にご相談を承りますが、入会金の返金はございませんのでご了承ください。
           </div>
         </div>
       </div>
@@ -3346,7 +4051,7 @@
         </button>
         <div class="faq-a">
           <div class="faq-a-inner">
-            一切ございません。全スタッフがNDA（秘密保持契約）を締結しており、お客様のご利用情報はもちろん、ご利用の事実そのものを第三者に開示することは一切ありません。
+            一切ございません。全スタッフがNDA（秘密保持契約）を締結しており、ご利用の事実そのものを第三者に開示することは一切ありません。訪問時のスタッフは私服で伺い、車両にもロゴ等の表示はございません。配送物にもサービス名の記載はなく、ご家族やご近隣の方にも知られることのないよう万全の配慮を行っております。SNSや口コミサイトへの掲載も厳禁としています。
           </div>
         </div>
       </div>
@@ -3384,6 +4089,20 @@
     </div>
   </section>
 
+
+  <!-- ════════ CTA FINAL (S-4) ════════ -->
+  <section id="cta-final">
+    <span class="section-label with-rule">INVITATION</span>
+    <p class="cta-headline fade">
+      あなたの健康を、生涯にわたり守る<br>
+      専属チームをお届けします。
+    </p>
+    <p class="cta-sub fade">
+      まずは参画リクエストフォームより、お気軽にお問い合わせください。<br>
+      代表・福田より2営業日以内に直接ご連絡いたします。
+    </p>
+    <a href="invitation-request.html" class="cta-btn fade">REQUEST INVITATION</a>
+  </section>
 
   <!-- ════════ BACK TO TOP ════════ -->
   <button class="back-to-top" id="back-to-top" aria-label="ページトップへ戻る">
@@ -3594,6 +4313,17 @@
         });
       }, { threshold: 0.15 });
       timelineObserver.observe(stepsContainer);
+    }
+
+    // D-5: Join step accordion (mobile)
+    if (window.innerWidth <= 880) {
+      document.querySelectorAll('.join-step').forEach(function(step) {
+        var sub = step.querySelector('.join-step-sub');
+        if (!sub) return;
+        step.querySelector('.join-step-text').addEventListener('click', function() {
+          step.classList.toggle('sub-open');
+        });
+      });
     }
 
     // FAQ toggle

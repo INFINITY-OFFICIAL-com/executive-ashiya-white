@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The EA Method — 独自メソッド | EXECUTIVE ASHIYA</title>
+  <meta name="description" content="EXECUTIVE ASHIYAの独自メソッド「The EA Method」。精密データ科学・専門家チーム統合・予防長寿医学・生涯継続設計の4つの柱で、エグゼクティブの健康寿命を包括的に設計します。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #FAF8F4;
+      --gold: #8B6F1F;
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28,31,46,0.55);
+      --ink-faint: rgba(28,31,46,0.22);
+      --ink-line: rgba(28,31,46,0.08);
+      --serif-en: 'Cormorant Garamond', serif;
+      --serif-jp: 'Noto Serif JP', serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      line-height: 2.2;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══ HEADER ═══ */
+    .method-header {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .method-header-logo {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .method-header-back {
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .method-header-back:hover { opacity: 0.6; }
+
+    /* ═══ HERO ═══ */
+    .method-hero {
+      background: var(--ink);
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    .method-hero-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 2rem;
+    }
+    .method-hero-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 0.12em;
+      color: #fff;
+      margin: 0 0 0.6rem;
+    }
+    .method-hero-ja {
+      font-family: var(--serif-jp);
+      font-size: 0.72rem;
+      letter-spacing: 0.45em;
+      color: rgba(255,255,255,0.4);
+      display: block;
+      margin-bottom: 3rem;
+    }
+    .method-hero-lead {
+      font-size: 0.82rem;
+      line-height: 2.4;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ═══ SECTION BASE ═══ */
+    .m-section {
+      padding: 7rem 2rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .m-section.dark {
+      max-width: none;
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+    }
+    .m-section.dark .m-section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .m-section.alt {
+      max-width: none;
+      background: var(--bg-alt);
+    }
+    .m-section.alt .m-section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .m-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .m-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin: 0 0 0.4rem;
+    }
+    .m-title-ja {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+      margin-bottom: 3rem;
+    }
+    .m-section.dark .m-title { color: #fff; }
+    .m-section.dark .m-title-ja { color: rgba(255,255,255,0.35); }
+    .m-body {
+      font-size: 0.78rem;
+      line-height: 2.6;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+    }
+    .m-body p { margin: 0 0 2rem; }
+    .m-body p:last-child { margin-bottom: 0; }
+    .m-section.dark .m-body { color: rgba(255,255,255,0.6); }
+
+    /* ═══ KEY POINTS ═══ */
+    .m-points {
+      list-style: none;
+      padding: 0;
+      margin: 3rem 0 0;
+    }
+    .m-points li {
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      line-height: 2;
+      padding: 1rem 0 1rem 1.6rem;
+      border-bottom: 1px solid var(--ink-line);
+      position: relative;
+    }
+    .m-points li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
+    .m-points li strong {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .m-section.dark .m-points li {
+      color: rgba(255,255,255,0.65);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .m-section.dark .m-points li::before { color: var(--gold); }
+
+    /* ═══ QUOTE ═══ */
+    .m-quote {
+      margin: 4rem 0;
+      padding: 3rem 0;
+      border-top: 1px solid var(--ink-line);
+      border-bottom: 1px solid var(--ink-line);
+      text-align: center;
+    }
+    .m-quote blockquote {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(0.88rem, 1.8vw, 1.1rem);
+      line-height: 2.2;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0 0 1.2rem;
+    }
+    .m-quote cite {
+      font-family: var(--serif-en);
+      font-style: normal;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+    .m-section.dark .m-quote { border-color: rgba(255,255,255,0.1); }
+    .m-section.dark .m-quote blockquote { color: rgba(255,255,255,0.7); }
+
+    /* ═══ INTEGRATION DIAGRAM ═══ */
+    .m-integration {
+      max-width: 680px;
+      margin: 3.5rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: center;
+    }
+    .m-integ-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .m-integ-item {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      padding: 0.8rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .m-integ-center {
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .m-integ-center-circle {
+      width: 120px;
+      height: 120px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .m-integ-center-en {
+      font-family: var(--serif-en);
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+    .m-integ-center-ja {
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.2rem;
+    }
+
+    /* ═══ CTA ═══ */
+    .m-cta {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: var(--ink);
+    }
+    .m-cta-text {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      letter-spacing: 0.15em;
+      color: #fff;
+      line-height: 2;
+      margin: 0 0 2.5rem;
+    }
+    .m-cta-btn {
+      display: inline-block;
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 1.1rem 3rem;
+      text-decoration: none;
+      transition: background 0.4s, color 0.4s;
+    }
+    .m-cta-btn:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    /* ═══ FOOTER ═══ */
+    .m-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--ink-line);
+    }
+    .m-footer-copy {
+      font-size: 0.58rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 880px) {
+      .method-header { padding: 1.6rem 1.4rem; }
+      .method-hero { padding: 5rem 1.6rem; }
+      .m-section { padding: 5rem 1.6rem; }
+      .m-integration { grid-template-columns: 1fr; gap: 1.5rem; }
+      .m-integ-center { padding: 1.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="method-header">
+    <a href="index.html" class="method-header-logo">EXECUTIVE ASHIYA</a>
+    <a href="index.html" class="method-header-back">← BACK TO TOP</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="method-hero">
+    <span class="method-hero-label">OUR APPROACH</span>
+    <h1 class="method-hero-title">The EA Method</h1>
+    <span class="method-hero-ja">独 自 メ ソ ッ ド</span>
+    <p class="method-hero-lead">
+      世界の予防医学・ロンジェビティ研究が示す最先端のエビデンスを、<br>
+      日本のエグゼクティブの生活様式に最適化して統合する。<br>
+      EXECUTIVE ASHIYAが提供するのは、トレーニングではなく「健康の建築」です。
+    </p>
+  </div>
+
+  <!-- PILLAR 01: PRECISION DATA -->
+  <div class="m-section">
+    <span class="m-num">PILLAR 01</span>
+    <h2 class="m-title">Precision Data Science</h2>
+    <span class="m-title-ja">精 密 デ ー タ 科 学</span>
+    <div class="m-body">
+      <p>
+        「感覚」ではなく「数値」で意思決定する——これがEA Methodの出発点です。<br>
+        入会時のアセスメントで取得するデータは、一般的なパーソナルジムとは一線を画します。
+      </p>
+    </div>
+    <ul class="m-points">
+      <li>
+        <strong>BLOOD PANEL — 40+ BIOMARKERS</strong>
+        脂質パネル（LDL/HDL/TG）、肝機能（AST/ALT/γ-GTP）、糖代謝（HbA1c/空腹時血糖）、ホルモン（テストステロン/コルチゾール/DHEA-S）、炎症マーカー（hs-CRP）、ビタミン・ミネラル（Vit D/B12/フェリチン/亜鉛）。年2回の定期検査で推移を追跡。
+      </li>
+      <li>
+        <strong>BODY COMPOSITION — InBody 770</strong>
+        部位別筋肉量・体脂肪率・内臓脂肪レベル・細胞外水分比（ECW/TBW）を精密測定。毎月の変化を0.1kg単位でトラッキングし、プログラムの効果を定量評価。
+      </li>
+      <li>
+        <strong>WEARABLE BIOMETRICS — Oura Ring / Apple Watch</strong>
+        睡眠スコア・HRV（心拍変動）・安静時心拍数・皮膚温度・活動量を24時間リアルタイム追跡。データはトレーナーのダッシュボードと連携し、日次のコンディション判断に活用。
+      </li>
+      <li>
+        <strong>MOVEMENT SCREENING — FMS / SFMA</strong>
+        Functional Movement Screen（7パターンの動作評価）で可動域・安定性・左右非対称性を数値化。障害リスクの早期発見とトレーニングプログラムの個別最適化に直結。
+      </li>
+    </ul>
+
+    <div class="m-quote">
+      <blockquote>
+        "What gets measured gets managed."
+      </blockquote>
+      <cite>— PETER DRUCKER</cite>
+    </div>
+  </div>
+
+  <!-- PILLAR 02: INTEGRATED TEAM -->
+  <div class="m-section alt">
+    <div class="m-section-inner">
+      <span class="m-num">PILLAR 02</span>
+      <h2 class="m-title">Integrated Expert Team</h2>
+      <span class="m-title-ja">専 門 家 チ ー ム 統 合</span>
+      <div class="m-body">
+        <p>
+          一般的なヘルスケアサービスでは、トレーナー・栄養士・医師がそれぞれ独立して動きます。<br>
+          EA Methodでは、4職種が「ひとつのチーム」として月次カンファレンスを実施。<br>
+          データを共有し、全員が同じゴールに向かってプログラムを調整します。
+        </p>
+      </div>
+      <ul class="m-points">
+        <li>
+          <strong>PERSONAL TRAINER</strong>
+          NSCA-CSCS・NASM-PES等の上位資格を保持。採用率0.3%の厳選トレーナーが、年間を通じて一貫した指導を提供。
+        </li>
+        <li>
+          <strong>REGISTERED DIETITIAN</strong>
+          管理栄養士が血液データ・体組成・生活リズムに基づき、食事プラン・サプリメント処方を毎月更新。分子栄養学の知見を実践に反映。
+        </li>
+        <li>
+          <strong>MEDICAL PARTNERS</strong>
+          提携する30以上の医療機関（内科・整形外科・再生医療・美容皮膚科等）と連携。検査結果のレビュー、急な体調変化への対応、セカンドオピニオンの手配。
+        </li>
+        <li>
+          <strong>HEALTH CONCIERGE</strong>
+          専任コンシェルジュが医療予約・美容手配・食の調達・旅行中のケアまでワンストップで対応。会員様は健康に関するあらゆる要望を一つの窓口に伝えるだけ。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PILLAR 03: PREVENTIVE & LONGEVITY -->
+  <div class="m-section dark">
+    <div class="m-section-inner">
+      <span class="m-num" style="color:var(--gold);">PILLAR 03</span>
+      <h2 class="m-title">Preventive &amp; Longevity Medicine</h2>
+      <span class="m-title-ja">予 防 ・ 長 寿 医 学</span>
+      <div class="m-body">
+        <p>
+          従来の医療は「病気になってから治す」Medicine 2.0のアプローチでした。<br>
+          EA Methodが基盤とするのは、Dr. Peter Attiaが提唱する「Medicine 3.0」——<br>
+          慢性疾患を予防し、寿命（Lifespan）と健康寿命（Healthspan）の双方を最大化する思想です。
+        </p>
+      </div>
+
+      <div class="m-quote">
+        <blockquote>
+          "The goal of Medicine 3.0 is not to patch people up and send them on their way,<br>
+          but to prevent the chronic diseases that steal both years from life and life from years."
+        </blockquote>
+        <cite>— DR. PETER ATTIA, "OUTLIVE: THE SCIENCE AND ART OF LONGEVITY" (2023)</cite>
+      </div>
+
+      <div class="m-body">
+        <p>
+          この理念を実践するため、EA Methodは3つの医学的フレームワークを統合しています。
+        </p>
+      </div>
+
+      <ul class="m-points">
+        <li>
+          <strong>FUNCTIONAL MEDICINE</strong>
+          症状ではなく根本原因にアプローチ。腸内環境・ホルモンバランス・慢性炎症・酸化ストレスなど、疾患の上流にある要因を特定し、栄養・運動・生活習慣で改善。
+        </li>
+        <li>
+          <strong>MOLECULAR NUTRITION</strong>
+          分子栄養学に基づき、血液検査データから個人の栄養状態を分子レベルで評価。不足するビタミン・ミネラル・アミノ酸をオーダーメイドサプリメントで最適化。
+        </li>
+        <li>
+          <strong>REGENERATIVE MEDICINE ACCESS</strong>
+          幹細胞治療・エクソソーム点滴・PRP療法・NMN点滴等、提携クリニックを通じた再生医療へのアクセス。施術前後のコンディショニングまで一括管理。
+        </li>
+      </ul>
+
+      <div class="m-quote">
+        <blockquote>
+          "The doctor of the future will give no medicine, but will interest his patients<br>
+          in the care of the human frame, diet, and in the prevention of disease."
+        </blockquote>
+        <cite>— THOMAS EDISON</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLAR 04: LIFETIME CONTINUITY -->
+  <div class="m-section">
+    <span class="m-num">PILLAR 04</span>
+    <h2 class="m-title">Lifetime Continuity</h2>
+    <span class="m-title-ja">生 涯 継 続 設 計</span>
+    <div class="m-body">
+      <p>
+        短期間で結果を出すプログラムは世の中に数多く存在します。<br>
+        しかし、3ヶ月で失った体重は、3ヶ月で元に戻る——これが現実です。
+      </p>
+      <p>
+        EA Methodが年間契約を基本とする理由はここにあります。<br>
+        身体の真の変化には最低6ヶ月の継続が必要であり、<br>
+        1年間のデータ蓄積が、2年目以降のプログラムの精度を飛躍的に高めます。<br>
+        継続率92%という数字は、この設計思想の正しさを証明しています。
+      </p>
+    </div>
+    <ul class="m-points">
+      <li>
+        <strong>QUARTERLY REVIEW CYCLE</strong>
+        3ヶ月ごとに血液検査・体組成測定・FMSを再評価。データの推移を可視化し、次の四半期の戦略を再設計。
+      </li>
+      <li>
+        <strong>ANNUAL COMPREHENSIVE REPORT</strong>
+        年度末に全データを統合した年間総括レポートを提出。1年間の変化を数値・グラフで可視化し、翌年度の目標を設定。
+      </li>
+      <li>
+        <strong>CUMULATIVE DATA ADVANTAGE</strong>
+        2年目、3年目と継続するほど蓄積されるデータが増え、プログラムの個別最適化が深化。長期会員ほど、より精度の高い健康設計が可能に。
+      </li>
+    </ul>
+  </div>
+
+  <!-- WHY EA IS DIFFERENT -->
+  <div class="m-section alt">
+    <div class="m-section-inner">
+      <span class="m-num">SUMMARY</span>
+      <h2 class="m-title">Why Executive Ashiya</h2>
+      <span class="m-title-ja">な ぜ E A な の か</span>
+      <div class="m-body">
+        <p>
+          世界のロンジェビティ研究、機能性医学、分子栄養学——<br>
+          これらの知見は書籍やクリニックで個別に手に入ります。<br>
+          しかし、それらを一つのチームが統合し、<br>
+          完全訪問型でプライベートに提供するサービスは、日本には存在しませんでした。
+        </p>
+        <p>
+          EXECUTIVE ASHIYAは、グローバルスタンダードの予防医学を、<br>
+          日本のエグゼクティブの生活様式と美意識に最適化した<br>
+          唯一無二のプライベートヘルスケアサービスです。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="m-cta">
+    <p class="m-cta-text">
+      参画をご検討の方へ
+    </p>
+    <a href="invitation-request.html" class="m-cta-btn">REQUEST INVITATION</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="m-footer">
+    <span class="m-footer-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
+  </div>
+
+</body>
+</html>
