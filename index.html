@@ -398,6 +398,16 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
+      pointer-events: none;
+    }
+    .hero-video::-webkit-media-controls,
+    .hero-video::-webkit-media-controls-start-playback-button,
+    .hero-video::-webkit-media-controls-play-button,
+    .hero-video::-webkit-media-controls-panel,
+    .hero-video::-webkit-media-controls-enclosure {
+      display: none !important;
+      -webkit-appearance: none !important;
+      opacity: 0 !important;
     }
     .hero-video-sp { display: none; }
     @media (max-width: 880px) {
@@ -1347,9 +1357,9 @@
       text-align: center;
       background: none;
     }
-    /* Close button — fixed top-right, refined */
+    /* Close button — absolute within .concierge-detail (fixed inset:0 parent) */
     .concierge-detail-close {
-      position: fixed;
+      position: absolute;
       top: 2rem;
       right: 2rem;
       width: 44px;
@@ -1358,7 +1368,7 @@
       border: 1px solid rgba(255,255,255,0.15);
       cursor: pointer;
       padding: 0;
-      z-index: 2;
+      z-index: 10;
       transition: border-color 0.3s, transform 0.3s;
     }
     .concierge-detail-close:hover {
@@ -1507,7 +1517,7 @@
       }
       .concierge-card { min-height: 300px; }
       .concierge-detail-inner { padding: 2.5rem 1.6rem 2rem; }
-      .concierge-detail-close { top: 1.2rem; right: 1.2rem; width: 38px; height: 38px; }
+      .concierge-detail-close { top: max(1.2rem, env(safe-area-inset-top, 0px)); right: max(1.2rem, env(safe-area-inset-right, 0px)); width: 44px; height: 44px; }
       .concierge-detail-en { letter-spacing: 0.06em; }
       .concierge-detail-list li { font-size: 0.78rem; }
     }
@@ -2346,6 +2356,21 @@
       border-color: #fff;
       letter-spacing: 0.4em;
     }
+    .hero-members-link {
+      display: none;
+      margin-top: 2rem;
+      font-family: var(--serif-en);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 0.3rem;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .hero-members-link:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
+    @media (max-width: 880px) {
+      .hero-members-link { display: inline-block; }
+    }
 
     /* ════════ FOOTER ════════ */
     footer {
@@ -3183,13 +3208,11 @@
         <span>EXECUTIVE ASHIYA<span class="logo-ja">エグゼクティブ芦屋</span></span>
       </a>
       <div class="nav-links-pc">
-        <a class="nav-link" href="#philosophy">PHILOSOPHY</a>
         <a class="nav-link" href="#services">SERVICES</a>
-        <a class="nav-link" href="#track-record">TRACK RECORD</a>
         <a class="nav-link" href="#members">PRICING</a>
         <a class="nav-link" href="#how-to-join">HOW TO JOIN</a>
         <a class="nav-link" href="#faq">FAQ</a>
-        <a class="nav-link" href="#news">NEWS</a>
+        <a class="nav-link" href="for-members.html">MEMBERS</a>
         <a class="nav-cta" href="invitation-request.html">INVITATION</a>
       </div>
       <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開く">
@@ -3205,14 +3228,15 @@
       <a href="#how-to-join" onclick="closeMobileNav()">HOW TO JOIN</a>
       <a href="#faq" onclick="closeMobileNav()">FAQ</a>
       <a href="#news" onclick="closeMobileNav()">NEWS</a>
+      <a href="for-members.html" onclick="closeMobileNav()">MEMBERS</a>
       <a href="invitation-request.html" onclick="closeMobileNav()">INVITATION</a>
     </nav>
   </header>
 
   <!-- ════════ HERO ════════ -->
   <section id="hero">
-    <video class="hero-video hero-video-pc" src="hero-bg.mp4" autoplay muted loop playsinline></video>
-    <video class="hero-video hero-video-sp" src="hero-bg-sp.mp4" autoplay muted loop playsinline></video>
+    <video class="hero-video hero-video-pc" src="hero-bg.mp4" autoplay muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
+    <video class="hero-video hero-video-sp" src="hero-bg-sp.mp4" autoplay muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
     <div class="hero-overlay"></div>
     <div class="hero-text">
       <div class="hero-roman fade">EST. ASHIYA</div>
@@ -3221,6 +3245,7 @@
       <p class="catch fade">健康寿命を、生涯最大の資産に。</p>
       <p class="hero-exclusive fade">— By Invitation Only —</p>
       <a href="invitation-request.html" class="hero-cta fade">REQUEST INVITATION</a>
+      <a href="for-members.html" class="hero-members-link fade">Members Login</a>
     </div>
   </section>
 
@@ -3416,8 +3441,8 @@
 
   <!-- Concierge Detail Panels -->
   <div class="concierge-detail" id="concierge-medical" onclick="closeConcierge(event)">
+    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
       <div class="concierge-detail-img"><img src="concierge-medical.webp" alt="Medical facility" loading="lazy" /></div>
       <span class="concierge-detail-num">01</span>
       <span class="concierge-detail-en">Medical Access</span>
@@ -3434,8 +3459,8 @@
   </div>
 
   <div class="concierge-detail" id="concierge-aesthetic" onclick="closeConcierge(event)">
+    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
       <div class="concierge-detail-img"><img src="concierge-spa.webp" alt="Luxury spa" loading="lazy" /></div>
       <span class="concierge-detail-num">02</span>
       <span class="concierge-detail-en">Aesthetic &amp; Body Care</span>
@@ -3452,8 +3477,8 @@
   </div>
 
   <div class="concierge-detail" id="concierge-culinary" onclick="closeConcierge(event)">
+    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
       <div class="concierge-detail-img"><img src="concierge-culinary.webp" alt="Culinary experience" loading="lazy" /></div>
       <span class="concierge-detail-num">03</span>
       <span class="concierge-detail-en">Culinary &amp; Nutrition</span>
@@ -4131,6 +4156,7 @@
       <a href="invitation-request.html">INVITATION</a>
     </div>
     <div class="f-links">
+      <a href="for-members.html">FOR MEMBERS</a>
       <a href="screening.html">SCREENING</a>
       <a href="privacy.html">PRIVACY POLICY</a>
       <a href="tokushoho.html">特定商取引法に基づく表記</a>
@@ -4139,6 +4165,27 @@
   </footer>
 
   <script>
+    // Hero video autoplay enforcement
+    (function() {
+      function forcePlayVideos() {
+        document.querySelectorAll('.hero-video').forEach(function(v) {
+          v.muted = true;
+          v.setAttribute('muted', '');
+          v.setAttribute('playsinline', '');
+          var p = v.play();
+          if (p && p.catch) p.catch(function() {});
+        });
+      }
+      document.addEventListener('DOMContentLoaded', forcePlayVideos);
+      window.addEventListener('load', forcePlayVideos);
+      document.addEventListener('touchstart', forcePlayVideos, { once: true });
+      document.addEventListener('click', forcePlayVideos, { once: true });
+      document.addEventListener('scroll', forcePlayVideos, { once: true });
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) forcePlayVideos();
+      });
+    })();
+
     // Loader
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');

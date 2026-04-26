@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>FOR MEMBERS | EXECUTIVE ASHIYA</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #FAF8F4;
+      --gold: #8B6F1F;
+      --gold-light: #B89134;
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28,31,46,0.68);
+      --ink-faint: rgba(28,31,46,0.4);
+      --ink-line: rgba(28,31,46,0.1);
+      --serif-en: 'Cormorant Garamond', serif;
+      --serif-jp: 'Noto Serif JP', serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      line-height: 2.2;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══ HEADER ═══ */
+    .fm-header {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .fm-header-logo {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .fm-header-back {
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .fm-header-back:hover { opacity: 0.6; }
+
+    /* ═══ HERO ═══ */
+    .fm-hero {
+      background: var(--ink);
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    .fm-hero-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+    .fm-hero-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 0.12em;
+      color: #fff;
+      margin: 0 0 0.6rem;
+    }
+    .fm-hero-ja {
+      font-family: var(--serif-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.45em;
+      color: rgba(255,255,255,0.5);
+      display: block;
+      margin-bottom: 3rem;
+    }
+    .fm-hero-lead {
+      font-size: 0.88rem;
+      line-height: 2.4;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ═══ SECTION BASE ═══ */
+    .fm-section {
+      padding: 7rem 2rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .fm-section.alt {
+      max-width: none;
+      background: var(--bg-alt);
+    }
+    .fm-section.alt .fm-section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .fm-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .fm-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin: 0 0 0.4rem;
+      text-align: center;
+    }
+    .fm-title-ja {
+      display: block;
+      font-size: 0.74rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    /* ═══ THIS MONTH ═══ */
+    .fm-month-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--ink-faint);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .fm-month-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .fm-month-col {
+      border-top: 1px solid var(--ink-line);
+      padding-top: 2rem;
+    }
+    .fm-month-col-title {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .fm-month-col-title-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-faint);
+      margin-bottom: 2rem;
+    }
+    .fm-month-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .fm-month-item:last-child { border-bottom: none; }
+    .fm-month-item-date {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.56rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .fm-month-item-title {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+    .fm-month-item-read {
+      display: inline-block;
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: opacity 0.3s;
+    }
+    .fm-month-item-read:hover { opacity: 0.6; }
+    .fm-month-item-read::after {
+      content: ' →';
+    }
+
+    /* ═══ CONTACT ═══ */
+    .fm-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .fm-contact-divider {
+      background: var(--ink-line);
+    }
+    .fm-contact-col {
+      padding: 0 3rem;
+    }
+    .fm-contact-sub {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .fm-contact-sub-ja {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-faint);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Desk info */
+    .fm-desk-email {
+      font-family: var(--serif-en);
+      font-size: 0.92rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .fm-desk-email:hover { color: var(--gold); }
+    .fm-desk-hours {
+      display: block;
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+      margin: 0.8rem 0 2.5rem;
+    }
+    .fm-desk-areas-title {
+      font-family: var(--serif-en);
+      font-size: 0.56rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .fm-desk-areas {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem;
+    }
+    .fm-desk-areas li {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      line-height: 2.2;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .fm-desk-areas li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.9em;
+      width: 4px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .fm-desk-examples-title {
+      font-family: var(--serif-en);
+      font-size: 0.56rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .fm-desk-examples {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .fm-desk-examples li {
+      font-size: 0.76rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      line-height: 2;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--ink-line);
+      font-style: italic;
+    }
+    .fm-desk-examples li:last-child { border-bottom: none; }
+
+    /* Login form */
+    .fm-login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .fm-login-group { display: flex; flex-direction: column; }
+    .fm-login-label {
+      font-family: var(--serif-en);
+      font-size: 0.56rem;
+      letter-spacing: 0.2em;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+    }
+    .fm-login-input {
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--ink-line);
+      padding: 0.8rem 0;
+      outline: none;
+      transition: border-color 0.3s;
+      letter-spacing: 0.05em;
+    }
+    .fm-login-input:focus {
+      border-color: var(--gold);
+    }
+    .fm-login-input::placeholder {
+      color: var(--ink-faint);
+      font-size: 0.78rem;
+    }
+    .fm-login-btn {
+      display: block;
+      width: 100%;
+      font-family: var(--serif-en);
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 1.1rem 0;
+      cursor: pointer;
+      transition: background 0.4s, color 0.4s;
+      margin-top: 0.8rem;
+    }
+    .fm-login-btn:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+    .fm-login-error {
+      display: none;
+      font-size: 0.76rem;
+      color: #9B2C2C;
+      letter-spacing: 0.04em;
+      padding: 0.8rem 1rem;
+      background: rgba(155,44,44,0.06);
+      border-left: 2px solid #9B2C2C;
+      line-height: 1.8;
+    }
+    .fm-login-forgot {
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      line-height: 2;
+      margin-top: 0.5rem;
+    }
+
+    /* ═══ MEMBERS GATE MODAL ═══ */
+    .fm-gate-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      background: rgba(8,10,16,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .fm-gate-overlay.open {
+      display: flex;
+      animation: fmFadeIn 0.4s ease forwards;
+    }
+    .fm-gate-overlay.closing {
+      animation: fmFadeOut 0.35s ease forwards;
+    }
+    @keyframes fmFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fmFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .fm-gate-panel {
+      position: relative;
+      background: var(--bg);
+      max-width: 440px;
+      width: 90%;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      animation: fmSlideUp 0.5s 0.05s ease both;
+    }
+    @keyframes fmSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fm-gate-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: 1px solid var(--ink-line);
+      cursor: pointer;
+      padding: 0;
+      transition: border-color 0.3s;
+    }
+    .fm-gate-close:hover { border-color: var(--gold); }
+    .fm-gate-close::before,
+    .fm-gate-close::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 14px;
+      height: 1px;
+      background: var(--ink-soft);
+    }
+    .fm-gate-close::before { transform: translate(-50%,-50%) rotate(45deg); }
+    .fm-gate-close::after { transform: translate(-50%,-50%) rotate(-45deg); }
+    .fm-gate-icon {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.52rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .fm-gate-message {
+      font-size: 0.92rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      line-height: 2;
+      margin: 0 0 0.6rem;
+    }
+    .fm-gate-sub {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      line-height: 2;
+      margin: 0 0 2.5rem;
+    }
+    .fm-gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      text-align: left;
+    }
+    .fm-gate-form .fm-login-group,
+    .fm-gate-form .fm-login-label,
+    .fm-gate-form .fm-login-input,
+    .fm-gate-form .fm-login-btn,
+    .fm-gate-form .fm-login-error {
+      /* Inherits from main login form styles */
+    }
+
+    /* ═══ FOOTER ═══ */
+    .fm-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--ink-line);
+    }
+    .fm-footer-copy {
+      font-size: 0.62rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 880px) {
+      .fm-header { padding: 1.6rem 1.4rem; }
+      .fm-hero { padding: 5rem 1.6rem; }
+      .fm-section { padding: 5rem 1.6rem; }
+      .fm-month-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .fm-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .fm-contact-divider { display: none; }
+      .fm-contact-col { padding: 0; }
+      .fm-contact-col:last-child {
+        padding-top: 3rem;
+        margin-top: 3rem;
+        border-top: 1px solid var(--ink-line);
+      }
+      .fm-gate-panel { padding: 2.5rem 2rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="fm-header">
+    <a href="index.html" class="fm-header-logo">EXECUTIVE ASHIYA</a>
+    <a href="index.html" class="fm-header-back">&larr; BACK TO TOP</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="fm-hero">
+    <span class="fm-hero-label">MEMBERS ONLY</span>
+    <h1 class="fm-hero-title">For Members</h1>
+    <span class="fm-hero-ja">会 員 様 へ</span>
+    <p class="fm-hero-lead">
+      日頃よりEXECUTIVE ASHIYAをお選びいただき、<br>
+      誠にありがとうございます。<br>
+      こちらは会員様専用のご案内ページです。
+    </p>
+  </div>
+
+  <!-- ═══ THIS MONTH ═══ -->
+  <section class="fm-section">
+    <span class="fm-num">MONTHLY UPDATE</span>
+    <h2 class="fm-title">This Month</h2>
+    <span class="fm-title-ja">今 月 の ご 案 内</span>
+    <span class="fm-month-label">— MAY 2026 —</span>
+
+    <div class="fm-month-grid">
+
+      <!-- お知らせ -->
+      <div class="fm-month-col">
+        <span class="fm-month-col-title">ANNOUNCEMENTS</span>
+        <span class="fm-month-col-title-ja">お知らせ</span>
+
+        <div class="fm-month-item">
+          <span class="fm-month-item-date">2026.05</span>
+          <span class="fm-month-item-title">会員様専用アプリのアップデート</span>
+          <button class="fm-month-item-read" onclick="openGate()">VIEW DETAILS</button>
+        </div>
+
+        <div class="fm-month-item">
+          <span class="fm-month-item-date">2026.05</span>
+          <span class="fm-month-item-title">今月のコンディショニングレポート配信</span>
+          <button class="fm-month-item-read" onclick="openGate()">VIEW DETAILS</button>
+        </div>
+      </div>
+
+      <!-- イベント -->
+      <div class="fm-month-col">
+        <span class="fm-month-col-title">EVENTS</span>
+        <span class="fm-month-col-title-ja">今月のイベント</span>
+
+        <div class="fm-month-item">
+          <span class="fm-month-item-date">2026年5月 開催予定</span>
+          <span class="fm-month-item-title">プライベートセッション会</span>
+          <button class="fm-month-item-read" onclick="openGate()">VIEW DETAILS</button>
+        </div>
+
+        <div class="fm-month-item">
+          <span class="fm-month-item-date">2026年5月下旬 予定</span>
+          <span class="fm-month-item-title">特別講師招聘セミナー</span>
+          <button class="fm-month-item-read" onclick="openGate()">VIEW DETAILS</button>
+        </div>
+      </div>
+
+      <!-- 特別オファー -->
+      <div class="fm-month-col">
+        <span class="fm-month-col-title">EXCLUSIVE OFFERS</span>
+        <span class="fm-month-col-title-ja">今月の特別オファー</span>
+
+        <div class="fm-month-item">
+          <span class="fm-month-item-date">今月限定</span>
+          <span class="fm-month-item-title">プライベートシェフ特別手配</span>
+          <button class="fm-month-item-read" onclick="openGate()">VIEW DETAILS</button>
+        </div>
+
+        <div class="fm-month-item">
+          <span class="fm-month-item-date">今月限定</span>
+          <span class="fm-month-item-title">プレミアム検査パッケージ</span>
+          <button class="fm-month-item-read" onclick="openGate()">VIEW DETAILS</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT FOR MEMBERS ═══ -->
+  <section class="fm-section">
+    <span class="fm-num">SUPPORT</span>
+    <h2 class="fm-title">Contact for Members</h2>
+    <span class="fm-title-ja">会 員 様 窓 口</span>
+
+    <div class="fm-contact-grid">
+
+      <!-- コンシェルジュデスク -->
+      <div class="fm-contact-col">
+        <span class="fm-contact-sub">CONCIERGE DESK</span>
+        <span class="fm-contact-sub-ja">コンシェルジュデスク</span>
+
+        <a href="mailto:info@executive-ashiya.com" class="fm-desk-email">info@executive-ashiya.com</a>
+        <span class="fm-desk-hours">24時間 365日対応（緊急時は即時、通常は30分以内に応答）</span>
+
+        <span class="fm-desk-areas-title">AVAILABLE SERVICES</span>
+        <ul class="fm-desk-areas">
+          <li>医療機関の優先予約・セカンドオピニオン手配</li>
+          <li>海外ウェルネスリトリート・ヘルススパの手配</li>
+          <li>プライベートシェフ・特別食事会の手配</li>
+          <li>旅行・移動手配（ハイヤー・プライベートジェット）</li>
+          <li>提携施設のご予約・スケジュール調整</li>
+          <li>健康・ウェルネスに関するあらゆるご相談</li>
+        </ul>
+
+        <span class="fm-desk-examples-title">RECENT REQUESTS</span>
+        <ul class="fm-desk-examples">
+          <li>海外出張前の健康診断と携行サプリメントの手配</li>
+          <li>記念日ディナーのプライベートシェフ＋ソムリエ手配</li>
+          <li>再生医療クリニックの予約代行と施術前コンディショニング</li>
+        </ul>
+      </div>
+
+      <div class="fm-contact-divider"></div>
+
+      <!-- ログインフォーム -->
+      <div class="fm-contact-col">
+        <span class="fm-contact-sub">MEMBER LOGIN</span>
+        <span class="fm-contact-sub-ja">会員様ログイン</span>
+
+        <form class="fm-login-form" id="fm-login-form" novalidate>
+          <div class="fm-login-group">
+            <label class="fm-login-label" for="fm-email">EMAIL ADDRESS</label>
+            <input class="fm-login-input" type="email" id="fm-email" placeholder="ご登録のメールアドレス" required />
+          </div>
+          <div class="fm-login-group">
+            <label class="fm-login-label" for="fm-password">PASSWORD</label>
+            <input class="fm-login-input" type="password" id="fm-password" placeholder="パスワード" required />
+          </div>
+          <button type="submit" class="fm-login-btn">LOGIN</button>
+          <div class="fm-login-error" id="fm-login-error"></div>
+          <p class="fm-login-forgot">
+            パスワードをお忘れの場合は、コンシェルジュデスクまでご連絡ください。<br>
+            ご本人確認の上、再発行のお手続きをいたします。
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="fm-footer">
+    <span class="fm-footer-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
+  </div>
+
+  <!-- ═══ MEMBERS GATE MODAL ═══ -->
+  <div class="fm-gate-overlay" id="fm-gate">
+    <div class="fm-gate-panel">
+      <button class="fm-gate-close" onclick="closeGate()" aria-label="閉じる"></button>
+      <span class="fm-gate-icon">MEMBERS ONLY</span>
+      <p class="fm-gate-message">会員様専用コンテンツです</p>
+      <p class="fm-gate-sub">
+        こちらの情報は会員様のみご覧いただけます。<br>
+        ログインしてご確認ください。
+      </p>
+      <form class="fm-gate-form" id="fm-gate-form" novalidate>
+        <div class="fm-login-group">
+          <label class="fm-login-label" for="gate-email">EMAIL ADDRESS</label>
+          <input class="fm-login-input" type="email" id="gate-email" placeholder="ご登録のメールアドレス" required />
+        </div>
+        <div class="fm-login-group">
+          <label class="fm-login-label" for="gate-password">PASSWORD</label>
+          <input class="fm-login-input" type="password" id="gate-password" placeholder="パスワード" required />
+        </div>
+        <button type="submit" class="fm-login-btn">LOGIN</button>
+        <div class="fm-login-error" id="fm-gate-error"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Gate modal
+    function openGate() {
+      var gate = document.getElementById('fm-gate');
+      gate.classList.remove('closing');
+      gate.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeGate() {
+      var gate = document.getElementById('fm-gate');
+      gate.classList.add('closing');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        gate.classList.remove('open', 'closing');
+        document.getElementById('fm-gate-error').style.display = 'none';
+      }, 350);
+    }
+    document.getElementById('fm-gate').addEventListener('click', function(e) {
+      if (e.target === this) closeGate();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeGate();
+    });
+
+    // Gate form submit
+    document.getElementById('fm-gate-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var errorEl = document.getElementById('fm-gate-error');
+      errorEl.textContent = 'ご入力情報をご確認ください。メールアドレスまたはパスワードが正しくありません。';
+      errorEl.style.display = 'block';
+    });
+
+    // Bottom login form submit
+    document.getElementById('fm-login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var errorEl = document.getElementById('fm-login-error');
+      errorEl.textContent = 'ご入力情報をご確認ください。メールアドレスまたはパスワードが正しくありません。';
+      errorEl.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
