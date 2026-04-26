@@ -2113,6 +2113,90 @@
       text-align: center;
     }
 
+    /* ════════ CONFIDENTIALITY ════════ */
+    #confidentiality {
+      max-width: none;
+      background: var(--ink);
+      color: #fff;
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    #confidentiality .section-label {
+      color: rgba(255,255,255,0.35);
+    }
+    #confidentiality .section-label.with-rule::before,
+    #confidentiality .section-label.with-rule::after {
+      background: rgba(255,255,255,0.15);
+    }
+    #confidentiality .section-title {
+      color: #fff;
+    }
+    #confidentiality .section-title-ja {
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 3.5rem;
+    }
+    .conf-lead {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      letter-spacing: 0.22em;
+      color: #fff;
+      margin: 0 0 4rem;
+      line-height: 1.9;
+    }
+    .conf-body {
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+      font-size: 0.78rem;
+      line-height: 2.6;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      text-align: left;
+    }
+    .conf-body p { margin: 0 0 2rem; }
+    .conf-body p:last-child { margin-bottom: 0; }
+    .conf-items {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+      text-align: left;
+    }
+    .conf-item {
+      padding-left: 1.4rem;
+      border-left: 1px solid rgba(139,111,31,0.4);
+    }
+    .conf-item-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .conf-item p {
+      font-size: 0.7rem;
+      line-height: 2.2;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .conf-signature {
+      margin-top: 4rem;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.68rem;
+      letter-spacing: 0.36em;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    @media (max-width: 880px) {
+      #confidentiality { padding: 6rem 1.6rem; }
+      .conf-items { grid-template-columns: 1fr; gap: 1.8rem; }
+      .conf-body { font-size: 0.72rem; }
+    }
+
     /* ════════ FAQ ════════ */
     #faq {
       max-width: none;
@@ -3144,6 +3228,51 @@
         ご入会の流れは <a href="#how-to-join">HOW TO JOIN</a> をご確認ください。
       </p>
     </div>
+  </section>
+
+  <!-- ════════ CONFIDENTIALITY ════════ -->
+  <section id="confidentiality">
+    <span class="section-label with-rule">CONFIDENTIALITY</span>
+    <h2 class="section-title fade">Absolute Discretion</h2>
+    <span class="section-title-ja fade">守 秘 に つ い て</span>
+
+    <p class="conf-lead fade">沈黙は、最上の信頼の証。</p>
+
+    <div class="conf-body fade">
+      <p>
+        EXECUTIVE ASHIYAでは、会員様の個人情報はもとより、<br class="sp-hide">
+        ご利用の事実そのものを厳格に保護いたします。<br class="sp-hide">
+        すべてのスタッフが個別の機密保持契約（NDA）を締結しており、<br class="sp-hide">
+        在籍中はもちろん、退職後も守秘義務は永続的に効力を持ちます。
+      </p>
+      <p>
+        会員様のご家族・ご関係者への情報開示も、<br class="sp-hide">
+        ご本人の明示的な許可なく行うことは一切ございません。<br class="sp-hide">
+        お名前、ご住所、ご利用内容、訪問スケジュール——<br class="sp-hide">
+        あらゆる接点において、完全な秘匿性を維持します。
+      </p>
+    </div>
+
+    <div class="conf-items">
+      <div class="conf-item fade">
+        <span class="conf-item-en">NDA AGREEMENT</span>
+        <p>全スタッフが個別の機密保持契約を締結。<br>違反時の法的措置を含む厳格な体制。</p>
+      </div>
+      <div class="conf-item fade">
+        <span class="conf-item-en">LIFETIME OBLIGATION</span>
+        <p>退職スタッフを含む、永続的な守秘義務。<br>契約終了後も保護は継続されます。</p>
+      </div>
+      <div class="conf-item fade">
+        <span class="conf-item-en">ZERO DISCLOSURE</span>
+        <p>ご利用の事実そのものを外部に開示しません。<br>ご家族・ご周囲への連絡もご本人許可制。</p>
+      </div>
+      <div class="conf-item fade">
+        <span class="conf-item-en">DATA PROTECTION</span>
+        <p>健康データ・トレーニング記録・医療情報の<br>暗号化管理と厳格なアクセス制限。</p>
+      </div>
+    </div>
+
+    <p class="conf-signature fade">— YOUR PRIVACY IS OUR PRINCIPLE —</p>
   </section>
 
   <!-- ════════ FAQ ════════ -->
