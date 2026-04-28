@@ -839,6 +839,58 @@
       vertical-align: middle;
     }
     .ie-card-tag.is-event { background: var(--gold); }
+
+    /* ── News carousel (mobile) ── */
+    .ie-cards-wrap { position: relative; }
+    .ie-nav { display: none; }
+
+    @media (max-width: 540px) {
+      .ie-cards-wrap { overflow: hidden; }
+      .ie-cards {
+        display: flex !important;
+        grid-template-columns: none !important;
+        gap: 1rem !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+      }
+      .ie-cards::-webkit-scrollbar { display: none; }
+      .ie-cards .ie-card {
+        flex: 0 0 78%;
+        scroll-snap-align: start;
+      }
+      .ie-nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.2rem;
+      }
+      .ie-nav-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid var(--ink);
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s, border-color 0.3s;
+      }
+      .ie-nav-btn:active {
+        background: var(--ink);
+      }
+      .ie-nav-btn:active svg { stroke: #fff; }
+      .ie-nav-btn svg {
+        width: 12px;
+        height: 12px;
+        stroke: var(--ink);
+        fill: none;
+        stroke-width: 2;
+      }
+    }
     .ie-card-title {
       display: block;
       font-family: var(--serif-jp);
@@ -1004,8 +1056,8 @@
       width: max-content;
       animation: tickerScroll 45s linear infinite;
     }
-    .ticker-track:hover {
-      animation-play-state: paused;
+    .ticker-track {
+      pointer-events: none;
     }
     @keyframes tickerScroll {
       0% { transform: translateX(0); }
@@ -1027,8 +1079,8 @@
       opacity: 0.7;
       transition: opacity 0.4s;
     }
-    .ticker-logo:hover {
-      opacity: 1;
+    .ticker-logo {
+      pointer-events: none;
     }
     .ticker-logo-icon {
       height: 34px;
@@ -2847,97 +2899,55 @@
         <span class="ie-heading-ja">お知らせ</span>
         <span class="ie-heading-en">Information</span>
       </div>
-      <div class="ie-cards">
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.04.25</span>
-            <span class="ie-card-tag">NEWS</span>
-            <span class="ie-card-title">提携医療ネットワーク拡充のお知らせ — 関西圏30施設体制へ</span>
-            <span class="ie-card-sub">人間ドック・PET-CT・再生医療クリニックを新たに追加。会員様の医療アクセスがさらに充実します。</span>
-          </div>
-        </a>
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="concierge-culinary.webp" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.04.18</span>
-            <span class="ie-card-tag">NEWS</span>
-            <span class="ie-card-title">5月度オーダーメイドサプリメント処方受付開始</span>
-            <span class="ie-card-sub">血液検査データに基づく個別処方を毎月更新。今月の注目成分はNMN・グルタチオン。</span>
-          </div>
-        </a>
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="services-space.webp" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.04.10</span>
-            <span class="ie-card-tag">COLUMN</span>
-            <span class="ie-card-title">なぜエグゼクティブは「睡眠」に投資するのか</span>
-            <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
-          </div>
-        </a>
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="concierge-medical.webp" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.04.01</span>
-            <span class="ie-card-tag">NEWS</span>
-            <span class="ie-card-title">EXECUTIVE ASHIYA 正式サービス開始のお知らせ</span>
-            <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、芦屋・神戸・大阪エリアでサービスを開始いたしました。</span>
-          </div>
-        </a>
+      <div class="ie-cards-wrap">
+        <div class="ie-cards" id="newsCards">
+          <a href="#" class="ie-card fade">
+            <img class="ie-card-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.04.25</span>
+              <span class="ie-card-tag">NEWS</span>
+              <span class="ie-card-title">提携医療ネットワーク拡充のお知らせ — 関西圏30施設体制へ</span>
+              <span class="ie-card-sub">人間ドック・PET-CT・再生医療クリニックを新たに追加。会員様の医療アクセスがさらに充実します。</span>
+            </div>
+          </a>
+          <a href="#" class="ie-card fade">
+            <img class="ie-card-img" src="concierge-culinary.webp" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.04.18</span>
+              <span class="ie-card-tag">NEWS</span>
+              <span class="ie-card-title">5月度オーダーメイドサプリメント処方受付開始</span>
+              <span class="ie-card-sub">血液検査データに基づく個別処方を毎月更新。今月の注目成分はNMN・グルタチオン。</span>
+            </div>
+          </a>
+          <a href="#" class="ie-card fade">
+            <img class="ie-card-img" src="services-space.webp" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.04.10</span>
+              <span class="ie-card-tag">COLUMN</span>
+              <span class="ie-card-title">なぜエグゼクティブは「睡眠」に投資するのか</span>
+              <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
+            </div>
+          </a>
+          <a href="#" class="ie-card fade">
+            <img class="ie-card-img" src="concierge-medical.webp" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.04.01</span>
+              <span class="ie-card-tag">NEWS</span>
+              <span class="ie-card-title">EXECUTIVE ASHIYA 正式サービス開始のお知らせ</span>
+              <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、芦屋・神戸・大阪エリアでサービスを開始いたしました。</span>
+            </div>
+          </a>
+        </div>
+        <div class="ie-nav">
+          <button class="ie-nav-btn" id="newsPrev" aria-label="前へ">
+            <svg viewBox="0 0 10 10"><path d="M7 1 L3 5 L7 9"/></svg>
+          </button>
+          <button class="ie-nav-btn" id="newsNext" aria-label="次へ">
+            <svg viewBox="0 0 10 10"><path d="M3 1 L7 5 L3 9"/></svg>
+          </button>
+        </div>
       </div>
       <a href="#news" class="ie-more">
-        一覧を見る
-        <span class="ie-more-circle">
-          <svg viewBox="0 0 10 10"><path d="M3 1 L7 5 L3 9"/></svg>
-        </span>
-      </a>
-    </div>
-
-    <!-- イベント -->
-    <div class="ie-section">
-      <div class="ie-heading">
-        <span class="ie-heading-ja">イベント</span>
-        <span class="ie-heading-en">Event</span>
-      </div>
-      <div class="ie-cards">
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="concierge-spa.webp" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.05.18 Sun</span>
-            <span class="ie-card-tag is-event">EVENT</span>
-            <span class="ie-card-title">プライベート・ウェルネスリトリート in 有馬</span>
-            <span class="ie-card-sub">有馬の提携旅館にて、会員様限定のリトリートプログラムを開催。温泉療法×パーソナルトレーニング×精進料理の一日。</span>
-          </div>
-        </a>
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="concierge-medical.webp" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.05.25 Sun</span>
-            <span class="ie-card-tag is-event">EVENT</span>
-            <span class="ie-card-title">特別講師招聘セッション — アンチエイジング医学最前線</span>
-            <span class="ie-card-sub">提携医療機関の専門医をお招きし、最新の予防医学・再生医療についてプライベートセミナーを開催。</span>
-          </div>
-        </a>
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="quote-bg.jpg" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.06.08 Sun</span>
-            <span class="ie-card-tag is-event">EVENT</span>
-            <span class="ie-card-title">ミシュランシェフによるプライベートダイニング会</span>
-            <span class="ie-card-sub">神戸の星付きシェフが会員様のご自宅へ。血液検査データに基づくパーソナライズドコースをご提供。</span>
-          </div>
-        </a>
-        <a href="#" class="ie-card fade">
-          <img class="ie-card-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
-          <div class="ie-card-body">
-            <span class="ie-card-date">2026.06.22 Sun</span>
-            <span class="ie-card-tag is-event">EVENT</span>
-            <span class="ie-card-title">会員様限定ゴルフコンペ＆コンディショニングセッション</span>
-            <span class="ie-card-sub">提携ゴルフ場にて少人数制コンペを開催。ラウンド前後に専属トレーナーによるストレッチ＆ケアを実施。</span>
-          </div>
-        </a>
-      </div>
-      <a href="#" class="ie-more">
         一覧を見る
         <span class="ie-more-circle">
           <svg viewBox="0 0 10 10"><path d="M3 1 L7 5 L3 9"/></svg>
@@ -3994,6 +4004,22 @@
 
       window.addEventListener('scroll', startAnimation, { passive: true });
       startAnimation();
+    })();
+
+    /* ── News carousel nav ── */
+    (function(){
+      var cards = document.getElementById('newsCards');
+      var prev = document.getElementById('newsPrev');
+      var next = document.getElementById('newsNext');
+      if (!cards || !prev || !next) return;
+      next.addEventListener('click', function(){
+        var card = cards.querySelector('.ie-card');
+        if (card) cards.scrollBy({ left: card.offsetWidth + 16, behavior: 'smooth' });
+      });
+      prev.addEventListener('click', function(){
+        var card = cards.querySelector('.ie-card');
+        if (card) cards.scrollBy({ left: -(card.offsetWidth + 16), behavior: 'smooth' });
+      });
     })();
   </script>
 </body>
