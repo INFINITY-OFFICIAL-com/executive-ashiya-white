@@ -12,7 +12,7 @@
   <style>
     :root {
       --bg: #FFFFFF;
-      --bg-alt: #FAF8F4;
+      --bg-alt: #FFFFFF;
       --gold: #8B6F1F;
       --ink: #1C1F2E;
       --ink-soft: rgba(28,31,46,0.55);
@@ -319,12 +319,151 @@
       letter-spacing: 0.08em;
     }
 
+    /* ═══ CLIENT VOICE ═══ */
+    .m-voice-cards {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .m-voice-card {
+      border: 1px solid var(--ink-line);
+      padding: 2.8rem 2.5rem;
+      position: relative;
+    }
+    .m-voice-card::before {
+      content: '\201C';
+      font-family: var(--serif-en);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      position: absolute;
+      top: 0.8rem; left: 1.2rem;
+    }
+    .m-voice-text {
+      font-size: 0.82rem;
+      line-height: 2.4;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0 0 1.5rem;
+    }
+    .m-voice-attr {
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      display: block;
+    }
+    .m-voice-role {
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      display: block;
+      margin-top: 0.3rem;
+    }
+    .m-voice-note {
+      margin-top: 2rem;
+      font-size: 0.65rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    /* ═══ PROGRAM JOURNEY ═══ */
+    .m-journey {
+      max-width: 820px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .m-journey::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold), transparent);
+    }
+    .m-journey-q {
+      padding: 2.2rem 1.2rem 0;
+      text-align: center;
+      position: relative;
+    }
+    .m-journey-dot {
+      display: block;
+      width: 12px; height: 12px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--bg);
+      margin: 0 auto 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .m-journey-dot::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .m-journey-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .m-journey-title {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .m-journey-desc {
+      font-size: 0.72rem;
+      line-height: 2;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+
     @media (max-width: 880px) {
       .method-header { padding: 1.6rem 1.4rem; }
       .method-hero { padding: 5rem 1.6rem; }
       .m-section { padding: 5rem 1.6rem; }
       .m-integration { grid-template-columns: 1fr; gap: 1.5rem; }
       .m-integ-center { padding: 1.5rem 0; }
+      .m-journey {
+        grid-template-columns: 1fr;
+        padding-left: 2.4rem;
+        text-align: left;
+      }
+      .m-journey::before {
+        top: 0; bottom: 0;
+        left: 5px; right: auto;
+        width: 1px; height: auto;
+        background: linear-gradient(180deg, var(--gold), rgba(139,111,31,0.2));
+      }
+      .m-journey-q {
+        padding: 1.4rem 0;
+        border-bottom: 1px dashed var(--ink-line);
+      }
+      .m-journey-q:last-child { border-bottom: none; }
+      .m-journey-dot {
+        position: absolute;
+        left: -2.4rem; top: 1.6rem;
+        margin: 0;
+      }
     }
   </style>
 </head>
@@ -527,10 +666,76 @@
     </div>
   </div>
 
+  <!-- CLIENT VOICE -->
+  <div class="m-section">
+    <span class="m-num">CLIENT VOICE</span>
+    <h2 class="m-title">Member Experiences</h2>
+    <span class="m-title-ja">会 員 様 の 声</span>
+    <div class="m-voice-cards">
+      <div class="m-voice-card">
+        <p class="m-voice-text">
+          健康診断の数値が年々悪化していたが、半年で全項目が改善。何より、朝の目覚めと集中力が変わった。経営判断のキレが戻ったと実感している。
+        </p>
+        <span class="m-voice-attr">MEMBER A</span>
+        <span class="m-voice-role">50代・上場企業 代表取締役</span>
+      </div>
+      <div class="m-voice-card">
+        <p class="m-voice-text">
+          舞台のための身体づくりを完全にお任せできる安心感。栄養管理からケガの予防まで、公演スケジュールに合わせて柔軟に対応してくれる唯一の存在。
+        </p>
+        <span class="m-voice-attr">MEMBER B</span>
+        <span class="m-voice-role">40代・元宝塚歌劇団 トップスター</span>
+      </div>
+      <div class="m-voice-card">
+        <p class="m-voice-text">
+          医師として予防医学の重要性は理解していたが、自分のことは後回しだった。データに基づく徹底的なアプローチに、同業者として信頼を置いている。
+        </p>
+        <span class="m-voice-attr">MEMBER C</span>
+        <span class="m-voice-role">60代・開業医（内科）</span>
+      </div>
+    </div>
+    <p class="m-voice-note">* プライバシー保護のため、すべて匿名にて掲載しております。</p>
+  </div>
+
+  <!-- PROGRAM JOURNEY -->
+  <div class="m-section alt">
+    <div class="m-section-inner">
+      <span class="m-num">PROGRAM JOURNEY</span>
+      <h2 class="m-title">Your Year With Us</h2>
+      <span class="m-title-ja">年 間 プ ロ グ ラ ム の 流 れ</span>
+      <div class="m-journey">
+        <div class="m-journey-q">
+          <span class="m-journey-dot"></span>
+          <span class="m-journey-label">Q1 — MONTH 1-3</span>
+          <span class="m-journey-title">基礎構築</span>
+          <p class="m-journey-desc">初回アセスメント（体組成・血液検査・FMS）を実施。データに基づき年間ロードマップを策定。基礎的な運動習慣と栄養改善からスタート。</p>
+        </div>
+        <div class="m-journey-q">
+          <span class="m-journey-dot"></span>
+          <span class="m-journey-label">Q2 — MONTH 4-6</span>
+          <span class="m-journey-title">本格改善</span>
+          <p class="m-journey-desc">基礎体力の向上を確認後、目標に応じた本格プログラムへ移行。筋力強化・体脂肪管理・姿勢改善を集中的に推進。中間血液検査で進捗を数値確認。</p>
+        </div>
+        <div class="m-journey-q">
+          <span class="m-journey-dot"></span>
+          <span class="m-journey-label">Q3 — MONTH 7-9</span>
+          <span class="m-journey-title">最適化</span>
+          <p class="m-journey-desc">半年間のデータを統合分析し、プログラムを精密チューニング。栄養・サプリメント処方の微調整、メンタルケアの導入、コンシェルジュサービスの活用拡大。</p>
+        </div>
+        <div class="m-journey-q">
+          <span class="m-journey-dot"></span>
+          <span class="m-journey-label">Q4 — MONTH 10-12</span>
+          <span class="m-journey-title">年度レビュー</span>
+          <p class="m-journey-desc">年間の成果を総括レポートとして提出。体組成・血液データ・主観評価の変化を可視化。翌年度の目標設定とプログラム再設計を行い、次の1年へ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CTA -->
   <div class="m-cta">
     <p class="m-cta-text">
-      参画をご検討の方へ
+      ご入会をご検討の方へ
     </p>
     <a href="invitation-request.html" class="m-cta-btn">REQUEST INVITATION</a>
   </div>

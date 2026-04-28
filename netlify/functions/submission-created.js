@@ -72,7 +72,7 @@ exports.handler = async function (event) {
 <html lang="ja">
 <head><meta charset="UTF-8"></head>
 <body style="margin:0;padding:2rem;font-family:sans-serif;color:#1C1F2E;">
-  <h2 style="font-size:18px;margin-bottom:1.5rem;color:#8B6F1F;">新規参画リクエスト</h2>
+  <h2 style="font-size:18px;margin-bottom:1.5rem;color:#8B6F1F;">新規ご入会リクエスト</h2>
   <table style="border-collapse:collapse;width:100%;max-width:600px;font-size:14px;">
     <tr>
       <td style="padding:10px 14px;border:1px solid #ddd;font-weight:bold;background:#f9f9f7;width:140px;">氏名</td>
