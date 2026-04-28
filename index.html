@@ -423,9 +423,18 @@
     .hero-video::-moz-media-controls { display: none !important; }
     .hero-video::--ms-media-controls { display: none !important; }
     .hero-video-sp { display: none; }
+    .hero-canvas-sp {
+      display: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
     @media (max-width: 880px) {
       .hero-video-pc { display: none; }
-      .hero-video-sp { display: block; }
+      .hero-canvas-sp { display: block; }
     }
     .hero-overlay {
       position: absolute;
@@ -2735,7 +2744,7 @@
   <!-- ════════ HERO ════════ -->
   <section id="hero">
     <video class="hero-video hero-video-pc" src="hero-bg.mp4" autoplay muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
-    <video class="hero-video hero-video-sp" src="hero-bg-sp.mp4" autoplay muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto" controlslist="nodownload nofullscreen noremoteplayback" disablePictureInPicture></video>
+    <canvas class="hero-canvas-sp" id="heroCanvasSp"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-text">
       <div class="hero-roman fade">EST. ASHIYA</div>
@@ -2759,7 +2768,7 @@
       </div>
       <div class="ie-cards-wrap">
         <div class="ie-cards" id="newsCards">
-          <a href="#" class="ie-card fade">
+          <a href="news/2026-04-25-medical-network-expansion.html" class="ie-card fade">
             <img class="ie-card-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.25</span>
@@ -2768,7 +2777,7 @@
               <span class="ie-card-sub">人間ドック・PET-CT・再生医療クリニックを新たに追加。会員様の医療アクセスがさらに充実します。</span>
             </div>
           </a>
-          <a href="#" class="ie-card fade">
+          <a href="news/2026-04-18-supplement-prescription.html" class="ie-card fade">
             <img class="ie-card-img" src="concierge-culinary.webp" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.18</span>
@@ -2777,7 +2786,7 @@
               <span class="ie-card-sub">血液検査データに基づく個別処方を毎月更新。今月の注目成分はNMN・グルタチオン。</span>
             </div>
           </a>
-          <a href="#" class="ie-card fade">
+          <a href="news/2026-04-10-sleep-investment.html" class="ie-card fade">
             <img class="ie-card-img" src="services-space.webp" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.10</span>
@@ -2786,7 +2795,7 @@
               <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
             </div>
           </a>
-          <a href="#" class="ie-card fade">
+          <a href="news/2026-04-01-service-launch.html" class="ie-card fade">
             <img class="ie-card-img" src="concierge-medical.webp" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.01</span>
@@ -3586,24 +3595,86 @@
   </footer>
 
   <script>
-    // Hero video autoplay enforcement
+    // Hero video autoplay enforcement (PC) + Canvas rendering (Mobile)
     (function() {
-      function forcePlayVideos() {
-        document.querySelectorAll('.hero-video').forEach(function(v) {
-          v.muted = true;
-          v.setAttribute('muted', '');
-          v.setAttribute('playsinline', '');
-          var p = v.play();
-          if (p && p.catch) p.catch(function() {});
-        });
+      // PC: normal video autoplay
+      function forcePlayPC() {
+        var v = document.querySelector('.hero-video-pc');
+        if (!v) return;
+        v.muted = true;
+        v.setAttribute('muted', '');
+        v.setAttribute('playsinline', '');
+        var p = v.play();
+        if (p && p.catch) p.catch(function() {});
       }
-      document.addEventListener('DOMContentLoaded', forcePlayVideos);
-      window.addEventListener('load', forcePlayVideos);
-      document.addEventListener('touchstart', forcePlayVideos, { once: true });
-      document.addEventListener('click', forcePlayVideos, { once: true });
-      document.addEventListener('scroll', forcePlayVideos, { once: true });
+      document.addEventListener('DOMContentLoaded', forcePlayPC);
+      window.addEventListener('load', forcePlayPC);
+      document.addEventListener('touchstart', forcePlayPC, { once: true });
+      document.addEventListener('click', forcePlayPC, { once: true });
+      document.addEventListener('scroll', forcePlayPC, { once: true });
       document.addEventListener('visibilitychange', function() {
-        if (!document.hidden) forcePlayVideos();
+        if (!document.hidden) forcePlayPC();
+      });
+
+      // Mobile: render video to canvas (zero native controls)
+      var canvas = document.getElementById('heroCanvasSp');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var vid = document.createElement('video');
+      vid.src = 'hero-bg-sp.mp4';
+      vid.muted = true;
+      vid.loop = true;
+      vid.playsInline = true;
+      vid.setAttribute('playsinline', '');
+      vid.setAttribute('webkit-playsinline', '');
+      vid.setAttribute('muted', '');
+      vid.preload = 'auto';
+      vid.style.display = 'none';
+
+      var rafId = null;
+      var lastW = 0, lastH = 0;
+
+      function drawFrame() {
+        if (vid.readyState >= 2) {
+          var rect = canvas.getBoundingClientRect();
+          var w = Math.round(rect.width * (window.devicePixelRatio || 1));
+          var h = Math.round(rect.height * (window.devicePixelRatio || 1));
+          if (w !== lastW || h !== lastH) {
+            canvas.width = w;
+            canvas.height = h;
+            lastW = w;
+            lastH = h;
+          }
+          // cover fit
+          var vw = vid.videoWidth, vh = vid.videoHeight;
+          var cw = canvas.width, ch = canvas.height;
+          var scale = Math.max(cw / vw, ch / vh);
+          var sw = vw * scale, sh = vh * scale;
+          var ox = (cw - sw) / 2, oy = (ch - sh) / 2;
+          ctx.drawImage(vid, ox, oy, sw, sh);
+        }
+        rafId = requestAnimationFrame(drawFrame);
+      }
+
+      function startCanvas() {
+        vid.muted = true;
+        var p = vid.play();
+        if (p && p.then) {
+          p.then(function() {
+            if (!rafId) drawFrame();
+          }).catch(function() {});
+        }
+        if (!rafId) drawFrame();
+      }
+
+      vid.addEventListener('canplay', startCanvas, { once: true });
+      document.addEventListener('DOMContentLoaded', function() { vid.load(); startCanvas(); });
+      window.addEventListener('load', startCanvas);
+      document.addEventListener('touchstart', startCanvas, { once: true });
+      document.addEventListener('click', startCanvas, { once: true });
+      document.addEventListener('scroll', startCanvas, { once: true });
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) startCanvas();
       });
     })();
 
@@ -3626,7 +3697,7 @@
         heroFades.forEach((el, i) => {
           setTimeout(() => { el.classList.add('visible'); }, 100 * (i + 1));
         });
-      }, 2400);
+      }, 1600);
     });
 
     // Nav scroll effect + dark mode over zoom section + hero transparent
