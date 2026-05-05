@@ -2120,7 +2120,7 @@
     .f-links {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.6rem 2rem;
       flex-wrap: wrap;
       margin-bottom: 0.6rem;
     }
@@ -2132,6 +2132,23 @@
       transition: color 0.3s;
     }
     .f-links a:hover { color: var(--gold); }
+    .f-press {
+      display: inline-block;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      border: 1px solid rgba(139, 111, 31, 0.4);
+      padding: 0.7rem 2.5rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .f-press:hover {
+      background: var(--gold);
+      color: var(--ink);
+    }
     .f-copy {
       font-family: var(--serif-en);
       font-size: 0.58rem;
@@ -2139,6 +2156,19 @@
       color: rgba(255, 255, 255, 0.35);
       display: block;
       margin-top: 1.4rem;
+    }
+    @media (max-width: 600px) {
+      footer {
+        padding: 3.5rem 1.5rem 2.5rem;
+      }
+      .f-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1rem;
+        text-align: left;
+        max-width: 320px;
+        margin: 0 auto 0.6rem;
+      }
     }
 
 
@@ -3380,8 +3410,9 @@
       <a href="screening.html">SCREENING</a>
       <a href="confidentiality.html">CONFIDENTIALITY</a>
       <a href="privacy.html">PRIVACY POLICY</a>
-      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="tokushoho.html">特定商取引法</a>
     </div>
+    <a href="/press-kit" class="f-press">PRESS KIT</a>
     <span class="f-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
   </footer>
 
