@@ -334,6 +334,7 @@
       overflow: hidden;
       border: 1px solid var(--ink-line);
       background: #f8f8f6;
+      aspect-ratio: 4 / 3;
     }
     .pk-photo-item-img {
       width: 100%;
@@ -517,6 +518,12 @@
       .pk-photo-grid {
         grid-template-columns: 1fr 1fr;
       }
+      .pk-photo-grid-wide {
+        grid-template-columns: 1fr;
+      }
+      .pk-company-table th {
+        width: 100px;
+      }
       .pk-highlight { padding: 1.5rem 1.8rem; }
       .pk-press-release { padding: 2rem 1.5rem; }
       .pk-contact-box { padding: 2rem 1.5rem; }
@@ -567,7 +574,7 @@
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">サービス始動</span>
-        <span class="pk-highlight-value">2025年6月1日</span>
+        <span class="pk-highlight-value">2026年6月1日</span>
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">対応エリア</span>
@@ -717,11 +724,14 @@
         <a href="#" class="pk-btn">
           <span class="pk-btn-icon">&#9660;</span> All Photos ZIP Download
         </a>
-        <a href="#" class="pk-btn">
-          <span class="pk-btn-icon">&#9660;</span> Logo PNG
+        <a href="images/logo-ea-wide.jpg" class="pk-btn" download="executive-ashiya-logo.jpg">
+          <span class="pk-btn-icon">&#9660;</span> EA Logo
         </a>
-        <a href="#" class="pk-btn">
-          <span class="pk-btn-icon">&#9660;</span> Logo SVG
+        <a href="images/logo-refit.jpg" class="pk-btn" download="refit-logo.jpg">
+          <span class="pk-btn-icon">&#9660;</span> ReFit Logo
+        </a>
+        <a href="/favicon.svg" class="pk-btn" download="executive-ashiya-logo.svg">
+          <span class="pk-btn-icon">&#9660;</span> EA Logo SVG
         </a>
       </div>
     </div>
@@ -763,29 +773,40 @@
       <table class="pk-company-table">
         <tr>
           <th>法人名</th>
-          <td>株式会社ReFit</td>
+          <td>株式会社ReFit（ReFit Inc.）</td>
         </tr>
         <tr>
           <th>代表取締役</th>
           <td>福田 泰士</td>
         </tr>
         <tr>
+          <th>設立</th>
+          <td>2026年3月13日</td>
+        </tr>
+        <tr>
+          <th>法人番号</th>
+          <td>8120001285034</td>
+        </tr>
+        <tr>
           <th>所在地</th>
-          <td>兵庫県芦屋市</td>
+          <td>〒530-0001<br>大阪府大阪市北区梅田1-1-3 大阪駅前第3ビル29階</td>
         </tr>
         <tr>
           <th>事業内容</th>
           <td>
-            完全会員制ヘルスケアコンシェルジュ「EXECUTIVE ASHIYA」<br>
-            パーソナルトレーニングジム「SUN」<br>
-            オンラインフィットネス「ReFit Online」
+            Executive Ashiya — 完全会員制ヘルスケアコンシェルジュ<br>
+            パーソナルジムSUN — 兵庫県内3店舗<br>
+            ReFit Online — LINEベースのオンライン食事指導
           </td>
         </tr>
         <tr>
-          <th>関連事業</th>
+          <th>ミッション</th>
+          <td>すべての人に、最適な健康体験を届ける</td>
+        </tr>
+        <tr>
+          <th>公式サイト</th>
           <td>
-            SUN — パーソナルトレーニングジム<br>
-            ReFit Online — オンラインフィットネスプログラム
+            <a href="https://refit.co.jp/" target="_blank" rel="noopener" style="color: var(--gold); border-bottom: 1px solid var(--gold-soft);">https://refit.co.jp/</a>
           </td>
         </tr>
       </table>
@@ -804,12 +825,12 @@
       <p class="pk-contact-role">株式会社ReFit 代表取締役 / EXECUTIVE ASHIYA ファウンダー</p>
       <div class="pk-contact-info">
         <p>
-          TEL: <a href="tel:000-0000-0000">000-0000-0000</a>（後日設定）<br>
-          MAIL: <a href="mailto:press@executive-ashiya.com">press@executive-ashiya.com</a>（後日設定）
+          TEL: <a href="tel:080-7690-5653">080-7690-5653</a><br>
+          MAIL: <a href="mailto:fukuda@refit.co.jp">fukuda@refit.co.jp</a>
         </p>
       </div>
       <div style="margin-top: 2rem;">
-        <a href="mailto:press@executive-ashiya.com" class="pk-btn gold">
+        <a href="mailto:fukuda@refit.co.jp?subject=【取材依頼】EXECUTIVE ASHIYA" class="pk-btn gold">
           取材のご依頼はこちら
         </a>
       </div>
@@ -818,7 +839,7 @@
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="pk-footer">
-    <p class="pk-footer-text">&copy; 2025 EXECUTIVE ASHIYA / ReFit Inc. All Rights Reserved.</p>
+    <p class="pk-footer-text">&copy; 2026 EXECUTIVE ASHIYA / ReFit Inc. All Rights Reserved.</p>
   </footer>
 
 </body>
