@@ -1496,137 +1496,30 @@
       .concierge-detail-list li { font-size: 0.78rem; }
     }
 
-    /* ════════ TRACK RECORD (Auto-play animation) ════════ */
+    /* ════════ TRACK RECORD ════════ */
     .track-record-section {
       background: #1a1f2e;
       padding: 6rem 2rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
-    .track-record-section .section-num,
-    .track-record-section .section-label { color: var(--gold); }
+    .track-record-section .section-num { color: var(--gold); }
+    .track-record-section .section-label { color: rgba(255,255,255,0.6); }
     .track-record-section .section-title { color: #fff; }
     .track-record-section .section-title-ja { color: rgba(255,255,255,0.45); }
 
-    /* Map animation viewport */
-    .track-map-viewport {
-      position: relative;
-      width: 100%;
-      max-width: 700px;
-      height: 360px;
-      margin: 3rem auto;
-      border-radius: 4px;
-      overflow: hidden;
-      background: #141824;
-      border: 1px solid rgba(139,111,31,0.2);
-    }
-    .track-map-layer {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      will-change: opacity, transform;
-      transition: opacity 1.2s ease, transform 4s ease-out;
-      transform: scale(1);
-    }
-    .track-map-layer img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.5) contrast(1.2) sepia(0.4) hue-rotate(10deg) saturate(1.4);
-    }
-    .track-map-layer.active {
-      opacity: 1;
-    }
-    .track-map-layer.zoom {
-      transform: scale(1.6);
-    }
-    /* Grid overlay */
-    .track-map-grid {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(139,111,31,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,111,31,0.06) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 2;
-    }
-    /* Scanline */
-    .track-map-scanline {
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
-      pointer-events: none;
-      z-index: 2;
-    }
-    /* Pin */
-    .track-map-pin {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 4;
-      opacity: 0;
-      transition: opacity 0.8s ease 3.5s;
-    }
-    .track-map-pin.active { opacity: 1; }
-    .track-map-pin span {
-      display: block;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 20px rgba(180,155,100,0.8), 0 0 60px rgba(180,155,100,0.4);
-      animation: track-pin-pulse 2s ease-in-out infinite;
-    }
-    @keyframes track-pin-pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(180,155,100,0.8), 0 0 60px rgba(180,155,100,0.4); }
-      50% { transform: scale(1.3); box-shadow: 0 0 30px rgba(180,155,100,1), 0 0 80px rgba(180,155,100,0.6); }
-    }
-    .track-map-pin::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 14px; height: 14px;
-      border: 1px solid rgba(180,155,100,0.5);
-      border-radius: 50%;
-      animation: track-pin-ring 2s ease-out infinite;
-    }
-    @keyframes track-pin-ring {
-      0% { width: 14px; height: 14px; opacity: 0.8; }
-      100% { width: 60px; height: 60px; opacity: 0; }
-    }
-    /* Coords */
-    .track-map-coords {
-      position: absolute;
-      bottom: 1rem; left: 1.2rem;
-      z-index: 5;
-      font-family: var(--sans);
-      font-size: 0.55rem;
-      letter-spacing: 0.25em;
-      color: var(--gold);
-      opacity: 0;
-      transition: opacity 0.8s ease 3.8s;
-    }
-    .track-map-coords.active { opacity: 0.7; }
-    /* Location */
-    .track-map-location {
-      position: absolute;
-      bottom: 1rem; right: 1.2rem;
-      z-index: 5;
+    /* Location badge */
+    .track-location {
+      display: inline-block;
+      margin: 2.5rem auto 0;
+      padding: 0.8rem 2.5rem;
+      border: 1px solid rgba(139,111,31,0.4);
+      border-radius: 2px;
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       letter-spacing: 0.3em;
-      color: rgba(180,155,100,0.6);
-      opacity: 0;
-      transition: opacity 0.8s ease 4s;
+      color: var(--gold);
     }
-    .track-map-location.active { opacity: 1; }
 
     /* Stats */
     .track-stats {
@@ -1634,7 +1527,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
       margin: 3rem auto 0;
-      max-width: 900px;
+      max-width: 1100px;
       width: 100%;
       border-top: 1px solid rgba(255,255,255,0.15);
       border-bottom: 1px solid rgba(255,255,255,0.15);
@@ -1678,13 +1571,13 @@
       margin-bottom: 0.4rem;
     }
     .track-stat-sub {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
       letter-spacing: 0.06em;
       margin: 0;
     }
     .track-nda {
-      max-width: 680px;
+      max-width: 900px;
       margin: 2.5rem auto 0;
       padding: 2rem 0;
     }
@@ -1698,9 +1591,9 @@
       margin-bottom: 1rem;
     }
     .track-nda-text {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       line-height: 2.2;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       letter-spacing: 0.08em;
       margin: 0;
     }
@@ -1708,7 +1601,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      max-width: 800px;
+      max-width: 1100px;
       width: 100%;
       margin: 0 auto 1rem;
       border-top: 1px solid rgba(255,255,255,0.12);
@@ -1731,9 +1624,9 @@
     }
     .track-client-ja {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.75);
     }
     .track-note {
       margin-top: 1.5rem;
@@ -2263,7 +2156,6 @@
       .track-clients { grid-template-columns: repeat(2, 1fr); }
       .track-client-item:nth-child(2) { border-right: none; }
       .track-client-item:nth-child(4) { border-right: none; }
-      .track-map-viewport { height: 260px; }
       .join-paths { grid-template-columns: 1fr; }
       .join-steps { grid-template-columns: 1fr; }
       .hero-text { padding: 2rem 1.6rem; }
@@ -3194,17 +3086,7 @@
     <h2 class="section-title">Proven Results</h2>
     <span class="section-title-ja">確 か な 実 績</span>
 
-    <!-- Map animation (auto-play) -->
-    <div class="track-map-viewport" id="trackMapViewport">
-      <div class="track-map-layer active" data-layer="japan"><img src="map-japan.png" alt="" /></div>
-      <div class="track-map-layer" data-layer="kansai"><img src="map-kansai.png" alt="" /></div>
-      <div class="track-map-layer" data-layer="ashiya"><img src="map-ashiya.png" alt="" /></div>
-      <div class="track-map-grid"></div>
-      <div class="track-map-scanline"></div>
-      <div class="track-map-pin"><span></span></div>
-      <div class="track-map-coords">N 34.7275° / E 135.3025°</div>
-      <div class="track-map-location">ASHIYA, HYOGO — JAPAN</div>
-    </div>
+    <div class="track-location">ASHIYA, HYOGO — N 34.7275° / E 135.3025°</div>
 
     <div class="track-stats">
       <div class="track-stat-item">
@@ -3887,51 +3769,6 @@
       }, { passive: true });
     }
 
-    // ════════ TRACK RECORD MAP AUTO-PLAY ════════
-    (function() {
-      const viewport = document.getElementById('trackMapViewport');
-      if (!viewport) return;
-
-      const layers = viewport.querySelectorAll('.track-map-layer');
-      const pin = viewport.querySelector('.track-map-pin');
-      const coords = viewport.querySelector('.track-map-coords');
-      const loc = viewport.querySelector('.track-map-location');
-      let played = false;
-
-      function playMapAnimation() {
-        if (played) return;
-        played = true;
-
-        // Phase 1: Japan zooms in (0-1.5s)
-        layers[0].classList.add('zoom');
-
-        // Phase 2: Kansai appears (1.5s)
-        setTimeout(() => {
-          layers[0].style.opacity = '0';
-          layers[1].classList.add('active');
-          layers[1].classList.add('zoom');
-        }, 1500);
-
-        // Phase 3: Ashiya appears (3s)
-        setTimeout(() => {
-          layers[1].style.opacity = '0';
-          layers[2].classList.add('active');
-        }, 3000);
-
-        // Phase 4: Pin + coords (3.5s)
-        setTimeout(() => {
-          pin.classList.add('active');
-          coords.classList.add('active');
-          loc.classList.add('active');
-        }, 3500);
-      }
-
-      // Trigger when section enters viewport
-      const obs = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) playMapAnimation();
-      }, { threshold: 0.3 });
-      obs.observe(viewport);
-    })();
 
 
     /* ── News carousel nav (loop) ── */
