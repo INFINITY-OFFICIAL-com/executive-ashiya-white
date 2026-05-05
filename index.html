@@ -2782,7 +2782,7 @@
       <div class="ie-cards-wrap">
         <div class="ie-cards" id="newsCards">
           <a href="news/2026-04-25-medical-network-expansion.html" class="ie-card fade">
-            <img class="ie-card-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
+            <img class="ie-card-img" src="news-medical-network.avif" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.25</span>
               <span class="ie-card-tag">NEWS</span>
@@ -2791,7 +2791,7 @@
             </div>
           </a>
           <a href="news/2026-04-18-supplement-prescription.html" class="ie-card fade">
-            <img class="ie-card-img" src="concierge-culinary.webp" alt="" loading="lazy" />
+            <img class="ie-card-img" src="news-supplement.webp" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.18</span>
               <span class="ie-card-tag">NEWS</span>
@@ -2800,7 +2800,7 @@
             </div>
           </a>
           <a href="news/2026-04-10-sleep-investment.html" class="ie-card fade">
-            <img class="ie-card-img" src="services-space.webp" alt="" loading="lazy" />
+            <img class="ie-card-img" src="news-sleep.webp" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.10</span>
               <span class="ie-card-tag">COLUMN</span>
@@ -2809,7 +2809,7 @@
             </div>
           </a>
           <a href="news/2026-04-01-service-launch.html" class="ie-card fade">
-            <img class="ie-card-img" src="concierge-medical.webp" alt="" loading="lazy" />
+            <img class="ie-card-img" src="news-launch.jpg" alt="" loading="lazy" />
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.01</span>
               <span class="ie-card-tag">NEWS</span>
@@ -4092,19 +4092,31 @@
     })();
 
 
-    /* ── News carousel nav ── */
+    /* ── News carousel nav (loop) ── */
     (function(){
       var cards = document.getElementById('newsCards');
       var prev = document.getElementById('newsPrev');
       var next = document.getElementById('newsNext');
       if (!cards || !prev || !next) return;
+      var cardWidth = function(){ var c = cards.querySelector('.ie-card'); return c ? c.offsetWidth + 16 : 0; };
       next.addEventListener('click', function(){
-        var card = cards.querySelector('.ie-card');
-        if (card) cards.scrollBy({ left: card.offsetWidth + 16, behavior: 'smooth' });
+        var w = cardWidth();
+        if (!w) return;
+        var maxScroll = cards.scrollWidth - cards.clientWidth;
+        if (cards.scrollLeft >= maxScroll - 2) {
+          cards.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          cards.scrollBy({ left: w, behavior: 'smooth' });
+        }
       });
       prev.addEventListener('click', function(){
-        var card = cards.querySelector('.ie-card');
-        if (card) cards.scrollBy({ left: -(card.offsetWidth + 16), behavior: 'smooth' });
+        var w = cardWidth();
+        if (!w) return;
+        if (cards.scrollLeft <= 2) {
+          cards.scrollTo({ left: cards.scrollWidth - cards.clientWidth, behavior: 'smooth' });
+        } else {
+          cards.scrollBy({ left: -w, behavior: 'smooth' });
+        }
       });
     })();
   </script>
