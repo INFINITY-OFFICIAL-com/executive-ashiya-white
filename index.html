@@ -1496,23 +1496,32 @@
       .concierge-detail-list li { font-size: 0.78rem; }
     }
 
-    /* ════════ TRACK RECORD ════════ */
-    /* ════════ ZOOM MAP SCROLL ANIMATION ════════ */
-    .zoom-scroll-spacer {
-      height: 600vh;
-      position: relative;
+    /* ════════ TRACK RECORD (Auto-play animation) ════════ */
+    .track-record-section {
       background: #1a1f2e;
-    }
-    .zoom-viewport {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-      background: #1a1f2e;
+      padding: 6rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .zoom-layer {
+    .track-record-section .section-num,
+    .track-record-section .section-label { color: var(--gold); }
+    .track-record-section .section-title { color: #fff; }
+    .track-record-section .section-title-ja { color: rgba(255,255,255,0.45); }
+
+    /* Map animation viewport */
+    .track-map-viewport {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      height: 360px;
+      margin: 3rem auto;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #141824;
+      border: 1px solid rgba(139,111,31,0.2);
+    }
+    .track-map-layer {
       position: absolute;
       inset: 0;
       display: flex;
@@ -1520,184 +1529,137 @@
       justify-content: center;
       opacity: 0;
       will-change: opacity, transform;
-      transform: translateZ(0);
-      backface-visibility: hidden;
+      transition: opacity 1.2s ease, transform 4s ease-out;
+      transform: scale(1);
     }
-    .zoom-layer img {
+    .track-map-layer img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: invert(0.92) brightness(1.1) contrast(1.15) saturate(0);
+      filter: brightness(0.5) contrast(1.2) sepia(0.4) hue-rotate(10deg) saturate(1.4);
     }
-    .zoom-layer-japan { opacity: 1; }
-
-    /* Intro title — visible at start, fades out as map zoom begins */
-    .zoom-intro {
-      position: absolute;
-      inset: 0;
-      z-index: 8;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: rgba(26,31,46,0.85);
+    .track-map-layer.active {
       opacity: 1;
-      transition: opacity 0.6s;
     }
-
-    /* Scanline overlay */
-    .zoom-scanline {
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.03) 2px,
-        rgba(0,0,0,0.03) 4px
-      );
-      pointer-events: none;
-      z-index: 2;
+    .track-map-layer.zoom {
+      transform: scale(1.6);
     }
     /* Grid overlay */
-    .zoom-grid {
+    .track-map-grid {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(rgba(180,155,100,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(180,155,100,0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
+        linear-gradient(rgba(139,111,31,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,111,31,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
       pointer-events: none;
       z-index: 2;
-      opacity: 0;
-      transition: opacity 0.8s;
     }
-    /* Coordinates HUD */
-    .zoom-coords {
+    /* Scanline */
+    .track-map-scanline {
       position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      opacity: 0;
-      transition: opacity 0.8s;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
+      pointer-events: none;
+      z-index: 2;
     }
-    .zoom-coords span {
-      font-family: var(--sans);
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      opacity: 0.7;
-    }
-    /* Gold pin */
-    .zoom-pin {
+    /* Pin */
+    .track-map-pin {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       z-index: 4;
       opacity: 0;
-      transition: opacity 0.6s;
+      transition: opacity 0.8s ease 3.5s;
     }
-    .zoom-pin span {
+    .track-map-pin.active { opacity: 1; }
+    .track-map-pin span {
       display: block;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 20px rgba(180,155,100,0.6), 0 0 60px rgba(180,155,100,0.3);
-      animation: zoom-pin-pulse 2s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(180,155,100,0.8), 0 0 60px rgba(180,155,100,0.4);
+      animation: track-pin-pulse 2s ease-in-out infinite;
     }
-    @keyframes zoom-pin-pulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(180,155,100,0.6), 0 0 60px rgba(180,155,100,0.3); transform: scale(1); }
-      50% { box-shadow: 0 0 30px rgba(180,155,100,0.8), 0 0 80px rgba(180,155,100,0.4); transform: scale(1.2); }
+    @keyframes track-pin-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(180,155,100,0.8), 0 0 60px rgba(180,155,100,0.4); }
+      50% { transform: scale(1.3); box-shadow: 0 0 30px rgba(180,155,100,1), 0 0 80px rgba(180,155,100,0.6); }
     }
-    .zoom-pin::before {
+    .track-map-pin::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(180,155,100,0.3);
+      width: 14px; height: 14px;
+      border: 1px solid rgba(180,155,100,0.5);
       border-radius: 50%;
-      animation: zoom-pin-ring 2s ease-in-out infinite;
+      animation: track-pin-ring 2s ease-out infinite;
     }
-    @keyframes zoom-pin-ring {
-      0% { width: 20px; height: 20px; opacity: 0.8; }
+    @keyframes track-pin-ring {
+      0% { width: 14px; height: 14px; opacity: 0.8; }
       100% { width: 60px; height: 60px; opacity: 0; }
     }
-    /* Location label */
-    .zoom-location-label {
+    /* Coords */
+    .track-map-coords {
       position: absolute;
-      bottom: 2.5rem;
-      right: 2.5rem;
+      bottom: 1rem; left: 1.2rem;
+      z-index: 5;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.8s ease 3.8s;
+    }
+    .track-map-coords.active { opacity: 0.7; }
+    /* Location */
+    .track-map-location {
+      position: absolute;
+      bottom: 1rem; right: 1.2rem;
+      z-index: 5;
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.6rem;
-      letter-spacing: 0.35em;
-      color: rgba(180,155,100,0.5);
-      z-index: 5;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: rgba(180,155,100,0.6);
       opacity: 0;
-      transition: opacity 0.8s;
+      transition: opacity 0.8s ease 4s;
     }
-    /* Content overlay */
-    .zoom-content {
-      position: absolute;
-      inset: 0;
-      z-index: 10;
-      padding: 2.5rem 2rem 2rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s, transform 0.8s;
-      background: rgba(26,31,46,0.92);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .zoom-content .track-stats {
+    .track-map-location.active { opacity: 1; }
+
+    /* Stats */
+    .track-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin: 2rem auto;
+      margin: 3rem auto 0;
       max-width: 900px;
       width: 100%;
       border-top: 1px solid rgba(255,255,255,0.15);
       border-bottom: 1px solid rgba(255,255,255,0.15);
       position: relative;
     }
-    .zoom-content .track-stats::before {
+    .track-stats::before {
       content: '';
       position: absolute;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 1px;
+      top: -6px; left: 50%; transform: translateX(-50%);
+      width: 40px; height: 1px;
       background: var(--gold);
     }
-    .zoom-content .track-stats::after {
+    .track-stats::after {
       content: '';
       position: absolute;
-      bottom: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 1px;
+      bottom: -6px; left: 50%; transform: translateX(-50%);
+      width: 40px; height: 1px;
       background: var(--gold);
     }
-    .zoom-content .track-stat-item {
+    .track-stat-item {
       padding: 2.5rem 1rem;
       border-right: 1px solid rgba(255,255,255,0.12);
     }
-    .zoom-content .track-stat-item:last-child { border-right: none; }
-    .zoom-content .track-stat-num {
+    .track-stat-item:last-child { border-right: none; }
+    .track-stat-num {
       font-family: var(--serif-en);
       font-weight: 300;
       font-size: clamp(2.4rem, 5vw, 3.6rem);
@@ -1706,8 +1668,8 @@
       line-height: 1;
       margin-bottom: 1rem;
     }
-    .zoom-content .track-stat-num .small { font-size: 0.4em; color: var(--gold); }
-    .zoom-content .track-stat-label {
+    .track-stat-num .small { font-size: 0.4em; color: var(--gold); }
+    .track-stat-label {
       font-family: var(--serif-en);
       font-size: 0.62rem;
       letter-spacing: 0.28em;
@@ -1715,18 +1677,18 @@
       display: block;
       margin-bottom: 0.4rem;
     }
-    .zoom-content .track-stat-sub {
+    .track-stat-sub {
       font-size: 0.7rem;
       color: rgba(255,255,255,0.6);
       letter-spacing: 0.06em;
       margin: 0;
     }
-    .zoom-content .track-nda {
+    .track-nda {
       max-width: 680px;
-      margin: 0 auto;
+      margin: 2.5rem auto 0;
       padding: 2rem 0;
     }
-    .zoom-content .track-nda-en {
+    .track-nda-en {
       display: block;
       font-family: var(--serif-en);
       font-style: italic;
@@ -1735,14 +1697,14 @@
       color: var(--gold);
       margin-bottom: 1rem;
     }
-    .zoom-content .track-nda-text {
+    .track-nda-text {
       font-size: 0.78rem;
       line-height: 2.2;
       color: rgba(255,255,255,0.85);
       letter-spacing: 0.08em;
       margin: 0;
     }
-    .zoom-content .track-clients {
+    .track-clients {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
@@ -1751,14 +1713,14 @@
       margin: 0 auto 1rem;
       border-top: 1px solid rgba(255,255,255,0.12);
     }
-    .zoom-content .track-client-item {
+    .track-client-item {
       padding: 1.6rem 1rem;
       border-right: 1px solid rgba(255,255,255,0.12);
       border-bottom: 1px solid rgba(255,255,255,0.12);
       text-align: center;
     }
-    .zoom-content .track-client-item:last-child { border-right: none; }
-    .zoom-content .track-client-en {
+    .track-client-item:last-child { border-right: none; }
+    .track-client-en {
       display: block;
       font-family: var(--serif-en);
       font-style: italic;
@@ -1767,14 +1729,14 @@
       color: var(--gold);
       margin-bottom: 0.6rem;
     }
-    .zoom-content .track-client-ja {
+    .track-client-ja {
       display: block;
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       color: rgba(255,255,255,0.65);
     }
-    .zoom-content .track-note {
-      margin-top: 1rem;
+    .track-note {
+      margin-top: 1.5rem;
       font-size: 0.62rem;
       color: rgba(255,255,255,0.4);
       letter-spacing: 0.05em;
@@ -2295,15 +2257,13 @@
       #members { padding: 6rem 1.6rem; }
       .plan-grid { grid-template-columns: 1fr; gap: 3rem; }
       .plan-item { padding: 3rem 2rem; }
-      .zoom-content .track-stats { grid-template-columns: 1fr; }
-      .zoom-content .track-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .zoom-content .track-stat-item:last-child { border-bottom: none; }
-      .zoom-content .track-clients { grid-template-columns: repeat(2, 1fr); }
-      .zoom-content .track-client-item:nth-child(2) { border-right: none; }
-      .zoom-content .track-client-item:nth-child(4) { border-right: none; }
-      .zoom-coords { bottom: 1.2rem; left: 1.2rem; }
-      .zoom-location-label { bottom: 1.2rem; right: 1.2rem; }
-      .zoom-scroll-spacer { height: 550vh; }
+      .track-stats { grid-template-columns: 1fr; }
+      .track-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .track-stat-item:last-child { border-bottom: none; }
+      .track-clients { grid-template-columns: repeat(2, 1fr); }
+      .track-client-item:nth-child(2) { border-right: none; }
+      .track-client-item:nth-child(4) { border-right: none; }
+      .track-map-viewport { height: 260px; }
       .join-paths { grid-template-columns: 1fr; }
       .join-steps { grid-template-columns: 1fr; }
       .hero-text { padding: 2rem 1.6rem; }
@@ -2411,20 +2371,6 @@
       height: 120px;
       background: linear-gradient(to bottom, var(--bg) 0%, #1a1f2e 100%);
       margin-bottom: -1px;
-    }
-
-    /* ════════ DARK→WHITE TRANSITION (after map) ════════ */
-    .zoom-to-white-transition {
-      height: 200px;
-      background: linear-gradient(to bottom,
-        #1a1f2e 0%,
-        #252a3a 25%,
-        #4a4d5c 45%,
-        #8a8880 62%,
-        #c8c2b8 78%,
-        var(--bg) 100%
-      );
-      margin-top: -1px;
     }
 
     /* ════════ HEADER DARK MODE (over zoom section) ════════ */
@@ -3241,90 +3187,72 @@
 
   <div class="diamond-divider fade"><span></span></div>
 
-  <!-- ════════ TRACK RECORD (Scroll-driven Map Zoom) ════════ -->
-  <div class="zoom-scroll-spacer" id="track-record-spacer">
-    <div class="zoom-viewport" id="track-record">
-      <!-- Intro title (visible before animation starts, fades out) -->
-      <div class="zoom-intro" id="zoom-intro">
-        <span class="section-num" style="color: var(--gold);">— Ⅲ —</span>
-        <span class="section-label with-rule" style="color: rgba(255,255,255,0.6);">TRACK RECORD</span>
-        <h2 class="section-title" style="color: #fff;">Proven Results</h2>
-        <span class="section-title-ja" style="color: rgba(255,255,255,0.45);">確 か な 実 績</span>
+  <!-- ════════ TRACK RECORD ════════ -->
+  <section class="track-record-section" id="track-record">
+    <span class="section-num">— Ⅲ —</span>
+    <span class="section-label with-rule">TRACK RECORD</span>
+    <h2 class="section-title">Proven Results</h2>
+    <span class="section-title-ja">確 か な 実 績</span>
+
+    <!-- Map animation (auto-play) -->
+    <div class="track-map-viewport" id="trackMapViewport">
+      <div class="track-map-layer active" data-layer="japan"><img src="map-japan.png" alt="" /></div>
+      <div class="track-map-layer" data-layer="kansai"><img src="map-kansai.png" alt="" /></div>
+      <div class="track-map-layer" data-layer="ashiya"><img src="map-ashiya.png" alt="" /></div>
+      <div class="track-map-grid"></div>
+      <div class="track-map-scanline"></div>
+      <div class="track-map-pin"><span></span></div>
+      <div class="track-map-coords">N 34.7275° / E 135.3025°</div>
+      <div class="track-map-location">ASHIYA, HYOGO — JAPAN</div>
+    </div>
+
+    <div class="track-stats">
+      <div class="track-stat-item">
+        <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
+        <span class="track-stat-label">TOTAL CLIENTS</span>
+        <p class="track-stat-sub">代表トレーナー15年間の累計指導人数</p>
       </div>
-      <!-- Map layers -->
-      <div class="zoom-layer zoom-layer-japan"><img src="map-japan.png" alt="" /></div>
-      <div class="zoom-layer zoom-layer-kansai"><img src="map-kansai.png" alt="" /></div>
-      <div class="zoom-layer zoom-layer-ashiya"><img src="map-ashiya.png" alt="" /></div>
-
-      <!-- HUD overlays -->
-      <div class="zoom-scanline"></div>
-      <div class="zoom-grid"></div>
-      <div class="zoom-coords">
-        <span class="zoom-coords-lat">N 34.7275°</span>
-        <span class="zoom-coords-lon">E 135.3025°</span>
+      <div class="track-stat-item">
+        <div class="track-stat-num" data-count="92" data-suffix="%">0</div>
+        <span class="track-stat-label">RETENTION RATE</span>
+        <p class="track-stat-sub">年間契約の翌年度更新率</p>
       </div>
-      <div class="zoom-pin"><span></span></div>
-      <div class="zoom-location-label">ASHIYA, HYOGO — JAPAN</div>
-
-      <!-- Content overlay -->
-      <div class="zoom-content">
-        <span class="section-num" style="color:var(--gold);">— Ⅲ —</span>
-        <span class="section-label with-rule" style="color:rgba(255,255,255,0.6);">TRACK RECORD</span>
-        <h2 class="section-title" style="color:#fff;">Proven Results</h2>
-        <span class="section-title-ja" style="color:rgba(255,255,255,0.45);">確 か な 実 績</span>
-
-        <div class="track-stats">
-          <div class="track-stat-item">
-            <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
-            <span class="track-stat-label">TOTAL CLIENTS</span>
-            <p class="track-stat-sub">代表トレーナー15年間の累計指導人数</p>
-          </div>
-          <div class="track-stat-item">
-            <div class="track-stat-num" data-count="92" data-suffix="%">0</div>
-            <span class="track-stat-label">RETENTION RATE</span>
-            <p class="track-stat-sub">年間契約の翌年度更新率</p>
-          </div>
-          <div class="track-stat-item">
-            <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
-            <span class="track-stat-label">TRAINER ACCEPTANCE</span>
-            <p class="track-stat-sub">年間応募300名超から厳選採用</p>
-          </div>
-        </div>
-
-        <div class="track-nda">
-          <span class="track-nda-en">CONFIDENTIALITY</span>
-          <p class="track-nda-text">
-            すべてのお客様と<a href="confidentiality.html" class="text-link" style="color:#fff;border-color:rgba(255,255,255,0.35);">秘密保持契約</a>を締結。<br>
-            ご利用の事実そのものが外部に知られることはありません。
-          </p>
-        </div>
-
-        <div class="track-clients">
-          <div class="track-client-item">
-            <span class="track-client-en">Entertainment</span>
-            <span class="track-client-ja">芸能・宝塚歌劇団関係者</span>
-          </div>
-          <div class="track-client-item">
-            <span class="track-client-en">Professional Athletes</span>
-            <span class="track-client-ja">プロアスリート・五輪選手帯同</span>
-          </div>
-          <div class="track-client-item">
-            <span class="track-client-en">Business Executives</span>
-            <span class="track-client-ja">上場企業経営者・役員</span>
-          </div>
-          <div class="track-client-item">
-            <span class="track-client-en">Medical Doctors</span>
-            <span class="track-client-ja">開業医・勤務医</span>
-          </div>
-        </div>
-
-        <p class="track-note">* 数値は代表トレーナー福田の累計指導実績（2011年〜）および現行サービスの継続率に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+      <div class="track-stat-item">
+        <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
+        <span class="track-stat-label">TRAINER ACCEPTANCE</span>
+        <p class="track-stat-sub">年間応募300名超から厳選採用</p>
       </div>
     </div>
-  </div>
 
-  <!-- Dark → White transition gradient -->
-  <div class="zoom-to-white-transition"></div>
+    <div class="track-nda">
+      <span class="track-nda-en">CONFIDENTIALITY</span>
+      <p class="track-nda-text">
+        すべてのお客様と<a href="confidentiality.html" class="text-link" style="color:#fff;border-color:rgba(255,255,255,0.35);">秘密保持契約</a>を締結。<br>
+        ご利用の事実そのものが外部に知られることはありません。
+      </p>
+    </div>
+
+    <div class="track-clients">
+      <div class="track-client-item">
+        <span class="track-client-en">Entertainment</span>
+        <span class="track-client-ja">芸能・宝塚歌劇団関係者</span>
+      </div>
+      <div class="track-client-item">
+        <span class="track-client-en">Professional Athletes</span>
+        <span class="track-client-ja">プロアスリート・五輪選手帯同</span>
+      </div>
+      <div class="track-client-item">
+        <span class="track-client-en">Business Executives</span>
+        <span class="track-client-ja">上場企業経営者・役員</span>
+      </div>
+      <div class="track-client-item">
+        <span class="track-client-en">Medical Doctors</span>
+        <span class="track-client-ja">開業医・勤務医</span>
+      </div>
+    </div>
+
+    <p class="track-note">* 数値は代表トレーナー福田の累計指導実績（2011年〜）および現行サービスの継続率に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+  </section>
 
   <div class="diamond-divider fade"><span></span></div>
 
@@ -3712,7 +3640,7 @@
     // Nav scroll effect + dark mode over zoom section + hero transparent
     const headerEl = document.querySelector('header');
     const heroEl = document.getElementById('hero');
-    const zoomSpacer = document.getElementById('track-record-spacer');
+    const zoomSpacer = document.getElementById('track-record');
 
     function updateHeader() {
       const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : 0;
@@ -3959,132 +3887,50 @@
       }, { passive: true });
     }
 
-    // ════════ SCROLL-DRIVEN MAP ZOOM ════════
+    // ════════ TRACK RECORD MAP AUTO-PLAY ════════
     (function() {
-      const spacer = document.getElementById('track-record-spacer');
-      if (!spacer) return;
+      const viewport = document.getElementById('trackMapViewport');
+      if (!viewport) return;
 
-      const intro = document.getElementById('zoom-intro');
-      const layerJapan = spacer.querySelector('.zoom-layer-japan');
-      const layerKansai = spacer.querySelector('.zoom-layer-kansai');
-      const layerAshiya = spacer.querySelector('.zoom-layer-ashiya');
-      const grid = spacer.querySelector('.zoom-grid');
-      const coords = spacer.querySelector('.zoom-coords');
-      const pin = spacer.querySelector('.zoom-pin');
-      const locLabel = spacer.querySelector('.zoom-location-label');
-      const content = spacer.querySelector('.zoom-content');
+      const layers = viewport.querySelectorAll('.track-map-layer');
+      const pin = viewport.querySelector('.track-map-pin');
+      const coords = viewport.querySelector('.track-map-coords');
+      const loc = viewport.querySelector('.track-map-location');
+      let played = false;
 
-      // Smooth easing
-      function smoothStep(edge0, edge1, x) {
-        const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
-        return t * t * (3 - 2 * t);
-      }
-      function easeOutQuad(t) { return 1 - (1 - t) * (1 - t); }
+      function playMapAnimation() {
+        if (played) return;
+        played = true;
 
-      // Lerp for frame interpolation — eliminates choppiness
-      function lerp(current, target, speed) {
-        return current + (target - current) * speed;
-      }
+        // Phase 1: Japan zooms in (0-1.5s)
+        layers[0].classList.add('zoom');
 
-      // Animated state (lerped values)
-      const state = {
-        introOp: 1,
-        japanScale: 1, japanOp: 1,
-        kansaiScale: 0.85, kansaiOp: 0,
-        ashiyaScale: 0.85, ashiyaOp: 0,
-        gridOp: 0, coordsOp: 0, pinOp: 0, locOp: 0,
-        contentOp: 0, contentY: 30
-      };
-      const LERP_SPEED = 0.12;
-      let animating = false;
+        // Phase 2: Kansai appears (1.5s)
+        setTimeout(() => {
+          layers[0].style.opacity = '0';
+          layers[1].classList.add('active');
+          layers[1].classList.add('zoom');
+        }, 1500);
 
-      function getTargets() {
-        const rect = spacer.getBoundingClientRect();
-        const spacerH = spacer.offsetHeight;
-        const vh = window.innerHeight;
-        const p = Math.max(0, Math.min(1, (-rect.top) / (spacerH - vh)));
+        // Phase 3: Ashiya appears (3s)
+        setTimeout(() => {
+          layers[1].style.opacity = '0';
+          layers[2].classList.add('active');
+        }, 3000);
 
-        // Intro title — fades out at 0-8% of scroll
-        const introOp = 1 - smoothStep(0.0, 0.08, p);
-
-        // Japan (0 - 0.20)
-        const japanScale = 1 + p * 3;
-        const japanOp = 1 - smoothStep(0.12, 0.22, p);
-
-        // Kansai (0.10 - 0.35)
-        const kansaiFadeIn = smoothStep(0.10, 0.18, p);
-        const kansaiFadeOut = 1 - smoothStep(0.28, 0.38, p);
-        const kansaiOp = kansaiFadeIn * kansaiFadeOut;
-        const kp = Math.max(0, Math.min(1, (p - 0.10) / 0.28));
-        const kansaiScale = 0.85 + easeOutQuad(kp) * 1.8;
-
-        // Ashiya (0.25 - 0.40)
-        const ashiyaOp = smoothStep(0.25, 0.38, p);
-        const ap = Math.max(0, Math.min(1, (p - 0.25) / 0.25));
-        const ashiyaScale = 0.85 + easeOutQuad(ap) * 0.35;
-
-        // UI elements
-        const gridOp = smoothStep(0.08, 0.20, p);
-        const coordsOp = smoothStep(0.12, 0.25, p) * 0.9;
-        const pinOp = smoothStep(0.30, 0.40, p);
-        const locOp = smoothStep(0.32, 0.42, p) * 0.6;
-
-        // Content — appears at 40% and stays fully visible for remaining 60%
-        const cp = smoothStep(0.38, 0.50, p);
-
-        return {
-          introOp,
-          japanScale, japanOp,
-          kansaiScale, kansaiOp,
-          ashiyaScale, ashiyaOp,
-          gridOp, coordsOp, pinOp, locOp,
-          contentOp: cp, contentY: 30 * (1 - cp)
-        };
+        // Phase 4: Pin + coords (3.5s)
+        setTimeout(() => {
+          pin.classList.add('active');
+          coords.classList.add('active');
+          loc.classList.add('active');
+        }, 3500);
       }
 
-      function tick() {
-        const target = getTargets();
-        let settled = true;
-
-        for (const key in target) {
-          state[key] = lerp(state[key], target[key], LERP_SPEED);
-          if (Math.abs(state[key] - target[key]) > 0.001) settled = false;
-        }
-
-        // Apply
-        if (intro) {
-          intro.style.opacity = state.introOp;
-          if (state.introOp < 0.01) intro.style.pointerEvents = 'none';
-        }
-        layerJapan.style.transform = `scale(${state.japanScale})`;
-        layerJapan.style.opacity = state.japanOp;
-        layerKansai.style.transform = `scale(${state.kansaiScale})`;
-        layerKansai.style.opacity = state.kansaiOp;
-        layerAshiya.style.transform = `scale(${state.ashiyaScale})`;
-        layerAshiya.style.opacity = state.ashiyaOp;
-        grid.style.opacity = state.gridOp;
-        coords.style.opacity = state.coordsOp;
-        pin.style.opacity = state.pinOp;
-        locLabel.style.opacity = state.locOp;
-        content.style.opacity = state.contentOp;
-        content.style.transform = `translateY(${state.contentY}px)`;
-
-        if (!settled) {
-          requestAnimationFrame(tick);
-        } else {
-          animating = false;
-        }
-      }
-
-      function startAnimation() {
-        if (!animating) {
-          animating = true;
-          requestAnimationFrame(tick);
-        }
-      }
-
-      window.addEventListener('scroll', startAnimation, { passive: true });
-      startAnimation();
+      // Trigger when section enters viewport
+      const obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) playMapAnimation();
+      }, { threshold: 0.3 });
+      obs.observe(viewport);
     })();
 
 
