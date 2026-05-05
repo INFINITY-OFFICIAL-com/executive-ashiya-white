@@ -2042,70 +2042,27 @@
       max-width: none;
       background: var(--bg-alt);
     }
-    .faq-list {
-      max-width: 840px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .faq-list { margin-top: 2rem; }
-    .faq-item {
-      border-bottom: 1px solid var(--ink-line);
-    }
-    .faq-q {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 1.8rem 0;
-      cursor: pointer;
-      transition: color 0.3s;
-      background: none;
-      border: none;
-      text-align: left;
-      font-family: inherit;
-      font-size: inherit;
-      line-height: inherit;
-      color: inherit;
-    }
-    .faq-q:hover { color: var(--gold); }
-    .faq-q-text {
-      font-size: 0.84rem;
-      letter-spacing: 0.06em;
-      color: var(--ink);
-      flex: 1;
-      padding-right: 1rem;
-    }
-    .faq-toggle {
-      width: 14px; height: 14px;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .faq-toggle::before,
-    .faq-toggle::after {
-      content: '';
-      position: absolute;
-      background: var(--gold);
-      transition: transform 0.4s;
-    }
-    .faq-toggle::before {
-      top: 50%; left: 0; right: 0; height: 1px;
-    }
-    .faq-toggle::after {
-      left: 50%; top: 0; bottom: 0; width: 1px;
-    }
-    .faq-item.open .faq-toggle::after { transform: scaleY(0); }
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-    .faq-item.open .faq-a { max-height: 320px; }
-    .faq-a-inner {
-      padding: 0 0 1.8rem;
-      font-size: 0.75rem;
+    .faq-intro {
+      font-size: 0.78rem;
       color: var(--ink-soft);
-      line-height: 2.2;
       letter-spacing: 0.05em;
+      margin-top: 2rem;
+    }
+    .faq-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: var(--serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 1rem 3rem;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+    .faq-link:hover {
+      background: var(--gold);
+      color: #fff;
     }
 
     /* ════════ HERO CTA ════════ */
@@ -2655,7 +2612,7 @@
         <a class="nav-link" href="#services">SERVICES</a>
         <a class="nav-link" href="#members">PRICING</a>
         <a class="nav-link" href="#how-to-join">HOW TO JOIN</a>
-        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-link" href="/faq">FAQ</a>
         <a class="nav-link" href="for-members.html">MEMBERS</a>
         <a class="nav-cta" href="invitation-request.html">INVITATION</a>
       </div>
@@ -2670,7 +2627,7 @@
       <a href="#track-record" onclick="closeMobileNav()">TRACK RECORD</a>
       <a href="#members" onclick="closeMobileNav()">PRICING</a>
       <a href="#how-to-join" onclick="closeMobileNav()">HOW TO JOIN</a>
-      <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+      <a href="/faq" onclick="closeMobileNav()">FAQ</a>
       <a href="for-members.html" onclick="closeMobileNav()">MEMBERS</a>
       <a href="invitation-request.html" onclick="closeMobileNav()">INVITATION</a>
     </nav>
@@ -3391,70 +3348,14 @@
     </div>
   </section>
 
-  <!-- ════════ FAQ ════════ -->
+  <!-- ════════ FAQ (LINK) ════════ -->
   <section id="faq">
     <span class="section-num">— Ⅴ —</span>
     <span class="section-label with-rule">FAQ</span>
     <h2 class="section-title">Questions &amp; Answers</h2>
     <span class="section-title-ja">よ く あ る ご 質 問</span>
-
-    <div class="faq-list">
-      <div class="faq-item fade">
-        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
-          <span class="faq-q-text">「ヘルスケアコンシェルジュ」とは具体的に何をしてくれますか？</span>
-          <span class="faq-toggle"></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            専属トレーナー・管理栄養士・提携医師・コンシェルジュの4職種がチームを組み、トレーニング・栄養設計・体調モニタリング・医療連携を一貫してコーディネートいたします。例えば、Oura Ringで睡眠の質が低下を検知した場合、トレーナーがその日の運動強度を調整し、栄養士が回復を促す食事プランを提案、必要に応じて提携医師への相談も手配します。単なるトレーナーではなく、お身体と生活全体を見据えた「健康の主治医チーム」としてお考えください。
-          </div>
-        </div>
-      </div>
-      <div class="faq-item fade">
-        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
-          <span class="faq-q-text">医療機関との連携はどのように行われますか？</span>
-          <span class="faq-toggle"></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            関西圏を中心に30以上の医療機関・整骨院・鍼灸院と提携しています。人間ドックや血液検査の結果はトレーナーと提携医師が共同でレビューし、トレーニング内容や栄養プランに反映します。例えば、血液検査でLDLコレステロールが高値の場合、有酸素運動の比率を増やし、食事でのω-3脂肪酸を強化するといった具体的な調整を行います。急な体調不良時にも、提携クリニックへの当日予約手配が可能です。
-          </div>
-        </div>
-      </div>
-      <div class="faq-item fade">
-        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
-          <span class="faq-q-text">対応エリアはどこまでですか？</span>
-          <span class="faq-toggle"></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            芦屋・西宮・神戸・宝塚エリアを中心に、大阪市内（梅田・心斎橋・天王寺等）まで訪問対応しております。上記以外のエリア（京都・奈良等）についても、出張費をご負担いただくことで対応可能な場合がございます。PLATINUMプラン会員様は国内出張先への同行サービス（年間6日まで無料）もご利用いただけます。
-          </div>
-        </div>
-      </div>
-      <div class="faq-item fade">
-        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
-          <span class="faq-q-text">契約期間について教えてください。</span>
-          <span class="faq-toggle"></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            ご契約は1年単位の年間プログラムです。身体の変化と健康設計には最低6ヶ月〜1年の継続が必要なため、年間を通じた包括的なサポートをご提供しています。年度末に個別面談を実施し、翌年度のプログラム継続・プラン変更をご相談いただけます。なお、やむを得ない事情による中途解約については個別にご相談を承りますが、入会金の返金はございませんのでご了承ください。
-          </div>
-        </div>
-      </div>
-      <div class="faq-item fade">
-        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
-          <span class="faq-q-text">利用していることが他人に知られることはありますか？</span>
-          <span class="faq-toggle"></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            一切ございません。全スタッフが<a href="confidentiality.html" class="text-link">NDA（秘密保持契約）</a>を締結しており、ご利用の事実そのものを第三者に開示することは一切ありません。訪問時のスタッフは私服で伺い、車両にもロゴ等の表示はございません。配送物にもサービス名の記載はなく、ご家族やご近隣の方にも知られることのないよう万全の配慮を行っております。SNSや口コミサイトへの掲載も厳禁としています。
-          </div>
-        </div>
-      </div>
-    </div>
+    <p class="faq-intro fade">サービス内容・医療連携・プライバシー・ご入会に関するご質問にお答えします。</p>
+    <a href="/faq" class="faq-link fade">よくあるご質問を見る &rarr;</a>
   </section>
 
 
@@ -3494,7 +3395,7 @@
       <a href="#services">SERVICES</a>
       <a href="#track-record">TRACK RECORD</a>
       <a href="#members">PRICING</a>
-      <a href="#faq">FAQ</a>
+      <a href="/faq">FAQ</a>
       <a href="invitation-request.html">INVITATION</a>
     </div>
     <div class="f-links">
@@ -3762,12 +3663,6 @@
       });
     }
 
-    // FAQ toggle
-    function toggleFaq(el) {
-      const item = el.parentElement;
-      item.classList.toggle('open');
-      el.setAttribute('aria-expanded', item.classList.contains('open'));
-    }
 
     // ─── Password Gate ───
     // SHA-256 hash (same as black version) — password: matches existing site
