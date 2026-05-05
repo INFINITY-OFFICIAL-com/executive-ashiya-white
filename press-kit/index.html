@@ -172,19 +172,13 @@
     /* ═══ KEY VISUAL ═══ */
     .pk-keyvisual {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: var(--ink-line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       margin: 2rem 0;
-      border: 1px solid var(--ink-line);
+      overflow: hidden;
     }
-    .pk-keyvisual-placeholder {
-      font-family: var(--serif-en);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      color: var(--ink-faint);
+    .pk-keyvisual-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* ═══ HIGHLIGHT BOX ═══ */
@@ -248,26 +242,19 @@
     /* ═══ PROFILE ═══ */
     .pk-profile {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 220px 1fr;
       gap: 3rem;
       align-items: start;
       margin: 2rem 0;
     }
     .pk-profile-photo {
-      width: 200px;
-      height: 260px;
-      background: var(--ink-line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--ink-line);
+      width: 220px;
+      overflow: hidden;
     }
-    .pk-profile-photo-placeholder {
-      font-family: var(--serif-en);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      color: var(--ink-faint);
-      text-align: center;
+    .pk-profile-photo-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .pk-profile-name {
       font-size: 1.1rem;
@@ -343,20 +330,43 @@
       margin: 2rem 0;
     }
     .pk-photo-item {
-      aspect-ratio: 4 / 3;
-      background: var(--ink-line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--ink-line);
+      background: #f8f8f6;
     }
-    .pk-photo-item-text {
+    .pk-photo-item-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pk-photo-item-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(28, 31, 46, 0.7);
       font-family: var(--serif-en);
       font-size: 0.55rem;
       letter-spacing: 0.12em;
-      color: var(--ink-faint);
+      color: rgba(255,255,255,0.85);
       text-align: center;
       padding: 0.5rem;
+    }
+    .pk-photo-sub-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-faint);
+      margin: 2.5rem 0 1rem;
+    }
+    .pk-photo-grid-wide {
+      grid-template-columns: 1fr 1fr;
+    }
+    .pk-photo-item-wide {
+      aspect-ratio: 16 / 7;
     }
 
     /* ═══ SCENE LIST ═══ */
@@ -501,8 +511,7 @@
         gap: 2rem;
       }
       .pk-profile-photo {
-        width: 160px;
-        height: 210px;
+        width: 180px;
         margin: 0 auto;
       }
       .pk-photo-grid {
@@ -571,7 +580,7 @@
     </div>
 
     <div class="pk-keyvisual">
-      <span class="pk-keyvisual-placeholder">KEY VISUAL — Coming Soon</span>
+      <img src="images/key-visual.png" alt="EXECUTIVE ASHIYA キービジュアル" class="pk-keyvisual-img" />
     </div>
   </section>
 
@@ -608,7 +617,7 @@
 
     <div class="pk-profile">
       <div class="pk-profile-photo">
-        <span class="pk-profile-photo-placeholder">PHOTO<br>Coming Soon</span>
+        <img src="images/founder-solo.png" alt="福田泰士" class="pk-profile-photo-img" />
       </div>
       <div class="pk-profile-content">
         <h3 class="pk-profile-name">福田 泰士</h3>
@@ -667,22 +676,40 @@
 
       <div class="pk-photo-grid">
         <div class="pk-photo-item">
-          <span class="pk-photo-item-text">Key Visual</span>
+          <img src="images/key-visual.png" alt="キービジュアル" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Key Visual</span>
         </div>
         <div class="pk-photo-item">
-          <span class="pk-photo-item-text">Founder</span>
+          <img src="images/founder-solo.png" alt="代表ソロ" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Founder</span>
         </div>
         <div class="pk-photo-item">
-          <span class="pk-photo-item-text">Session</span>
+          <img src="images/cover-ea.jpg" alt="EA カバー" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Service Cover</span>
         </div>
         <div class="pk-photo-item">
-          <span class="pk-photo-item-text">Space</span>
+          <img src="images/logo-ea-wide.jpg" alt="EA ロゴ横" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Logo (Wide)</span>
         </div>
         <div class="pk-photo-item">
-          <span class="pk-photo-item-text">Training</span>
+          <img src="images/logo-ea-square.jpg" alt="EA ロゴ正方形" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Logo (Square)</span>
         </div>
         <div class="pk-photo-item">
-          <span class="pk-photo-item-text">Lifestyle</span>
+          <img src="images/logo-refit.jpg" alt="ReFit ロゴ" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">ReFit Logo</span>
+        </div>
+      </div>
+
+      <h3 class="pk-photo-sub-title">関連事業ビジュアル</h3>
+      <div class="pk-photo-grid pk-photo-grid-wide">
+        <div class="pk-photo-item pk-photo-item-wide">
+          <img src="images/cover-refit.jpg" alt="ReFit カバー" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">ReFit Cover</span>
+        </div>
+        <div class="pk-photo-item pk-photo-item-wide">
+          <img src="images/cover-ea.jpg" alt="Executive Ashiya カバー" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Executive Ashiya Cover</span>
         </div>
       </div>
 
