@@ -13,6 +13,11 @@
   status = 200
 
 [[redirects]]
+  from = "/news"
+  to = "/news/index.html"
+  status = 200
+
+[[redirects]]
   from = "/press-kit"
   to = "/press-kit/index.html"
   status = 200

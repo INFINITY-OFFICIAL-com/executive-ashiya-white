@@ -2271,6 +2271,9 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* News cards — horizontal only */
+    .ie-card.fade { transform: translateX(30px); }
+    .ie-card.fade.visible { transform: translateX(0); }
     /* Staggered step animation */
     .join-step.fade { transform: translateX(-20px); }
     .join-step.fade.visible { transform: translateX(0); }
@@ -2701,6 +2704,16 @@
       }
     }
   </style>
+  <script>
+    // ローダー早期非表示（別ページから戻った際のフラッシュ防止）
+    if (sessionStorage.getItem('ea_visited')) {
+      document.documentElement.classList.add('ea-revisit');
+    }
+  </script>
+  <style>
+    html.ea-revisit #loader { display: none !important; }
+    html.ea-revisit body.loading { overflow: auto; }
+  </style>
 </head>
 <body class="loading">
 
@@ -2814,7 +2827,7 @@
           </button>
         </div>
       </div>
-      <a href="#news" class="ie-more">
+      <a href="/news/" class="ie-more">
         一覧を見る
         <span class="ie-more-circle">
           <svg viewBox="0 0 10 10"><path d="M3 1 L7 5 L3 9"/></svg>
