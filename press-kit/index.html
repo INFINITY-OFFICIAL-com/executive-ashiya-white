@@ -34,8 +34,8 @@
       --gold-deep: #6A521A;
       --gold-soft: rgba(139, 111, 31, 0.16);
       --ink: #1C1F2E;
-      --ink-soft: rgba(28, 31, 46, 0.70);
-      --ink-faint: rgba(28, 31, 46, 0.45);
+      --ink-soft: rgba(28, 31, 46, 0.82);
+      --ink-faint: rgba(28, 31, 46, 0.55);
       --ink-line: rgba(28, 31, 46, 0.10);
       --ink-line-strong: rgba(28, 31, 46, 0.22);
       --serif-en: 'Cormorant Garamond', Georgia, serif;
@@ -70,14 +70,14 @@
     .pk-header-logo {
       font-family: var(--serif-en);
       font-weight: 400;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       letter-spacing: 0.35em;
       color: var(--ink);
       text-decoration: none;
     }
     .pk-header-back {
       font-family: var(--serif-en);
-      font-size: 0.58rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       color: var(--gold);
       text-decoration: none;
@@ -94,9 +94,9 @@
     .pk-hero-label {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.4em;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.45);
       margin-bottom: 2rem;
     }
     .pk-hero-title {
@@ -109,9 +109,9 @@
     }
     .pk-hero-sub {
       font-family: var(--serif-jp);
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       letter-spacing: 0.35em;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.5);
       margin-top: 1rem;
     }
 
@@ -149,7 +149,7 @@
       display: block;
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.35em;
       color: var(--gold);
       margin-bottom: 1.2rem;
@@ -157,7 +157,7 @@
     .pk-section-title {
       font-family: var(--serif-en);
       font-weight: 300;
-      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
       letter-spacing: 0.1em;
       color: var(--ink);
       margin: 0 0 0.4rem;
@@ -165,7 +165,7 @@
     .pk-section-title-ja {
       display: block;
       font-family: var(--serif-jp);
-      font-size: 0.68rem;
+      font-size: 0.8rem;
       letter-spacing: 0.3em;
       color: var(--ink-faint);
       margin-bottom: 3rem;
@@ -177,10 +177,10 @@
     .pk-section.dark .pk-section-num { color: var(--gold-light); }
 
     .pk-body {
-      font-size: 0.78rem;
-      line-height: 2.6;
+      font-size: 0.92rem;
+      line-height: 2.4;
       color: var(--ink-soft);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
     .pk-body p { margin: 0 0 1.5rem; }
 
@@ -212,12 +212,12 @@
     }
     .pk-highlight-item:last-child { border-bottom: none; }
     .pk-highlight-label {
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       color: var(--ink-faint);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
     }
     .pk-highlight-value {
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       color: var(--ink);
       font-weight: 400;
       letter-spacing: 0.04em;
@@ -231,8 +231,8 @@
       padding: 1rem 2.4rem;
       border: 1px solid var(--ink);
       font-family: var(--serif-en);
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
       color: var(--ink);
       text-decoration: none;
       transition: all 0.3s;
@@ -253,6 +253,11 @@
     .pk-btn-icon {
       font-size: 0.8rem;
     }
+    .pk-btn.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      cursor: default;
+    }
 
     /* ═══ PROFILE ═══ */
     .pk-profile {
@@ -272,27 +277,27 @@
       display: block;
     }
     .pk-profile-name {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 400;
       letter-spacing: 0.12em;
       margin: 0 0 0.3rem;
     }
     .pk-profile-name-en {
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.78rem;
       letter-spacing: 0.25em;
       color: var(--gold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
     .pk-profile-role {
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       color: var(--ink-soft);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       margin: 0 0 1.5rem;
     }
     .pk-profile-bio {
-      font-size: 0.75rem;
-      line-height: 2.4;
+      font-size: 0.88rem;
+      line-height: 2.2;
       color: var(--ink-soft);
     }
     .pk-profile-bio p { margin: 0 0 1.2rem; }
@@ -304,7 +309,7 @@
     }
     .pk-profile-business-title {
       font-family: var(--serif-en);
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       letter-spacing: 0.25em;
       color: var(--gold);
       margin: 0 0 1.2rem;
@@ -316,7 +321,7 @@
       margin: 0;
     }
     .pk-profile-business-list li {
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       line-height: 2;
       color: var(--ink-soft);
       padding: 0.8rem 0;
@@ -330,7 +335,7 @@
     .pk-profile-business-list li a {
       color: var(--gold);
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.78rem;
       letter-spacing: 0.05em;
       border-bottom: 1px solid var(--gold-soft);
       transition: opacity 0.3s;
@@ -364,7 +369,7 @@
       right: 0;
       background: rgba(28, 31, 46, 0.7);
       font-family: var(--serif-en);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       color: rgba(255,255,255,0.85);
       text-align: center;
@@ -373,7 +378,7 @@
     .pk-photo-sub-title {
       font-family: var(--serif-en);
       font-weight: 300;
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       letter-spacing: 0.15em;
       color: var(--ink-faint);
       margin: 2.5rem 0 1rem;
@@ -392,11 +397,11 @@
       margin: 2rem 0;
     }
     .pk-scene-list li {
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       color: var(--ink-soft);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       line-height: 2;
-      padding: 1.2rem 0 1.2rem 1.6rem;
+      padding: 1.4rem 0 1.4rem 1.8rem;
       border-bottom: 1px solid var(--ink-line);
       position: relative;
     }
@@ -404,13 +409,13 @@
       content: '◆';
       position: absolute;
       left: 0;
-      top: 1.2rem;
+      top: 1.4rem;
       color: var(--gold);
-      font-size: 0.5rem;
+      font-size: 0.55rem;
     }
     .pk-scene-list li strong {
       display: block;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 400;
       color: var(--ink);
       margin-bottom: 0.2rem;
@@ -424,7 +429,7 @@
     }
     .pk-company-table th,
     .pk-company-table td {
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       padding: 1.2rem 1rem;
       border-bottom: 1px solid var(--ink-line);
       text-align: left;
@@ -451,25 +456,25 @@
     }
     .pk-contact-title {
       font-family: var(--serif-en);
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       letter-spacing: 0.3em;
       color: var(--gold);
       margin-bottom: 2rem;
     }
     .pk-contact-name {
-      font-size: 0.85rem;
+      font-size: 1.05rem;
       font-weight: 400;
       letter-spacing: 0.1em;
       margin-bottom: 0.3rem;
     }
     .pk-contact-role {
-      font-size: 0.68rem;
+      font-size: 0.82rem;
       color: var(--ink-faint);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       margin-bottom: 2rem;
     }
     .pk-contact-info {
-      font-size: 0.75rem;
+      font-size: 0.9rem;
       color: var(--ink-soft);
       line-height: 2.4;
     }
@@ -488,7 +493,7 @@
     }
     .pk-footer-text {
       font-family: var(--serif-en);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       color: var(--ink-faint);
     }
@@ -510,7 +515,7 @@
       background: var(--bg);
     }
     .pk-press-release-placeholder {
-      font-size: 0.75rem;
+      font-size: 0.9rem;
       color: var(--ink-faint);
       text-align: center;
       padding: 3rem 0;
@@ -529,8 +534,8 @@
     }
     .pk-toc a {
       font-family: var(--serif-en);
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       color: var(--ink-faint);
       padding: 0.5rem 1.4rem 0.5rem 0;
       transition: color 0.3s;
@@ -548,7 +553,7 @@
       text-align: center;
       padding: 1.5rem 2rem 0;
       font-family: var(--serif-en);
-      font-size: 0.52rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       color: var(--ink-faint);
     }
@@ -568,14 +573,14 @@
       border-bottom: 1px solid var(--ink-line);
     }
     .pk-feature-title {
-      font-size: 0.72rem;
+      font-size: 0.88rem;
       font-weight: 400;
       color: var(--ink);
-      margin: 0 0 0.4rem;
-      letter-spacing: 0.06em;
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.04em;
     }
     .pk-feature-desc {
-      font-size: 0.65rem;
+      font-size: 0.8rem;
       color: var(--ink-faint);
       line-height: 1.9;
       letter-spacing: 0.03em;
@@ -606,7 +611,7 @@
     }
     .pk-plan-name {
       font-family: var(--serif-en);
-      font-size: 0.6rem;
+      font-size: 0.78rem;
       letter-spacing: 0.25em;
       color: var(--gold);
       margin-bottom: 0.3rem;
@@ -614,27 +619,27 @@
     .pk-plan-subtitle {
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.72rem;
+      font-size: 0.88rem;
       letter-spacing: 0.08em;
       color: var(--ink);
       margin-bottom: 1.2rem;
     }
     .pk-plan-price {
       font-family: var(--serif-en);
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-weight: 400;
       letter-spacing: 0.04em;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
     .pk-plan-price-note {
-      font-size: 0.58rem;
+      font-size: 0.72rem;
       color: var(--ink-faint);
       letter-spacing: 0.05em;
       margin-bottom: 1.2rem;
     }
     .pk-plan-detail {
-      font-size: 0.62rem;
+      font-size: 0.78rem;
       color: var(--ink-soft);
       line-height: 2;
       text-align: left;
@@ -816,11 +821,11 @@
       </div>
 
       <div>
-        <a href="#" class="pk-btn gold">
-          <span class="pk-btn-icon">&#9660;</span> PDF Download
+        <a class="pk-btn gold disabled" aria-disabled="true">
+          <span class="pk-btn-icon">&#9660;</span> PDF Download（準備中）
         </a>
-        <a href="#" class="pk-btn gold">
-          <span class="pk-btn-icon">&#9660;</span> Word Download
+        <a class="pk-btn gold disabled" aria-disabled="true">
+          <span class="pk-btn-icon">&#9660;</span> Word Download（準備中）
         </a>
       </div>
     </div>
@@ -892,30 +897,30 @@
       </div>
 
       <div class="pk-photo-grid">
-        <div class="pk-photo-item">
+        <a href="images/key-visual.png" class="pk-photo-item" download="ea-key-visual.png">
           <img src="images/key-visual.png" alt="キービジュアル" class="pk-photo-item-img" />
           <span class="pk-photo-item-label">Key Visual</span>
-        </div>
-        <div class="pk-photo-item">
+        </a>
+        <a href="images/founder-solo.png" class="pk-photo-item" download="fukuda-taishi.png">
           <img src="images/founder-solo.png" alt="代表ソロ" class="pk-photo-item-img" />
           <span class="pk-photo-item-label">Founder</span>
-        </div>
-        <div class="pk-photo-item">
+        </a>
+        <a href="images/cover-ea.jpg" class="pk-photo-item" download="ea-cover.jpg">
           <img src="images/cover-ea.jpg" alt="EA カバー" class="pk-photo-item-img" />
           <span class="pk-photo-item-label">Service Cover</span>
-        </div>
-        <div class="pk-photo-item">
+        </a>
+        <a href="images/logo-ea-wide.jpg" class="pk-photo-item" download="ea-logo-wide.jpg">
           <img src="images/logo-ea-wide.jpg" alt="EA ロゴ横" class="pk-photo-item-img" />
           <span class="pk-photo-item-label">Logo (Wide)</span>
-        </div>
-        <div class="pk-photo-item">
+        </a>
+        <a href="images/logo-ea-square.jpg" class="pk-photo-item" download="ea-logo-square.jpg">
           <img src="images/logo-ea-square.jpg" alt="EA ロゴ正方形" class="pk-photo-item-img" />
           <span class="pk-photo-item-label">Logo (Square)</span>
-        </div>
-        <div class="pk-photo-item">
+        </a>
+        <a href="images/logo-refit.jpg" class="pk-photo-item" download="refit-logo.jpg">
           <img src="images/logo-refit.jpg" alt="ReFit ロゴ" class="pk-photo-item-img" />
           <span class="pk-photo-item-label">ReFit Logo</span>
-        </div>
+        </a>
       </div>
 
       <h3 class="pk-photo-sub-title">関連事業ビジュアル</h3>
@@ -925,14 +930,14 @@
           <span class="pk-photo-item-label">ReFit Cover</span>
         </div>
         <div class="pk-photo-item pk-photo-item-wide">
-          <img src="images/cover-ea.jpg" alt="Executive Ashiya カバー" class="pk-photo-item-img" />
-          <span class="pk-photo-item-label">Executive Ashiya Cover</span>
+          <img src="images/key-visual.png" alt="Executive Ashiya キービジュアル" class="pk-photo-item-img" />
+          <span class="pk-photo-item-label">Key Visual (Wide)</span>
         </div>
       </div>
 
       <div style="margin-top: 2rem;">
-        <a href="#" class="pk-btn">
-          <span class="pk-btn-icon">&#9660;</span> All Photos ZIP Download
+        <a class="pk-btn disabled" aria-disabled="true">
+          <span class="pk-btn-icon">&#9660;</span> All Photos ZIP（準備中）
         </a>
         <a href="images/logo-ea-wide.jpg" class="pk-btn" download="executive-ashiya-logo.jpg">
           <span class="pk-btn-icon">&#9660;</span> EA Logo
