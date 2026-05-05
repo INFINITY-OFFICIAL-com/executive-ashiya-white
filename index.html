@@ -1498,25 +1498,18 @@
 
     /* ════════ TRACK RECORD ════════ */
     .track-record-section {
-      background: #1a1f2e;
-      padding: 6rem 2rem;
+      background: var(--bg);
+      padding: 0;
       text-align: center;
+      position: relative;
     }
-    .track-record-section .section-num { color: var(--gold); }
-    .track-record-section .section-label { color: rgba(255,255,255,0.6); }
-    .track-record-section .section-title { color: #fff; }
-    .track-record-section .section-title-ja { color: rgba(255,255,255,0.45); }
-
-    /* Map animation viewport */
+    /* Full-width map as section background */
     .track-map {
       position: relative;
       width: 100%;
-      max-width: 1100px;
-      height: 280px;
-      margin: 3rem auto;
-      border-radius: 4px;
+      height: 80vh;
+      min-height: 500px;
       overflow: hidden;
-      border: 1px solid rgba(139,111,31,0.25);
     }
     .track-map-layer {
       position: absolute;
@@ -1529,10 +1522,27 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.6) contrast(1.1) sepia(0.5) hue-rotate(5deg) saturate(1.6);
+      filter: brightness(1.05) contrast(1.05) sepia(0.15) saturate(0.8);
     }
     .track-map-layer.active { opacity: 1; }
     .track-map-layer.zoom { transform: scale(1.5); }
+    /* Overlay for text readability */
+    .track-map-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.6);
+      z-index: 2;
+    }
+    /* Section heading on top of map */
+    .track-map-heading {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
     /* Pin */
     .track-map-pin {
       position: absolute;
@@ -1548,7 +1558,7 @@
       width: 14px; height: 14px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 24px rgba(180,155,100,0.9), 0 0 60px rgba(180,155,100,0.5);
+      box-shadow: 0 0 24px rgba(139,111,31,0.7), 0 0 50px rgba(139,111,31,0.3);
       animation: pin-pulse 2s ease-in-out infinite;
     }
     @keyframes pin-pulse {
@@ -1561,7 +1571,7 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 14px; height: 14px;
-      border: 1px solid rgba(180,155,100,0.6);
+      border: 1px solid rgba(139,111,31,0.5);
       border-radius: 50%;
       animation: pin-ring 2s ease-out infinite;
     }
@@ -1571,28 +1581,34 @@
     }
     .track-map-label {
       position: absolute;
-      bottom: 1rem; right: 1.5rem;
+      bottom: 2rem; right: 2rem;
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       letter-spacing: 0.25em;
       color: var(--gold);
       opacity: 0;
       transition: opacity 0.8s;
       z-index: 5;
     }
-    .track-map-label.active { opacity: 0.8; }
+    .track-map-label.active { opacity: 1; }
+
+    /* Content below map */
+    .track-content {
+      padding: 5rem 2rem 6rem;
+      background: var(--bg-cream);
+    }
 
     /* Stats */
     .track-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin: 3rem auto 0;
+      margin: 0 auto;
       max-width: 1100px;
       width: 100%;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-top: 1px solid var(--ink-line);
+      border-bottom: 1px solid var(--ink-line);
       position: relative;
     }
     .track-stats::before {
@@ -1611,14 +1627,14 @@
     }
     .track-stat-item {
       padding: 2.5rem 1rem;
-      border-right: 1px solid rgba(255,255,255,0.12);
+      border-right: 1px solid var(--ink-line);
     }
     .track-stat-item:last-child { border-right: none; }
     .track-stat-num {
       font-family: var(--serif-en);
       font-weight: 300;
       font-size: clamp(2.4rem, 5vw, 3.6rem);
-      color: #fff;
+      color: var(--ink);
       letter-spacing: 0.02em;
       line-height: 1;
       margin-bottom: 1rem;
@@ -1634,7 +1650,7 @@
     }
     .track-stat-sub {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.7);
+      color: var(--ink-soft);
       letter-spacing: 0.06em;
       margin: 0;
     }
@@ -1655,9 +1671,13 @@
     .track-nda-text {
       font-size: 0.82rem;
       line-height: 2.2;
-      color: rgba(255,255,255,0.9);
+      color: var(--ink-soft);
       letter-spacing: 0.08em;
       margin: 0;
+    }
+    .track-nda-text a.text-link {
+      color: var(--gold) !important;
+      border-color: var(--gold-soft) !important;
     }
     .track-clients {
       display: grid;
@@ -1666,12 +1686,12 @@
       max-width: 1100px;
       width: 100%;
       margin: 0 auto 1rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      border-top: 1px solid var(--ink-line);
     }
     .track-client-item {
       padding: 1.6rem 1rem;
-      border-right: 1px solid rgba(255,255,255,0.12);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-right: 1px solid var(--ink-line);
+      border-bottom: 1px solid var(--ink-line);
       text-align: center;
     }
     .track-client-item:last-child { border-right: none; }
@@ -1688,12 +1708,12 @@
       display: block;
       font-size: 0.76rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.75);
+      color: var(--ink-soft);
     }
     .track-note {
       margin-top: 1.5rem;
       font-size: 0.62rem;
-      color: rgba(255,255,255,0.4);
+      color: var(--ink-faint);
       letter-spacing: 0.05em;
     }
 
@@ -2212,7 +2232,7 @@
       #members { padding: 6rem 1.6rem; }
       .plan-grid { grid-template-columns: 1fr; gap: 3rem; }
       .plan-item { padding: 3rem 2rem; }
-      .track-map { height: 200px; }
+      .track-map { height: 50vh; min-height: 300px; }
       .track-stats { grid-template-columns: 1fr; }
       .track-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .track-stat-item:last-child { border-bottom: none; }
@@ -3144,65 +3164,69 @@
 
   <!-- ════════ TRACK RECORD ════════ -->
   <section class="track-record-section" id="track-record">
-    <span class="section-num">— Ⅲ —</span>
-    <span class="section-label with-rule">TRACK RECORD</span>
-    <h2 class="section-title">Proven Results</h2>
-    <span class="section-title-ja">確 か な 実 績</span>
-
     <div class="track-map" id="trackMap">
       <div class="track-map-layer active" data-layer="japan"><img src="map-japan.png" alt="" /></div>
       <div class="track-map-layer" data-layer="kansai"><img src="map-kansai.png" alt="" /></div>
       <div class="track-map-layer" data-layer="ashiya"><img src="map-ashiya.png" alt="" /></div>
+      <div class="track-map-overlay"></div>
+      <div class="track-map-heading">
+        <span class="section-num">— Ⅲ —</span>
+        <span class="section-label with-rule">TRACK RECORD</span>
+        <h2 class="section-title">Proven Results</h2>
+        <span class="section-title-ja">確 か な 実 績</span>
+      </div>
       <div class="track-map-pin"><span></span></div>
       <div class="track-map-label">ASHIYA, HYOGO — JAPAN</div>
     </div>
 
-    <div class="track-stats">
-      <div class="track-stat-item">
-        <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
-        <span class="track-stat-label">TOTAL CLIENTS</span>
-        <p class="track-stat-sub">代表トレーナー15年間の累計指導人数</p>
+    <div class="track-content">
+      <div class="track-stats">
+        <div class="track-stat-item">
+          <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
+          <span class="track-stat-label">TOTAL CLIENTS</span>
+          <p class="track-stat-sub">代表トレーナー15年間の累計指導人数</p>
+        </div>
+        <div class="track-stat-item">
+          <div class="track-stat-num" data-count="92" data-suffix="%">0</div>
+          <span class="track-stat-label">RETENTION RATE</span>
+          <p class="track-stat-sub">年間契約の翌年度更新率</p>
+        </div>
+        <div class="track-stat-item">
+          <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
+          <span class="track-stat-label">TRAINER ACCEPTANCE</span>
+          <p class="track-stat-sub">年間応募300名超から厳選採用</p>
+        </div>
       </div>
-      <div class="track-stat-item">
-        <div class="track-stat-num" data-count="92" data-suffix="%">0</div>
-        <span class="track-stat-label">RETENTION RATE</span>
-        <p class="track-stat-sub">年間契約の翌年度更新率</p>
-      </div>
-      <div class="track-stat-item">
-        <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
-        <span class="track-stat-label">TRAINER ACCEPTANCE</span>
-        <p class="track-stat-sub">年間応募300名超から厳選採用</p>
-      </div>
-    </div>
 
-    <div class="track-nda">
-      <span class="track-nda-en">CONFIDENTIALITY</span>
-      <p class="track-nda-text">
-        すべてのお客様と<a href="confidentiality.html" class="text-link" style="color:#fff;border-color:rgba(255,255,255,0.35);">秘密保持契約</a>を締結。<br>
-        ご利用の事実そのものが外部に知られることはありません。
-      </p>
-    </div>
+      <div class="track-nda">
+        <span class="track-nda-en">CONFIDENTIALITY</span>
+        <p class="track-nda-text">
+          すべてのお客様と<a href="confidentiality.html" class="text-link">秘密保持契約</a>を締結。<br>
+          ご利用の事実そのものが外部に知られることはありません。
+        </p>
+      </div>
 
-    <div class="track-clients">
-      <div class="track-client-item">
-        <span class="track-client-en">Entertainment</span>
-        <span class="track-client-ja">芸能・宝塚歌劇団関係者</span>
+      <div class="track-clients">
+        <div class="track-client-item">
+          <span class="track-client-en">Entertainment</span>
+          <span class="track-client-ja">芸能・宝塚歌劇団関係者</span>
+        </div>
+        <div class="track-client-item">
+          <span class="track-client-en">Professional Athletes</span>
+          <span class="track-client-ja">プロアスリート・五輪選手帯同</span>
+        </div>
+        <div class="track-client-item">
+          <span class="track-client-en">Business Executives</span>
+          <span class="track-client-ja">上場企業経営者・役員</span>
+        </div>
+        <div class="track-client-item">
+          <span class="track-client-en">Medical Doctors</span>
+          <span class="track-client-ja">開業医・勤務医</span>
+        </div>
       </div>
-      <div class="track-client-item">
-        <span class="track-client-en">Professional Athletes</span>
-        <span class="track-client-ja">プロアスリート・五輪選手帯同</span>
-      </div>
-      <div class="track-client-item">
-        <span class="track-client-en">Business Executives</span>
-        <span class="track-client-ja">上場企業経営者・役員</span>
-      </div>
-      <div class="track-client-item">
-        <span class="track-client-en">Medical Doctors</span>
-        <span class="track-client-ja">開業医・勤務医</span>
-      </div>
-    </div>
 
-    <p class="track-note">* 数値は代表トレーナー福田の累計指導実績（2011年〜）および現行サービスの継続率に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+      <p class="track-note">* 数値は代表トレーナー福田の累計指導実績（2011年〜）および現行サービスの継続率に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+    </div>
   </section>
 
   <div class="diamond-divider fade"><span></span></div>
