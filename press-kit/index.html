@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press Kit | EXECUTIVE ASHIYA</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="EXECUTIVE ASHIYA プレスキット。メディア関係者向け取材資料・写真素材・プレスリリースをまとめてご覧いただけます。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-cream: #FDFBF7;
+      --gold: #8B6F1F;
+      --gold-light: #B89134;
+      --gold-deep: #6A521A;
+      --gold-soft: rgba(139, 111, 31, 0.16);
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28, 31, 46, 0.70);
+      --ink-faint: rgba(28, 31, 46, 0.45);
+      --ink-line: rgba(28, 31, 46, 0.10);
+      --ink-line-strong: rgba(28, 31, 46, 0.22);
+      --serif-en: 'Cormorant Garamond', Georgia, serif;
+      --serif-jp: 'Noto Serif JP', '游明朝', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 2.0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══ HEADER ═══ */
+    .pk-header {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .pk-header-logo {
+      font-family: var(--serif-en);
+      font-weight: 400;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .pk-header-back {
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .pk-header-back:hover { opacity: 0.6; }
+
+    /* ═══ HERO ═══ */
+    .pk-hero {
+      background: var(--ink);
+      padding: 7rem 2rem;
+      text-align: center;
+    }
+    .pk-hero-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 2rem;
+    }
+    .pk-hero-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      letter-spacing: 0.15em;
+      color: #fff;
+      margin: 0 0 0.6rem;
+    }
+    .pk-hero-sub {
+      font-family: var(--serif-jp);
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1rem;
+    }
+
+    /* ═══ SECTIONS ═══ */
+    .pk-section {
+      padding: 6rem 2rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .pk-section.full-width {
+      max-width: none;
+    }
+    .pk-section.full-width .pk-section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .pk-section.alt {
+      background: var(--bg-cream);
+      max-width: none;
+    }
+    .pk-section.alt .pk-section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .pk-section.dark {
+      background: var(--ink);
+      max-width: none;
+    }
+    .pk-section.dark .pk-section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .pk-section-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .pk-section-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin: 0 0 0.4rem;
+    }
+    .pk-section-title-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+      margin-bottom: 3rem;
+    }
+
+    .pk-section.dark .pk-section-title { color: #fff; }
+    .pk-section.dark .pk-section-title-ja { color: rgba(255,255,255,0.35); }
+    .pk-section.dark .pk-body { color: rgba(255,255,255,0.6); }
+    .pk-section.dark .pk-section-num { color: var(--gold-light); }
+
+    .pk-body {
+      font-size: 0.78rem;
+      line-height: 2.6;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+    }
+    .pk-body p { margin: 0 0 1.5rem; }
+
+    /* ═══ KEY VISUAL ═══ */
+    .pk-keyvisual {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--ink-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem 0;
+      border: 1px solid var(--ink-line);
+    }
+    .pk-keyvisual-placeholder {
+      font-family: var(--serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--ink-faint);
+    }
+
+    /* ═══ HIGHLIGHT BOX ═══ */
+    .pk-highlight {
+      background: var(--bg-cream);
+      border-left: 3px solid var(--gold);
+      padding: 2rem 2.5rem;
+      margin: 2.5rem 0;
+    }
+    .pk-highlight-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .pk-highlight-item:last-child { border-bottom: none; }
+    .pk-highlight-label {
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+    }
+    .pk-highlight-value {
+      font-size: 0.82rem;
+      color: var(--ink);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══ BUTTONS ═══ */
+    .pk-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2.4rem;
+      border: 1px solid var(--ink);
+      font-family: var(--serif-en);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.3s;
+      margin: 0.5rem 0.8rem 0.5rem 0;
+    }
+    .pk-btn:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+    .pk-btn.gold {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .pk-btn.gold:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+    .pk-btn-icon {
+      font-size: 0.8rem;
+    }
+
+    /* ═══ PROFILE ═══ */
+    .pk-profile {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin: 2rem 0;
+    }
+    .pk-profile-photo {
+      width: 200px;
+      height: 260px;
+      background: var(--ink-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink-line);
+    }
+    .pk-profile-photo-placeholder {
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-faint);
+      text-align: center;
+    }
+    .pk-profile-name {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      margin: 0 0 0.3rem;
+    }
+    .pk-profile-name-en {
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .pk-profile-bio {
+      font-size: 0.75rem;
+      line-height: 2.4;
+      color: var(--ink-soft);
+    }
+
+    /* ═══ PHOTO GRID ═══ */
+    .pk-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .pk-photo-item {
+      aspect-ratio: 4 / 3;
+      background: var(--ink-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink-line);
+    }
+    .pk-photo-item-text {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-faint);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    /* ═══ SCENE LIST ═══ */
+    .pk-scene-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+    .pk-scene-list li {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      line-height: 2;
+      padding: 1.2rem 0 1.2rem 1.6rem;
+      border-bottom: 1px solid var(--ink-line);
+      position: relative;
+    }
+    .pk-scene-list li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      top: 1.2rem;
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
+    .pk-scene-list li strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ═══ COMPANY TABLE ═══ */
+    .pk-company-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+    .pk-company-table th,
+    .pk-company-table td {
+      font-size: 0.75rem;
+      padding: 1.2rem 1rem;
+      border-bottom: 1px solid var(--ink-line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .pk-company-table th {
+      width: 140px;
+      font-weight: 400;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+    }
+    .pk-company-table td {
+      color: var(--ink-soft);
+      line-height: 2;
+    }
+
+    /* ═══ CONTACT ═══ */
+    .pk-contact-box {
+      background: var(--bg-cream);
+      border: 1px solid var(--ink-line);
+      padding: 3rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .pk-contact-title {
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+    .pk-contact-name {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+    .pk-contact-role {
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+    }
+    .pk-contact-info {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      line-height: 2.4;
+    }
+    .pk-contact-info a {
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold-soft);
+      transition: opacity 0.3s;
+    }
+    .pk-contact-info a:hover { opacity: 0.6; }
+
+    /* ═══ FOOTER ═══ */
+    .pk-footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--ink-line);
+    }
+    .pk-footer-text {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+    }
+
+    /* ═══ DIVIDER ═══ */
+    .pk-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 3rem auto;
+      opacity: 0.5;
+    }
+
+    /* ═══ PRESS RELEASE ═══ */
+    .pk-press-release {
+      border: 1px solid var(--ink-line);
+      padding: 3rem;
+      margin: 2rem 0;
+      background: var(--bg);
+    }
+    .pk-press-release-placeholder {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      text-align: center;
+      padding: 3rem 0;
+      letter-spacing: 0.05em;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 768px) {
+      .pk-header { padding: 1.5rem 1.5rem; }
+      .pk-hero { padding: 5rem 1.5rem; }
+      .pk-section { padding: 4rem 1.5rem; }
+      .pk-profile {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .pk-profile-photo {
+        width: 160px;
+        height: 210px;
+        margin: 0 auto;
+      }
+      .pk-photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .pk-highlight { padding: 1.5rem 1.8rem; }
+      .pk-press-release { padding: 2rem 1.5rem; }
+      .pk-contact-box { padding: 2rem 1.5rem; }
+      .pk-btn {
+        display: flex;
+        justify-content: center;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="pk-header">
+    <a href="/" class="pk-header-logo">EXECUTIVE ASHIYA</a>
+    <a href="/" class="pk-header-back">&larr; BACK TO TOP</a>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="pk-hero">
+    <span class="pk-hero-label">FOR MEDIA</span>
+    <h1 class="pk-hero-title">Press Kit</h1>
+    <p class="pk-hero-sub">メディア関係者様向け 取材資料</p>
+  </section>
+
+  <!-- ═══ 01. SERVICE OVERVIEW ═══ -->
+  <section class="pk-section">
+    <span class="pk-section-num">01</span>
+    <h2 class="pk-section-title">Service Overview</h2>
+    <span class="pk-section-title-ja">サービス概要</span>
+
+    <div class="pk-body">
+      <p>
+        EXECUTIVE ASHIYA（エグゼクティブ芦屋）は、芦屋発の完全会員制ヘルスケアコンシェルジュです。<br>
+        経営者・エグゼクティブの「健康寿命」を、生涯最大の資産として包括的に支援します。
+      </p>
+    </div>
+
+    <div class="pk-highlight">
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">サービス名</span>
+        <span class="pk-highlight-value">EXECUTIVE ASHIYA</span>
+      </div>
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">年間プログラム費用</span>
+        <span class="pk-highlight-value">年間1,200万円（税別）</span>
+      </div>
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">サービス始動</span>
+        <span class="pk-highlight-value">2025年6月1日</span>
+      </div>
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">対応エリア</span>
+        <span class="pk-highlight-value">芦屋・西宮・神戸（出張対応）</span>
+      </div>
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">定員</span>
+        <span class="pk-highlight-value">年間最大5名</span>
+      </div>
+    </div>
+
+    <div class="pk-keyvisual">
+      <span class="pk-keyvisual-placeholder">KEY VISUAL — Coming Soon</span>
+    </div>
+  </section>
+
+  <!-- ═══ 02. PRESS RELEASE ═══ -->
+  <section class="pk-section alt">
+    <div class="pk-section-inner">
+      <span class="pk-section-num">02</span>
+      <h2 class="pk-section-title">Press Release</h2>
+      <span class="pk-section-title-ja">プレスリリース</span>
+
+      <div class="pk-press-release">
+        <p class="pk-press-release-placeholder">
+          プレスリリース本文がここに入ります。<br>
+          （後日差し替え予定）
+        </p>
+      </div>
+
+      <div>
+        <a href="#" class="pk-btn gold">
+          <span class="pk-btn-icon">&#9660;</span> PDF Download
+        </a>
+        <a href="#" class="pk-btn gold">
+          <span class="pk-btn-icon">&#9660;</span> Word Download
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03. FOUNDER PROFILE ═══ -->
+  <section class="pk-section">
+    <span class="pk-section-num">03</span>
+    <h2 class="pk-section-title">Founder Profile</h2>
+    <span class="pk-section-title-ja">代表プロフィール</span>
+
+    <div class="pk-profile">
+      <div class="pk-profile-photo">
+        <span class="pk-profile-photo-placeholder">PHOTO<br>Coming Soon</span>
+      </div>
+      <div class="pk-profile-content">
+        <h3 class="pk-profile-name">福田 泰士</h3>
+        <p class="pk-profile-name-en">TAISHI FUKUDA</p>
+        <div class="pk-profile-bio">
+          <p>
+            株式会社ReFit 代表取締役。<br>
+            EXECUTIVE ASHIYA ファウンダー。<br><br>
+            （詳細経歴は後日差し替え予定）
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pk-divider"></div>
+
+    <a href="#" class="pk-btn gold">
+      <span class="pk-btn-icon">&#9660;</span> Profile PDF Download
+    </a>
+  </section>
+
+  <!-- ═══ 04. PHOTO ASSETS ═══ -->
+  <section class="pk-section alt">
+    <div class="pk-section-inner">
+      <span class="pk-section-num">04</span>
+      <h2 class="pk-section-title">Photo Assets</h2>
+      <span class="pk-section-title-ja">写真素材</span>
+
+      <div class="pk-body">
+        <p>以下の写真素材を取材・記事掲載にご利用いただけます。</p>
+      </div>
+
+      <div class="pk-photo-grid">
+        <div class="pk-photo-item">
+          <span class="pk-photo-item-text">Key Visual</span>
+        </div>
+        <div class="pk-photo-item">
+          <span class="pk-photo-item-text">Founder</span>
+        </div>
+        <div class="pk-photo-item">
+          <span class="pk-photo-item-text">Session</span>
+        </div>
+        <div class="pk-photo-item">
+          <span class="pk-photo-item-text">Space</span>
+        </div>
+        <div class="pk-photo-item">
+          <span class="pk-photo-item-text">Training</span>
+        </div>
+        <div class="pk-photo-item">
+          <span class="pk-photo-item-text">Lifestyle</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <a href="#" class="pk-btn">
+          <span class="pk-btn-icon">&#9660;</span> All Photos ZIP Download
+        </a>
+        <a href="#" class="pk-btn">
+          <span class="pk-btn-icon">&#9660;</span> Logo PNG
+        </a>
+        <a href="#" class="pk-btn">
+          <span class="pk-btn-icon">&#9660;</span> Logo SVG
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05. AVAILABLE SCENES ═══ -->
+  <section class="pk-section">
+    <span class="pk-section-num">05</span>
+    <h2 class="pk-section-title">Available Scenes</h2>
+    <span class="pk-section-title-ja">取材可能シーン</span>
+
+    <div class="pk-body">
+      <p>以下のシーンでの取材・撮影が可能です。日程調整は代表直通にてご相談ください。</p>
+    </div>
+
+    <ul class="pk-scene-list">
+      <li>
+        <strong>代表の一日密着</strong>
+        早朝コンディショニングから夜のリカバリーまで、エグゼクティブの健康管理を支える一日の全貌
+      </li>
+      <li>
+        <strong>芦屋邸宅でのセッション風景</strong>
+        会員宅への出張パーソナルセッション。完全プライベート空間での指導風景
+      </li>
+      <li>
+        <strong>代表自身のトレーニング・コンディショニング風景</strong>
+        福田自身が実践するハイパフォーマンスルーティン。自ら体現する説得力
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══ 06. COMPANY ═══ -->
+  <section class="pk-section alt">
+    <div class="pk-section-inner">
+      <span class="pk-section-num">06</span>
+      <h2 class="pk-section-title">Company</h2>
+      <span class="pk-section-title-ja">会社概要</span>
+
+      <table class="pk-company-table">
+        <tr>
+          <th>法人名</th>
+          <td>株式会社ReFit</td>
+        </tr>
+        <tr>
+          <th>代表取締役</th>
+          <td>福田 泰士</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>兵庫県芦屋市</td>
+        </tr>
+        <tr>
+          <th>事業内容</th>
+          <td>
+            完全会員制ヘルスケアコンシェルジュ「EXECUTIVE ASHIYA」<br>
+            パーソナルトレーニングジム「SUN」<br>
+            オンラインフィットネス「ReFit Online」
+          </td>
+        </tr>
+        <tr>
+          <th>関連事業</th>
+          <td>
+            SUN — パーソナルトレーニングジム<br>
+            ReFit Online — オンラインフィットネスプログラム
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ 07. CONTACT ═══ -->
+  <section class="pk-section">
+    <span class="pk-section-num">07</span>
+    <h2 class="pk-section-title">Contact</h2>
+    <span class="pk-section-title-ja">お問い合わせ</span>
+
+    <div class="pk-contact-box">
+      <p class="pk-contact-title">MEDIA INQUIRIES</p>
+      <p class="pk-contact-name">福田 泰士（代表直通）</p>
+      <p class="pk-contact-role">株式会社ReFit 代表取締役 / EXECUTIVE ASHIYA ファウンダー</p>
+      <div class="pk-contact-info">
+        <p>
+          TEL: <a href="tel:000-0000-0000">000-0000-0000</a>（後日設定）<br>
+          MAIL: <a href="mailto:press@executive-ashiya.com">press@executive-ashiya.com</a>（後日設定）
+        </p>
+      </div>
+      <div style="margin-top: 2rem;">
+        <a href="mailto:press@executive-ashiya.com" class="pk-btn gold">
+          取材のご依頼はこちら
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="pk-footer">
+    <p class="pk-footer-text">&copy; 2025 EXECUTIVE ASHIYA / ReFit Inc. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
