@@ -1507,19 +1507,81 @@
     .track-record-section .section-title { color: #fff; }
     .track-record-section .section-title-ja { color: rgba(255,255,255,0.45); }
 
-    /* Location badge */
-    .track-location {
-      display: inline-block;
-      margin: 2.5rem auto 0;
-      padding: 0.8rem 2.5rem;
-      border: 1px solid rgba(139,111,31,0.4);
-      border-radius: 2px;
+    /* Map animation viewport */
+    .track-map {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      height: 280px;
+      margin: 3rem auto;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(139,111,31,0.25);
+    }
+    .track-map-layer {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease, transform 5s ease-out;
+      transform: scale(1);
+    }
+    .track-map-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6) contrast(1.1) sepia(0.5) hue-rotate(5deg) saturate(1.6);
+    }
+    .track-map-layer.active { opacity: 1; }
+    .track-map-layer.zoom { transform: scale(1.5); }
+    /* Pin */
+    .track-map-pin {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+    .track-map-pin.active { opacity: 1; }
+    .track-map-pin span {
+      display: block;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 24px rgba(180,155,100,0.9), 0 0 60px rgba(180,155,100,0.5);
+      animation: pin-pulse 2s ease-in-out infinite;
+    }
+    @keyframes pin-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    .track-map-pin::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px; height: 14px;
+      border: 1px solid rgba(180,155,100,0.6);
+      border-radius: 50%;
+      animation: pin-ring 2s ease-out infinite;
+    }
+    @keyframes pin-ring {
+      0% { width: 14px; height: 14px; opacity: 0.8; }
+      100% { width: 50px; height: 50px; opacity: 0; }
+    }
+    .track-map-label {
+      position: absolute;
+      bottom: 1rem; right: 1.5rem;
       font-family: var(--serif-en);
       font-style: italic;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
       color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.8s;
+      z-index: 5;
     }
+    .track-map-label.active { opacity: 0.8; }
 
     /* Stats */
     .track-stats {
@@ -2150,6 +2212,7 @@
       #members { padding: 6rem 1.6rem; }
       .plan-grid { grid-template-columns: 1fr; gap: 3rem; }
       .plan-item { padding: 3rem 2rem; }
+      .track-map { height: 200px; }
       .track-stats { grid-template-columns: 1fr; }
       .track-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .track-stat-item:last-child { border-bottom: none; }
@@ -3086,7 +3149,13 @@
     <h2 class="section-title">Proven Results</h2>
     <span class="section-title-ja">確 か な 実 績</span>
 
-    <div class="track-location">ASHIYA, HYOGO — N 34.7275° / E 135.3025°</div>
+    <div class="track-map" id="trackMap">
+      <div class="track-map-layer active" data-layer="japan"><img src="map-japan.png" alt="" /></div>
+      <div class="track-map-layer" data-layer="kansai"><img src="map-kansai.png" alt="" /></div>
+      <div class="track-map-layer" data-layer="ashiya"><img src="map-ashiya.png" alt="" /></div>
+      <div class="track-map-pin"><span></span></div>
+      <div class="track-map-label">ASHIYA, HYOGO — JAPAN</div>
+    </div>
 
     <div class="track-stats">
       <div class="track-stat-item">
@@ -3770,6 +3839,30 @@
     }
 
 
+
+    /* ── Track Record map auto-play ── */
+    (function(){
+      var map = document.getElementById('trackMap');
+      if (!map) return;
+      var layers = map.querySelectorAll('.track-map-layer');
+      var pin = map.querySelector('.track-map-pin');
+      var label = map.querySelector('.track-map-label');
+      var played = false;
+      function play() {
+        if (played) return;
+        played = true;
+        // Japan zooms
+        layers[0].classList.add('zoom');
+        // Kansai fades in at 1.5s
+        setTimeout(function(){ layers[0].style.opacity='0'; layers[1].classList.add('active'); layers[1].classList.add('zoom'); }, 1500);
+        // Ashiya fades in at 3s
+        setTimeout(function(){ layers[1].style.opacity='0'; layers[2].classList.add('active'); }, 3000);
+        // Pin + label at 3.5s
+        setTimeout(function(){ pin.classList.add('active'); label.classList.add('active'); }, 3500);
+      }
+      var obs = new IntersectionObserver(function(entries){ if(entries[0].isIntersecting) play(); }, { threshold: 0.3 });
+      obs.observe(map);
+    })();
 
     /* ── News carousel nav (loop) ── */
     (function(){
