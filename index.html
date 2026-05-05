@@ -549,150 +549,6 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(6px); }
     }
-    /* ════════ MEMBERS / PASSWORD GATE ════════ */
-    #members {
-      background: var(--bg-alt);
-      border-top: 1px solid var(--ink-line);
-      border-bottom: 1px solid var(--ink-line);
-      max-width: none;
-      padding: 6rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-    #members::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: none;
-      pointer-events: none;
-    }
-    .members-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .m-label {
-      display: inline-block;
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 0.6rem;
-      letter-spacing: 0.42em;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 0.65rem 2rem;
-      margin-bottom: 2.6rem;
-    }
-    .m-title {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(1.5rem, 3.4vw, 2.4rem);
-      letter-spacing: 0.18em;
-      margin: 0 0 1rem;
-      line-height: 1.4;
-      color: var(--ink);
-    }
-    .m-title-ja {
-      font-family: var(--serif-jp);
-      font-size: 0.7rem;
-      letter-spacing: 0.34em;
-      color: var(--ink-soft);
-      margin: 0 0 3rem;
-    }
-    .m-desc {
-      font-size: 0.78rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
-      line-height: 2.4;
-      margin-bottom: 3rem;
-    }
-    .pw-form {
-      display: flex;
-      max-width: 380px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .pw-input {
-      flex: 1;
-      background: var(--bg-card);
-      border: 1px solid var(--ink-line-strong);
-      border-right: none;
-      color: var(--ink);
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 0.85rem;
-      letter-spacing: 0.3em;
-      padding: 1rem 1.4rem;
-      text-align: center;
-      outline: none;
-      transition: border-color 0.3s, box-shadow 0.4s;
-    }
-    .pw-input::placeholder {
-      color: var(--ink-faint);
-      letter-spacing: 0.2em;
-      font-size: 0.65rem;
-    }
-    .pw-input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(139, 111, 31, 0.1);
-    }
-    .pw-btn {
-      background: var(--ink);
-      border: 1px solid var(--ink);
-      color: var(--bg);
-      font-family: var(--serif-en);
-      font-size: 0.62rem;
-      letter-spacing: 0.3em;
-      padding: 1rem 1.6rem;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.4s, color 0.4s, border-color 0.4s, letter-spacing 0.4s;
-    }
-    .pw-btn:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      letter-spacing: 0.38em;
-    }
-    .pw-error {
-      font-size: 0.62rem;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      opacity: 0;
-      margin-top: 1.2rem;
-      height: 1rem;
-      transition: opacity 0.4s;
-    }
-    .pw-error.show { opacity: 1; }
-    .pw-help {
-      font-size: 0.6rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.08em;
-      margin-top: 2rem;
-    }
-
-    #members-content {
-      display: none;
-      max-width: 1180px;
-      margin: 6rem auto 0;
-      padding: 0 1rem;
-      position: relative;
-    }
-    #members-content.open { display: block; animation: fadeUp 0.8s ease forwards; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .gold-reveal-line {
-      display: block;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 3rem auto;
-      animation: revealLine 0.8s ease forwards;
-    }
-    @keyframes revealLine {
-      from { width: 0; opacity: 0; }
-      to { width: 100%; opacity: 1; }
-    }
 
     /* ════════ SECTION COMMON ════════ */
     section {
@@ -1717,227 +1573,10 @@
       letter-spacing: 0.05em;
     }
 
-    /* ════════ PRICING (inside members-content) ════════ */
-    .pricing-inner { padding: 0; }
-    .plan-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.4rem;
-      max-width: 980px;
-      margin: 0 auto 3rem;
-    }
-    .plan-item {
-      background: var(--bg-card);
-      padding: 4rem 3rem;
-      border: 1px solid var(--ink-line);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-    .plan-item.featured {
-      border-color: var(--gold);
-      box-shadow: 0 24px 80px -40px rgba(139, 111, 31, 0.3);
-    }
-    .plan-item.featured::before {
-      content: 'RECOMMENDED';
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--bg-card);
-      font-family: var(--serif-en);
-      font-size: 0.55rem;
-      letter-spacing: 0.32em;
-      padding: 0.4rem 1.4rem;
-    }
-    .plan-label {
-      font-family: var(--serif-en);
-      font-size: 0.66rem;
-      letter-spacing: 0.32em;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 0.8rem;
-      text-align: center;
-    }
-    .plan-title {
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-weight: 400;
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      color: var(--ink);
-      text-align: center;
-      margin: 0 0 2.4rem;
-    }
-    .plan-price-table {
-      border-top: 1px solid var(--ink-line);
-      border-bottom: 1px solid var(--ink-line);
-      margin-bottom: 2rem;
-    }
-    .plan-price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--ink-line);
-    }
-    .plan-price-row:last-child { border-bottom: none; }
-    .plan-price-row.total { background: rgba(28, 31, 46, 0.03); padding: 1.4rem 0.8rem; }
-    .plan-price-label {
-      font-family: var(--serif-en);
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      color: var(--ink-soft);
-    }
-    .plan-price-row.total .plan-price-label { color: var(--gold); }
-    .plan-price-amount {
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 1.2rem;
-      letter-spacing: 0.04em;
-      color: var(--ink);
-    }
-    .plan-price-row.total .plan-price-amount {
-      font-size: 1.5rem;
-      color: var(--gold);
-    }
-    .plan-tax-note {
-      text-align: right;
-      font-size: 0.6rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.08em;
-      margin: 0 0 2rem;
-    }
-    .plan-features {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      flex: 1;
-    }
-    .plan-features li {
-      font-size: 0.74rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.05em;
-      line-height: 2;
-      padding: 0.7rem 0 0.7rem 1.6rem;
-      border-bottom: 1px dashed var(--ink-line);
-      position: relative;
-    }
-    .plan-features li::before {
-      content: '◆';
-      position: absolute;
-      left: 0;
-      top: 0.7rem;
-      color: var(--gold);
-      font-size: 0.55rem;
-    }
-    .plan-feature-sub {
-      display: block;
-      font-size: 0.65rem;
-      color: var(--ink-faint);
-      margin-top: 0.2rem;
-      letter-spacing: 0.04em;
-    }
-
-    .plan-options {
-      max-width: 880px;
-      margin: 3rem auto 0;
-      background: var(--bg-card);
-      border: 1px solid var(--ink-line);
-      padding: 2.6rem 3rem;
-    }
-    .plan-options-title {
-      font-family: var(--serif-en);
-      font-size: 0.62rem;
-      letter-spacing: 0.32em;
-      color: var(--gold);
-      display: block;
-      text-align: center;
-    }
-    .plan-options-sub {
-      text-align: center;
-      font-size: 0.7rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
-      margin: 0.6rem 0 1.6rem;
-    }
-    .plan-options-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .plan-options-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      border-top: 1px solid var(--ink-line);
-      font-size: 0.74rem;
-      color: var(--ink-soft);
-    }
-    .plan-options-list li:last-child { border-bottom: 1px solid var(--ink-line); }
-    .plan-options-fee {
-      color: var(--gold);
-      font-family: var(--serif-en);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-
-    .plan-link-flow {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.74rem;
-      color: var(--ink-soft);
-    }
-    .plan-link-flow a {
-      color: var(--gold);
-      border-bottom: 1px solid rgba(139, 111, 31, 0.4);
-      padding-bottom: 2px;
-      letter-spacing: 0.06em;
-    }
 
     /* ════════ HOW TO JOIN ════════ */
     #how-to-join {
       text-align: center;
-    }
-    .join-paths {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.6rem;
-      max-width: 720px;
-      margin: 0 auto 4.5rem;
-    }
-    .join-path {
-      padding: 2.8rem 2rem 2.4rem;
-      border: none;
-      background: linear-gradient(160deg, #f9f8f5 0%, #ffffff 100%);
-      position: relative;
-      box-shadow: 0 2px 20px rgba(28,31,46,0.06);
-    }
-    .join-path::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .join-path-en {
-      font-family: var(--serif-en);
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.35em;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 1.2rem;
-    }
-    .join-path-ja {
-      font-size: 0.76rem;
-      color: var(--ink-soft);
-      line-height: 2.2;
-      letter-spacing: 0.04em;
-      margin: 0;
     }
 
     /* Vertical timeline */
@@ -2203,9 +1842,6 @@
       .nav-cta { display: none; }
       .hamburger { display: flex; }
       section { padding: 4rem 1.6rem; }
-      #members { padding: 6rem 1.6rem; }
-      .plan-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .plan-item { padding: 3rem 2rem; }
       .track-map { height: 50vh; min-height: 300px; }
       .track-stats { grid-template-columns: 1fr; }
       .track-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -2213,7 +1849,6 @@
       .track-clients { grid-template-columns: repeat(2, 1fr); }
       .track-client-item:nth-child(2) { border-right: none; }
       .track-client-item:nth-child(4) { border-right: none; }
-      .join-paths { grid-template-columns: 1fr; }
       .join-steps { grid-template-columns: 1fr; }
       .hero-text { padding: 2rem 1.6rem; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
@@ -2350,27 +1985,6 @@
     }
     header.header-dark .hamburger span {
       background: rgba(255,255,255,0.8);
-    }
-
-    /* ════════ D-2: PLAN CARD PREMIUM ════════ */
-    .plan-item.featured {
-      background: var(--bg-card);
-      border-color: var(--gold);
-      box-shadow: 0 24px 80px -40px rgba(139,111,31,0.3), inset 0 1px 0 rgba(139,111,31,0.12);
-    }
-    .plan-item.featured .plan-label {
-      position: relative;
-      padding-bottom: 0.6rem;
-    }
-    .plan-item.featured .plan-label::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 1px;
-      background: var(--gold);
     }
 
     /* ════════ D-3: CONCIERGE MODAL IMAGE ════════ */
@@ -2627,7 +2241,7 @@
       </a>
       <div class="nav-links-pc">
         <a class="nav-link" href="#services">SERVICES</a>
-        <a class="nav-link" href="#members">PRICING</a>
+        <a class="nav-link" href="/members">PRICING</a>
         <a class="nav-link" href="#how-to-join">HOW TO JOIN</a>
         <a class="nav-link" href="/faq">FAQ</a>
         <a class="nav-link" href="for-members.html">MEMBERS</a>
@@ -2642,7 +2256,7 @@
       <a href="#philosophy" onclick="closeMobileNav()">PHILOSOPHY</a>
       <a href="#services" onclick="closeMobileNav()">SERVICES</a>
       <a href="#track-record" onclick="closeMobileNav()">TRACK RECORD</a>
-      <a href="#members" onclick="closeMobileNav()">PRICING</a>
+      <a href="/members" onclick="closeMobileNav()">PRICING</a>
       <a href="#how-to-join" onclick="closeMobileNav()">HOW TO JOIN</a>
       <a href="/faq" onclick="closeMobileNav()">FAQ</a>
       <a href="for-members.html" onclick="closeMobileNav()">MEMBERS</a>
@@ -3159,12 +2773,12 @@
         <div class="track-stat-item">
           <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
           <span class="track-stat-label">TOTAL CLIENTS</span>
-          <p class="track-stat-sub">代表トレーナー15年間の累計指導人数</p>
+          <p class="track-stat-sub">ReFit累計指導クライアント数</p>
         </div>
         <div class="track-stat-item">
-          <div class="track-stat-num" data-count="92" data-suffix="%">0</div>
-          <span class="track-stat-label">RETENTION RATE</span>
-          <p class="track-stat-sub">年間契約の翌年度更新率</p>
+          <div class="track-stat-num" data-count="98" data-suffix="%">0</div>
+          <span class="track-stat-label">SATISFACTION</span>
+          <p class="track-stat-sub">クライアント満足度</p>
         </div>
         <div class="track-stat-item">
           <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
@@ -3200,7 +2814,7 @@
         </div>
       </div>
 
-      <p class="track-note">* 数値は代表トレーナー福田の累計指導実績（2011年〜）および現行サービスの継続率に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+      <p class="track-note">* 数値は株式会社ReFit（代表・福田）の累計指導実績（2011年〜）に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
     </div>
   </section>
 
@@ -3213,156 +2827,35 @@
     <h2 class="section-title">Application Flow</h2>
     <span class="section-title-ja">入 会 ま で の 流 れ</span>
 
-    <div class="join-paths">
-      <div class="join-path fade">
-        <span class="join-path-en">INVITATION</span>
-        <p class="join-path-ja">紹介者優先<br>紹介状をお持ちの方は STEP 02 から</p>
-      </div>
-      <div class="join-path fade">
-        <span class="join-path-en">APPLICATION</span>
-        <p class="join-path-ja">当サイトからの<br>ご入会リクエストによる特別審査枠</p>
-      </div>
-    </div>
-
     <div class="join-steps">
       <div class="join-step fade">
         <span class="join-step-num">STEP 01</span>
-        <span class="join-step-text">ご入会リクエストフォーム送信<span class="join-step-sub">お名前・ご職業・健康上の関心事をご記入。2営業日以内に代表・福田より直接ご連絡いたします</span></span>
+        <span class="join-step-text">ご入会リクエスト送信</span>
+        <span class="join-step-sub">フォームよりお名前・健康上の関心事をご記入</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 02</span>
-        <span class="join-step-text">スクリーニングフォーム記入<span class="join-step-sub">健康目標・生活リズム・既往歴・ご希望の訪問頻度等をヒアリング。所要約15分</span></span>
+        <span class="join-step-text">代表・福田より直接ご連絡</span>
+        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 03</span>
-        <span class="join-step-text">審査結果通知<span class="join-step-sub">5営業日以内に通過・非通過・保留をメールにてご連絡。通過率は非公開</span></span>
+        <span class="join-step-text">スクリーニング・ヒアリング</span>
+        <span class="join-step-sub">健康目標・生活リズム・既往歴を詳しくお伺いします</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 04</span>
-        <span class="join-step-text">個別ヒアリング面談<span class="join-step-sub">芦屋・神戸・大阪のホテルラウンジにて代表が対面（約60分）。オンラインも可。プラン・ゴール・ライフスタイルを詳細に確認</span></span>
+        <span class="join-step-text">オーダーメイドプログラムご提案</span>
+        <span class="join-step-sub">ヒアリングに基づく年間プログラム設計・NDA締結</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 05</span>
-        <span class="join-step-text">プログラムご提案・契約書締結<span class="join-step-sub">ヒアリング内容に基づきオーダーメイドの年間プログラムをご提案。NDA・サービス契約を締結</span></span>
-      </div>
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 06</span>
-        <span class="join-step-text">入会金お支払い<span class="join-step-sub">銀行振込にてお手続き。ご入金確認後、正式に会員登録が完了します</span></span>
-      </div>
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 07</span>
-        <span class="join-step-text">初回アセスメントセッション<span class="join-step-sub">InBody体組成測定・姿勢評価・FMS動作スクリーニング・生活習慣ヒアリングを実施（約90分）。結果をもとに年間プログラムが始動</span></span>
+        <span class="join-step-text">初回アセスメント・プログラム始動</span>
+        <span class="join-step-sub">体組成測定・姿勢評価を実施し、専属チームが始動</span>
       </div>
     </div>
 
     <p class="join-note fade">※ 紹介状をお持ちの方は STEP 02 からスタートいただけます</p>
-  </section>
-
-  <!-- ════════ MEMBERS / PASSWORD GATE ════════ -->
-  <section id="members" aria-label="会員限定">
-    <div class="members-inner">
-      <span class="m-label">MEMBERS ONLY</span>
-      <h2 class="m-title">Private Plan &amp; Pricing</h2>
-      <p class="m-title-ja">会 員 限 定 プ ラ ン</p>
-      <p class="m-desc">
-        料金・詳細プランは、審査通過者のみにご案内しております。<br>
-        パスワードをご入力ください。
-      </p>
-
-      <div class="pw-form fade visible">
-        <label for="pw-input" class="visually-hidden">会員限定パスワード</label>
-        <input type="password" class="pw-input" id="pw-input" placeholder="PASSWORD" autocomplete="off" />
-        <button class="pw-btn" id="pw-btn" onclick="checkPassword()">ENTER</button>
-      </div>
-      <p class="pw-error" id="pw-error" role="alert" aria-live="polite">— incorrect —</p>
-      <p class="pw-help">審査通過者にメールでお送りしたパスワードを入力してください。</p>
-    </div>
-
-    <!-- 会員限定コンテンツ -->
-    <div id="members-content">
-      <div class="diamond-divider"><span></span></div>
-      <span class="section-label">PLAN OVERVIEW</span>
-      <h3 class="section-title">Membership</h3>
-      <p class="section-title-ja">会 員 プ ラ ン 一 覧</p>
-
-      <div class="plan-grid">
-        <div class="plan-item featured">
-          <span class="plan-label">PLATINUM</span>
-          <p class="plan-title">Biological Architecture</p>
-          <div class="plan-price-table">
-            <div class="plan-price-row">
-              <span class="plan-price-label">ENTRY FEE</span>
-              <span class="plan-price-amount">¥3,000,000</span>
-            </div>
-            <div class="plan-price-row">
-              <span class="plan-price-label">ANNUAL FEE</span>
-              <span class="plan-price-amount">¥9,000,000</span>
-            </div>
-            <div class="plan-price-row total">
-              <span class="plan-price-label">FIRST YEAR</span>
-              <span class="plan-price-amount">¥12,000,000</span>
-            </div>
-          </div>
-          <p class="plan-tax-note">all prices include tax</p>
-          <ul class="plan-features">
-            <li>専属パーソナルセッション：月4回（各60分）<span class="plan-feature-sub">筋力トレーニング・可動域改善・姿勢矯正を個別プログラムで実施</span></li>
-            <li>24時間コンディションサポート<span class="plan-feature-sub">Oura Ringデータ連動。LINEにて30分以内にトレーナーが応答（緊急時は即時対応）</span></li>
-            <li>管理栄養士によるフルオーダー食事管理<span class="plan-feature-sub">毎日の献立設計・食事写真フィードバック・月次栄養レポート提供</span></li>
-            <li>パーソナルサプリメント処方・毎月配送<span class="plan-feature-sub">血液検査データに基づくオーダーメイド処方（ビタミン・ミネラル・アミノ酸等）</span></li>
-            <li>ヘルスケアコンシェルジュ（回数無制限）<span class="plan-feature-sub">医療機関予約・美容手配・食の調達等、専属コンシェルジュが24時間対応</span></li>
-            <li>スペシャルセッション招待：年4回<span class="plan-feature-sub">ヨガ・ピラティス・格闘技・ゴルフ等の専門講師を招聘したプライベートレッスン</span></li>
-            <li>出張・旅行時専属同行サービス（国内）<span class="plan-feature-sub">年間6日まで無料。トレーニング・食事管理を旅先でも継続</span></li>
-            <li>プレミアムギフト：入会時提供<span class="plan-feature-sub">Oura Ring最新モデル・Technogymトレーニングキット・オリジナルウェア</span></li>
-          </ul>
-        </div>
-
-        <div class="plan-item">
-          <span class="plan-label">EXECUTIVE</span>
-          <p class="plan-title">Absolute Guardian</p>
-          <div class="plan-price-table">
-            <div class="plan-price-row">
-              <span class="plan-price-label">ENTRY FEE</span>
-              <span class="plan-price-amount">¥1,500,000</span>
-            </div>
-            <div class="plan-price-row">
-              <span class="plan-price-label">ANNUAL FEE</span>
-              <span class="plan-price-amount">¥6,000,000</span>
-            </div>
-            <div class="plan-price-row total">
-              <span class="plan-price-label">FIRST YEAR</span>
-              <span class="plan-price-amount">¥7,500,000</span>
-            </div>
-          </div>
-          <p class="plan-tax-note">all prices include tax</p>
-          <ul class="plan-features">
-            <li>専属パーソナルセッション：月2回（各60分）<span class="plan-feature-sub">PLATINUMと同品質のトレーニングを隔週ペースで実施</span></li>
-            <li>24時間コンディションサポート<span class="plan-feature-sub">Oura Ringデータ連動。LINEにて原則2時間以内にトレーナーが応答</span></li>
-            <li>管理栄養士による食事サポート<span class="plan-feature-sub">週次の食事ガイドライン提供・月1回の栄養カウンセリング</span></li>
-            <li>ヘルスケアコンシェルジュ（回数無制限）<span class="plan-feature-sub">医療機関予約・各種手配の窓口として営業時間内に対応</span></li>
-            <li>プレミアムギフト：入会時提供<span class="plan-feature-sub">Oura Ring最新モデル・オリジナルウェア</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="plan-options">
-        <span class="plan-options-title">ADDITIONAL SERVICES</span>
-        <p class="plan-options-sub">オプションサービス（会員様向け）</p>
-        <ul class="plan-options-list">
-          <li>
-            <span>家族・パートナー健康サポート<span class="plan-feature-sub">ご家族1名の体組成測定・栄養カウンセリング・トレーニング同席</span></span>
-            <span class="plan-options-fee">料金要相談</span>
-          </li>
-          <li>
-            <span>出張・旅行時専属同行サービス（海外）<span class="plan-feature-sub">渡航先でのトレーニング・食事管理・現地医療機関リサーチを含む</span></span>
-            <span class="plan-options-fee">¥1,000,000 / 日</span>
-          </li>
-        </ul>
-      </div>
-
-      <p class="plan-link-flow">
-        ご入会の流れは <a href="#how-to-join">HOW TO JOIN</a> をご確認ください。
-      </p>
-    </div>
   </section>
 
   <!-- ════════ CTA FINAL (S-4) ════════ -->
@@ -3401,7 +2894,7 @@
       <a href="#philosophy">PHILOSOPHY</a>
       <a href="#services">SERVICES</a>
       <a href="#track-record">TRACK RECORD</a>
-      <a href="#members">PRICING</a>
+      <a href="/members">PRICING</a>
       <a href="/faq">FAQ</a>
       <a href="invitation-request.html">INVITATION</a>
     </div>
@@ -3671,46 +3164,6 @@
       });
     }
 
-
-    // ─── Password Gate ───
-    // SHA-256 hash (same as black version) — password: matches existing site
-    const _hash = '9b54561840720348ca35461bda9efad77b5df86854ddeb729e290ffe4fdb1658';
-    async function sha256(str) {
-      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-    }
-    async function checkPassword() {
-      const input = document.getElementById('pw-input');
-      const error = document.getElementById('pw-error');
-      const content = document.getElementById('members-content');
-      const inputHash = await sha256(input.value);
-
-      if (inputHash === _hash) {
-        error.classList.remove('show');
-        input.closest('.pw-form').style.display = 'none';
-        error.style.display = 'none';
-        document.querySelector('.pw-help').style.display = 'none';
-
-        // Gold reveal line animation
-        const revealLine = document.createElement('span');
-        revealLine.className = 'gold-reveal-line';
-        content.parentElement.insertBefore(revealLine, content);
-
-        setTimeout(() => {
-          content.classList.add('open');
-          setTimeout(() => {
-            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 200);
-        }, 600);
-      } else {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-      }
-    }
-    document.getElementById('pw-input').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') checkPassword();
-    });
 
     // ════════ BACK TO TOP BUTTON ════════
     const backToTopBtn = document.getElementById('back-to-top');

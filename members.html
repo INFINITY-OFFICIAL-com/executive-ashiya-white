@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会員限定プラン | EXECUTIVE ASHIYA</title>
+  <meta name="description" content="EXECUTIVE ASHIYA 会員限定プラン・料金のご案内" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #FAF9F7;
+      --bg-card: #FFFFFF;
+      --gold: #8B6F1F;
+      --gold-soft: rgba(139, 111, 31, 0.16);
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28, 31, 46, 0.55);
+      --ink-faint: rgba(28, 31, 46, 0.22);
+      --ink-line: rgba(28, 31, 46, 0.10);
+      --ink-line-strong: rgba(28, 31, 46, 0.18);
+      --serif-en: 'Cormorant Garamond', serif;
+      --serif-jp: 'Noto Serif JP', serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg-alt);
+      color: var(--ink);
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      line-height: 2;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--ink-line);
+      position: relative;
+      background: var(--bg);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .header-logo {
+      font-family: var(--serif-en);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .header-logo:hover { opacity: 0.7; }
+    .header-sub {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      color: var(--ink-soft);
+    }
+
+    /* ─── GATE ─── */
+    .gate {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .m-label {
+      display: inline-block;
+      font-family: var(--serif-en);
+      font-weight: 400;
+      font-size: 0.6rem;
+      letter-spacing: 0.42em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.65rem 2rem;
+      margin-bottom: 2.6rem;
+    }
+    .m-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+      letter-spacing: 0.18em;
+      margin: 0 0 1rem;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .m-title-ja {
+      font-size: 0.7rem;
+      letter-spacing: 0.34em;
+      color: var(--ink-soft);
+      margin: 0 0 3rem;
+    }
+    .m-desc {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+      line-height: 2.4;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── PASSWORD FORM ─── */
+    .pw-form {
+      display: flex;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .pw-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--ink-line-strong);
+      border-right: none;
+      color: var(--ink);
+      font-family: var(--serif-en);
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      padding: 1rem 1.4rem;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.4s;
+    }
+    .pw-input::placeholder {
+      color: var(--ink-faint);
+      letter-spacing: 0.2em;
+      font-size: 0.65rem;
+    }
+    .pw-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(139, 111, 31, 0.1);
+    }
+    .pw-btn {
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      color: var(--bg);
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      padding: 1rem 1.6rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    .pw-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .pw-error {
+      font-size: 0.62rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      opacity: 0;
+      margin-top: 1.2rem;
+      height: 1rem;
+      transition: opacity 0.4s;
+    }
+    .pw-error.show { opacity: 1; }
+    .pw-help {
+      font-size: 0.6rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+      margin-top: 2rem;
+    }
+
+    /* ─── CONTENT (hidden until password) ─── */
+    #members-content {
+      display: none;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    #members-content.open { display: block; animation: fadeUp 0.8s ease forwards; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gold-reveal-line {
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 3rem auto;
+      animation: revealLine 0.8s ease forwards;
+    }
+    @keyframes revealLine {
+      from { width: 0; opacity: 0; }
+      to { width: 100%; opacity: 1; }
+    }
+
+    .section-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-weight: 400;
+      font-size: 0.65rem;
+      letter-spacing: 0.42em;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      letter-spacing: 0.12em;
+      text-align: center;
+      color: var(--ink);
+      margin: 0 0 1rem;
+      line-height: 1.3;
+    }
+    .section-title-ja {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.4em;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    /* ─── PLAN GRID ─── */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4rem;
+      max-width: 980px;
+      margin: 0 auto 3rem;
+    }
+    .plan-item {
+      background: var(--bg);
+      padding: 4rem 3rem;
+      border: 1px solid var(--ink-line);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .plan-item.featured {
+      border-color: var(--gold);
+      box-shadow: 0 24px 80px -40px rgba(139, 111, 31, 0.3), inset 0 1px 0 rgba(139,111,31,0.12);
+    }
+    .plan-item.featured::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.32em;
+      padding: 0.4rem 1.4rem;
+    }
+    .plan-item.featured .plan-label {
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+    .plan-item.featured .plan-label::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .plan-label {
+      font-family: var(--serif-en);
+      font-size: 0.66rem;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.8rem;
+      text-align: center;
+    }
+    .plan-title {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-align: center;
+      margin: 0 0 2.4rem;
+    }
+    .plan-price-table {
+      border-top: 1px solid var(--ink-line);
+      border-bottom: 1px solid var(--ink-line);
+      margin-bottom: 2rem;
+    }
+    .plan-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .plan-price-row:last-child { border-bottom: none; }
+    .plan-price-row.total { background: rgba(28, 31, 46, 0.03); padding: 1.4rem 0.8rem; }
+    .plan-price-label {
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: var(--ink-soft);
+    }
+    .plan-price-row.total .plan-price-label { color: var(--gold); }
+    .plan-price-amount {
+      font-family: var(--serif-en);
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .plan-price-row.total .plan-price-amount {
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+    .plan-tax-note {
+      text-align: right;
+      font-size: 0.6rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+      margin: 0 0 2rem;
+    }
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+    }
+    .plan-features li {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      line-height: 2;
+      padding: 0.7rem 0 0.7rem 1.6rem;
+      border-bottom: 1px dashed var(--ink-line);
+      position: relative;
+    }
+    .plan-features li::before {
+      content: '\25C6';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      color: var(--gold);
+      font-size: 0.55rem;
+    }
+    .plan-feature-sub {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--ink-faint);
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .plan-options {
+      max-width: 880px;
+      margin: 3rem auto 0;
+      background: var(--bg);
+      border: 1px solid var(--ink-line);
+      padding: 2.6rem 3rem;
+    }
+    .plan-options-title {
+      font-family: var(--serif-en);
+      font-size: 0.62rem;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      display: block;
+      text-align: center;
+    }
+    .plan-options-sub {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+      margin: 0.6rem 0 1.6rem;
+    }
+    .plan-options-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .plan-options-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 1px solid var(--ink-line);
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+    }
+    .plan-options-list li:last-child { border-bottom: 1px solid var(--ink-line); }
+    .plan-options-fee {
+      color: var(--gold);
+      font-family: var(--serif-en);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-link-flow {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+    }
+    .plan-link-flow a {
+      color: var(--gold);
+      border-bottom: 1px solid rgba(139, 111, 31, 0.4);
+      padding-bottom: 2px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .diamond-divider { display: none; }
+
+    /* ─── BACK LINK ─── */
+    .back-link {
+      display: block;
+      text-align: center;
+      padding: 2rem 2rem 0;
+      font-family: var(--serif-en);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .back-link:hover { opacity: 0.6; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--ink-line);
+      margin-top: 2rem;
+    }
+    .footer-text {
+      font-family: var(--serif-en);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important; height: 1px !important;
+      padding: 0 !important; margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important; border: 0 !important;
+    }
+
+    @media (max-width: 880px) {
+      .plan-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .plan-item { padding: 3rem 2rem; }
+      .plan-options { padding: 2rem 1.5rem; }
+    }
+    @media (max-width: 540px) {
+      .gate { padding: 3.5rem 1.5rem; }
+      #members-content { padding: 0 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="/" class="header-logo">EXECUTIVE ASHIYA</a>
+    <div class="header-sub">MEMBERS ONLY</div>
+  </header>
+
+  <div class="gate">
+    <span class="m-label">MEMBERS ONLY</span>
+    <h1 class="m-title">Private Plan &amp; Pricing</h1>
+    <p class="m-title-ja">会 員 限 定 プ ラ ン</p>
+    <p class="m-desc">
+      料金・詳細プランは、審査通過者のみにご案内しております。<br>
+      パスワードをご入力ください。
+    </p>
+
+    <div class="pw-form" id="pw-form">
+      <label for="pw-input" class="visually-hidden">会員限定パスワード</label>
+      <input type="password" class="pw-input" id="pw-input" placeholder="PASSWORD" autocomplete="off" />
+      <button class="pw-btn" id="pw-btn" onclick="checkPassword()">ENTER</button>
+    </div>
+    <p class="pw-error" id="pw-error" role="alert" aria-live="polite">— incorrect —</p>
+    <p class="pw-help" id="pw-help">審査通過者にメールでお送りしたパスワードを入力してください。</p>
+  </div>
+
+  <!-- 会員限定コンテンツ -->
+  <div id="members-content">
+    <span class="section-label">PLAN OVERVIEW</span>
+    <h2 class="section-title">Membership</h2>
+    <p class="section-title-ja">会 員 プ ラ ン 一 覧</p>
+
+    <div class="plan-grid">
+      <div class="plan-item featured">
+        <span class="plan-label">PLATINUM</span>
+        <p class="plan-title">Biological Architecture</p>
+        <div class="plan-price-table">
+          <div class="plan-price-row">
+            <span class="plan-price-label">ENTRY FEE</span>
+            <span class="plan-price-amount">&yen;3,000,000</span>
+          </div>
+          <div class="plan-price-row">
+            <span class="plan-price-label">ANNUAL FEE</span>
+            <span class="plan-price-amount">&yen;9,000,000</span>
+          </div>
+          <div class="plan-price-row total">
+            <span class="plan-price-label">FIRST YEAR</span>
+            <span class="plan-price-amount">&yen;12,000,000</span>
+          </div>
+        </div>
+        <p class="plan-tax-note">all prices include tax</p>
+        <ul class="plan-features">
+          <li>専属パーソナルセッション：月4回（各60分）<span class="plan-feature-sub">筋力トレーニング・可動域改善・姿勢矯正を個別プログラムで実施</span></li>
+          <li>24時間コンディションサポート<span class="plan-feature-sub">Oura Ringデータ連動。LINEにて30分以内にトレーナーが応答（緊急時は即時対応）</span></li>
+          <li>管理栄養士によるフルオーダー食事管理<span class="plan-feature-sub">毎日の献立設計・食事写真フィードバック・月次栄養レポート提供</span></li>
+          <li>パーソナルサプリメント処方・毎月配送<span class="plan-feature-sub">血液検査データに基づくオーダーメイド処方（ビタミン・ミネラル・アミノ酸等）</span></li>
+          <li>ヘルスケアコンシェルジュ（回数無制限）<span class="plan-feature-sub">医療機関予約・美容手配・食の調達等、専属コンシェルジュが24時間対応</span></li>
+          <li>スペシャルセッション招待：年4回<span class="plan-feature-sub">ヨガ・ピラティス・格闘技・ゴルフ等の専門講師を招聘したプライベートレッスン</span></li>
+          <li>出張・旅行時専属同行サービス（国内）<span class="plan-feature-sub">年間6日まで無料。トレーニング・食事管理を旅先でも継続</span></li>
+          <li>プレミアムギフト：入会時提供<span class="plan-feature-sub">Oura Ring最新モデル・Technogymトレーニングキット・オリジナルウェア</span></li>
+        </ul>
+      </div>
+
+      <div class="plan-item">
+        <span class="plan-label">EXECUTIVE</span>
+        <p class="plan-title">Absolute Guardian</p>
+        <div class="plan-price-table">
+          <div class="plan-price-row">
+            <span class="plan-price-label">ENTRY FEE</span>
+            <span class="plan-price-amount">&yen;1,500,000</span>
+          </div>
+          <div class="plan-price-row">
+            <span class="plan-price-label">ANNUAL FEE</span>
+            <span class="plan-price-amount">&yen;6,000,000</span>
+          </div>
+          <div class="plan-price-row total">
+            <span class="plan-price-label">FIRST YEAR</span>
+            <span class="plan-price-amount">&yen;7,500,000</span>
+          </div>
+        </div>
+        <p class="plan-tax-note">all prices include tax</p>
+        <ul class="plan-features">
+          <li>専属パーソナルセッション：月2回（各60分）<span class="plan-feature-sub">PLATINUMと同品質のトレーニングを隔週ペースで実施</span></li>
+          <li>24時間コンディションサポート<span class="plan-feature-sub">Oura Ringデータ連動。LINEにて原則2時間以内にトレーナーが応答</span></li>
+          <li>管理栄養士による食事サポート<span class="plan-feature-sub">週次の食事ガイドライン提供・月1回の栄養カウンセリング</span></li>
+          <li>ヘルスケアコンシェルジュ（回数無制限）<span class="plan-feature-sub">医療機関予約・各種手配の窓口として営業時間内に対応</span></li>
+          <li>プレミアムギフト：入会時提供<span class="plan-feature-sub">Oura Ring最新モデル・オリジナルウェア</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plan-options">
+      <span class="plan-options-title">ADDITIONAL SERVICES</span>
+      <p class="plan-options-sub">オプションサービス（会員様向け）</p>
+      <ul class="plan-options-list">
+        <li>
+          <span>家族・パートナー健康サポート<span class="plan-feature-sub">ご家族1名の体組成測定・栄養カウンセリング・トレーニング同席</span></span>
+          <span class="plan-options-fee">料金要相談</span>
+        </li>
+        <li>
+          <span>出張・旅行時専属同行サービス（海外）<span class="plan-feature-sub">渡航先でのトレーニング・食事管理・現地医療機関リサーチを含む</span></span>
+          <span class="plan-options-fee">&yen;1,000,000 / 日</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="plan-link-flow">
+      ご入会の流れは <a href="/#how-to-join">HOW TO JOIN</a> をご確認ください。
+    </p>
+  </div>
+
+  <a href="/" class="back-link">&larr; BACK TO TOP</a>
+
+  <footer class="footer">
+    <div class="footer-text">&copy; EXECUTIVE ASHIYA — 株式会社REFIT</div>
+  </footer>
+
+<script>
+  const _hash = '9b54561840720348ca35461bda9efad77b5df86854ddeb729e290ffe4fdb1658';
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  async function checkPassword() {
+    const input = document.getElementById('pw-input');
+    const error = document.getElementById('pw-error');
+    const content = document.getElementById('members-content');
+    const inputHash = await sha256(input.value);
+
+    if (inputHash === _hash) {
+      error.classList.remove('show');
+      document.getElementById('pw-form').style.display = 'none';
+      error.style.display = 'none';
+      document.getElementById('pw-help').style.display = 'none';
+
+      const revealLine = document.createElement('span');
+      revealLine.className = 'gold-reveal-line';
+      content.parentElement.insertBefore(revealLine, content);
+
+      setTimeout(function() {
+        content.classList.add('open');
+        setTimeout(function() {
+          content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+      }, 600);
+    } else {
+      error.classList.add('show');
+      input.value = '';
+      input.focus();
+    }
+  }
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+</script>
+</body>
+</html>
