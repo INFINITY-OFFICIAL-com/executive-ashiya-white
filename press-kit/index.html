@@ -7,6 +7,21 @@
   <meta name="robots" content="noindex, nofollow" />
   <meta name="description" content="EXECUTIVE ASHIYA プレスキット。メディア関係者向け取材資料・写真素材・プレスリリースをまとめてご覧いただけます。" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- OGP -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="EXECUTIVE ASHIYA" />
+  <meta property="og:title" content="Press Kit | EXECUTIVE ASHIYA" />
+  <meta property="og:description" content="芦屋発・完全会員制ヘルスケアコンシェルジュ EXECUTIVE ASHIYA のメディア関係者向けプレスキット。" />
+  <meta property="og:url" content="https://executive-ashiya.com/press-kit/" />
+  <meta property="og:image" content="https://executive-ashiya.com/press-kit/images/cover-ea.jpg" />
+  <meta property="og:image:width" content="1500" />
+  <meta property="og:image:height" content="844" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Press Kit | EXECUTIVE ASHIYA" />
+  <meta name="twitter:description" content="芦屋発・完全会員制ヘルスケアコンシェルジュのプレスキット。" />
+  <meta name="twitter:image" content="https://executive-ashiya.com/press-kit/images/cover-ea.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
@@ -502,6 +517,129 @@
       letter-spacing: 0.05em;
     }
 
+    /* ═══ TABLE OF CONTENTS ═══ */
+    .pk-toc {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .pk-toc a {
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--ink-faint);
+      padding: 0.5rem 1.4rem 0.5rem 0;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    .pk-toc a:hover { color: var(--gold); }
+    .pk-toc-num {
+      color: var(--gold);
+      margin-right: 0.4rem;
+      font-style: italic;
+    }
+
+    /* ═══ LAST UPDATED ═══ */
+    .pk-updated {
+      text-align: center;
+      padding: 1.5rem 2rem 0;
+      font-family: var(--serif-en);
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      color: var(--ink-faint);
+    }
+
+    /* ═══ SERVICE FEATURES ═══ */
+    .pk-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 2.5rem 0;
+      border-top: 1px solid var(--ink-line);
+      border-left: 1px solid var(--ink-line);
+    }
+    .pk-feature {
+      padding: 1.6rem 1.4rem;
+      border-right: 1px solid var(--ink-line);
+      border-bottom: 1px solid var(--ink-line);
+    }
+    .pk-feature-title {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0 0 0.4rem;
+      letter-spacing: 0.06em;
+    }
+    .pk-feature-desc {
+      font-size: 0.65rem;
+      color: var(--ink-faint);
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+    }
+
+    /* ═══ PLANS COMPACT ═══ */
+    .pk-plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .pk-plan-card {
+      border: 1px solid var(--ink-line);
+      padding: 2rem 1.8rem;
+      text-align: center;
+    }
+    .pk-plan-card.featured {
+      border-color: var(--gold);
+      position: relative;
+    }
+    .pk-plan-card.featured::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+    .pk-plan-name {
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .pk-plan-subtitle {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .pk-plan-price {
+      font-family: var(--serif-en);
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .pk-plan-price-note {
+      font-size: 0.58rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+    .pk-plan-detail {
+      font-size: 0.62rem;
+      color: var(--ink-soft);
+      line-height: 2;
+      text-align: left;
+    }
+
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 768px) {
       .pk-header { padding: 1.5rem 1.5rem; }
@@ -524,6 +662,9 @@
       .pk-company-table th {
         width: 100px;
       }
+      .pk-toc { padding: 2rem 1.5rem; }
+      .pk-features { grid-template-columns: 1fr; }
+      .pk-plans { grid-template-columns: 1fr; }
       .pk-highlight { padding: 1.5rem 1.8rem; }
       .pk-press-release { padding: 2rem 1.5rem; }
       .pk-contact-box { padding: 2rem 1.5rem; }
@@ -550,27 +691,42 @@
     <p class="pk-hero-sub">メディア関係者様向け 取材資料</p>
   </section>
 
+  <!-- ═══ TOC ═══ -->
+  <p class="pk-updated">Last updated: 2026-05-05</p>
+  <nav class="pk-toc">
+    <a href="#service"><span class="pk-toc-num">01</span>Service Overview</a>
+    <a href="#release"><span class="pk-toc-num">02</span>Press Release</a>
+    <a href="#founder"><span class="pk-toc-num">03</span>Founder Profile</a>
+    <a href="#photos"><span class="pk-toc-num">04</span>Photo Assets</a>
+    <a href="#scenes"><span class="pk-toc-num">05</span>Available Scenes</a>
+    <a href="#company"><span class="pk-toc-num">06</span>Company</a>
+    <a href="#contact"><span class="pk-toc-num">07</span>Contact</a>
+  </nav>
+
   <!-- ═══ 01. SERVICE OVERVIEW ═══ -->
-  <section class="pk-section">
+  <section id="service" class="pk-section">
     <span class="pk-section-num">01</span>
     <h2 class="pk-section-title">Service Overview</h2>
     <span class="pk-section-title-ja">サービス概要</span>
 
     <div class="pk-body">
       <p>
-        EXECUTIVE ASHIYA（エグゼクティブ芦屋）は、芦屋発の完全会員制ヘルスケアコンシェルジュです。<br>
-        経営者・エグゼクティブの「健康寿命」を、生涯最大の資産として包括的に支援します。
+        EXECUTIVE ASHIYA（エグゼクティブ芦屋）は、芦屋発の完全会員制ヘルスケアコンシェルジュ。21歳の現役大学生起業家・福田泰士が、累計5,000名超の指導実績をもとに立ち上げた、日本最高額（2026年4月当社調べ）の年間プログラムです。専属トレーナー・管理栄養士・提携医師・コンシェルジュの4職種チームが、経営者・エグゼクティブの健康寿命を包括的に設計します。
       </p>
     </div>
 
     <div class="pk-highlight">
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">サービス名</span>
-        <span class="pk-highlight-value">EXECUTIVE ASHIYA</span>
+        <span class="pk-highlight-value">EXECUTIVE ASHIYA（エグゼクティブ芦屋）</span>
+      </div>
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">形態</span>
+        <span class="pk-highlight-value">完全会員制・完全出張型</span>
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">年間プログラム費用</span>
-        <span class="pk-highlight-value">年間1,200万円（税別）</span>
+        <span class="pk-highlight-value">年間750万円〜1,200万円（税込）</span>
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">サービス始動</span>
@@ -578,21 +734,75 @@
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">対応エリア</span>
-        <span class="pk-highlight-value">芦屋・西宮・神戸（出張対応）</span>
+        <span class="pk-highlight-value">芦屋・西宮・神戸（完全出張対応）</span>
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">定員</span>
         <span class="pk-highlight-value">年間最大5名</span>
+      </div>
+      <div class="pk-highlight-item">
+        <span class="pk-highlight-label">全スタッフ</span>
+        <span class="pk-highlight-value">NDA（秘密保持契約）締結</span>
       </div>
     </div>
 
     <div class="pk-keyvisual">
       <img src="images/key-visual.png" alt="EXECUTIVE ASHIYA キービジュアル" class="pk-keyvisual-img" />
     </div>
+
+    <!-- サービス特徴 -->
+    <div class="pk-features">
+      <div class="pk-feature">
+        <p class="pk-feature-title">完全出張パーソナル</p>
+        <p class="pk-feature-desc">会員宅へ専属トレーナーが訪問。ジムに通う必要なし</p>
+      </div>
+      <div class="pk-feature">
+        <p class="pk-feature-title">24時間コンディション監視</p>
+        <p class="pk-feature-desc">Oura Ring連動でバイタルを常時把握。LINEで即時対応</p>
+      </div>
+      <div class="pk-feature">
+        <p class="pk-feature-title">管理栄養士フルオーダー食事管理</p>
+        <p class="pk-feature-desc">毎日の献立設計・食事写真FB・月次栄養レポート</p>
+      </div>
+      <div class="pk-feature">
+        <p class="pk-feature-title">ヘルスケアコンシェルジュ</p>
+        <p class="pk-feature-desc">医療機関予約・美容手配・食の調達まで回数無制限で対応</p>
+      </div>
+      <div class="pk-feature">
+        <p class="pk-feature-title">サプリメント処方・配送</p>
+        <p class="pk-feature-desc">血液検査データに基づくオーダーメイド処方を毎月配送</p>
+      </div>
+      <div class="pk-feature">
+        <p class="pk-feature-title">医療連携</p>
+        <p class="pk-feature-desc">人間ドック最優先予約・遺伝子検査手配・セカンドオピニオン</p>
+      </div>
+    </div>
+
+    <!-- 2プラン -->
+    <div class="pk-plans">
+      <div class="pk-plan-card featured">
+        <p class="pk-plan-name">PLATINUM</p>
+        <p class="pk-plan-subtitle">Biological Architecture</p>
+        <p class="pk-plan-price">&yen;12,000,000</p>
+        <p class="pk-plan-price-note">初年度合計（入会金300万 + 年会費900万・税込）</p>
+        <p class="pk-plan-detail">
+          月4回セッション / 24h即時対応 / フルオーダー食事管理 / サプリ処方配送 / コンシェルジュ無制限 / 年4回スペシャルセッション / 国内同行年6日 / Oura Ring・Technogymキット等入会ギフト
+        </p>
+      </div>
+      <div class="pk-plan-card">
+        <p class="pk-plan-name">EXECUTIVE</p>
+        <p class="pk-plan-subtitle">Absolute Guardian</p>
+        <p class="pk-plan-price">&yen;7,500,000</p>
+        <p class="pk-plan-price-note">初年度合計（入会金150万 + 年会費600万・税込）</p>
+        <p class="pk-plan-detail">
+          月2回セッション / 24h対応（2h以内） / 週次食事ガイド+月1栄養カウンセリング / コンシェルジュ無制限 / Oura Ring・ウェア入会ギフト
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- ═══ 02. PRESS RELEASE ═══ -->
-  <section class="pk-section alt">
+  <section id="release" class="pk-section alt">
     <div class="pk-section-inner">
       <span class="pk-section-num">02</span>
       <h2 class="pk-section-title">Press Release</h2>
@@ -617,7 +827,7 @@
   </section>
 
   <!-- ═══ 03. FOUNDER PROFILE ═══ -->
-  <section class="pk-section">
+  <section id="founder" class="pk-section">
     <span class="pk-section-num">03</span>
     <h2 class="pk-section-title">Founder Profile</h2>
     <span class="pk-section-title-ja">代表プロフィール</span>
@@ -671,7 +881,7 @@
   </section>
 
   <!-- ═══ 04. PHOTO ASSETS ═══ -->
-  <section class="pk-section alt">
+  <section id="photos" class="pk-section alt">
     <div class="pk-section-inner">
       <span class="pk-section-num">04</span>
       <h2 class="pk-section-title">Photo Assets</h2>
@@ -738,7 +948,7 @@
   </section>
 
   <!-- ═══ 05. AVAILABLE SCENES ═══ -->
-  <section class="pk-section">
+  <section id="scenes" class="pk-section">
     <span class="pk-section-num">05</span>
     <h2 class="pk-section-title">Available Scenes</h2>
     <span class="pk-section-title-ja">取材可能シーン</span>
@@ -764,7 +974,7 @@
   </section>
 
   <!-- ═══ 06. COMPANY ═══ -->
-  <section class="pk-section alt">
+  <section id="company" class="pk-section alt">
     <div class="pk-section-inner">
       <span class="pk-section-num">06</span>
       <h2 class="pk-section-title">Company</h2>
@@ -814,7 +1024,7 @@
   </section>
 
   <!-- ═══ 07. CONTACT ═══ -->
-  <section class="pk-section">
+  <section id="contact" class="pk-section">
     <span class="pk-section-num">07</span>
     <h2 class="pk-section-title">Contact</h2>
     <span class="pk-section-title-ja">お問い合わせ</span>
