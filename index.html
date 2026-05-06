@@ -620,11 +620,26 @@
     /* Diamond divider — removed */
     .diamond-divider { display: none; }
 
+    /* Gold divider line */
+    .gold-divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .gold-divider hr {
+      border: none;
+      height: 1px;
+      background: var(--gold-light);
+      opacity: 0.6;
+      margin: 0;
+    }
+
     /* ════════ INFORMATION & EVENT ════════ */
     .info-event-area {
       max-width: 1120px;
       margin: 0 auto;
       padding: 3.5rem 2rem 0;
+      overflow: hidden;
     }
     .ie-section {
       margin-bottom: 3.5rem;
@@ -909,8 +924,7 @@
       display: flex;
       width: max-content;
       animation: tickerScroll 45s linear infinite;
-    }
-    .ticker-track {
+      will-change: transform;
       pointer-events: none;
     }
     @keyframes tickerScroll {
@@ -1775,9 +1789,9 @@
       display: inline-block;
       margin-top: 2rem;
       margin-bottom: 0.5rem;
-      font-family: var(--serif-en);
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
+      font-family: var(--serif-jp);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
       color: var(--gold);
       border: 1px solid rgba(139, 111, 31, 0.4);
       padding: 0.7rem 2.5rem;
@@ -1804,7 +1818,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.8rem 1rem;
-        text-align: left;
+        text-align: center;
         max-width: 320px;
         margin: 0 auto 0.6rem;
       }
@@ -1821,12 +1835,18 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* News cards — horizontal only */
-    .ie-card.fade { transform: translateX(30px); }
-    .ie-card.fade.visible { transform: translateX(0); }
+    /* News cards — vertical fade (prevents horizontal overflow jitter) */
+    .ie-card.fade { transform: translateY(20px); }
+    .ie-card.fade.visible { transform: translateY(0); }
     /* Staggered step animation */
     .join-step.fade { transform: translateX(-20px); }
     .join-step.fade.visible { transform: translateX(0); }
+    .sp-only { display: none; }
+    @media (max-width: 880px) {
+      .sp-only { display: inline; }
+      .cta-headline { letter-spacing: 0.1em; font-size: 1.1rem; }
+    }
+
     .visually-hidden {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -1861,7 +1881,8 @@
     }
 
     /* ════════ LOADER ════════ */
-    body.loading { overflow: hidden; }
+    body.loading { overflow: hidden; touch-action: none; }
+    body.loading * { pointer-events: none !important; }
     #loader {
       position: fixed;
       inset: 0;
@@ -1874,7 +1895,8 @@
       gap: 0.8rem;
       transition: opacity 0.8s ease;
     }
-    #loader.fade-out { opacity: 0; pointer-events: none; }
+    #loader { pointer-events: auto !important; touch-action: none; }
+    #loader.fade-out { opacity: 0; pointer-events: none !important; }
     .loader-en {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
@@ -2266,7 +2288,7 @@
 
   <!-- ════════ HERO ════════ -->
   <section id="hero">
-    <video class="hero-video hero-video-pc" src="hero-bg.mp4" autoplay muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
+    <video class="hero-video hero-video-pc" src="hero-bg.mp4" muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
     <canvas class="hero-canvas-sp" id="heroCanvasSp"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-text">
@@ -2318,13 +2340,13 @@
               <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
             </div>
           </a>
-          <a href="news/2026-04-01-service-launch.html" class="ie-card fade">
+          <a href="news/2026-05-12-service-launch.html" class="ie-card fade">
             <img class="ie-card-img" src="news-launch.jpg" alt="" loading="lazy" />
             <div class="ie-card-body">
-              <span class="ie-card-date">2026.04.01</span>
+              <span class="ie-card-date">2026.05.12</span>
               <span class="ie-card-tag">NEWS</span>
               <span class="ie-card-title">EXECUTIVE ASHIYA 正式サービス開始のお知らせ</span>
-              <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、芦屋・神戸・大阪エリアでサービスを開始いたしました。</span>
+              <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。</span>
             </div>
           </a>
         </div>
@@ -2818,7 +2840,7 @@
     </div>
   </section>
 
-  <div class="diamond-divider fade"><span></span></div>
+  <div class="gold-divider"><hr /></div>
 
   <!-- ════════ HOW TO JOIN ════════ -->
   <section id="how-to-join">
@@ -2862,7 +2884,7 @@
   <section id="cta-final">
     <span class="section-label with-rule">INVITATION</span>
     <p class="cta-headline fade">
-      あなたの健康を、生涯にわたり守る<br>
+      あなたの健康を、<br class="sp-only">生涯にわたり守る<br>
       専属チームをお届けします。
     </p>
     <p class="cta-sub fade">
@@ -2905,49 +2927,53 @@
       <a href="privacy.html">PRIVACY POLICY</a>
       <a href="tokushoho.html">特定商取引法</a>
     </div>
-    <a href="/press-kit" class="f-press">PRESS KIT</a>
+    <a href="/press-kit" class="f-press">メディア関係者様へ</a>
     <span class="f-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
   </footer>
 
   <script>
-    // Hero video autoplay enforcement (PC) + Canvas rendering (Mobile)
+    // ── Hero video + Loader coordination ──
+    // Video is preloaded during loader, but playback starts only after loader dismisses.
+    var _heroVideoReady = false; // flag: loader has finished
+
     (function() {
-      // PC: normal video autoplay
-      function forcePlayPC() {
-        var v = document.querySelector('.hero-video-pc');
-        if (!v) return;
-        v.muted = true;
-        v.setAttribute('muted', '');
-        v.setAttribute('playsinline', '');
-        var p = v.play();
+      // === PC video ===
+      var pcVid = document.querySelector('.hero-video-pc');
+      if (pcVid) {
+        pcVid.muted = true;
+        pcVid.setAttribute('muted', '');
+        pcVid.setAttribute('playsinline', '');
+        pcVid.preload = 'auto';
+        // Don't autoplay yet — wait for loader
+      }
+
+      function playPC() {
+        if (!pcVid) return;
+        pcVid.muted = true;
+        pcVid.currentTime = 0;
+        var p = pcVid.play();
         if (p && p.catch) p.catch(function() {});
       }
-      document.addEventListener('DOMContentLoaded', forcePlayPC);
-      window.addEventListener('load', forcePlayPC);
-      document.addEventListener('touchstart', forcePlayPC, { once: true });
-      document.addEventListener('click', forcePlayPC, { once: true });
-      document.addEventListener('scroll', forcePlayPC, { once: true });
-      document.addEventListener('visibilitychange', function() {
-        if (!document.hidden) forcePlayPC();
-      });
 
-      // Mobile: render video to canvas (zero native controls)
+      // === Mobile: canvas-rendered video ===
       var canvas = document.getElementById('heroCanvasSp');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-      var vid = document.createElement('video');
-      vid.src = 'hero-bg-sp.mp4';
-      vid.muted = true;
-      vid.loop = true;
-      vid.playsInline = true;
-      vid.setAttribute('playsinline', '');
-      vid.setAttribute('webkit-playsinline', '');
-      vid.setAttribute('muted', '');
-      vid.preload = 'auto';
-      vid.style.display = 'none';
+      var vid, ctx, rafId = null, lastW = 0, lastH = 0;
 
-      var rafId = null;
-      var lastW = 0, lastH = 0;
+      if (canvas) {
+        ctx = canvas.getContext('2d');
+        vid = document.createElement('video');
+        vid.src = 'hero-bg-sp.mp4';
+        vid.muted = true;
+        vid.loop = true;
+        vid.playsInline = true;
+        vid.setAttribute('playsinline', '');
+        vid.setAttribute('webkit-playsinline', '');
+        vid.setAttribute('muted', '');
+        vid.preload = 'auto';
+        vid.style.display = 'none';
+        // Preload only — don't play yet
+        vid.load();
+      }
 
       function drawFrame() {
         if (vid.readyState >= 2) {
@@ -2960,7 +2986,6 @@
             lastW = w;
             lastH = h;
           }
-          // cover fit
           var vw = vid.videoWidth, vh = vid.videoHeight;
           var cw = canvas.width, ch = canvas.height;
           var scale = Math.max(cw / vw, ch / vh);
@@ -2972,25 +2997,28 @@
       }
 
       function startCanvas() {
+        if (!vid || !canvas) return;
         vid.muted = true;
+        vid.currentTime = 0;
         var p = vid.play();
         if (p && p.then) {
-          p.then(function() {
-            if (!rafId) drawFrame();
-          }).catch(function() {});
+          p.then(function() { if (!rafId) drawFrame(); }).catch(function() {});
         }
         if (!rafId) drawFrame();
       }
 
-      vid.addEventListener('canplay', startCanvas, { once: true });
-      document.addEventListener('DOMContentLoaded', function() { vid.load(); startCanvas(); });
-      window.addEventListener('load', startCanvas);
-      document.addEventListener('touchstart', startCanvas, { once: true });
-      document.addEventListener('click', startCanvas, { once: true });
-      document.addEventListener('scroll', startCanvas, { once: true });
-      document.addEventListener('visibilitychange', function() {
-        if (!document.hidden) startCanvas();
-      });
+      // Expose start function globally for loader to call
+      window._startHeroVideo = function() {
+        _heroVideoReady = true;
+        playPC();
+        startCanvas();
+        // Re-attach fallback listeners for tab switch etc.
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden) { playPC(); if (vid && canvas && !rafId) startCanvas(); }
+        });
+        document.addEventListener('touchstart', function() { playPC(); startCanvas(); }, { once: true });
+        document.addEventListener('click', function() { playPC(); startCanvas(); }, { once: true });
+      };
     })();
 
     // Loader
@@ -2998,15 +3026,19 @@
       const loader = document.getElementById('loader');
       const hasVisited = sessionStorage.getItem('ea_visited');
       if (hasVisited) {
+        // No loader — start video immediately
         loader.style.display = 'none';
         document.body.classList.remove('loading');
         document.querySelectorAll('#hero .fade').forEach(el => el.classList.add('visible'));
+        window._startHeroVideo();
         return;
       }
       sessionStorage.setItem('ea_visited', '1');
       setTimeout(() => {
         loader.classList.add('fade-out');
         document.body.classList.remove('loading');
+        // Start video from the beginning right when loader fades
+        window._startHeroVideo();
         setTimeout(() => { loader.style.display = 'none'; }, 800);
         const heroFades = document.querySelectorAll('#hero .fade');
         heroFades.forEach((el, i) => {
@@ -3243,6 +3275,23 @@
       }
       var obs = new IntersectionObserver(function(entries){ if(entries[0].isIntersecting) play(); }, { threshold: 0.3 });
       obs.observe(map);
+    })();
+
+    /* ── Logo ticker restart (fix occasional stall) ── */
+    (function(){
+      var track = document.querySelector('.ticker-track');
+      if (!track) return;
+      function restartTicker() {
+        track.style.animation = 'none';
+        track.offsetHeight; // force reflow
+        track.style.animation = '';
+      }
+      window.addEventListener('load', restartTicker);
+      document.fonts && document.fonts.ready && document.fonts.ready.then(restartTicker);
+      // Also restart if tab becomes visible again
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) restartTicker();
+      });
     })();
 
     /* ── News carousel nav (loop) ── */

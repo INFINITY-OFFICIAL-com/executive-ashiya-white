@@ -7,8 +7,26 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://executive-ashiya.com/news/2026-04-01-service-launch.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <loc>https://executive-ashiya.com/news/2026-04-25-medical-network-expansion.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://executive-ashiya.com/news/2026-04-18-supplement-prescription.html</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://executive-ashiya.com/news/2026-04-10-sleep-investment.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://executive-ashiya.com/news/2026-05-12-service-launch.html</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
