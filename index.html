@@ -1005,6 +1005,180 @@
       padding: 0 2rem;
     }
 
+    /* ════════ BENEFITS CAROUSEL ════════ */
+    #benefits {
+      max-width: none;
+      padding: 5rem 0 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    #benefits .section-label,
+    #benefits .section-title,
+    #benefits .section-title-ja {
+      padding: 0 2rem;
+    }
+    .benefits-carousel {
+      margin-top: 3rem;
+      padding: 0 0 2rem;
+      display: flex;
+      gap: 1.6rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+      padding-left: calc((100vw - 1100px) / 2);
+      padding-right: calc((100vw - 1100px) / 2);
+    }
+    .benefits-carousel::-webkit-scrollbar { display: none; }
+    .benefits-carousel.grabbing { cursor: grabbing; }
+    .benefit-slide {
+      flex: 0 0 auto;
+      width: min(72vw, 520px);
+      aspect-ratio: 4 / 5;
+      position: relative;
+      overflow: hidden;
+      scroll-snap-align: center;
+      border-radius: 0;
+    }
+    .benefit-slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .benefit-slide:hover .benefit-slide-img {
+      transform: scale(1.03);
+    }
+    .benefit-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0.15) 50%,
+        rgba(0,0,0,0.05) 100%
+      );
+    }
+    .benefit-slide-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.4rem 2rem;
+      z-index: 2;
+    }
+    .benefit-slide-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.56rem;
+      letter-spacing: 0.34em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.8rem;
+    }
+    .benefit-slide-title {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+      letter-spacing: 0.14em;
+      color: #fff;
+      line-height: 1.8;
+      margin: 0 0 0.6rem;
+    }
+    .benefit-slide-en {
+      display: block;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.65);
+    }
+    .benefits-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.6rem;
+    }
+    .benefits-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ink-line-strong);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .benefits-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+    @media (max-width: 880px) {
+      #benefits { padding: 3.5rem 0 3rem; }
+      .benefits-carousel {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+        gap: 1rem;
+      }
+      .benefit-slide {
+        width: 80vw;
+        aspect-ratio: 3 / 4;
+      }
+    }
+
+    /* ════════ VIDEO BREAK ════════ */
+    .video-break {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 50vh;
+      max-height: 420px;
+      min-height: 240px;
+      background: #000;
+    }
+    .video-break video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .video-break-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 1;
+    }
+    .video-break-text {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .video-break-text span {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(0.8rem, 2vw, 1.1rem);
+      letter-spacing: 0.36em;
+      color: rgba(255,255,255,0.85);
+    }
+    .video-break-sp { display: none; }
+    @media (max-width: 880px) {
+      .video-break { height: 40vh; max-height: 340px; }
+      .video-break-pc { display: none; }
+      .video-break-sp { display: block; }
+    }
+
     /* ════════ SERVICES (CORE) ════════ */
     #services {
       max-width: none;
@@ -1841,6 +2015,44 @@
     /* Staggered step animation */
     .join-step.fade { transform: translateX(-20px); }
     .join-step.fade.visible { transform: translateX(0); }
+
+    /* ═══ B. Section title: elegant settle ═══ */
+    .section-title.fade {
+      transform: translateY(28px);
+      letter-spacing: 0.24em;
+      transition: opacity 1.4s cubic-bezier(.25,.46,.45,.94),
+                  transform 1.4s cubic-bezier(.25,.46,.45,.94),
+                  letter-spacing 1.4s cubic-bezier(.25,.46,.45,.94);
+    }
+    .section-title.fade.visible {
+      letter-spacing: 0.12em;
+    }
+    .section-title-ja.fade {
+      transform: translateY(16px);
+      transition: opacity 1.2s 0.15s ease, transform 1.2s 0.15s ease;
+    }
+
+    /* ═══ D. Gold line grow ═══ */
+    .gold-divider hr {
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 1.4s cubic-bezier(.25,.46,.45,.94);
+    }
+    .gold-divider.visible hr {
+      transform: scaleX(1);
+    }
+    .section-label.with-rule::before,
+    .section-label.with-rule::after {
+      transform: scaleX(0);
+      transition: transform 1s 0.2s cubic-bezier(.25,.46,.45,.94);
+    }
+    .section-label.visible::before,
+    .section-label.visible::after {
+      transform: scaleX(1);
+    }
+    .section-label.with-rule::before { transform-origin: right; }
+    .section-label.with-rule::after  { transform-origin: left; }
+
     .sp-only { display: none; }
     @media (max-width: 880px) {
       .sp-only { display: inline; }
@@ -2529,6 +2741,65 @@
     <p class="philosophy-signature">— IN PURSUIT OF LASTING VITALITY —</p>
   </section>
 
+  <!-- ════════ BENEFITS CAROUSEL ════════ -->
+  <section id="benefits">
+    <span class="section-label with-rule">THE OUTCOME</span>
+    <h2 class="section-title fade">A Life, Elevated</h2>
+    <span class="section-title-ja fade">そ の 先 に あ る も の</span>
+
+    <div class="benefits-carousel" id="benefitsCarousel">
+      <div class="benefit-slide fade">
+        <img class="benefit-slide-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
+        <div class="benefit-slide-overlay"></div>
+        <div class="benefit-slide-text">
+          <span class="benefit-slide-num">— 01 —</span>
+          <h3 class="benefit-slide-title">10年後も、<br>最前線に立ち続ける。</h3>
+          <span class="benefit-slide-en">Peak Physical Condition</span>
+        </div>
+      </div>
+
+      <div class="benefit-slide fade">
+        <img class="benefit-slide-img" src="services-space.webp" alt="" loading="lazy" />
+        <div class="benefit-slide-overlay"></div>
+        <div class="benefit-slide-text">
+          <span class="benefit-slide-num">— 02 —</span>
+          <h3 class="benefit-slide-title">判断力を、<br>数値で守る。</h3>
+          <span class="benefit-slide-en">Data-Driven Wellness</span>
+        </div>
+      </div>
+
+      <div class="benefit-slide fade">
+        <img class="benefit-slide-img" src="concierge-medical.webp" alt="" loading="lazy" />
+        <div class="benefit-slide-overlay"></div>
+        <div class="benefit-slide-text">
+          <span class="benefit-slide-num">— 03 —</span>
+          <h3 class="benefit-slide-title">兆候を、<br>先に捉える。</h3>
+          <span class="benefit-slide-en">Proactive Health Management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits-dots" id="benefitsDots">
+      <button class="benefits-dot active" data-index="0" aria-label="1"></button>
+      <button class="benefits-dot" data-index="1" aria-label="2"></button>
+      <button class="benefits-dot" data-index="2" aria-label="3"></button>
+    </div>
+  </section>
+
+  <div class="gold-divider"><hr /></div>
+
+  <!-- ════════ VIDEO BREAK: SESSION ════════ -->
+  <div class="video-break">
+    <video class="video-break-pc" muted autoplay loop playsinline preload="auto"
+           src="hero-bg.mp4"></video>
+    <video class="video-break-sp" muted autoplay loop playsinline preload="auto"
+           src="hero-bg-sp.mp4"></video>
+    <div class="video-break-overlay"></div>
+    <div class="video-break-text">
+      <span>— YOUR PRIVATE SESSION —</span>
+    </div>
+  </div>
+
   <!-- ════════ SERVICES (CORE) ════════ -->
   <section id="services">
     <div class="services-inner">
@@ -3097,15 +3368,16 @@
       document.getElementById('mobile-nav').classList.remove('open');
     }
 
-    // Fade in
+    // Fade in (includes stagger, gold-divider, section-label)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade').forEach(el => {
-      if (!el.classList.contains('join-step')) observer.observe(el);
+    document.querySelectorAll('.fade, .gold-divider, .section-label.with-rule').forEach(el => {
+      observer.observe(el);
     });
+
 
     // Count-up animation with odometer-style digit rolling
     function animateCount(el) {
@@ -3319,6 +3591,58 @@
         } else {
           cards.scrollBy({ left: -w, behavior: 'smooth' });
         }
+      });
+    })();
+
+    // ── Benefits Carousel: drag + dots ──
+    (function() {
+      var carousel = document.getElementById('benefitsCarousel');
+      var dots = document.querySelectorAll('#benefitsDots .benefits-dot');
+      if (!carousel || !dots.length) return;
+
+      // Drag to scroll
+      var isDown = false, startX, scrollL;
+      carousel.addEventListener('mousedown', function(e) {
+        isDown = true;
+        carousel.classList.add('grabbing');
+        startX = e.pageX - carousel.offsetLeft;
+        scrollL = carousel.scrollLeft;
+      });
+      carousel.addEventListener('mouseleave', function() { isDown = false; carousel.classList.remove('grabbing'); });
+      carousel.addEventListener('mouseup', function() { isDown = false; carousel.classList.remove('grabbing'); });
+      carousel.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - carousel.offsetLeft;
+        carousel.scrollLeft = scrollL - (x - startX);
+      });
+
+      // Dot sync on scroll
+      function updateDots() {
+        var slides = carousel.querySelectorAll('.benefit-slide');
+        var center = carousel.scrollLeft + carousel.clientWidth / 2;
+        var closest = 0, minDist = Infinity;
+        slides.forEach(function(s, i) {
+          var mid = s.offsetLeft - carousel.offsetLeft + s.offsetWidth / 2;
+          var d = Math.abs(center - mid);
+          if (d < minDist) { minDist = d; closest = i; }
+        });
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === closest);
+        });
+      }
+      carousel.addEventListener('scroll', updateDots, { passive: true });
+
+      // Click dot to scroll
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          var idx = parseInt(dot.getAttribute('data-index'));
+          var slides = carousel.querySelectorAll('.benefit-slide');
+          if (slides[idx]) {
+            var target = slides[idx].offsetLeft - (carousel.clientWidth - slides[idx].offsetWidth) / 2;
+            carousel.scrollTo({ left: target, behavior: 'smooth' });
+          }
+        });
       });
     })();
   </script>
