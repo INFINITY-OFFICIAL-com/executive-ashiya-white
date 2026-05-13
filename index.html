@@ -2145,8 +2145,9 @@
       .track-client-item:nth-child(2) { border-right: none; }
       .track-client-item:nth-child(4) { border-right: none; }
       .join-steps { grid-template-columns: 1fr; }
-      .hero-text { padding: 2rem 1.6rem; justify-content: flex-end; padding-bottom: 1.2rem; }
-      .hero-cta { margin-top: 2rem; }
+      .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; }
+      .hero-cta { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: 280px; text-align: center; }
+      .hero-members-link { position: absolute; bottom: 3rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
       .pw-form { flex-direction: column; max-width: 280px; }
       .pw-input { border-right: 1px solid var(--ink-line-strong); border-bottom: none; }
@@ -2415,6 +2416,124 @@
         margin-top: 3rem;
       }
       .rep-photo { max-width: 300px; margin: 0 auto; }
+    }
+
+    /* ════════ PRICING OVERVIEW ════════ */
+    #pricing {
+      text-align: center;
+    }
+    .pricing-intro {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+      margin-bottom: 3.5rem;
+    }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 780px;
+      margin: 0 auto 3rem;
+    }
+    .pricing-card {
+      border: 1px solid var(--ink-line);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .pricing-card-label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .pricing-card-name {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .pricing-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    .pricing-card-list li {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      line-height: 2;
+      letter-spacing: 0.04em;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .pricing-card-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+    }
+    .pricing-note {
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      line-height: 2;
+    }
+    @media (max-width: 600px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ════════ MEDICAL NETWORK ════════ */
+    #medical-network {
+      text-align: center;
+    }
+    .medical-intro {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+      margin-bottom: 3.5rem;
+    }
+    .medical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 840px;
+      margin: 0 auto 3rem;
+    }
+    .medical-item {
+      border: 1px solid var(--ink-line);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .medical-item-num {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .medical-item-label {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+    }
+    .medical-note {
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      line-height: 2;
+    }
+    @media (max-width: 600px) {
+      .medical-grid { grid-template-columns: 1fr 1fr; }
     }
 
     /* ════════ S-4: CTA SECTION ════════ */
@@ -3099,7 +3218,7 @@
       <div class="join-step fade">
         <span class="join-step-num">STEP 02</span>
         <span class="join-step-text">担当者よりご連絡</span>
-        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡いたします</span>
+        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡。料金・プラン内容もこの段階でご説明いたします</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 03</span>
@@ -3417,7 +3536,7 @@
               setTimeout(() => {
                 step.classList.add('dot-active');
                 step.classList.add('visible');
-              }, 350 * (i + 1));
+              }, 600 * (i + 1));
             });
             timelineObserver.unobserve(entry.target);
           }
