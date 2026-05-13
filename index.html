@@ -2145,9 +2145,10 @@
       .track-client-item:nth-child(2) { border-right: none; }
       .track-client-item:nth-child(4) { border-right: none; }
       .join-steps { grid-template-columns: 1fr; }
-      .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; }
-      .hero-cta { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: 280px; text-align: center; }
-      .hero-members-link { position: absolute; bottom: 3rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
+      .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; padding-bottom: 30vh; }
+      .brand-en { font-size: clamp(2rem, 5.5vw, 4.8rem); }
+      .hero-cta { position: absolute; bottom: 8.5rem; left: 0; right: 0; margin: 0 auto; width: 240px; padding: 0.75rem 0; text-align: center; }
+      .hero-members-link { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
       .pw-form { flex-direction: column; max-width: 280px; }
       .pw-input { border-right: 1px solid var(--ink-line-strong); border-bottom: none; }
@@ -3045,7 +3046,7 @@
   <div class="concierge-detail" id="concierge-nutrition" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="service-consultation.jpg" alt="栄養設計" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-culinary.jpg" alt="栄養設計" loading="lazy" /></div>
       <span class="concierge-detail-num">02</span>
       <span class="concierge-detail-en">Nutrition Design</span>
       <span class="concierge-detail-ja">栄 養 設 計</span>
@@ -3063,7 +3064,7 @@
   <div class="concierge-detail" id="concierge-monitoring" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="service-spa.jpg" alt="ボディモニタリング" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-consultation.jpg" alt="ボディモニタリング" loading="lazy" /></div>
       <span class="concierge-detail-num">03</span>
       <span class="concierge-detail-en">Body Monitoring</span>
       <span class="concierge-detail-ja">ボ デ ィ モ ニ タ リ ン グ</span>
@@ -3081,7 +3082,7 @@
   <div class="concierge-detail" id="concierge-conditioning" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="service-culinary.jpg" alt="コンディショニング" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-spa.jpg" alt="コンディショニング" loading="lazy" /></div>
       <span class="concierge-detail-num">04</span>
       <span class="concierge-detail-en">Conditioning</span>
       <span class="concierge-detail-ja">コ ン デ ィ シ ョ ニ ン グ</span>
@@ -3378,12 +3379,22 @@
       };
     })();
 
+    // Resume video on back/forward navigation (bfcache)
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted) {
+        // Scroll to top to avoid showing mid-page content
+        window.scrollTo(0, 0);
+        if (window._startHeroVideo) window._startHeroVideo();
+      }
+    });
+
     // Loader
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
       const hasVisited = sessionStorage.getItem('ea_visited');
       if (hasVisited) {
-        // No loader — start video immediately
+        // No loader — scroll to top and start video immediately
+        window.scrollTo(0, 0);
         loader.style.display = 'none';
         document.body.classList.remove('loading');
         document.documentElement.classList.remove('loading');
