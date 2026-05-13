@@ -390,7 +390,7 @@
       height: 100svh;
       max-width: none;
       padding: 0;
-      background: #000 url('hero-main.jpg') center/cover no-repeat;
+      background: #000;
       overflow: hidden;
     }
     .hero-video {
@@ -2145,8 +2145,9 @@
       .track-client-item:nth-child(2) { border-right: none; }
       .track-client-item:nth-child(4) { border-right: none; }
       .join-steps { grid-template-columns: 1fr; }
-      .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; padding-bottom: 30vh; }
-      .brand-en { font-size: clamp(2rem, 5.5vw, 4.8rem); }
+      .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; padding-bottom: 22vh; }
+      .brand-en { font-size: clamp(2rem, 5.5vw, 4.8rem); margin-top: 1.5rem; }
+      .catch { margin-top: 2rem; }
       .hero-cta { position: absolute; bottom: 8.5rem; left: 0; right: 0; margin: 0 auto; width: 240px; padding: 0.75rem 0; text-align: center; }
       .hero-members-link { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
@@ -2678,7 +2679,7 @@
 
   <!-- ════════ HERO ════════ -->
   <section id="hero">
-    <video class="hero-video hero-video-pc" src="hero-bg.mp4" poster="hero-main.jpg" muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
+    <video class="hero-video hero-video-pc" src="hero-bg.mp4" muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
     <canvas class="hero-canvas-sp" id="heroCanvasSp"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-text">
@@ -3293,9 +3294,17 @@
       function playPC() {
         if (!pcVid) return;
         pcVid.muted = true;
-        pcVid.currentTime = 0;
+        pcVid.setAttribute('muted', '');
+        // Force load if needed, then play
+        if (pcVid.readyState === 0) pcVid.load();
         var p = pcVid.play();
-        if (p && p.catch) p.catch(function() {});
+        if (p && p.catch) p.catch(function() {
+          // Retry once after short delay
+          setTimeout(function() {
+            pcVid.muted = true;
+            pcVid.play().catch(function(){});
+          }, 200);
+        });
       }
 
       // === Mobile: canvas-rendered video ===
@@ -3317,20 +3326,7 @@
         // Preload only — don't play yet
         vid.load();
 
-        // Draw poster image on canvas immediately to avoid black flash
-        var posterImg = new Image();
-        posterImg.src = 'hero-main.jpg';
-        posterImg.onload = function() {
-          var rect = canvas.getBoundingClientRect();
-          var dpr = window.devicePixelRatio || 1;
-          canvas.width = Math.round(rect.width * dpr);
-          canvas.height = Math.round(rect.height * dpr);
-          var iw = posterImg.naturalWidth, ih = posterImg.naturalHeight;
-          var cw = canvas.width, ch = canvas.height;
-          var scale = Math.max(cw / iw, ch / ih);
-          var sw = iw * scale, sh = ih * scale;
-          ctx.drawImage(posterImg, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
-        };
+        // No poster image — loader covers the initial load
       }
 
       function drawFrame() {
@@ -3357,12 +3353,20 @@
       function startCanvas() {
         if (!vid || !canvas) return;
         vid.muted = true;
-        vid.currentTime = 0;
+        vid.setAttribute('muted', '');
+        // Reset animation loop
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        if (vid.readyState === 0) vid.load();
         var p = vid.play();
         if (p && p.then) {
-          p.then(function() { if (!rafId) drawFrame(); }).catch(function() {});
+          p.then(function() { drawFrame(); }).catch(function() {
+            setTimeout(function() {
+              vid.muted = true;
+              vid.play().then(function() { drawFrame(); }).catch(function(){});
+            }, 200);
+          });
         }
-        if (!rafId) drawFrame();
+        drawFrame();
       }
 
       // Expose start function globally for loader to call
@@ -3379,13 +3383,11 @@
       };
     })();
 
-    // Resume video on back/forward navigation (bfcache)
+    // Resume video on ANY page show (bfcache or normal navigation)
     window.addEventListener('pageshow', function(e) {
-      if (e.persisted) {
-        // Scroll to top to avoid showing mid-page content
-        window.scrollTo(0, 0);
-        if (window._startHeroVideo) window._startHeroVideo();
-      }
+      window.scrollTo(0, 0);
+      // Always try to restart video on pageshow
+      if (window._startHeroVideo) window._startHeroVideo();
     });
 
     // Loader
