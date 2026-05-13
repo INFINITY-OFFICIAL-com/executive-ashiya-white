@@ -448,8 +448,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
-      padding: 2rem 2rem 6rem;
+      justify-content: center;
+      padding: 2rem;
       text-align: center;
     }
 
@@ -727,13 +727,14 @@
       .ie-cards {
         display: flex !important;
         grid-template-columns: none !important;
-        gap: 0 !important;
+        gap: 1rem !important;
         overflow: hidden;
         padding-bottom: 0.5rem;
+        touch-action: pan-y;
       }
       .ie-cards .ie-card {
-        flex: 0 0 100%;
-        min-width: 100%;
+        flex: 0 0 82%;
+        min-width: 82%;
         transition: transform 0.4s ease;
       }
       .ie-nav {
@@ -2008,16 +2009,16 @@
       font-family: var(--serif-jp);
       font-size: 0.82rem;
       letter-spacing: 0.15em;
-      color: #fff;
-      background: var(--gold);
+      color: var(--gold);
+      background: transparent;
       border: 1px solid var(--gold);
       padding: 0.9rem 3rem;
       text-decoration: none;
       transition: all 0.3s;
     }
     .f-press:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
+      background: var(--gold);
+      border-color: var(--gold);
       color: #fff;
     }
     .f-info {
@@ -2142,7 +2143,8 @@
       .track-client-item:nth-child(2) { border-right: none; }
       .track-client-item:nth-child(4) { border-right: none; }
       .join-steps { grid-template-columns: 1fr; }
-      .hero-text { padding: 2rem 1.6rem; }
+      .hero-text { padding: 2rem 1.6rem; justify-content: flex-end; padding-bottom: 1.2rem; }
+      .hero-cta { margin-top: 2rem; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
       .pw-form { flex-direction: column; max-width: 280px; }
       .pw-input { border-right: 1px solid var(--ink-line-strong); border-bottom: none; }
@@ -2487,7 +2489,7 @@
         right: -0.5rem;
         top: -0.1rem;
         font-family: var(--serif-en);
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 300;
         color: var(--gold);
         transition: transform 0.3s;
@@ -2730,30 +2732,13 @@
         </div>
       </div>
     </div>
-    <p class="ticker-disclaimer">All trademarks and logos are the property of their respective owners. Displayed to represent world-class standards integrated into our service.</p>
+    <p class="ticker-disclaimer">All trademarks and logos are the property of their respective owners. Our service utilizes products and facilities from the brands shown above.</p>
   </div>
-
-  <!-- ════════ PHILOSOPHY ════════ -->
-  <section id="philosophy">
-    <span class="section-label with-rule">PHILOSOPHY</span>
-
-    <p class="philosophy-lead">身体の変化に、先手を打つ。</p>
-
-    <div class="philosophy-body">
-      <p>
-        多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは予防に特化したヘルスケアを提供しています。
-      </p>
-      <p>
-        血液検査40項目以上に基づく栄養設計、FMS（Functional Movement Screen）による筋骨格の評価、提携医療機関との連携。スポーツ科学・分子栄養学・予防医学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の身体を長期的に守ります。
-      </p>
-    </div>
-
-  </section>
 
   <!-- ════════ SERVICES (CORE) ════════ -->
   <section id="services">
     <span class="section-label with-rule">SERVICES</span>
-    <h2 class="section-title fade">基本サービス</h2>
+    <h2 class="section-title fade">サービス内容</h2>
     <span class="section-title-ja fade">Core Service</span>
 
     <div class="benefits-carousel" id="benefitsCarousel">
@@ -2818,7 +2803,7 @@
   <section id="concierge">
     <div class="concierge-inner">
       <span class="section-label with-rule">MEMBER PRIVILEGES</span>
-      <h2 class="section-title fade">会員特権サービス</h2>
+      <h2 class="section-title fade">コンシェルジュサービス</h2>
       <span class="section-title-ja fade">Exclusive Concierge</span>
 
       <div class="concierge-grid">
@@ -3015,7 +3000,7 @@
           <p class="track-stat-sub">ReFit累計指導クライアント数</p>
         </div>
         <div class="track-stat-item">
-          <div class="track-stat-num" data-count="98" data-suffix="%">0</div>
+          <div class="track-stat-num" data-count="95" data-suffix="%">0</div>
           <span class="track-stat-label">SATISFACTION</span>
           <p class="track-stat-sub">クライアント満足度</p>
         </div>
@@ -3054,6 +3039,16 @@
       </div>
 
       <p class="track-note">* 数値は株式会社ReFit（代表・福田）の累計指導実績に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+    </div>
+  </section>
+
+  <!-- ════════ PHILOSOPHY ════════ -->
+  <section id="philosophy">
+    <span class="section-label with-rule">PHILOSOPHY</span>
+    <p class="philosophy-lead">身体の変化に、先手を打つ。</p>
+    <div class="philosophy-body">
+      <p>多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは予防に特化したヘルスケアを提供しています。</p>
+      <p>血液検査40項目以上に基づく栄養設計、FMS（Functional Movement Screen）による筋骨格の評価、提携医療機関との連携。スポーツ科学・分子栄養学・予防医学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の身体を長期的に守ります。</p>
     </div>
   </section>
 
@@ -3547,12 +3542,15 @@
       var items = cards.querySelectorAll('.ie-card');
       var total = items.length;
       var currentIdx = 0;
+      // Each card is 82% + 1rem gap; calculate shift per card
       function goTo(idx) {
         if (idx < 0) idx = total - 1;
         if (idx >= total) idx = 0;
         currentIdx = idx;
+        // 82% of container + gap
+        var shift = currentIdx * 84; // 82% card + ~2% gap
         items.forEach(function(item) {
-          item.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
+          item.style.transform = 'translateX(-' + shift + '%)';
         });
       }
       next.addEventListener('click', function(){ goTo(currentIdx + 1); });
@@ -3562,7 +3560,7 @@
     // ── Benefits Carousel: drag + dots ──
     (function() {
       var carousel = document.getElementById('benefitsCarousel');
-      var dots = document.querySelectorAll('#servicesDots .benefits-dot');
+      var dots = document.querySelectorAll('#benefitsDots .benefits-dot');
       if (!carousel || !dots.length) return;
 
       // Drag to scroll
