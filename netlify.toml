@@ -31,3 +31,13 @@
   from = "/press-kit"
   to = "/press-kit/index.html"
   status = 200
+
+[[redirects]]
+  from = "/press-kit/contact"
+  to = "/press-kit/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/press-kit/thanks"
+  to = "/press-kit/thanks.html"
+  status = 200

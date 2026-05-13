@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>送信完了 | EXECUTIVE ASHIYA Press Kit</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --gold: #8B6F1F;
+      --gold-dark: #6A521A;
+      --ink: #1C1F2E;
+      --ink-soft: rgba(28, 31, 46, 0.55);
+      --ink-line: rgba(28, 31, 46, 0.13);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--ink-line);
+      position: relative;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .header-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-decoration: none;
+      display: block;
+    }
+    .header-logo:hover { opacity: 0.7; }
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 6rem 2rem 8rem;
+      text-align: center;
+    }
+    .thanks-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      letter-spacing: 0.2em;
+    }
+    .thanks-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 2.5rem;
+    }
+    .thanks-text {
+      font-size: 0.75rem;
+      line-height: 2.4;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      margin-bottom: 4rem;
+    }
+    .back-btn {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      padding: 1rem 3rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--ink-line);
+    }
+    .footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-dark);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="header-logo">EXECUTIVE ASHIYA</a>
+  </header>
+  <div class="content">
+    <div class="thanks-icon">&#10003;</div>
+    <h1 class="thanks-title">お問い合わせを受け付けました</h1>
+    <p class="thanks-text">
+      この度はお問い合わせいただき、誠にありがとうございます。<br>
+      内容を確認のうえ、担当者より折り返しご連絡差し上げます。<br>
+      2営業日以内にご返信いたします。
+    </p>
+    <a href="/press-kit" class="back-btn">BACK TO PRESS KIT</a>
+  </div>
+  <footer class="footer">
+    <div class="footer-text">&copy; 2026 EXECUTIVE ASHIYA / ReFit Inc. All Rights Reserved.</div>
+  </footer>
+</body>
+</html>

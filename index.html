@@ -154,8 +154,8 @@
       --bg-deep: #FFFFFF;       /* pure white */
       --bg-card: #FFFFFF;       /* card white */
       --ink: #1C1F2E;           /* deep navy-charcoal */
-      --ink-soft: rgba(28, 31, 46, 0.78);
-      --ink-faint: rgba(28, 31, 46, 0.5);
+      --ink-soft: rgba(28, 31, 46, 0.88);
+      --ink-faint: rgba(28, 31, 46, 0.62);
       --ink-line: rgba(28, 31, 46, 0.1);
       --ink-line-strong: rgba(28, 31, 46, 0.22);
       --navy: #1B2A4E;
@@ -184,7 +184,7 @@
       color: var(--ink);
       font-family: var(--serif-jp);
       font-weight: 300;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 2.0;
       -webkit-font-smoothing: auto;
       -moz-osx-font-smoothing: auto;
@@ -279,7 +279,7 @@
     .nav-link {
       font-family: var(--serif-en);
       font-weight: 400;
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       letter-spacing: 0.22em;
       color: var(--ink-soft);
       position: relative;
@@ -301,7 +301,7 @@
 
     .nav-cta {
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.28em;
       color: var(--bg);
       background: var(--ink);
@@ -390,7 +390,7 @@
       height: 100svh;
       max-width: none;
       padding: 0;
-      background: #000;
+      background: #000 url('hero-main.jpg') center/cover no-repeat;
       overflow: hidden;
     }
     .hero-video {
@@ -501,6 +501,15 @@
       line-height: 2.2;
       position: relative;
     }
+    .hero-desc {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.65);
+      margin: 1.2rem 0 0;
+      position: relative;
+    }
     .hero-exclusive {
       font-family: var(--serif-en);
       font-style: italic;
@@ -589,20 +598,20 @@
       opacity: 0.6;
     }
     .section-title {
-      font-family: var(--serif-en);
+      font-family: var(--serif-jp);
       font-weight: 300;
-      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
       letter-spacing: 0.12em;
       text-align: center;
       color: var(--ink);
       margin: 0 0 1rem;
-      line-height: 1.3;
+      line-height: 1.5;
     }
     .section-title-ja {
       display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.68rem;
-      letter-spacing: 0.4em;
+      font-family: var(--serif-en);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
       color: var(--ink-soft);
       text-align: center;
       margin-bottom: 4rem;
@@ -691,7 +700,7 @@
     .ie-card-date {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.1em;
       color: var(--ink-faint);
       margin-bottom: 0.5rem;
@@ -764,7 +773,7 @@
       display: block;
       font-family: var(--serif-jp);
       font-weight: 400;
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       line-height: 1.9;
       letter-spacing: 0.04em;
       color: var(--ink);
@@ -772,7 +781,7 @@
     }
     .ie-card-sub {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       line-height: 1.8;
       color: var(--ink-soft);
       margin-top: 0.3rem;
@@ -866,7 +875,7 @@
     .philosophy-body {
       max-width: 680px;
       margin: 0 auto;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       line-height: 2.6;
       color: var(--ink-soft);
       letter-spacing: 0.08em;
@@ -892,7 +901,7 @@
     /* ════════ LOGO TICKER ════════ */
     .logo-ticker {
       background: #FFFFFF;
-      padding: 1.8rem 0 1.4rem;
+      padding: 2.8rem 0 1.4rem;
       overflow: hidden;
       position: relative;
       border-top: 1px solid var(--ink-line);
@@ -1006,15 +1015,15 @@
     }
 
     /* ════════ BENEFITS CAROUSEL ════════ */
-    #benefits {
+    #services {
       max-width: none;
       padding: 5rem 0 4rem;
       text-align: center;
       overflow: hidden;
     }
-    #benefits .section-label,
-    #benefits .section-title,
-    #benefits .section-title-ja {
+    #services .section-label,
+    #services .section-title,
+    #services .section-title-ja {
       padding: 0 2rem;
     }
     .benefits-carousel {
@@ -1097,6 +1106,16 @@
       letter-spacing: 0.22em;
       color: rgba(255,255,255,0.65);
     }
+    .benefit-slide-arrow {
+      display: block;
+      margin-top: 1.2rem;
+      font-family: var(--serif-jp);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.3s;
+    }
+    .benefit-slide:hover .benefit-slide-arrow { color: #fff; }
     .benefits-dots {
       display: flex;
       justify-content: center;
@@ -1118,7 +1137,7 @@
       transform: scale(1.3);
     }
     @media (max-width: 880px) {
-      #benefits { padding: 3.5rem 0 3rem; }
+      #services { padding: 3.5rem 0 3rem; }
       .benefits-carousel {
         padding-left: 1.2rem;
         padding-right: 1.2rem;
@@ -1199,7 +1218,7 @@
     .core-note {
       margin: 3rem auto 0;
       max-width: 700px;
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       line-height: 2.2;
       color: var(--ink-soft);
       letter-spacing: 0.04em;
@@ -1306,7 +1325,7 @@
     .concierge-card-ja {
       display: block;
       font-family: var(--serif-jp);
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       letter-spacing: 0.3em;
       color: rgba(255,255,255,0.6);
       margin-bottom: 0;
@@ -1463,7 +1482,7 @@
     .concierge-detail-list li {
       font-family: var(--serif-jp);
       font-weight: 300;
-      font-size: 0.84rem;
+      font-size: 0.95rem;
       line-height: 2.2;
       letter-spacing: 0.06em;
       color: rgba(255,255,255,0.85);
@@ -1566,7 +1585,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(1.05) contrast(1.05) sepia(0.15) saturate(0.8);
+      filter: sepia(0.5) saturate(0.6) brightness(0.9);
     }
     .track-map-layer.active { opacity: 1; }
     .track-map-layer.zoom { transform: scale(1.5); }
@@ -1574,8 +1593,21 @@
     .track-map-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(255,255,255,0.6);
+      background: rgba(28,31,46,0.45);
       z-index: 2;
+    }
+    /* TRACK RECORD: keep English big, Japanese small */
+    .section-title--en {
+      font-family: var(--serif-en);
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      letter-spacing: 0.12em;
+      line-height: 1.3;
+    }
+    .section-title-ja--jp {
+      font-family: var(--serif-jp);
+      font-size: 0.68rem;
+      letter-spacing: 0.4em;
     }
     /* Section heading on top of map */
     .track-map-heading {
@@ -1586,6 +1618,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+    .track-map-heading .section-label,
+    .track-map-heading .section-title,
+    .track-map-heading .section-title-ja {
+      color: #fff;
+    }
+    .track-map-heading .section-label.with-rule::before,
+    .track-map-heading .section-label.with-rule::after {
+      background: rgba(255,255,255,0.5);
     }
     /* Pin */
     .track-map-pin {
@@ -1639,7 +1680,7 @@
 
     /* Content below map */
     .track-content {
-      padding: 5rem 2rem 6rem;
+      padding: 5rem 2rem 4rem;
       background: var(--bg-cream);
     }
 
@@ -1693,7 +1734,7 @@
       margin-bottom: 0.4rem;
     }
     .track-stat-sub {
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       color: var(--ink-soft);
       letter-spacing: 0.06em;
       margin: 0;
@@ -1713,7 +1754,7 @@
       margin-bottom: 1rem;
     }
     .track-nda-text {
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       line-height: 2.2;
       color: var(--ink-soft);
       letter-spacing: 0.08em;
@@ -1750,7 +1791,7 @@
     }
     .track-client-ja {
       display: block;
-      font-size: 0.76rem;
+      font-size: 0.88rem;
       letter-spacing: 0.1em;
       color: var(--ink-soft);
     }
@@ -1842,7 +1883,7 @@
     }
     .join-step-text {
       display: block;
-      font-size: 0.88rem;
+      font-size: 1rem;
       color: var(--ink);
       letter-spacing: 0.04em;
       line-height: 1.9;
@@ -1850,7 +1891,7 @@
     }
     .join-step-sub {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.8rem;
       color: var(--ink-faint);
       margin-top: 0.5rem;
       letter-spacing: 0.04em;
@@ -1867,7 +1908,7 @@
     /* ════════ FAQ (inline in CTA) ════════ */
     .cta-faq {
       margin-top: 1.8rem;
-      font-size: 0.68rem;
+      font-size: 0.8rem;
       color: var(--ink-faint);
       letter-spacing: 0.05em;
     }
@@ -1883,34 +1924,37 @@
     .hero-cta {
       display: inline-block;
       margin-top: 3rem;
-      padding: 1rem 2.8rem;
-      font-family: var(--serif-en);
-      font-size: 0.65rem;
-      letter-spacing: 0.32em;
+      padding: 1rem 0;
+      width: 280px;
+      text-align: center;
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      letter-spacing: 0.18em;
       color: #fff;
       background: transparent;
       border: 1px solid rgba(255,255,255,0.6);
-      transition: background 0.4s, border-color 0.4s, letter-spacing 0.4s;
+      transition: background 0.4s, border-color 0.4s;
+      text-decoration: none;
     }
     .hero-cta:hover {
       background: rgba(255,255,255,0.15);
       border-color: #fff;
-      letter-spacing: 0.4em;
     }
     .hero-members-link {
-      display: none;
-      margin-top: 2rem;
-      font-family: var(--serif-en);
-      font-size: 0.82rem;
-      letter-spacing: 0.32em;
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      letter-spacing: 0.18em;
       color: rgba(255,255,255,0.7);
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-      padding-bottom: 0.3rem;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 0.2rem;
       transition: color 0.3s, border-color 0.3s;
     }
-    .hero-members-link:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
-    @media (max-width: 880px) {
-      .hero-members-link { display: inline-block; }
+    .hero-members-link:hover {
+      color: #fff;
+      border-color: #fff;
     }
 
     /* ════════ FOOTER ════════ */
@@ -1933,7 +1977,7 @@
       font-size: 0.95rem;
       letter-spacing: 0.32em;
       color: rgba(255, 255, 255, 0.95);
-      margin-bottom: 0.6rem;
+      margin-bottom: 3rem;
     }
     .f-tagline {
       font-family: var(--serif-en);
@@ -1947,22 +1991,23 @@
     .f-links {
       display: flex;
       justify-content: center;
-      gap: 1.6rem 2rem;
+      gap: 1.2rem 2.5rem;
       flex-wrap: wrap;
-      margin-bottom: 0.6rem;
+      margin-bottom: 2.5rem;
     }
     .f-links a {
       font-family: var(--serif-en);
       font-size: 0.62rem;
       letter-spacing: 0.22em;
       color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
       transition: color 0.3s;
     }
     .f-links a:hover { color: var(--gold); }
     .f-press {
       display: inline-block;
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 2.5rem;
       font-family: var(--serif-jp);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
@@ -1975,6 +2020,26 @@
     .f-press:hover {
       background: var(--gold);
       color: var(--ink);
+    }
+    .f-info {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.72rem;
+      line-height: 2.2;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.05em;
+    }
+    .f-info a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .f-info a:hover { color: var(--gold); }
+    .f-info-company {
+      margin-top: 0.8rem;
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.35);
     }
     .f-copy {
       font-family: var(--serif-en);
@@ -1991,10 +2056,16 @@
       .f-links {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.8rem 1rem;
+        gap: 1rem 1.5rem;
         text-align: center;
         max-width: 320px;
-        margin: 0 auto 0.6rem;
+        margin: 0 auto 2rem;
+      }
+      .f-info {
+        margin-top: 2rem;
+      }
+      .f-info-company {
+        margin-top: 1rem;
       }
     }
 
@@ -2016,47 +2087,38 @@
     .join-step.fade { transform: translateX(-20px); }
     .join-step.fade.visible { transform: translateX(0); }
 
-    /* ═══ B. Section title: elegant settle ═══ */
+    /* ═══ B. Section title: no animation ═══ */
     .section-title.fade {
-      transform: translateY(28px);
-      letter-spacing: 0.24em;
-      transition: opacity 1.4s cubic-bezier(.25,.46,.45,.94),
-                  transform 1.4s cubic-bezier(.25,.46,.45,.94),
-                  letter-spacing 1.4s cubic-bezier(.25,.46,.45,.94);
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
     .section-title.fade.visible {
-      letter-spacing: 0.12em;
+      opacity: 1;
     }
     .section-title-ja.fade {
-      transform: translateY(16px);
-      transition: opacity 1.2s 0.15s ease, transform 1.2s 0.15s ease;
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
 
-    /* ═══ D. Gold line grow ═══ */
+    /* ═══ D. Gold line — no animation ═══ */
     .gold-divider hr {
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 1.4s cubic-bezier(.25,.46,.45,.94);
-    }
-    .gold-divider.visible hr {
       transform: scaleX(1);
+    }
+    .section-label {
+      opacity: 1 !important;
     }
     .section-label.with-rule::before,
     .section-label.with-rule::after {
-      transform: scaleX(0);
-      transition: transform 1s 0.2s cubic-bezier(.25,.46,.45,.94);
-    }
-    .section-label.visible::before,
-    .section-label.visible::after {
       transform: scaleX(1);
     }
-    .section-label.with-rule::before { transform-origin: right; }
-    .section-label.with-rule::after  { transform-origin: left; }
 
     .sp-only { display: none; }
     @media (max-width: 880px) {
       .sp-only { display: inline; }
       .cta-headline { letter-spacing: 0.1em; font-size: 1.1rem; }
+
     }
 
     .visually-hidden {
@@ -2093,7 +2155,7 @@
     }
 
     /* ════════ LOADER ════════ */
-    body.loading { overflow: hidden; touch-action: none; }
+    html.loading, body.loading { overflow: hidden; touch-action: none; }
     body.loading * { pointer-events: none !important; }
     #loader {
       position: fixed;
@@ -2116,7 +2178,7 @@
       letter-spacing: 0.35em;
       color: var(--gold);
       opacity: 0;
-      animation: loaderEnIn 1.4s ease forwards;
+      animation: loaderEnIn 1s ease forwards;
     }
     .loader-ja {
       font-family: var(--serif-jp);
@@ -2125,7 +2187,7 @@
       letter-spacing: 0.45em;
       color: var(--gold);
       opacity: 0;
-      animation: loaderJaIn 1.2s 0.5s ease forwards;
+      animation: loaderJaIn 0.8s 0.3s ease forwards;
     }
     @keyframes loaderEnIn {
       0%   { opacity: 0; letter-spacing: 0.15em; }
@@ -2260,31 +2322,25 @@
     /* ════════ S-1: REPRESENTATIVE ════════ */
     #representative {
       max-width: none;
-      padding: 8rem 2rem;
+      padding: 5rem 2rem 6rem;
       background: var(--bg-alt);
     }
     .rep-inner {
-      max-width: 880px;
-      margin: 4rem auto 0;
+      max-width: 920px;
+      margin: 3rem auto 0;
       display: grid;
-      grid-template-columns: 240px 1fr;
+      grid-template-columns: 340px 1fr;
       gap: 4rem;
       align-items: start;
     }
     .rep-photo {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      background: #FFFFFF;
-      border: 1px solid var(--ink-line);
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     .rep-photo img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
     }
     .rep-photo-placeholder {
       font-family: var(--serif-en);
@@ -2292,33 +2348,35 @@
       letter-spacing: 0.3em;
       color: var(--ink-faint);
     }
+    .rep-name-ja {
+      display: block;
+      font-family: var(--serif-jp);
+      font-weight: 400;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
     .rep-name-en {
       display: block;
       font-family: var(--serif-en);
       font-weight: 300;
-      font-size: 1.5rem;
-      letter-spacing: 0.1em;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-    }
-    .rep-name-ja {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.72rem;
-      letter-spacing: 0.3em;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
       color: var(--ink-soft);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
     }
     .rep-role {
       display: block;
-      font-family: var(--serif-en);
-      font-size: 0.58rem;
-      letter-spacing: 0.25em;
+      font-family: var(--serif-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
       color: var(--gold);
       margin-bottom: 2.4rem;
+      line-height: 1.8;
     }
     .rep-body {
-      font-size: 0.76rem;
+      font-size: 0.92rem;
       line-height: 2.4;
       color: var(--ink-soft);
       letter-spacing: 0.04em;
@@ -2354,7 +2412,7 @@
         gap: 2.5rem;
         margin-top: 3rem;
       }
-      .rep-photo { max-width: 220px; margin: 0 auto; }
+      .rep-photo { max-width: 300px; margin: 0 auto; }
     }
 
     /* ════════ S-4: CTA SECTION ════════ */
@@ -2390,9 +2448,9 @@
     }
     .cta-btn {
       display: inline-block;
-      font-family: var(--serif-en);
-      font-size: 0.66rem;
-      letter-spacing: 0.38em;
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      letter-spacing: 0.18em;
       color: var(--gold);
       border: 1px solid var(--gold);
       padding: 1.2rem 3.5rem;
@@ -2456,10 +2514,11 @@
   </script>
   <style>
     html.ea-revisit #loader { display: none !important; }
-    html.ea-revisit body.loading { overflow: auto; }
+    html.ea-revisit body.loading, html.ea-revisit.loading { overflow: auto; }
   </style>
 </head>
 <body class="loading">
+<script>document.documentElement.classList.add('loading');</script>
 
   <!-- ════════ LOADER ════════ -->
   <div id="loader">
@@ -2474,12 +2533,10 @@
         <span>EXECUTIVE ASHIYA<span class="logo-ja">エグゼクティブ芦屋</span></span>
       </a>
       <div class="nav-links-pc">
-        <a class="nav-link" href="#services">SERVICES</a>
-        <a class="nav-link" href="/members">PRICING</a>
-        <a class="nav-link" href="#how-to-join">HOW TO JOIN</a>
-        <a class="nav-link" href="/faq">FAQ</a>
-        <a class="nav-link" href="for-members.html">MEMBERS</a>
-        <a class="nav-cta" href="invitation-request.html">INVITATION</a>
+        <a class="nav-link" href="#services">サービス</a>
+        <a class="nav-link" href="#how-to-join">入会の流れ</a>
+        <a class="nav-link" href="/faq">よくある質問</a>
+        <a class="nav-link" href="for-members.html">会員ページ</a>
       </div>
       <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開く">
         <span></span><span></span><span></span>
@@ -2487,30 +2544,26 @@
     </nav>
     <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー">
       <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="メニューを閉じる"></button>
-      <a href="#philosophy" onclick="closeMobileNav()">PHILOSOPHY</a>
-      <a href="#services" onclick="closeMobileNav()">SERVICES</a>
-      <a href="#track-record" onclick="closeMobileNav()">TRACK RECORD</a>
-      <a href="/members" onclick="closeMobileNav()">PRICING</a>
-      <a href="#how-to-join" onclick="closeMobileNav()">HOW TO JOIN</a>
-      <a href="/faq" onclick="closeMobileNav()">FAQ</a>
-      <a href="for-members.html" onclick="closeMobileNav()">MEMBERS</a>
-      <a href="invitation-request.html" onclick="closeMobileNav()">INVITATION</a>
+      <a href="#services" onclick="closeMobileNav()">サービス</a>
+      <a href="#track-record" onclick="closeMobileNav()">実績</a>
+      <a href="#how-to-join" onclick="closeMobileNav()">入会の流れ</a>
+      <a href="/faq" onclick="closeMobileNav()">よくある質問</a>
+      <a href="for-members.html" onclick="closeMobileNav()">会員ページ</a>
+      <a href="invitation-request.html" onclick="closeMobileNav()">ご入会・お問い合わせ</a>
     </nav>
   </header>
 
   <!-- ════════ HERO ════════ -->
   <section id="hero">
-    <video class="hero-video hero-video-pc" src="hero-bg.mp4" muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
+    <video class="hero-video hero-video-pc" src="hero-bg.mp4" poster="hero-main.jpg" muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
     <canvas class="hero-canvas-sp" id="heroCanvasSp"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-text">
-      <div class="hero-roman fade">EST. ASHIYA</div>
       <h1 class="brand-en fade">EXECUTIVE ASHIYA</h1>
       <p class="brand-ja fade">エ グ ゼ ク テ ィ ブ 芦 屋</p>
       <p class="catch fade">健康寿命を、生涯最大の資産に。</p>
-      <p class="hero-exclusive fade">— By Invitation Only —</p>
-      <a href="invitation-request.html" class="hero-cta fade">REQUEST INVITATION</a>
-      <a href="for-members.html" class="hero-members-link fade">Members Login</a>
+      <a href="invitation-request.html" class="hero-cta fade">ご入会・お問い合わせ</a>
+      <a href="for-members.html" class="hero-members-link fade">会員専用ページ</a>
     </div>
   </section>
 
@@ -2595,11 +2648,6 @@
           <div class="ticker-logo-mark font-technogym" style="font-size:1.1rem;">TECHNOGYM</div>
           <span class="ticker-brand-name font-technogym">Technogym</span>
         </div>
-        <!-- Apple Health -->
-        <div class="ticker-logo" style="color:#1C1C1C;">
-          <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></div>
-          <span class="ticker-brand-name font-apple">Apple Health</span>
-        </div>
         <!-- Abbott -->
         <div class="ticker-logo" style="color:#009CDE;">
           <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.812 2.4H0v3.197h19.773V5.6a1.03 1.03 0 0 1 1.032 1.031v10.742l-.004.007a1.034 1.034 0 0 1-1.034 1.025H4.23c-.569 0-1.033-.46-1.033-1.033v-4.34c0-.57.464-1.032 1.033-1.032H17.6V8.803H3.188A3.185 3.185 0 0 0 0 11.99v6.423A3.188 3.188 0 0 0 3.188 21.6h17.624A3.187 3.187 0 0 0 24 18.412V5.587A3.186 3.186 0 0 0 20.812 2.4"/></svg></div>
@@ -2634,21 +2682,6 @@
         <div class="ticker-logo">
           <div class="ticker-logo-mark font-vistajet" style="font-size:1.2rem;">VISTAJET</div>
           <span class="ticker-brand-name font-vistajet">VistaJet</span>
-        </div>
-        <!-- Emirates -->
-        <div class="ticker-logo" style="color:#D71920;">
-          <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.247 15.56l-1.386 1.385c.945.945 1.26 1.386 1.323 1.827.063-.063 1.323-1.134 1.323-1.512 0-.567-.378-.756-1.26-1.7m-3.15-2.458h-.755s.756.441.756 1.45v3.4c0 2.205 1.826 4.284 4.031 4.284h1.827c1.134 0 1.512-.252 2.142-.882l.692-.693c.378-.44.82-.755.82-1.952v-1.134c0-.945-.568-1.386-.82-1.638l-.63-.63v2.268s.441.504.693.63c.945.756.19 2.078-.692 2.078H7.066c-1.89-.063-3.402-1.637-3.465-3.527v-1.827c0-1.827-.503-1.827-.503-1.827m5.92 2.457l-1.385 1.386c.945.945 1.26 1.386 1.323 1.827.063-.063 1.323-1.134 1.323-1.512 0-.567-.378-.82-1.26-1.7M11.853 0l-.944.945c-.378.378-.252 1.134.504 1.89v1.89c0 .188-.19.377-.19.377s-1.133-1.008-2.14-1.008H7.57c-.945 0-1.7.882-1.827.945-.504.504-.504 1.45-.126 1.89L6.688 8s-.252-1.7 0-2.835c.063-.252.378-.567.693-.567l2.457 1.89-2.835 2.96c-.126.127-.504.379-.882.379-.44 0-.63-.252-.819-.504v1.386c0 .44.63.945 1.197.945h3.78c.252 0 .567-.063.819-.315l1.26-1.26c.188-.19.251-.441.251-.756V7.874c0-1.386-1.07-2.457-1.07-2.457s.251-.189.251-.756V3.213s.441.44.504.63l.82-.82c.377-.377-.253-1.07-.505-1.385C11.853.818 11.853 0 11.853 0M7.13 9.953c.378-.19.441-.315.756-.693l2.394-2.52s1.322 1.386 1.763 2.142c.19.378.441 1.07-.692 1.07H7.13M3.915 7.056h-.692c.44.252.755 1.008.755 1.449v2.772c0 .755.567 3.464 3.024 3.464h7.118v4.536c0 .755-.252 1.196-.44 1.385l-1.072 1.008h.504l1.953-1.763c.378-.441.819-.882.819-2.268V14.74l.819-.819 1.386-1.323c0 1.134.567 1.638 1.07 1.638a1.26 1.26 0 0 0 .756-.315l1.26-1.197c.567-.567.882-2.33-.504-2.33-.882 0-1.89 1.26-1.952 1.386-.315-.19-.567-.63-.567-.63v1.07c-.126.19-.693.63-1.134.63h-1.134v-1.07c0-.504.189-1.071.44-1.323l1.072-1.008h-.504l-2.142 1.953c-.378.44-.63 1.26-.63 1.448H6.058c-1.008 0-1.638-1.007-1.638-1.826v-2.08c0-1.7-.44-1.889-.504-1.889m16.315 6.047c-.189 0-.378-.063-.63-.252-.251-.189-.692-.819-.692-.819.126-.125.504-.251.818-.251.252 0 .504.063.567.189.441.566.378 1.133-.063 1.133M16.893 0L14.75 1.953c-.126.126-.63.882-.63 1.764v5.606c0 .378-.252.945-.44 1.134l-1.072 1.008h.504l2.016-1.827c.252-.252.756-.882.756-1.953V2.331c0-.82.378-1.26.567-1.45L17.397 0h-.504m.315 14.362v2.205l.756.819c.63.63.567 1.827-1.323 3.653a3.78 3.78 0 0 1-2.583 1.197h-3.401L12.672 24h1.386c1.386 0 2.646-.567 3.465-1.449.756-.819 1.197-1.89 1.134-3.023V16.63c0-1.008-.63-1.575-.756-1.7-.126 0-.693-.568-.693-.568Z"/></svg></div>
-          <span class="ticker-brand-name font-emirates">Emirates</span>
-        </div>
-        <!-- Bentley -->
-        <div class="ticker-logo" style="color:#333333;">
-          <div class="ticker-logo-icon lg"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.535 8.114a5.407 5.407 0 0 0-1.49.34c-.131.05-.269.135-.414.079-.654-.153-1.331-.096-1.992-.025-.859.09-1.72-.003-2.579-.045a21.543 21.543 0 0 0-2.349.05c-.713.044-1.429-.01-2.138-.086-.088-.002-.178-.02-.265-.002-.135.088-.22.232-.308.363v.068c.185.158.404.262.625.358-.062.151-.101.31-.13.47.264.124.54.227.796.368-.029.095-.072.186-.083.285-.006.059.024.121.083.142.21.11.448.142.665.23.021.01.05.02.05.048.017.128.02.258.047.385a.173.173 0 0 0 .057.035c.287.095.588.131.881.196.034.11.022.249.106.336.375.196.82.1 1.213.228.098.096.075.29.223.344.296.09.614.01.918.05.069.079.077.193.144.273a.249.249 0 0 0 .169.076c.287.008.562-.087.846-.12.059.099.087.247.213.277.229.045.452-.042.665-.116.08.26.166.521.303.758.473.858 1.288 1.499 2.198 1.841.128.036.172.175.238.276.127-.048.252-.102.384-.134l.2.297c.119-.06.237-.122.356-.184.08.094.16.187.242.28l.31-.22c.09.078.173.164.254.251h.035c.096-.085.187-.177.282-.263.106.077.21.156.316.235.081-.095.163-.19.246-.284.12.06.238.123.357.184.063-.098.124-.196.185-.295.14.031.27.089.404.136.033-.068.065-.138.102-.204.053-.142.22-.164.336-.232.972-.447 1.78-1.286 2.099-2.318.162.06.345.134.517.064.09-.046.125-.144.168-.228.24.053.48.154.73.102.13-.039.194-.161.253-.271.23.03.456.095.69.075.104-.013.247 0 .318-.096.059-.096.067-.215.124-.312.315-.042.648.042.954-.072.096-.108.097-.27.184-.383.247-.018.495 0 .742-.018a.286.286 0 0 0 .215-.123c.056-.107.064-.23.1-.344.007-.024.02-.05.044-.061.241-.1.534-.022.755-.177.108-.12.021-.31.088-.443.207-.118.477-.088.669-.241.129-.11.032-.282.014-.42.225-.077.472-.119.657-.279-.052-.14-.113-.275-.17-.412A4.67 4.67 0 0 0 24 8.871v-.087a1.176 1.176 0 0 0-.272-.34c-.071-.053-.17-.01-.25-.018-.696.062-1.396.13-2.095.092-.417-.022-.833-.062-1.25-.062-.522 0-1.044-.015-1.564.027-.77.046-1.544.103-2.313.017-.657-.077-1.335-.115-1.981.053-.103.043-.211.009-.305-.037-.516-.234-1.077-.348-1.638-.402zm.521.155c.327.014.654.049.974.122.31.072.622.149.91.287-.103.065-.227.164-.354.11a5.088 5.088 0 0 0-1.716-.29c-.326.02-.652.046-.97.125-.204.04-.4.116-.606.149-.096-.026-.184-.073-.272-.119a5.653 5.653 0 0 1 2.034-.384zm11.467.278c.17-.01.308.126.395.26a2.31 2.31 0 0 1-1.093.252c-1.65.027-3.298.095-4.947.137 0 .027.002.054.004.081a2.744 2.744 0 0 1-.048-.154c.361-.05.72-.12 1.085-.142.668-.05 1.34-.068 2.01-.075a.394.394 0 0 0 .245-.072c-.533-.057-1.07-.026-1.604-.013-.371.027-.744.033-1.114.08-.495.06-.989.154-1.489.16-.312.005-.625.032-.937.01-.39-.007-.786-.042-1.17.045-.108.035-.239.073-.282.192-.093.188.01.398.095.569.103.217.279.425.247.682-.015.091-.092.151-.162.203a2.4 2.4 0 0 1-.198-.251c.04-.08.106-.155.088-.252-.033-.2-.178-.358-.314-.498-.196-.19-.414-.367-.547-.61-.039-.07-.066-.17.009-.227.22-.156.491-.209.752-.252.715-.1 1.436-.015 2.153.015.353.035.709.03 1.063 0 .838-.054 1.68-.138 2.52-.082.378.021.757.038 1.135.047.692.028 1.38-.062 2.07-.101a.308.308 0 0 1 .034-.004zM.55 8.55c.196-.002.392.027.587.04.542.048 1.086.079 1.63.056.674-.008 1.345-.088 2.019-.052.687.022 1.37.098 2.058.119.525-.018 1.049-.06 1.574-.084.533-.017 1.087-.011 1.59.187.097.04.217.093.24.207-.02.158-.14.28-.238.399-.175.216-.429.36-.57.605-.11.14-.126.35-.005.488a1.808 1.808 0 0 1-.219.243c-.083-.076-.16-.17-.15-.292.038-.346.347-.593.383-.94.031-.121-.031-.239-.108-.327a1.155 1.155 0 0 0-.468-.124c-.562-.048-1.126.027-1.689-.007-.557.004-1.107-.093-1.657-.167a26.874 26.874 0 0 0-2.115-.106c-.195-.003-.39.015-.585.032.063.052.14.087.225.078.733.01 1.466.022 2.197.085.307.029.61.084.916.131l-.023.084c-.536-.033-1.074-.028-1.611-.05-.965-.035-1.93-.065-2.895-.081-.411-.027-.841.017-1.234-.134-.11-.037-.213-.088-.317-.136.076-.093.153-.199.27-.24.065-.01.13-.014.195-.014zm11.455.114a4.324 4.324 0 0 1 1.597.296c.004.104-.029.218.024.313a1.245 1.245 0 0 0 .16.229c.18.212.41.383.588.597a.716.716 0 0 1 .157.272 3.76 3.76 0 0 0-1.267-.755 3.848 3.848 0 0 0-3.158.28c-.174.098-.332.22-.486.348l-.152.128a.502.502 0 0 1 .06-.147c.223-.315.556-.533.781-.846.11-.133.1-.31.083-.47a5.558 5.558 0 0 1 1.613-.245zm5.762.455c.016.044.03.088.044.132-.313.18-.688.135-1.032.09-.078-.007-.124-.074-.155-.139.38-.041.763-.038 1.143-.083zm-11.55.016c.386.006.771.025 1.154.064-.03.051-.054.124-.122.132-.203.035-.41.041-.614.049-.158.01-.303-.062-.44-.129l.023-.116zm1.207.055c.154.003.309.005.463.014.41.017.831-.016 1.23.105.099.034.208.08.259.178.039.172-.06.325-.144.464-.083.151-.197.293-.235.464-.048.16.05.294.124.423-.112.004-.25.051-.338-.04-.041-.082.007-.179.024-.263l-.16.143-.195-.012c-.015-.203.141-.35.221-.521-.138.123-.278.297-.483.281-.081.003-.143-.104-.093-.169.111-.141.255-.254.359-.402-.124.096-.25.195-.397.251a.464.464 0 0 1-.326-.038c.018-.204.234-.276.35-.417-.127.053-.24.154-.387.145-.058.002-.115-.016-.17-.029-.01-.173.171-.234.273-.337-.09.02-.177.062-.27.06-.062-.022-.11-.072-.164-.108.015-.066.035-.13.06-.192zm9.156 0c.018.078.087.178-.005.237-.1.125-.268.022-.39-.002.112.096.285.167.284.343-.096.017-.2.05-.295.01-.088-.036-.173-.081-.259-.122.027.027.055.053.084.078l.087.076c.057.051.113.104.16.164.016.068-.033.14-.106.139-.233.059-.415-.127-.584-.254.089.121.195.226.297.335.051.054.046.135.064.203-.084.011-.174.044-.256.008-.128-.052-.225-.155-.33-.243.091.16.23.305.216.502l-.208.008a10.001 10.001 0 0 1-.137-.132c.008.082.06.176.007.25-.062.07-.158.065-.246.063-.03 0-.059 0-.086.003.047-.119.14-.222.137-.356-.036-.35-.358-.587-.406-.932-.01-.149.154-.218.273-.261.554-.145 1.133-.073 1.7-.117zM.698 9.192c.77 0 1.54.04 2.31.047.963.021 1.926.028 2.888.053.2-.014.365.116.53.207l-.018.19a5.46 5.46 0 0 1-.089.043l.026-.073c-.899.024-1.796.085-2.695.112-.566.012-1.13.06-1.697.05A3.707 3.707 0 0 1 .89 9.705c-.115-.034-.247-.052-.338-.137-.001-.135.073-.264.145-.376zm22.62.022c.064.111.132.222.179.342-.43.14-.89.133-1.336.116-.828-.002-1.656-.055-2.484-.083-.699-.032-1.398-.06-2.097-.1.143-.102.305-.202.486-.196 1.751-.007 3.501-.078 5.252-.08zm-16.073.214c.077.005.136.074.194.12a.138.138 0 0 1 .05.116c-.078.06-.181.068-.273.092-.186.034-.37.09-.56.097-.067-.026-.14-.055-.185-.116-.016-.084.01-.2.104-.222.21-.042.425-.054.636-.085a.139.139 0 0 1 .034-.002zm9.465.008c.235 0 .47.03.7.073.109.021.106.15.134.234-.09.05-.177.13-.29.107-.163-.025-.323-.066-.485-.096-.087-.022-.187-.029-.258-.09.005-.108.116-.177.2-.228zm-4.785.138c.908-.02 1.842.29 2.495.935.358.365.62.856.612 1.377.01.47-.199.926-.507 1.274-.566.642-1.415.983-2.256 1.046a3.577 3.577 0 0 1-2.17-.514c-.345-.22-.66-.5-.867-.858a1.853 1.853 0 0 1-.227-1.365c.099-.415.356-.774.668-1.057.565-.51 1.318-.775 2.07-.83.06-.004.121-.006.182-.008zm5.64.023c.218-.005.435.025.653.035 1.44.088 2.882.14 4.322.224.093.014.198-.004.283.043.057.083.072.185.087.283-.302.185-.678.14-1.015.149-.425-.028-.85-.08-1.274-.121a15.638 15.638 0 0 0-.425-.036c-.872-.087-1.747-.139-2.615-.258a1.474 1.474 0 0 0-.016-.32zm-5.553.01c-.116 0-.23.005-.345.016-.805.077-1.627.39-2.161 1.02-.308.348-.518.809-.484 1.282.018.674.448 1.273.985 1.65.884.618 2.057.75 3.079.44.46-.149.903-.38 1.245-.727.428-.414.714-1.017.635-1.622-.065-.495-.35-.941-.723-1.265-.61-.536-1.425-.795-2.231-.794zm-5.915.175c.059 0 .118 0 .178.002.148.042.249.167.359.266-.027.077-.05.155-.072.234.072.057.149.108.23.15-.517.084-1.03.193-1.544.292l-.464.102-.465.098c-.31.063-.621.123-.934.174-.405.072-.828.05-1.222-.069-.113-.032-.141-.162-.095-.262.017-.1.141-.09.215-.105 1.276-.13 2.548-.295 3.82-.447.178-.019.38-.023.51-.163-.701.064-1.402.142-2.102.22l-1.051.113c-.35.036-.701.07-1.052.1-.394.04-.802.002-1.17-.153a1.65 1.65 0 0 1 .144-.328c1.393-.063 2.789-.092 4.18-.195.178-.008.356-.025.535-.029zm1.256.064a.56.56 0 0 1 .122.008c.084.025.162.067.24.105-.009.132-.138.166-.238.212-.125.051-.247.11-.375.153-.162.052-.325-.028-.474-.087.02-.068.028-.144.07-.203a.916.916 0 0 1 .297-.12c.117-.03.237-.064.358-.068zm9.248 0c.177-.004.35.054.517.106.064.026.144.036.192.092.032.06.04.13.064.192-.146.053-.302.145-.462.093a6.866 6.866 0 0 1-.632-.271c.018-.123.137-.18.245-.206a.718.718 0 0 1 .076-.006zm.887.172c.239-.004.474.041.711.066.758.085 1.517.168 2.276.246.543.068 1.09.108 1.632.19.013.107.126.312-.033.35a4.135 4.135 0 0 1-1.12.025c-1.182-.184-2.36-.394-3.544-.566a4.356 4.356 0 0 0-.024-.307c.034-.002.068-.004.102-.004zm-5.377.111c.253.001.504.032.748.103.282.084.568.226.73.482.111.16.124.368.087.554-.056.226-.263.365-.442.492l.004.042c.265.181.554.434.545.785.025.254-.11.492-.293.657-.129.098-.27.183-.422.241-.43.149-.892.168-1.342.138-.552-.069-1.13-.224-1.537-.627.07-.094.16-.17.224-.268a23.17 23.17 0 0 0 .006-1.615c-.066-.099-.157-.177-.231-.27.274-.375.732-.545 1.17-.64.247-.047.5-.075.753-.074zm4.163.063c.029 0 .058.001.086.008.169.065.332.144.494.225.036.024.09.036.106.082.004.08-.034.168-.113.197-.115.048-.253.078-.37.024-.191-.084-.365-.202-.544-.307.017-.042.025-.095.054-.13a.1.1 0 0 1 .038-.027.606.606 0 0 1 .249-.072zm-8.563 0a.555.555 0 0 1 .276.078c.065.031.079.14.017.18-.162.11-.332.21-.514.281-.143.047-.287-.007-.42-.053l-.04-.194c.168-.088.34-.173.514-.25a.36.36 0 0 1 .167-.042zm4.37.172a2.535 2.535 0 0 0-.282.015.623.623 0 0 0-.361.168c-.163.169-.176.422-.145.641a.563.563 0 0 0 .367.487c.233.079.49.075.725.01.254-.085.382-.362.376-.614.013-.213-.04-.462-.231-.586a.807.807 0 0 0-.449-.12zm5.287.085c.27.006.54.052.806.099.833.15 1.666.301 2.498.458.21.043.423.079.63.138-.028.125-.043.32-.202.344-.513.065-1.028-.05-1.52-.187-.814-.22-1.637-.414-2.45-.64a.435.435 0 0 0-.149-.007c.013-.052.017-.107.042-.154.064-.048.153-.045.229-.05h.116zm-10.387.055c.028.114.052.229.097.337-.634.195-1.267.39-1.904.572-.338.097-.67.223-1.02.27-.316.028-.64.013-.948-.066-.126-.034-.16-.17-.163-.284.89-.193 1.777-.399 2.67-.577.422-.085.839-.203 1.268-.252zm8.897.051a.266.266 0 0 1 .177.063c.15.099.297.2.448.296a.196.196 0 0 0-.014.043l-.01.047c-.009.032-.021.061-.05.077-.13.014-.269.043-.396-.006a2.215 2.215 0 0 1-.396-.324c-.046-.039-.041-.116-.002-.158a.093.093 0 0 1 .05-.027c.061-.003.128-.013.193-.01zm-7.713 0c.051 0 .102.004.152.01.069.017.116.122.047.169-.156.156-.318.354-.557.365-.08-.001-.16.002-.238-.015-.057-.038-.052-.12-.071-.176.173-.11.338-.231.516-.333a.63.63 0 0 1 .15-.02zm8.857.204c.162.017.316.07.473.108.766.225 1.533.447 2.298.674.143.043.289.079.426.138-.038.095-.074.203-.163.262a2.07 2.07 0 0 1-1.1-.072c-.27-.103-.527-.233-.792-.346-.48-.205-.958-.419-1.445-.61.103-.047.195-.121.303-.154zm-1.563.04c.105 0 .19.084.266.148.072.072.167.131.212.225.015.085-.055.159-.079.235-.104-.02-.234.02-.318-.066a1.57 1.57 0 0 1-.322-.397c-.016-.086.083-.138.163-.141l.032.001a.202.202 0 0 1 .046-.005zm-6.891.004a.423.423 0 0 1 .23.082 1.5 1.5 0 0 1-.34.455c-.074.09-.2.075-.3.045-.063-.047-.086-.13-.124-.196.123-.127.24-.262.389-.359a.32.32 0 0 1 .145-.027zm-1.326.12a.848.848 0 0 1 .108.002c.102.015.115.135.153.212-.178.06-.341.153-.508.236-.434.208-.857.435-1.29.645-.295.156-.643.13-.966.133-.09-.009-.191 0-.27-.052-.052-.067-.074-.152-.1-.232.245-.124.516-.18.77-.283.456-.172.924-.31 1.384-.47.238-.067.471-.179.72-.19zm7.692.011c.093.022.207.015.277.091.098.133.197.272.253.428-.018.12-.154.2-.272.195-.04-.253-.148-.485-.258-.714zm-5.888.003a2.99 2.99 0 0 0-.242.718c-.095-.022-.214-.046-.256-.147-.03-.05-.001-.105.022-.15a2.1 2.1 0 0 1 .225-.346c.071-.054.167-.054.251-.075zm7.515.028c.182.033.342.134.508.212.661.309 1.32.623 1.977.942-.013.07-.011.154-.059.214-.163.063-.344.037-.513.02-.206-.023-.42-.047-.601-.16-.507-.315-.98-.687-1.509-.966.115-.042.154-.159.197-.262zm-8.832.254c.09 0 .18.014.267.042-.194.232-.456.392-.695.571-.28.19-.538.417-.85.553a2.027 2.027 0 0 1-.761.104c-.112-.014-.161-.118-.166-.22.587-.32 1.187-.615 1.774-.933a.83.83 0 0 1 .43-.117zm8.426.018a.6.6 0 0 1 .321.134c.449.335.896.674 1.346 1.007.06.031.091.091.116.152-.126.054-.263.12-.403.078-.041-.01-.084-.018-.126-.027a.946.946 0 0 1-.364-.13c-.427-.27-.773-.65-1.206-.912.092-.082.12-.21.206-.293a.399.399 0 0 1 .11-.009zm-8.156.176c.114.178.334.117.508.165-.38.273-.666.652-1.042.93-.228.169-.583.234-.814.037.113-.175.29-.29.447-.423.3-.236.593-.483.901-.709zm7.554.125c.11.023.233.032.319.116.284.24.551.498.836.738.097.09.227.167.238.315-.095.035-.202.075-.302.033a.672.672 0 0 1-.071-.023c-.162-.063-.295-.183-.424-.297a9.813 9.813 0 0 0-.769-.679c.056-.069.114-.137.173-.203zm-7.068.176c.102.027.201.065.303.091.013.1.02.2.026.3-.174.175-.307.406-.541.51-.156.06-.327.081-.493.06-.057-.012-.097-.057-.138-.095.278-.292.54-.6.843-.866zm6.729.073c.151-.002.25.118.344.218.196.228.42.428.622.649-.043.057-.09.136-.18.106a.738.738 0 0 1-.311-.05c-.208-.1-.345-.293-.522-.433l.047-.49zm-3.103.132a1.564 1.564 0 0 0-.255.014c-.274.032-.537.235-.584.515-.03.271-.019.602.204.796.147.12.34.16.525.176.258.008.56-.033.72-.264.175-.264.176-.623.054-.908-.132-.24-.401-.322-.664-.33zm-3.303.33c.066.17.114.346.16.522-.12-.023-.302-.01-.37-.138-.033-.161.117-.274.21-.383zm6.349.15c.087.077.204.181.17.31-.067.117-.218.118-.335.13a33.1 33.1 0 0 0 .165-.44zm-6.69.321c.093.077.195.157.319.176.08.024.173.018.245.063.156.191.294.399.488.555.299.277.658.469.995.692-.058.24-.213.437-.339.644-.92-.353-1.719-1.07-2.085-1.995.126-.042.252-.087.376-.135zm6.993.063c.093.037.186.075.28.11-.185.51-.532.95-.94 1.301a3.133 3.133 0 0 1-1.012.6c-.08-.14-.166-.278-.236-.424-.02-.05-.052-.118-.01-.165.098-.098.227-.156.346-.224.248-.148.476-.327.686-.526.14-.134.228-.312.357-.456.11-.043.238-.024.347-.074.07-.036.124-.092.182-.142zm-7.67.07l.204.003c.174.43.422.837.76 1.157.207.187.408.384.649.527.23.152.482.262.73.38a1.417 1.417 0 0 1-.089.2 4.51 4.51 0 0 1-.699-.352c-.3-.177-.55-.421-.8-.66-.26-.253-.43-.58-.604-.894-.065-.114-.106-.239-.15-.361zm8.027.058l.22.02a3.174 3.174 0 0 1-.847 1.33c-.372.34-.785.665-1.272.82-.034-.07-.068-.14-.1-.212.305-.137.61-.289.87-.504.48-.388.91-.868 1.129-1.454zm-1.348.433c-.19.266-.485.42-.746.605-.12.093-.29.15-.339.31.011.094.087.164.13.245.108.186.215.374.302.57.048.124-.001.252-.048.367-.158-.043-.334-.115-.403-.275-.133-.241-.13-.544-.315-.76-.017.322.216.582.255.893-.016.109-.084.202-.136.297-.139-.078-.31-.156-.343-.329-.095-.256-.037-.563-.192-.797-.063.223.046.44.088.656.023.134.082.303-.023.417a2.76 2.76 0 0 1-.106.133c-.105-.075-.24-.145-.275-.28-.059-.26-.016-.53-.064-.79-.014-.033-.037-.059-.058-.086-.07.31.085.616.047.928-.042.112-.135.229-.26.25-.115-.08-.222-.2-.221-.35-.015-.271.087-.535.073-.807l-.073-.002c-.037.23-.018.465-.033.697a.487.487 0 0 1-.104.294c-.06.054-.127.1-.197.142-.063-.066-.135-.13-.173-.216-.034-.13.013-.26.04-.388.047-.192.115-.384.106-.584h-.066c-.083.259-.081.533-.154.794a.468.468 0 0 1-.273.295c-.054.024-.119-.014-.14-.066-.097-.123-.048-.289-.005-.423.086-.222.192-.439.24-.674l-.066-.027c-.14.26-.174.564-.32.821a.478.478 0 0 1-.311.24c-.045.015-.08-.022-.1-.057a.386.386 0 0 1-.005-.334c.112-.241.27-.46.38-.702.02-.066.056-.155.001-.213-.22-.226-.546-.3-.77-.522.233.138.459.296.716.386.923.372 1.99.383 2.915.011.39-.136.729-.387 1.026-.669Z"/></svg></div>
-          <span class="ticker-brand-name font-bentley">Bentley</span>
-        </div>
-        <!-- Rolls-Royce -->
-        <div class="ticker-logo" style="color:#680021;">
-          <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.363 3.663H9.961v6.865c-.41.196-.857.368-1.341.511a7.94 7.94 0 0 1-.776.182V3.968s.06-1.041-.519-1.393v-.13h5.434c.244.297.463.697.604 1.218zm.958 9.391c2.465-1.182 3.652-3.262 3.674-5.646.015-1.622-.557-2.618-1.197-3.148a1.883 1.883 0 0 0-.117-.089 6.454 6.454 0 0 0-.612-1.618c.118.017.227.036.324.057 1.788.38 3.225 1.436 3.905 3.474.554 1.662.285 3.724-.904 5.377-.281.391-1.03 1.226-1.89 1.842-.156.112-.25.174-.414.277 1.077 1.726 1.608 2.717 2.295 4.6.6 1.644 1.055 3.83 1.117 4.344.15 1.223.515 1.32.599 1.345V24h-4.295v-.13c.132-.07 1.293-.546 1.299-2.367.006-1.337-.32-2.808-.914-4.46a22.925 22.925 0 0 0-1.277-2.829l-.014-.021a8.355 8.355 0 0 1-.872.321c-.223-.516-.45-.983-.707-1.459zm-4.36-.144v1.116c.325-.014 1.34-.096 2.254-.274.207.468.387.912.511 1.257l.017.048a26.3 26.3 0 0 1-1.23.166 33.2 33.2 0 0 1-1.552.131v7.21c0 .159.037 1.008.59 1.306V24H7.254v-.13c.538-.283.59-1.147.59-1.305v-9.27a18.96 18.96 0 0 0 2.118-.385zm.457-11.66l-.462-.007H5.662v10.575c.426-.019 2.013-.152 3.052-.46 3.465-1.025 5.12-3.447 5.146-6.293.015-1.655-.568-2.672-1.222-3.212-.407-.337-.946-.496-1.338-.554-.22-.044-.71-.05-.882-.05zM3.502 20.557V1.554S3.564.492 2.972.133V0h7.346c.613.001 1.415.063 1.907.17 1.824.387 3.291 1.464 3.985 3.544.565 1.696.291 3.8-.922 5.487-.287.4-1.05 1.25-1.93 1.88a6.998 6.998 0 0 1-.422.281c1.1 1.762 1.641 2.773 2.343 4.695.612 1.677 1.076 3.909 1.14 4.432.151 1.248.525 1.374.61 1.4v.132h-4.382l-.001-.133c.136-.072 1.32-.583 1.326-2.442.007-1.363-.326-2.865-.932-4.55a23.36 23.36 0 0 0-1.305-2.887l-.014-.022c-.582.265-1.812.624-2.61.775-.571.108-1.15.197-1.865.277-.623.07-1.227.111-1.584.134v7.384c0 .161.038 1.028.603 1.332v.132H2.9v-.132c.549-.29.603-1.17.603-1.332Z"/></svg></div>
-          <span class="ticker-brand-name font-rr">Rolls-Royce</span>
         </div>
       </div>
       <!-- duplicate for seamless loop -->
@@ -2661,10 +2694,6 @@
           <div class="ticker-logo-mark font-technogym" style="font-size:1.1rem;">TECHNOGYM</div>
           <span class="ticker-brand-name font-technogym">Technogym</span>
         </div>
-        <div class="ticker-logo">
-          <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></div>
-          <span class="ticker-brand-name font-apple">Apple Health</span>
-        </div>
         <!-- Abbott -->
         <div class="ticker-logo" style="color:#009CDE;">
           <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.812 2.4H0v3.197h19.773V5.6a1.03 1.03 0 0 1 1.032 1.031v10.742l-.004.007a1.034 1.034 0 0 1-1.034 1.025H4.23c-.569 0-1.033-.46-1.033-1.033v-4.34c0-.57.464-1.032 1.033-1.032H17.6V8.803H3.188A3.185 3.185 0 0 0 0 11.99v6.423A3.188 3.188 0 0 0 3.188 21.6h17.624A3.187 3.187 0 0 0 24 18.412V5.587A3.186 3.186 0 0 0 20.812 2.4"/></svg></div>
@@ -2700,21 +2729,6 @@
           <div class="ticker-logo-mark font-vistajet" style="font-size:1.2rem;">VISTAJET</div>
           <span class="ticker-brand-name font-vistajet">VistaJet</span>
         </div>
-        <!-- Emirates -->
-        <div class="ticker-logo" style="color:#D71920;">
-          <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.247 15.56l-1.386 1.385c.945.945 1.26 1.386 1.323 1.827.063-.063 1.323-1.134 1.323-1.512 0-.567-.378-.756-1.26-1.7m-3.15-2.458h-.755s.756.441.756 1.45v3.4c0 2.205 1.826 4.284 4.031 4.284h1.827c1.134 0 1.512-.252 2.142-.882l.692-.693c.378-.44.82-.755.82-1.952v-1.134c0-.945-.568-1.386-.82-1.638l-.63-.63v2.268s.441.504.693.63c.945.756.19 2.078-.692 2.078H7.066c-1.89-.063-3.402-1.637-3.465-3.527v-1.827c0-1.827-.503-1.827-.503-1.827m5.92 2.457l-1.385 1.386c.945.945 1.26 1.386 1.323 1.827.063-.063 1.323-1.134 1.323-1.512 0-.567-.378-.82-1.26-1.7M11.853 0l-.944.945c-.378.378-.252 1.134.504 1.89v1.89c0 .188-.19.377-.19.377s-1.133-1.008-2.14-1.008H7.57c-.945 0-1.7.882-1.827.945-.504.504-.504 1.45-.126 1.89L6.688 8s-.252-1.7 0-2.835c.063-.252.378-.567.693-.567l2.457 1.89-2.835 2.96c-.126.127-.504.379-.882.379-.44 0-.63-.252-.819-.504v1.386c0 .44.63.945 1.197.945h3.78c.252 0 .567-.063.819-.315l1.26-1.26c.188-.19.251-.441.251-.756V7.874c0-1.386-1.07-2.457-1.07-2.457s.251-.189.251-.756V3.213s.441.44.504.63l.82-.82c.377-.377-.253-1.07-.505-1.385C11.853.818 11.853 0 11.853 0M7.13 9.953c.378-.19.441-.315.756-.693l2.394-2.52s1.322 1.386 1.763 2.142c.19.378.441 1.07-.692 1.07H7.13M3.915 7.056h-.692c.44.252.755 1.008.755 1.449v2.772c0 .755.567 3.464 3.024 3.464h7.118v4.536c0 .755-.252 1.196-.44 1.385l-1.072 1.008h.504l1.953-1.763c.378-.441.819-.882.819-2.268V14.74l.819-.819 1.386-1.323c0 1.134.567 1.638 1.07 1.638a1.26 1.26 0 0 0 .756-.315l1.26-1.197c.567-.567.882-2.33-.504-2.33-.882 0-1.89 1.26-1.952 1.386-.315-.19-.567-.63-.567-.63v1.07c-.126.19-.693.63-1.134.63h-1.134v-1.07c0-.504.189-1.071.44-1.323l1.072-1.008h-.504l-2.142 1.953c-.378.44-.63 1.26-.63 1.448H6.058c-1.008 0-1.638-1.007-1.638-1.826v-2.08c0-1.7-.44-1.889-.504-1.889m16.315 6.047c-.189 0-.378-.063-.63-.252-.251-.189-.692-.819-.692-.819.126-.125.504-.251.818-.251.252 0 .504.063.567.189.441.566.378 1.133-.063 1.133M16.893 0L14.75 1.953c-.126.126-.63.882-.63 1.764v5.606c0 .378-.252.945-.44 1.134l-1.072 1.008h.504l2.016-1.827c.252-.252.756-.882.756-1.953V2.331c0-.82.378-1.26.567-1.45L17.397 0h-.504m.315 14.362v2.205l.756.819c.63.63.567 1.827-1.323 3.653a3.78 3.78 0 0 1-2.583 1.197h-3.401L12.672 24h1.386c1.386 0 2.646-.567 3.465-1.449.756-.819 1.197-1.89 1.134-3.023V16.63c0-1.008-.63-1.575-.756-1.7-.126 0-.693-.568-.693-.568Z"/></svg></div>
-          <span class="ticker-brand-name font-emirates">Emirates</span>
-        </div>
-        <!-- Bentley -->
-        <div class="ticker-logo" style="color:#333333;">
-          <div class="ticker-logo-icon lg"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.535 8.114a5.407 5.407 0 0 0-1.49.34c-.131.05-.269.135-.414.079-.654-.153-1.331-.096-1.992-.025-.859.09-1.72-.003-2.579-.045a21.543 21.543 0 0 0-2.349.05c-.713.044-1.429-.01-2.138-.086-.088-.002-.178-.02-.265-.002-.135.088-.22.232-.308.363v.068c.185.158.404.262.625.358-.062.151-.101.31-.13.47.264.124.54.227.796.368-.029.095-.072.186-.083.285-.006.059.024.121.083.142.21.11.448.142.665.23.021.01.05.02.05.048.017.128.02.258.047.385a.173.173 0 0 0 .057.035c.287.095.588.131.881.196.034.11.022.249.106.336.375.196.82.1 1.213.228.098.096.075.29.223.344.296.09.614.01.918.05.069.079.077.193.144.273a.249.249 0 0 0 .169.076c.287.008.562-.087.846-.12.059.099.087.247.213.277.229.045.452-.042.665-.116.08.26.166.521.303.758.473.858 1.288 1.499 2.198 1.841.128.036.172.175.238.276.127-.048.252-.102.384-.134l.2.297c.119-.06.237-.122.356-.184.08.094.16.187.242.28l.31-.22c.09.078.173.164.254.251h.035c.096-.085.187-.177.282-.263.106.077.21.156.316.235.081-.095.163-.19.246-.284.12.06.238.123.357.184.063-.098.124-.196.185-.295.14.031.27.089.404.136.033-.068.065-.138.102-.204.053-.142.22-.164.336-.232.972-.447 1.78-1.286 2.099-2.318.162.06.345.134.517.064.09-.046.125-.144.168-.228.24.053.48.154.73.102.13-.039.194-.161.253-.271.23.03.456.095.69.075.104-.013.247 0 .318-.096.059-.096.067-.215.124-.312.315-.042.648.042.954-.072.096-.108.097-.27.184-.383.247-.018.495 0 .742-.018a.286.286 0 0 0 .215-.123c.056-.107.064-.23.1-.344.007-.024.02-.05.044-.061.241-.1.534-.022.755-.177.108-.12.021-.31.088-.443.207-.118.477-.088.669-.241.129-.11.032-.282.014-.42.225-.077.472-.119.657-.279-.052-.14-.113-.275-.17-.412A4.67 4.67 0 0 0 24 8.871v-.087a1.176 1.176 0 0 0-.272-.34c-.071-.053-.17-.01-.25-.018-.696.062-1.396.13-2.095.092-.417-.022-.833-.062-1.25-.062-.522 0-1.044-.015-1.564.027-.77.046-1.544.103-2.313.017-.657-.077-1.335-.115-1.981.053-.103.043-.211.009-.305-.037-.516-.234-1.077-.348-1.638-.402zm.521.155c.327.014.654.049.974.122.31.072.622.149.91.287-.103.065-.227.164-.354.11a5.088 5.088 0 0 0-1.716-.29c-.326.02-.652.046-.97.125-.204.04-.4.116-.606.149-.096-.026-.184-.073-.272-.119a5.653 5.653 0 0 1 2.034-.384zm11.467.278c.17-.01.308.126.395.26a2.31 2.31 0 0 1-1.093.252c-1.65.027-3.298.095-4.947.137 0 .027.002.054.004.081a2.744 2.744 0 0 1-.048-.154c.361-.05.72-.12 1.085-.142.668-.05 1.34-.068 2.01-.075a.394.394 0 0 0 .245-.072c-.533-.057-1.07-.026-1.604-.013-.371.027-.744.033-1.114.08-.495.06-.989.154-1.489.16-.312.005-.625.032-.937.01-.39-.007-.786-.042-1.17.045-.108.035-.239.073-.282.192-.093.188.01.398.095.569.103.217.279.425.247.682-.015.091-.092.151-.162.203a2.4 2.4 0 0 1-.198-.251c.04-.08.106-.155.088-.252-.033-.2-.178-.358-.314-.498-.196-.19-.414-.367-.547-.61-.039-.07-.066-.17.009-.227.22-.156.491-.209.752-.252.715-.1 1.436-.015 2.153.015.353.035.709.03 1.063 0 .838-.054 1.68-.138 2.52-.082.378.021.757.038 1.135.047.692.028 1.38-.062 2.07-.101a.308.308 0 0 1 .034-.004zM.55 8.55c.196-.002.392.027.587.04.542.048 1.086.079 1.63.056.674-.008 1.345-.088 2.019-.052.687.022 1.37.098 2.058.119.525-.018 1.049-.06 1.574-.084.533-.017 1.087-.011 1.59.187.097.04.217.093.24.207-.02.158-.14.28-.238.399-.175.216-.429.36-.57.605-.11.14-.126.35-.005.488a1.808 1.808 0 0 1-.219.243c-.083-.076-.16-.17-.15-.292.038-.346.347-.593.383-.94.031-.121-.031-.239-.108-.327a1.155 1.155 0 0 0-.468-.124c-.562-.048-1.126.027-1.689-.007-.557.004-1.107-.093-1.657-.167a26.874 26.874 0 0 0-2.115-.106c-.195-.003-.39.015-.585.032.063.052.14.087.225.078.733.01 1.466.022 2.197.085.307.029.61.084.916.131l-.023.084c-.536-.033-1.074-.028-1.611-.05-.965-.035-1.93-.065-2.895-.081-.411-.027-.841.017-1.234-.134-.11-.037-.213-.088-.317-.136.076-.093.153-.199.27-.24.065-.01.13-.014.195-.014zm11.455.114a4.324 4.324 0 0 1 1.597.296c.004.104-.029.218.024.313a1.245 1.245 0 0 0 .16.229c.18.212.41.383.588.597a.716.716 0 0 1 .157.272 3.76 3.76 0 0 0-1.267-.755 3.848 3.848 0 0 0-3.158.28c-.174.098-.332.22-.486.348l-.152.128a.502.502 0 0 1 .06-.147c.223-.315.556-.533.781-.846.11-.133.1-.31.083-.47a5.558 5.558 0 0 1 1.613-.245zm5.762.455c.016.044.03.088.044.132-.313.18-.688.135-1.032.09-.078-.007-.124-.074-.155-.139.38-.041.763-.038 1.143-.083zm-11.55.016c.386.006.771.025 1.154.064-.03.051-.054.124-.122.132-.203.035-.41.041-.614.049-.158.01-.303-.062-.44-.129l.023-.116zm1.207.055c.154.003.309.005.463.014.41.017.831-.016 1.23.105.099.034.208.08.259.178.039.172-.06.325-.144.464-.083.151-.197.293-.235.464-.048.16.05.294.124.423-.112.004-.25.051-.338-.04-.041-.082.007-.179.024-.263l-.16.143-.195-.012c-.015-.203.141-.35.221-.521-.138.123-.278.297-.483.281-.081.003-.143-.104-.093-.169.111-.141.255-.254.359-.402-.124.096-.25.195-.397.251a.464.464 0 0 1-.326-.038c.018-.204.234-.276.35-.417-.127.053-.24.154-.387.145-.058.002-.115-.016-.17-.029-.01-.173.171-.234.273-.337-.09.02-.177.062-.27.06-.062-.022-.11-.072-.164-.108.015-.066.035-.13.06-.192zm9.156 0c.018.078.087.178-.005.237-.1.125-.268.022-.39-.002.112.096.285.167.284.343-.096.017-.2.05-.295.01-.088-.036-.173-.081-.259-.122.027.027.055.053.084.078l.087.076c.057.051.113.104.16.164.016.068-.033.14-.106.139-.233.059-.415-.127-.584-.254.089.121.195.226.297.335.051.054.046.135.064.203-.084.011-.174.044-.256.008-.128-.052-.225-.155-.33-.243.091.16.23.305.216.502l-.208.008a10.001 10.001 0 0 1-.137-.132c.008.082.06.176.007.25-.062.07-.158.065-.246.063-.03 0-.059 0-.086.003.047-.119.14-.222.137-.356-.036-.35-.358-.587-.406-.932-.01-.149.154-.218.273-.261.554-.145 1.133-.073 1.7-.117zM.698 9.192c.77 0 1.54.04 2.31.047.963.021 1.926.028 2.888.053.2-.014.365.116.53.207l-.018.19a5.46 5.46 0 0 1-.089.043l.026-.073c-.899.024-1.796.085-2.695.112-.566.012-1.13.06-1.697.05A3.707 3.707 0 0 1 .89 9.705c-.115-.034-.247-.052-.338-.137-.001-.135.073-.264.145-.376zm22.62.022c.064.111.132.222.179.342-.43.14-.89.133-1.336.116-.828-.002-1.656-.055-2.484-.083-.699-.032-1.398-.06-2.097-.1.143-.102.305-.202.486-.196 1.751-.007 3.501-.078 5.252-.08zm-16.073.214c.077.005.136.074.194.12a.138.138 0 0 1 .05.116c-.078.06-.181.068-.273.092-.186.034-.37.09-.56.097-.067-.026-.14-.055-.185-.116-.016-.084.01-.2.104-.222.21-.042.425-.054.636-.085a.139.139 0 0 1 .034-.002zm9.465.008c.235 0 .47.03.7.073.109.021.106.15.134.234-.09.05-.177.13-.29.107-.163-.025-.323-.066-.485-.096-.087-.022-.187-.029-.258-.09.005-.108.116-.177.2-.228zm-4.785.138c.908-.02 1.842.29 2.495.935.358.365.62.856.612 1.377.01.47-.199.926-.507 1.274-.566.642-1.415.983-2.256 1.046a3.577 3.577 0 0 1-2.17-.514c-.345-.22-.66-.5-.867-.858a1.853 1.853 0 0 1-.227-1.365c.099-.415.356-.774.668-1.057.565-.51 1.318-.775 2.07-.83.06-.004.121-.006.182-.008zm5.64.023c.218-.005.435.025.653.035 1.44.088 2.882.14 4.322.224.093.014.198-.004.283.043.057.083.072.185.087.283-.302.185-.678.14-1.015.149-.425-.028-.85-.08-1.274-.121a15.638 15.638 0 0 0-.425-.036c-.872-.087-1.747-.139-2.615-.258a1.474 1.474 0 0 0-.016-.32zm-5.553.01c-.116 0-.23.005-.345.016-.805.077-1.627.39-2.161 1.02-.308.348-.518.809-.484 1.282.018.674.448 1.273.985 1.65.884.618 2.057.75 3.079.44.46-.149.903-.38 1.245-.727.428-.414.714-1.017.635-1.622-.065-.495-.35-.941-.723-1.265-.61-.536-1.425-.795-2.231-.794zm-5.915.175c.059 0 .118 0 .178.002.148.042.249.167.359.266-.027.077-.05.155-.072.234.072.057.149.108.23.15-.517.084-1.03.193-1.544.292l-.464.102-.465.098c-.31.063-.621.123-.934.174-.405.072-.828.05-1.222-.069-.113-.032-.141-.162-.095-.262.017-.1.141-.09.215-.105 1.276-.13 2.548-.295 3.82-.447.178-.019.38-.023.51-.163-.701.064-1.402.142-2.102.22l-1.051.113c-.35.036-.701.07-1.052.1-.394.04-.802.002-1.17-.153a1.65 1.65 0 0 1 .144-.328c1.393-.063 2.789-.092 4.18-.195.178-.008.356-.025.535-.029zm1.256.064a.56.56 0 0 1 .122.008c.084.025.162.067.24.105-.009.132-.138.166-.238.212-.125.051-.247.11-.375.153-.162.052-.325-.028-.474-.087.02-.068.028-.144.07-.203a.916.916 0 0 1 .297-.12c.117-.03.237-.064.358-.068zm9.248 0c.177-.004.35.054.517.106.064.026.144.036.192.092.032.06.04.13.064.192-.146.053-.302.145-.462.093a6.866 6.866 0 0 1-.632-.271c.018-.123.137-.18.245-.206a.718.718 0 0 1 .076-.006zm.887.172c.239-.004.474.041.711.066.758.085 1.517.168 2.276.246.543.068 1.09.108 1.632.19.013.107.126.312-.033.35a4.135 4.135 0 0 1-1.12.025c-1.182-.184-2.36-.394-3.544-.566a4.356 4.356 0 0 0-.024-.307c.034-.002.068-.004.102-.004zm-5.377.111c.253.001.504.032.748.103.282.084.568.226.73.482.111.16.124.368.087.554-.056.226-.263.365-.442.492l.004.042c.265.181.554.434.545.785.025.254-.11.492-.293.657-.129.098-.27.183-.422.241-.43.149-.892.168-1.342.138-.552-.069-1.13-.224-1.537-.627.07-.094.16-.17.224-.268a23.17 23.17 0 0 0 .006-1.615c-.066-.099-.157-.177-.231-.27.274-.375.732-.545 1.17-.64.247-.047.5-.075.753-.074zm4.163.063c.029 0 .058.001.086.008.169.065.332.144.494.225.036.024.09.036.106.082.004.08-.034.168-.113.197-.115.048-.253.078-.37.024-.191-.084-.365-.202-.544-.307.017-.042.025-.095.054-.13a.1.1 0 0 1 .038-.027.606.606 0 0 1 .249-.072zm-8.563 0a.555.555 0 0 1 .276.078c.065.031.079.14.017.18-.162.11-.332.21-.514.281-.143.047-.287-.007-.42-.053l-.04-.194c.168-.088.34-.173.514-.25a.36.36 0 0 1 .167-.042zm4.37.172a2.535 2.535 0 0 0-.282.015.623.623 0 0 0-.361.168c-.163.169-.176.422-.145.641a.563.563 0 0 0 .367.487c.233.079.49.075.725.01.254-.085.382-.362.376-.614.013-.213-.04-.462-.231-.586a.807.807 0 0 0-.449-.12zm5.287.085c.27.006.54.052.806.099.833.15 1.666.301 2.498.458.21.043.423.079.63.138-.028.125-.043.32-.202.344-.513.065-1.028-.05-1.52-.187-.814-.22-1.637-.414-2.45-.64a.435.435 0 0 0-.149-.007c.013-.052.017-.107.042-.154.064-.048.153-.045.229-.05h.116zm-10.387.055c.028.114.052.229.097.337-.634.195-1.267.39-1.904.572-.338.097-.67.223-1.02.27-.316.028-.64.013-.948-.066-.126-.034-.16-.17-.163-.284.89-.193 1.777-.399 2.67-.577.422-.085.839-.203 1.268-.252zm8.897.051a.266.266 0 0 1 .177.063c.15.099.297.2.448.296a.196.196 0 0 0-.014.043l-.01.047c-.009.032-.021.061-.05.077-.13.014-.269.043-.396-.006a2.215 2.215 0 0 1-.396-.324c-.046-.039-.041-.116-.002-.158a.093.093 0 0 1 .05-.027c.061-.003.128-.013.193-.01zm-7.713 0c.051 0 .102.004.152.01.069.017.116.122.047.169-.156.156-.318.354-.557.365-.08-.001-.16.002-.238-.015-.057-.038-.052-.12-.071-.176.173-.11.338-.231.516-.333a.63.63 0 0 1 .15-.02zm8.857.204c.162.017.316.07.473.108.766.225 1.533.447 2.298.674.143.043.289.079.426.138-.038.095-.074.203-.163.262a2.07 2.07 0 0 1-1.1-.072c-.27-.103-.527-.233-.792-.346-.48-.205-.958-.419-1.445-.61.103-.047.195-.121.303-.154zm-1.563.04c.105 0 .19.084.266.148.072.072.167.131.212.225.015.085-.055.159-.079.235-.104-.02-.234.02-.318-.066a1.57 1.57 0 0 1-.322-.397c-.016-.086.083-.138.163-.141l.032.001a.202.202 0 0 1 .046-.005zm-6.891.004a.423.423 0 0 1 .23.082 1.5 1.5 0 0 1-.34.455c-.074.09-.2.075-.3.045-.063-.047-.086-.13-.124-.196.123-.127.24-.262.389-.359a.32.32 0 0 1 .145-.027zm-1.326.12a.848.848 0 0 1 .108.002c.102.015.115.135.153.212-.178.06-.341.153-.508.236-.434.208-.857.435-1.29.645-.295.156-.643.13-.966.133-.09-.009-.191 0-.27-.052-.052-.067-.074-.152-.1-.232.245-.124.516-.18.77-.283.456-.172.924-.31 1.384-.47.238-.067.471-.179.72-.19zm7.692.011c.093.022.207.015.277.091.098.133.197.272.253.428-.018.12-.154.2-.272.195-.04-.253-.148-.485-.258-.714zm-5.888.003a2.99 2.99 0 0 0-.242.718c-.095-.022-.214-.046-.256-.147-.03-.05-.001-.105.022-.15a2.1 2.1 0 0 1 .225-.346c.071-.054.167-.054.251-.075zm7.515.028c.182.033.342.134.508.212.661.309 1.32.623 1.977.942-.013.07-.011.154-.059.214-.163.063-.344.037-.513.02-.206-.023-.42-.047-.601-.16-.507-.315-.98-.687-1.509-.966.115-.042.154-.159.197-.262zm-8.832.254c.09 0 .18.014.267.042-.194.232-.456.392-.695.571-.28.19-.538.417-.85.553a2.027 2.027 0 0 1-.761.104c-.112-.014-.161-.118-.166-.22.587-.32 1.187-.615 1.774-.933a.83.83 0 0 1 .43-.117zm8.426.018a.6.6 0 0 1 .321.134c.449.335.896.674 1.346 1.007.06.031.091.091.116.152-.126.054-.263.12-.403.078-.041-.01-.084-.018-.126-.027a.946.946 0 0 1-.364-.13c-.427-.27-.773-.65-1.206-.912.092-.082.12-.21.206-.293a.399.399 0 0 1 .11-.009zm-8.156.176c.114.178.334.117.508.165-.38.273-.666.652-1.042.93-.228.169-.583.234-.814.037.113-.175.29-.29.447-.423.3-.236.593-.483.901-.709zm7.554.125c.11.023.233.032.319.116.284.24.551.498.836.738.097.09.227.167.238.315-.095.035-.202.075-.302.033a.672.672 0 0 1-.071-.023c-.162-.063-.295-.183-.424-.297a9.813 9.813 0 0 0-.769-.679c.056-.069.114-.137.173-.203zm-7.068.176c.102.027.201.065.303.091.013.1.02.2.026.3-.174.175-.307.406-.541.51-.156.06-.327.081-.493.06-.057-.012-.097-.057-.138-.095.278-.292.54-.6.843-.866zm6.729.073c.151-.002.25.118.344.218.196.228.42.428.622.649-.043.057-.09.136-.18.106a.738.738 0 0 1-.311-.05c-.208-.1-.345-.293-.522-.433l.047-.49zm-3.103.132a1.564 1.564 0 0 0-.255.014c-.274.032-.537.235-.584.515-.03.271-.019.602.204.796.147.12.34.16.525.176.258.008.56-.033.72-.264.175-.264.176-.623.054-.908-.132-.24-.401-.322-.664-.33zm-3.303.33c.066.17.114.346.16.522-.12-.023-.302-.01-.37-.138-.033-.161.117-.274.21-.383zm6.349.15c.087.077.204.181.17.31-.067.117-.218.118-.335.13a33.1 33.1 0 0 0 .165-.44zm-6.69.321c.093.077.195.157.319.176.08.024.173.018.245.063.156.191.294.399.488.555.299.277.658.469.995.692-.058.24-.213.437-.339.644-.92-.353-1.719-1.07-2.085-1.995.126-.042.252-.087.376-.135zm6.993.063c.093.037.186.075.28.11-.185.51-.532.95-.94 1.301a3.133 3.133 0 0 1-1.012.6c-.08-.14-.166-.278-.236-.424-.02-.05-.052-.118-.01-.165.098-.098.227-.156.346-.224.248-.148.476-.327.686-.526.14-.134.228-.312.357-.456.11-.043.238-.024.347-.074.07-.036.124-.092.182-.142zm-7.67.07l.204.003c.174.43.422.837.76 1.157.207.187.408.384.649.527.23.152.482.262.73.38a1.417 1.417 0 0 1-.089.2 4.51 4.51 0 0 1-.699-.352c-.3-.177-.55-.421-.8-.66-.26-.253-.43-.58-.604-.894-.065-.114-.106-.239-.15-.361zm8.027.058l.22.02a3.174 3.174 0 0 1-.847 1.33c-.372.34-.785.665-1.272.82-.034-.07-.068-.14-.1-.212.305-.137.61-.289.87-.504.48-.388.91-.868 1.129-1.454zm-1.348.433c-.19.266-.485.42-.746.605-.12.093-.29.15-.339.31.011.094.087.164.13.245.108.186.215.374.302.57.048.124-.001.252-.048.367-.158-.043-.334-.115-.403-.275-.133-.241-.13-.544-.315-.76-.017.322.216.582.255.893-.016.109-.084.202-.136.297-.139-.078-.31-.156-.343-.329-.095-.256-.037-.563-.192-.797-.063.223.046.44.088.656.023.134.082.303-.023.417a2.76 2.76 0 0 1-.106.133c-.105-.075-.24-.145-.275-.28-.059-.26-.016-.53-.064-.79-.014-.033-.037-.059-.058-.086-.07.31.085.616.047.928-.042.112-.135.229-.26.25-.115-.08-.222-.2-.221-.35-.015-.271.087-.535.073-.807l-.073-.002c-.037.23-.018.465-.033.697a.487.487 0 0 1-.104.294c-.06.054-.127.1-.197.142-.063-.066-.135-.13-.173-.216-.034-.13.013-.26.04-.388.047-.192.115-.384.106-.584h-.066c-.083.259-.081.533-.154.794a.468.468 0 0 1-.273.295c-.054.024-.119-.014-.14-.066-.097-.123-.048-.289-.005-.423.086-.222.192-.439.24-.674l-.066-.027c-.14.26-.174.564-.32.821a.478.478 0 0 1-.311.24c-.045.015-.08-.022-.1-.057a.386.386 0 0 1-.005-.334c.112-.241.27-.46.38-.702.02-.066.056-.155.001-.213-.22-.226-.546-.3-.77-.522.233.138.459.296.716.386.923.372 1.99.383 2.915.011.39-.136.729-.387 1.026-.669Z"/></svg></div>
-          <span class="ticker-brand-name font-bentley">Bentley</span>
-        </div>
-        <!-- Rolls-Royce -->
-        <div class="ticker-logo" style="color:#680021;">
-          <div class="ticker-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.363 3.663H9.961v6.865c-.41.196-.857.368-1.341.511a7.94 7.94 0 0 1-.776.182V3.968s.06-1.041-.519-1.393v-.13h5.434c.244.297.463.697.604 1.218zm.958 9.391c2.465-1.182 3.652-3.262 3.674-5.646.015-1.622-.557-2.618-1.197-3.148a1.883 1.883 0 0 0-.117-.089 6.454 6.454 0 0 0-.612-1.618c.118.017.227.036.324.057 1.788.38 3.225 1.436 3.905 3.474.554 1.662.285 3.724-.904 5.377-.281.391-1.03 1.226-1.89 1.842-.156.112-.25.174-.414.277 1.077 1.726 1.608 2.717 2.295 4.6.6 1.644 1.055 3.83 1.117 4.344.15 1.223.515 1.32.599 1.345V24h-4.295v-.13c.132-.07 1.293-.546 1.299-2.367.006-1.337-.32-2.808-.914-4.46a22.925 22.925 0 0 0-1.277-2.829l-.014-.021a8.355 8.355 0 0 1-.872.321c-.223-.516-.45-.983-.707-1.459zm-4.36-.144v1.116c.325-.014 1.34-.096 2.254-.274.207.468.387.912.511 1.257l.017.048a26.3 26.3 0 0 1-1.23.166 33.2 33.2 0 0 1-1.552.131v7.21c0 .159.037 1.008.59 1.306V24H7.254v-.13c.538-.283.59-1.147.59-1.305v-9.27a18.96 18.96 0 0 0 2.118-.385zm.457-11.66l-.462-.007H5.662v10.575c.426-.019 2.013-.152 3.052-.46 3.465-1.025 5.12-3.447 5.146-6.293.015-1.655-.568-2.672-1.222-3.212-.407-.337-.946-.496-1.338-.554-.22-.044-.71-.05-.882-.05zM3.502 20.557V1.554S3.564.492 2.972.133V0h7.346c.613.001 1.415.063 1.907.17 1.824.387 3.291 1.464 3.985 3.544.565 1.696.291 3.8-.922 5.487-.287.4-1.05 1.25-1.93 1.88a6.998 6.998 0 0 1-.422.281c1.1 1.762 1.641 2.773 2.343 4.695.612 1.677 1.076 3.909 1.14 4.432.151 1.248.525 1.374.61 1.4v.132h-4.382l-.001-.133c.136-.072 1.32-.583 1.326-2.442.007-1.363-.326-2.865-.932-4.55a23.36 23.36 0 0 0-1.305-2.887l-.014-.022c-.582.265-1.812.624-2.61.775-.571.108-1.15.197-1.865.277-.623.07-1.227.111-1.584.134v7.384c0 .161.038 1.028.603 1.332v.132H2.9v-.132c.549-.29.603-1.17.603-1.332Z"/></svg></div>
-          <span class="ticker-brand-name font-rr">Rolls-Royce</span>
-        </div>
       </div>
     </div>
     <p class="ticker-disclaimer">All trademarks and logos are the property of their respective owners. Displayed to represent world-class standards integrated into our service.</p>
@@ -2722,59 +2736,69 @@
 
   <!-- ════════ PHILOSOPHY ════════ -->
   <section id="philosophy">
-    <span class="section-num">— Ⅱ —</span>
     <span class="section-label with-rule">PHILOSOPHY</span>
-    <h2 class="section-title">Our Belief</h2>
-    <span class="section-title-ja">私 た ち の 哲 学</span>
 
-    <p class="philosophy-lead">静謐な日々を生涯にわたり。</p>
+    <p class="philosophy-lead">身体の変化に、先手を打つ。</p>
 
     <div class="philosophy-body">
       <p>
-        身体は、時間とともに静かに変化していく。その変化に先んじ、最良の状態を慈しむように保ち続けること——それが、私たちの考える本当の贅沢です。
+        多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは予防に特化したヘルスケアを提供しています。
       </p>
       <p>
-        血液検査40項目以上に基づく栄養設計、FMS（Functional Movement Screen）を用いた筋骨格の精密評価、提携医療機関との連携による予防的アプローチ。スポーツ科学・分子栄養学・予防医学を融合した<a href="method.html" class="text-link">方法論</a>で、10年後も、20年後も、最前線に立ち続ける身体を守ります。
+        血液検査40項目以上に基づく栄養設計、FMS（Functional Movement Screen）による筋骨格の評価、提携医療機関との連携。スポーツ科学・分子栄養学・予防医学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の身体を長期的に守ります。
       </p>
     </div>
 
-    <p class="philosophy-signature">— IN PURSUIT OF LASTING VITALITY —</p>
   </section>
 
-  <!-- ════════ BENEFITS CAROUSEL ════════ -->
-  <section id="benefits">
-    <span class="section-label with-rule">THE OUTCOME</span>
-    <h2 class="section-title fade">A Life, Elevated</h2>
-    <span class="section-title-ja fade">そ の 先 に あ る も の</span>
+  <!-- ════════ SERVICES (CORE) ════════ -->
+  <section id="services">
+    <span class="section-label with-rule">SERVICES</span>
+    <h2 class="section-title fade">基本サービス</h2>
+    <span class="section-title-ja fade">Core Service</span>
 
     <div class="benefits-carousel" id="benefitsCarousel">
-      <div class="benefit-slide fade">
-        <img class="benefit-slide-img" src="philosophy-bg.jpg" alt="" loading="lazy" />
+      <div class="benefit-slide fade" onclick="openConcierge('training')" style="cursor:pointer">
+        <img class="benefit-slide-img" src="service-training.jpg" alt="パーソナルトレーニング" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
           <span class="benefit-slide-num">— 01 —</span>
-          <h3 class="benefit-slide-title">10年後も、<br>最前線に立ち続ける。</h3>
-          <span class="benefit-slide-en">Peak Physical Condition</span>
+          <h3 class="benefit-slide-title">パーソナルトレーニング</h3>
+          <span class="benefit-slide-en">Personal Training</span>
+          <span class="benefit-slide-arrow">詳しく見る →</span>
         </div>
       </div>
 
-      <div class="benefit-slide fade">
-        <img class="benefit-slide-img" src="services-space.webp" alt="" loading="lazy" />
+      <div class="benefit-slide fade" onclick="openConcierge('nutrition')" style="cursor:pointer">
+        <img class="benefit-slide-img" src="service-culinary.jpg" alt="栄養設計" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
           <span class="benefit-slide-num">— 02 —</span>
-          <h3 class="benefit-slide-title">判断力を、<br>数値で守る。</h3>
-          <span class="benefit-slide-en">Data-Driven Wellness</span>
+          <h3 class="benefit-slide-title">栄養設計</h3>
+          <span class="benefit-slide-en">Nutrition Design</span>
+          <span class="benefit-slide-arrow">詳しく見る →</span>
         </div>
       </div>
 
-      <div class="benefit-slide fade">
-        <img class="benefit-slide-img" src="concierge-medical.webp" alt="" loading="lazy" />
+      <div class="benefit-slide fade" onclick="openConcierge('monitoring')" style="cursor:pointer">
+        <img class="benefit-slide-img" src="service-consultation.jpg" alt="ボディモニタリング" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
           <span class="benefit-slide-num">— 03 —</span>
-          <h3 class="benefit-slide-title">兆候を、<br>先に捉える。</h3>
-          <span class="benefit-slide-en">Proactive Health Management</span>
+          <h3 class="benefit-slide-title">ボディモニタリング</h3>
+          <span class="benefit-slide-en">Body Monitoring</span>
+          <span class="benefit-slide-arrow">詳しく見る →</span>
+        </div>
+      </div>
+
+      <div class="benefit-slide fade" onclick="openConcierge('conditioning')" style="cursor:pointer">
+        <img class="benefit-slide-img" src="service-spa.jpg" alt="コンディショニング" loading="lazy" />
+        <div class="benefit-slide-overlay"></div>
+        <div class="benefit-slide-text">
+          <span class="benefit-slide-num">— 04 —</span>
+          <h3 class="benefit-slide-title">コンディショニング</h3>
+          <span class="benefit-slide-en">Conditioning</span>
+          <span class="benefit-slide-arrow">詳しく見る →</span>
         </div>
       </div>
     </div>
@@ -2783,94 +2807,20 @@
       <button class="benefits-dot active" data-index="0" aria-label="1"></button>
       <button class="benefits-dot" data-index="1" aria-label="2"></button>
       <button class="benefits-dot" data-index="2" aria-label="3"></button>
+      <button class="benefits-dot" data-index="3" aria-label="4"></button>
     </div>
   </section>
 
   <div class="gold-divider"><hr /></div>
 
-  <!-- ════════ VIDEO BREAK: SESSION ════════ -->
-  <div class="video-break">
-    <video class="video-break-pc" muted autoplay loop playsinline preload="auto"
-           src="hero-bg.mp4"></video>
-    <video class="video-break-sp" muted autoplay loop playsinline preload="auto"
-           src="hero-bg-sp.mp4"></video>
-    <div class="video-break-overlay"></div>
-    <div class="video-break-text">
-      <span>— YOUR PRIVATE SESSION —</span>
-    </div>
-  </div>
 
-  <!-- ════════ SERVICES (CORE) ════════ -->
-  <section id="services">
-    <div class="services-inner">
-      <span class="section-num">— Ⅰ —</span>
-      <span class="section-label with-rule">SERVICES</span>
-      <h2 class="section-title fade">The Core Service</h2>
-      <span class="section-title-ja fade">年 間 基 本 サ ー ビ ス</span>
-    </div>
-
-    <div class="core-grid">
-      <div class="concierge-card fade" data-concierge="training" onclick="openConcierge('training')">
-        <div class="concierge-card-bg" style="background-image:url('philosophy-bg.jpg')"></div>
-        <div class="concierge-card-overlay"></div>
-        <div class="concierge-card-body">
-          <span class="concierge-card-num">01</span>
-          <span class="concierge-card-en">Personal Training</span>
-          <span class="concierge-card-ja">パ ー ソ ナ ル ト レ ー ニ ン グ</span>
-          <span class="concierge-card-arrow">VIEW DETAILS →</span>
-        </div>
-      </div>
-
-      <div class="concierge-card fade" data-concierge="nutrition" onclick="openConcierge('nutrition')">
-        <div class="concierge-card-bg" style="background-image:url('nutrition-design.jpg')"></div>
-        <div class="concierge-card-overlay"></div>
-        <div class="concierge-card-body">
-          <span class="concierge-card-num">02</span>
-          <span class="concierge-card-en">Nutrition Design</span>
-          <span class="concierge-card-ja">栄 養 設 計</span>
-          <span class="concierge-card-arrow">VIEW DETAILS →</span>
-        </div>
-      </div>
-
-      <div class="concierge-card fade" data-concierge="monitoring" onclick="openConcierge('monitoring')">
-        <div class="concierge-card-bg" style="background-image:url('services-space.webp')"></div>
-        <div class="concierge-card-overlay"></div>
-        <div class="concierge-card-body">
-          <span class="concierge-card-num">03</span>
-          <span class="concierge-card-en">Body Monitoring</span>
-          <span class="concierge-card-ja">ボ デ ィ モ ニ タ リ ン グ</span>
-          <span class="concierge-card-arrow">VIEW DETAILS →</span>
-        </div>
-      </div>
-
-      <div class="concierge-card fade" data-concierge="conditioning" onclick="openConcierge('conditioning')">
-        <div class="concierge-card-bg" style="background-image:url('conditioning.jpg')"></div>
-        <div class="concierge-card-overlay"></div>
-        <div class="concierge-card-body">
-          <span class="concierge-card-num">04</span>
-          <span class="concierge-card-en">Conditioning</span>
-          <span class="concierge-card-ja">コ ン デ ィ シ ョ ニ ン グ</span>
-          <span class="concierge-card-arrow">VIEW DETAILS →</span>
-        </div>
-      </div>
-    </div>
-
-    <p class="core-note fade">
-      上記4領域は年間契約に含まれる基本サービスです。<br>
-      専属トレーナー・管理栄養士・提携医師・コンシェルジュが<br class="sp-hide">
-      ひとつのチームとしてあなたの健康を<a href="method.html" class="text-link">包括的に設計</a>します。
-      <span class="core-note-en">All core services are included in your annual membership.</span>
-    </p>
-  </section>
-
-  <div class="diamond-divider fade"><span></span></div>
 
   <!-- ════════ CONCIERGE / MEMBER PRIVILEGES ════════ -->
   <section id="concierge">
     <div class="concierge-inner">
       <span class="section-label with-rule">MEMBER PRIVILEGES</span>
-      <h2 class="section-title fade">Exclusive Concierge</h2>
-      <span class="section-title-ja fade">会 員 特 権 サ ー ビ ス</span>
+      <h2 class="section-title fade">会員特権サービス</h2>
+      <span class="section-title-ja fade">Exclusive Concierge</span>
 
       <div class="concierge-grid">
         <div class="concierge-card fade" data-concierge="medical" onclick="openConcierge('medical')">
@@ -2880,7 +2830,7 @@
             <span class="concierge-card-num">01</span>
             <span class="concierge-card-en">Medical Access</span>
             <span class="concierge-card-ja">医 療 ア ク セ ス</span>
-            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+            <span class="concierge-card-arrow">詳しく見る →</span>
           </div>
         </div>
 
@@ -2891,7 +2841,7 @@
             <span class="concierge-card-num">02</span>
             <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
             <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
-            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+            <span class="concierge-card-arrow">詳しく見る →</span>
           </div>
         </div>
 
@@ -2902,14 +2852,13 @@
             <span class="concierge-card-num">03</span>
             <span class="concierge-card-en">Culinary &amp; Nutrition</span>
             <span class="concierge-card-ja">食 ・ 栄 養</span>
-            <span class="concierge-card-arrow">VIEW DETAILS →</span>
+            <span class="concierge-card-arrow">詳しく見る →</span>
           </div>
         </div>
       </div>
 
       <p class="concierge-note fade">
         上記サービスはExecutive Ashiya会員の特権として手配可能です。ご利用時は実費を申し受けます。
-        <span class="concierge-note-en">These services are available exclusively to members of Executive Ashiya. Actual costs are billed separately upon use.</span>
       </p>
     </div>
   </section>
@@ -2973,7 +2922,7 @@
   <div class="concierge-detail" id="concierge-training" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="philosophy-bg.jpg" alt="Personal training session" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-training.jpg" alt="パーソナルトレーニング" loading="lazy" /></div>
       <span class="concierge-detail-num">01</span>
       <span class="concierge-detail-en">Personal Training</span>
       <span class="concierge-detail-ja">パ ー ソ ナ ル ト レ ー ニ ン グ</span>
@@ -2991,7 +2940,7 @@
   <div class="concierge-detail" id="concierge-nutrition" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="nutrition-design.jpg" alt="Nutrition planning" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-consultation.jpg" alt="栄養設計" loading="lazy" /></div>
       <span class="concierge-detail-num">02</span>
       <span class="concierge-detail-en">Nutrition Design</span>
       <span class="concierge-detail-ja">栄 養 設 計</span>
@@ -3009,7 +2958,7 @@
   <div class="concierge-detail" id="concierge-monitoring" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="services-space.webp" alt="Health monitoring technology" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-spa.jpg" alt="ボディモニタリング" loading="lazy" /></div>
       <span class="concierge-detail-num">03</span>
       <span class="concierge-detail-en">Body Monitoring</span>
       <span class="concierge-detail-ja">ボ デ ィ モ ニ タ リ ン グ</span>
@@ -3027,7 +2976,7 @@
   <div class="concierge-detail" id="concierge-conditioning" onclick="closeConcierge(event)">
     <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
     <div class="concierge-detail-inner">
-      <div class="concierge-detail-img"><img src="conditioning.jpg" alt="Conditioning and recovery" loading="lazy" /></div>
+      <div class="concierge-detail-img"><img src="service-culinary.jpg" alt="コンディショニング" loading="lazy" /></div>
       <span class="concierge-detail-num">04</span>
       <span class="concierge-detail-en">Conditioning</span>
       <span class="concierge-detail-ja">コ ン デ ィ シ ョ ニ ン グ</span>
@@ -3042,7 +2991,6 @@
     </div>
   </div>
 
-  <div class="diamond-divider fade"><span></span></div>
 
   <!-- ════════ TRACK RECORD ════════ -->
   <section class="track-record-section" id="track-record">
@@ -3052,10 +3000,9 @@
       <div class="track-map-layer" data-layer="ashiya"><img src="map-ashiya.png" alt="" /></div>
       <div class="track-map-overlay"></div>
       <div class="track-map-heading">
-        <span class="section-num">— Ⅲ —</span>
         <span class="section-label with-rule">TRACK RECORD</span>
-        <h2 class="section-title">Proven Results</h2>
-        <span class="section-title-ja">確 か な 実 績</span>
+        <h2 class="section-title section-title--en">Proven Results</h2>
+        <span class="section-title-ja section-title-ja--jp">確かな実績</span>
       </div>
       <div class="track-map-pin"><span></span></div>
       <div class="track-map-label">ASHIYA, HYOGO — JAPAN</div>
@@ -3107,7 +3054,35 @@
         </div>
       </div>
 
-      <p class="track-note">* 数値は株式会社ReFit（代表・福田）の累計指導実績（2011年〜）に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+      <p class="track-note">* 数値は株式会社ReFit（代表・福田）の累計指導実績に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。</p>
+    </div>
+  </section>
+
+  <!-- ════════ REPRESENTATIVE ════════ -->
+  <section id="representative">
+    <span class="section-label with-rule">FOUNDER</span>
+    <h2 class="section-title">代表挨拶</h2>
+
+    <div class="rep-inner">
+      <div class="rep-photo">
+        <img src="founder.jpg" alt="福田 泰士" loading="lazy" />
+      </div>
+      <div class="rep-text">
+        <span class="rep-name-ja">福田 泰士</span>
+        <span class="rep-name-en">Taishi Fukuda</span>
+        <span class="rep-role">EXECUTIVE ASHIYA 代表 / 株式会社ReFit 代表取締役</span>
+        <div class="rep-body">
+          <p>
+            これまで5,000名以上の方の身体づくりに携わるなかで、ひとつ確信したことがあります。多忙な方ほど、身体の変化に気づくのが遅いということです。
+          </p>
+          <p>
+            経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
+          </p>
+          <p>
+            トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、あなたの健康を長期的にお守りします。
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -3115,10 +3090,9 @@
 
   <!-- ════════ HOW TO JOIN ════════ -->
   <section id="how-to-join">
-    <span class="section-num">— Ⅳ —</span>
     <span class="section-label with-rule">HOW TO JOIN</span>
-    <h2 class="section-title">Application Flow</h2>
-    <span class="section-title-ja">入 会 ま で の 流 れ</span>
+    <h2 class="section-title">入会までの流れ</h2>
+    <span class="section-title-ja fade"></span>
 
     <div class="join-steps">
       <div class="join-step fade">
@@ -3128,27 +3102,22 @@
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 02</span>
-        <span class="join-step-text">代表・福田より直接ご連絡</span>
-        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡</span>
+        <span class="join-step-text">担当者よりご連絡</span>
+        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡いたします</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 03</span>
-        <span class="join-step-text">スクリーニング・ヒアリング</span>
-        <span class="join-step-sub">健康目標・生活リズム・既往歴を詳しくお伺いします</span>
+        <span class="join-step-text">詳細ヒアリング・ご提案</span>
+        <span class="join-step-sub">健康目標・生活リズム・既往歴をお伺いし、最適なプログラムをご提案します</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 04</span>
-        <span class="join-step-text">オーダーメイドプログラムご提案</span>
-        <span class="join-step-sub">ヒアリングに基づく年間プログラム設計・NDA締結</span>
-      </div>
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 05</span>
-        <span class="join-step-text">初回アセスメント・プログラム始動</span>
-        <span class="join-step-sub">体組成測定・姿勢評価を実施し、専属チームが始動</span>
+        <span class="join-step-text">ご契約・プログラム開始</span>
+        <span class="join-step-sub">NDA締結後、体組成測定・姿勢評価を行い、専属チームがサポートを開始します</span>
       </div>
     </div>
 
-    <p class="join-note fade">※ 紹介状をお持ちの方は STEP 02 からスタートいただけます</p>
+    <p class="join-note fade">※ ご紹介の方は STEP 02 からスタートいただけます</p>
   </section>
 
   <!-- ════════ CTA FINAL (S-4) ════════ -->
@@ -3160,9 +3129,9 @@
     </p>
     <p class="cta-sub fade">
       まずはご入会リクエストフォームより、お気軽にお問い合わせください。<br>
-      代表・福田より2営業日以内に直接ご連絡いたします。
+      2営業日以内に担当者より直接ご連絡いたします。
     </p>
-    <a href="invitation-request.html" class="cta-btn fade">REQUEST INVITATION</a>
+    <a href="invitation-request.html" class="cta-btn fade">ご入会・お問い合わせ</a>
     <p class="cta-faq fade">サービス内容・医療連携・プライバシーに関するご質問は<a href="/faq">こちら</a></p>
   </section>
 
@@ -3173,32 +3142,19 @@
 
   <!-- ════════ FOOTER ════════ -->
   <footer>
-    <div class="f-emblem">
-      <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 2 L42 22 L22 42 L2 22 Z" stroke-width="0.6" opacity="0.8"/>
-        <path d="M22 10 L34 22 L22 34 L10 22 Z" stroke-width="0.5" opacity="0.6"/>
-        <line x1="22" y1="0" x2="22" y2="44" stroke-width="0.4" opacity="0.4"/>
-        <line x1="0" y1="22" x2="44" y2="22" stroke-width="0.4" opacity="0.4"/>
-      </svg>
-    </div>
     <span class="f-brand">EXECUTIVE ASHIYA</span>
-    <span class="f-tagline">Your Private Health Concierge</span>
     <div class="f-links">
-      <a href="#philosophy">PHILOSOPHY</a>
-      <a href="#services">SERVICES</a>
-      <a href="#track-record">TRACK RECORD</a>
-      <a href="/members">PRICING</a>
-      <a href="/faq">FAQ</a>
-      <a href="invitation-request.html">INVITATION</a>
-    </div>
-    <div class="f-links">
-      <a href="for-members.html">FOR MEMBERS</a>
+      <a href="for-members.html">会員専用ページ</a>
       <a href="screening.html">SCREENING</a>
       <a href="confidentiality.html">CONFIDENTIALITY</a>
       <a href="privacy.html">PRIVACY POLICY</a>
       <a href="tokushoho.html">特定商取引法</a>
     </div>
     <a href="/press-kit" class="f-press">メディア関係者様へ</a>
+    <div class="f-info">
+      兵庫県芦屋市 ｜ <a href="mailto:info@executive-ashiya.com">info@executive-ashiya.com</a>
+      <div class="f-info-company">運営：株式会社ReFit ｜ <a href="https://refit.co.jp" target="_blank" rel="noopener">refit.co.jp</a></div>
+    </div>
     <span class="f-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
   </footer>
 
@@ -3244,6 +3200,21 @@
         vid.style.display = 'none';
         // Preload only — don't play yet
         vid.load();
+
+        // Draw poster image on canvas immediately to avoid black flash
+        var posterImg = new Image();
+        posterImg.src = 'hero-main.jpg';
+        posterImg.onload = function() {
+          var rect = canvas.getBoundingClientRect();
+          var dpr = window.devicePixelRatio || 1;
+          canvas.width = Math.round(rect.width * dpr);
+          canvas.height = Math.round(rect.height * dpr);
+          var iw = posterImg.naturalWidth, ih = posterImg.naturalHeight;
+          var cw = canvas.width, ch = canvas.height;
+          var scale = Math.max(cw / iw, ch / ih);
+          var sw = iw * scale, sh = ih * scale;
+          ctx.drawImage(posterImg, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
+        };
       }
 
       function drawFrame() {
@@ -3300,6 +3271,7 @@
         // No loader — start video immediately
         loader.style.display = 'none';
         document.body.classList.remove('loading');
+        document.documentElement.classList.remove('loading');
         document.querySelectorAll('#hero .fade').forEach(el => el.classList.add('visible'));
         window._startHeroVideo();
         return;
@@ -3308,6 +3280,7 @@
       setTimeout(() => {
         loader.classList.add('fade-out');
         document.body.classList.remove('loading');
+        document.documentElement.classList.remove('loading');
         // Start video from the beginning right when loader fades
         window._startHeroVideo();
         setTimeout(() => { loader.style.display = 'none'; }, 800);
@@ -3315,7 +3288,7 @@
         heroFades.forEach((el, i) => {
           setTimeout(() => { el.classList.add('visible'); }, 100 * (i + 1));
         });
-      }, 1600);
+      }, 1200);
     });
 
     // Nav scroll effect + dark mode over zoom section + hero transparent
@@ -3597,7 +3570,7 @@
     // ── Benefits Carousel: drag + dots ──
     (function() {
       var carousel = document.getElementById('benefitsCarousel');
-      var dots = document.querySelectorAll('#benefitsDots .benefits-dot');
+      var dots = document.querySelectorAll('#servicesDots .benefits-dot');
       if (!carousel || !dots.length) return;
 
       // Drag to scroll
