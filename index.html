@@ -448,8 +448,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      justify-content: flex-end;
+      padding: 2rem 2rem 6rem;
       text-align: center;
     }
 
@@ -727,17 +727,14 @@
       .ie-cards {
         display: flex !important;
         grid-template-columns: none !important;
-        gap: 1rem !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        gap: 0 !important;
+        overflow: hidden;
         padding-bottom: 0.5rem;
       }
-      .ie-cards::-webkit-scrollbar { display: none; }
       .ie-cards .ie-card {
-        flex: 0 0 78%;
-        scroll-snap-align: start;
+        flex: 0 0 100%;
+        min-width: 100%;
+        transition: transform 0.4s ease;
       }
       .ie-nav {
         display: flex;
@@ -1139,12 +1136,12 @@
     @media (max-width: 880px) {
       #services { padding: 3.5rem 0 3rem; }
       .benefits-carousel {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-        gap: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        gap: 0.6rem;
       }
       .benefit-slide {
-        width: 80vw;
+        width: 92vw;
         aspect-ratio: 3 / 4;
       }
     }
@@ -2009,17 +2006,19 @@
       margin-top: 0;
       margin-bottom: 2.5rem;
       font-family: var(--serif-jp);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      border: 1px solid rgba(139, 111, 31, 0.4);
-      padding: 0.7rem 2.5rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      color: #fff;
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.9rem 3rem;
       text-decoration: none;
       transition: all 0.3s;
     }
     .f-press:hover {
-      background: var(--gold);
-      color: var(--ink);
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      color: #fff;
     }
     .f-info {
       margin-top: 2.5rem;
@@ -2054,11 +2053,10 @@
         padding: 3.5rem 1.5rem 2.5rem;
       }
       .f-links {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem 1.5rem;
-        text-align: center;
-        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
         margin: 0 auto 2rem;
       }
       .f-info {
@@ -2486,10 +2484,11 @@
       .join-step-text::after {
         content: '+';
         position: absolute;
-        right: 0;
-        top: 0;
+        right: -0.5rem;
+        top: -0.1rem;
         font-family: var(--serif-en);
-        font-size: 0.7rem;
+        font-size: 1.2rem;
+        font-weight: 300;
         color: var(--gold);
         transition: transform 0.3s;
       }
@@ -3079,7 +3078,7 @@
             経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
           </p>
           <p>
-            トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、あなたの健康を長期的にお守りします。
+            トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、会員様の健康を長期的にお守りします。
           </p>
         </div>
       </div>
@@ -3124,15 +3123,15 @@
   <section id="cta-final">
     <span class="section-label with-rule">INVITATION</span>
     <p class="cta-headline fade">
-      あなたの健康を、<br class="sp-only">生涯にわたり守る<br>
+      健康を生涯にわたり守る、<br>
       専属チームをお届けします。
     </p>
     <p class="cta-sub fade">
-      まずはご入会リクエストフォームより、お気軽にお問い合わせください。<br>
+      まずはご入会リクエストフォームより、<br class="sp-only">お気軽にお問い合わせください。<br>
       2営業日以内に担当者より直接ご連絡いたします。
     </p>
     <a href="invitation-request.html" class="cta-btn fade">ご入会・お問い合わせ</a>
-    <p class="cta-faq fade">サービス内容・医療連携・プライバシーに関するご質問は<a href="/faq">こちら</a></p>
+    <p class="cta-faq fade">サービス内容・医療連携・プライバシーに関する<br class="sp-only">ご質問は<a href="/faq">こちら</a></p>
   </section>
 
   <!-- ════════ BACK TO TOP ════════ -->
@@ -3539,32 +3538,25 @@
       });
     })();
 
-    /* ── News carousel nav (loop) ── */
+    /* ── News carousel nav (button-only, no swipe) ── */
     (function(){
       var cards = document.getElementById('newsCards');
       var prev = document.getElementById('newsPrev');
       var next = document.getElementById('newsNext');
       if (!cards || !prev || !next) return;
-      var cardWidth = function(){ var c = cards.querySelector('.ie-card'); return c ? c.offsetWidth + 16 : 0; };
-      next.addEventListener('click', function(){
-        var w = cardWidth();
-        if (!w) return;
-        var maxScroll = cards.scrollWidth - cards.clientWidth;
-        if (cards.scrollLeft >= maxScroll - 2) {
-          cards.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          cards.scrollBy({ left: w, behavior: 'smooth' });
-        }
-      });
-      prev.addEventListener('click', function(){
-        var w = cardWidth();
-        if (!w) return;
-        if (cards.scrollLeft <= 2) {
-          cards.scrollTo({ left: cards.scrollWidth - cards.clientWidth, behavior: 'smooth' });
-        } else {
-          cards.scrollBy({ left: -w, behavior: 'smooth' });
-        }
-      });
+      var items = cards.querySelectorAll('.ie-card');
+      var total = items.length;
+      var currentIdx = 0;
+      function goTo(idx) {
+        if (idx < 0) idx = total - 1;
+        if (idx >= total) idx = 0;
+        currentIdx = idx;
+        items.forEach(function(item) {
+          item.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
+        });
+      }
+      next.addEventListener('click', function(){ goTo(currentIdx + 1); });
+      prev.addEventListener('click', function(){ goTo(currentIdx - 1); });
     })();
 
     // ── Benefits Carousel: drag + dots ──
