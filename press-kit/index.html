@@ -212,20 +212,25 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 0.6rem 0;
+      padding: 0.8rem 0;
       border-bottom: 1px solid var(--ink-line);
+      gap: 1.5rem;
     }
     .pk-highlight-item:last-child { border-bottom: none; }
     .pk-highlight-label {
       font-size: 0.95rem;
       color: var(--ink-faint);
       letter-spacing: 0.06em;
+      white-space: nowrap;
+      min-width: 120px;
+      flex-shrink: 0;
     }
     .pk-highlight-value {
       font-size: 1.05rem;
       color: var(--ink);
       font-weight: 400;
       letter-spacing: 0.04em;
+      text-align: right;
     }
 
     /* ═══ BUTTONS ═══ */
@@ -267,13 +272,13 @@
     /* ═══ PROFILE ═══ */
     .pk-profile {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 3rem;
       align-items: start;
       margin: 2rem 0;
     }
     .pk-profile-photo {
-      width: 220px;
+      width: 280px;
       overflow: hidden;
     }
     .pk-profile-photo-img {
@@ -619,10 +624,26 @@
       margin-bottom: 1.2rem;
     }
     .pk-plan-detail {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: var(--ink-soft);
-      line-height: 2;
+      line-height: 2.2;
       text-align: left;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pk-plan-detail li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+    .pk-plan-detail li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1em;
+      width: 5px;
+      height: 1px;
+      background: var(--gold);
     }
 
     /* ═══ RESPONSIVE ═══ */
@@ -635,7 +656,7 @@
         gap: 2rem;
       }
       .pk-profile-photo {
-        width: 180px;
+        width: 260px;
         margin: 0 auto;
       }
       .pk-photo-grid {
@@ -651,6 +672,20 @@
       .pk-features { grid-template-columns: 1fr; }
       .pk-plans { grid-template-columns: 1fr; }
       .pk-highlight { padding: 1.5rem 1.8rem; }
+      .pk-highlight-item {
+        flex-direction: column;
+        gap: 0.3rem;
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+      .pk-highlight-label {
+        font-size: 0.82rem;
+        min-width: auto;
+      }
+      .pk-highlight-value {
+        font-size: 1rem;
+        text-align: left;
+      }
       .pk-press-release { padding: 2rem 1.5rem; }
       .pk-contact-box { padding: 2rem 1.5rem; }
       .pk-btn {
@@ -680,7 +715,7 @@
         取材のご依頼はこちら
       </a>
     </div>
-    <p class="pk-updated">最終更新：2026年5月13日</p>
+    <p class="pk-updated">最終更新：2026年5月19日</p>
   </section>
 
   <!-- ═══ サービス概要 ═══ -->
@@ -710,7 +745,7 @@
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">チーム体制</span>
-        <span class="pk-highlight-value">専属トレーナー・管理栄養士・提携医師・コンシェルジュの4職種</span>
+        <span class="pk-highlight-value">専属トレーナー・理学療法士・管理栄養士・提携医師・コンシェルジュの5職種</span>
       </div>
       <div class="pk-highlight-item">
         <span class="pk-highlight-label">全スタッフ</span>
@@ -752,17 +787,28 @@
         <p class="pk-plan-name">PLATINUM</p>
         <p class="pk-plan-price">&yen;12,000,000</p>
         <p class="pk-plan-price-note">初年度合計（入会金300万 + 年会費900万・税込）</p>
-        <p class="pk-plan-detail">
-          月4回セッション / 24h即時対応 / フルオーダー食事管理 / サプリ処方配送 / コンシェルジュ無制限 / 年4回スペシャルセッション / 国内同行年6日 / Oura Ring・Technogymキット等入会ギフト
-        </p>
+        <ul class="pk-plan-detail">
+          <li>月4回セッション</li>
+          <li>24h即時対応</li>
+          <li>フルオーダー食事管理</li>
+          <li>サプリ処方配送</li>
+          <li>コンシェルジュ無制限</li>
+          <li>年4回スペシャルセッション</li>
+          <li>国内同行年6日</li>
+          <li>Oura Ring・Technogymキット等入会ギフト</li>
+        </ul>
       </div>
       <div class="pk-plan-card">
         <p class="pk-plan-name">EXECUTIVE</p>
         <p class="pk-plan-price">&yen;7,500,000</p>
         <p class="pk-plan-price-note">初年度合計（入会金150万 + 年会費600万・税込）</p>
-        <p class="pk-plan-detail">
-          月2回セッション / 24h対応（2h以内） / 週次食事ガイド+月1栄養カウンセリング / コンシェルジュ無制限 / Oura Ring・ウェア入会ギフト
-        </p>
+        <ul class="pk-plan-detail">
+          <li>月2回セッション</li>
+          <li>24h対応（2h以内）</li>
+          <li>週次食事ガイド+月1栄養カウンセリング</li>
+          <li>コンシェルジュ無制限</li>
+          <li>Oura Ring・ウェア入会ギフト</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -855,6 +901,26 @@
       </a>
     </div>
 
+    <h3 class="pk-photo-sub-title">サービスビジュアル</h3>
+    <div class="pk-photo-grid">
+      <a href="/service-training.jpg" class="pk-photo-item" download="ea-training.jpg">
+        <img src="/service-training.jpg" alt="パーソナルトレーニング" class="pk-photo-item-img" />
+        <span class="pk-photo-item-label">パーソナルトレーニング</span>
+      </a>
+      <a href="/service-culinary.jpg" class="pk-photo-item" download="ea-nutrition.jpg">
+        <img src="/service-culinary.jpg" alt="栄養設計" class="pk-photo-item-img" />
+        <span class="pk-photo-item-label">栄養設計</span>
+      </a>
+      <a href="/service-consultation.jpg" class="pk-photo-item" download="ea-monitoring.jpg">
+        <img src="/service-consultation.jpg" alt="ボディモニタリング" class="pk-photo-item-img" />
+        <span class="pk-photo-item-label">ボディモニタリング</span>
+      </a>
+      <a href="/service-spa.jpg" class="pk-photo-item" download="ea-conditioning.jpg">
+        <img src="/service-spa.jpg" alt="コンディショニング" class="pk-photo-item-img" />
+        <span class="pk-photo-item-label">コンディショニング</span>
+      </a>
+    </div>
+
     <h3 class="pk-photo-sub-title">関連事業ビジュアル</h3>
     <div class="pk-photo-grid pk-photo-grid-wide">
       <a href="images/cover-refit.jpg" class="pk-photo-item pk-photo-item-wide" download="refit-cover.jpg">
@@ -939,7 +1005,7 @@
       <div class="pk-contact-info">
         <p>
           TEL: <a href="tel:080-7690-5653">080-7690-5653</a><br>
-          MAIL: <a href="mailto:fukuda@refit.co.jp">fukuda@refit.co.jp</a>
+          MAIL: <a href="mailto:info@executive-ashiya.com">info@executive-ashiya.com</a>
         </p>
       </div>
       <div style="margin-top: 2rem;">

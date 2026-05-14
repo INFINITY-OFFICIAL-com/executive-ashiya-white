@@ -59,20 +59,23 @@
       text-align: center;
     }
     .thanks-icon {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
-      color: var(--gold);
-      margin-bottom: 2rem;
-      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+    }
+    .thanks-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--gold);
+      stroke-width: 1.5;
+      fill: none;
     }
     .thanks-title {
-      font-size: 0.9rem;
+      font-size: 1rem;
       letter-spacing: 0.15em;
       margin-bottom: 2.5rem;
     }
     .thanks-text {
-      font-size: 0.75rem;
-      line-height: 2.4;
+      font-size: 0.82rem;
+      line-height: 2.6;
       color: var(--ink-soft);
       letter-spacing: 0.05em;
       margin-bottom: 4rem;
@@ -110,11 +113,18 @@
     <a href="/" class="header-logo">EXECUTIVE ASHIYA</a>
   </header>
   <div class="content">
-    <div class="thanks-icon">&#10003;</div>
+    <div class="thanks-icon">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" />
+        <path d="M14 24 L21 31 L34 18" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
     <h1 class="thanks-title">お問い合わせを受け付けました</h1>
     <p class="thanks-text">
-      この度はお問い合わせいただき、誠にありがとうございます。<br>
-      内容を確認のうえ、担当者より折り返しご連絡差し上げます。<br>
+      この度はお問い合わせいただき、<br>
+      誠にありがとうございます。<br>
+      内容を確認のうえ、<br>
+      担当者より折り返しご連絡差し上げます。<br>
       2営業日以内にご返信いたします。
     </p>
     <a href="/press-kit" class="back-btn">BACK TO PRESS KIT</a>

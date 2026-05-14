@@ -145,7 +145,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;600;700&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -477,7 +477,7 @@
     .brand-en {
       font-family: var(--serif-en);
       font-weight: 300;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
       letter-spacing: 0.26em;
       color: #fff;
       margin: 0;
@@ -487,10 +487,10 @@
     .brand-ja {
       font-family: var(--serif-jp);
       font-weight: 200;
-      font-size: 0.72rem;
+      font-size: 0.92rem;
       letter-spacing: 0.7em;
       color: rgba(255,255,255,0.75);
-      margin: 1.4rem 0 0;
+      margin: 1.6rem 0 0;
       position: relative;
     }
     .catch {
@@ -1923,7 +1923,7 @@
     /* ════════ HERO CTA ════════ */
     .hero-cta {
       display: inline-block;
-      margin-top: 3rem;
+      margin-top: 4.5rem;
       padding: 1rem 0;
       width: 280px;
       text-align: center;
@@ -2146,7 +2146,7 @@
       .track-client-item:nth-child(4) { border-right: none; }
       .join-steps { grid-template-columns: 1fr; }
       .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; padding-bottom: 22vh; }
-      .brand-en { font-size: clamp(2rem, 5.5vw, 4.8rem); margin-top: 1.5rem; }
+      .brand-en { font-size: clamp(2.4rem, 6.5vw, 5.2rem); margin-top: 1.5rem; }
       .catch { margin-top: 2rem; }
       .hero-cta { position: absolute; bottom: 8.5rem; left: 0; right: 0; margin: 0 auto; width: 240px; padding: 0.75rem 0; text-align: center; }
       .hero-members-link { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
@@ -2679,7 +2679,7 @@
 
   <!-- ════════ HERO ════════ -->
   <section id="hero">
-    <video class="hero-video hero-video-pc" src="hero-bg.mp4" muted loop playsinline disableRemotePlayback webkit-playsinline preload="auto"></video>
+    <video class="hero-video hero-video-pc" src="hero-bg.mp4" muted loop playsinline disableRemotePlayback webkit-playsinline preload="metadata"></video>
     <canvas class="hero-canvas-sp" id="heroCanvasSp"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-text">
@@ -2702,6 +2702,15 @@
       </div>
       <div class="ie-cards-wrap">
         <div class="ie-cards" id="newsCards">
+          <a href="news/2026-05-12-service-launch.html" class="ie-card fade">
+            <img class="ie-card-img" src="news-launch.jpg" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.05.12</span>
+              <span class="ie-card-tag">NEWS</span>
+              <span class="ie-card-title">EXECUTIVE ASHIYA 正式サービス開始のお知らせ</span>
+              <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。</span>
+            </div>
+          </a>
           <a href="news/2026-04-25-medical-network-expansion.html" class="ie-card fade">
             <img class="ie-card-img" src="news-medical-network.avif" alt="" loading="lazy" />
             <div class="ie-card-body">
@@ -2727,15 +2736,6 @@
               <span class="ie-card-tag">COLUMN</span>
               <span class="ie-card-title">なぜエグゼクティブは「睡眠」に投資するのか</span>
               <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
-            </div>
-          </a>
-          <a href="news/2026-05-12-service-launch.html" class="ie-card fade">
-            <img class="ie-card-img" src="news-launch.jpg" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.05.12</span>
-              <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">EXECUTIVE ASHIYA 正式サービス開始のお知らせ</span>
-              <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。</span>
             </div>
           </a>
         </div>
@@ -2855,7 +2855,7 @@
         </div>
       </div>
     </div>
-    <p class="ticker-disclaimer">All trademarks and logos are the property of their respective owners. Our service utilizes products and facilities from the brands shown above.</p>
+    <p class="ticker-disclaimer">All trademarks and logos are the property of their respective owners. Their display does not imply endorsement or partnership.</p>
   </div>
 
   <!-- ════════ SERVICES (CORE) ════════ -->
@@ -2965,7 +2965,7 @@
       </div>
 
       <p class="concierge-note fade">
-        上記サービスはExecutive Ashiya会員の特権として手配可能です。ご利用時は実費を申し受けます。
+        上記サービスはExecutive Ashiya会員の特権として手配可能です。<br>ご利用時は実費を申し受けます。
       </p>
     </div>
   </section>
@@ -3130,7 +3130,7 @@
         <div class="track-stat-item">
           <div class="track-stat-num" data-count="0.3" data-suffix="%" data-decimal="true">0</div>
           <span class="track-stat-label">TRAINER ACCEPTANCE</span>
-          <p class="track-stat-sub">年間応募300名超から厳選採用</p>
+          <p class="track-stat-sub">年間応募1,000名超から厳選採用</p>
         </div>
       </div>
 
@@ -3190,7 +3190,7 @@
         <span class="rep-role">EXECUTIVE ASHIYA 代表 / 株式会社ReFit 代表取締役</span>
         <div class="rep-body">
           <p>
-            これまで5,000名以上の方の身体づくりに携わるなかで、ひとつ確信したことがあります。多忙な方ほど、身体の変化に気づくのが遅いということです。
+            私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。その後5,000名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。それは、一人ひとりの生活ごと対話し、寄り添い続ける存在です。
           </p>
           <p>
             経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
@@ -3215,17 +3215,17 @@
       <div class="join-step fade">
         <span class="join-step-num">STEP 01</span>
         <span class="join-step-text">ご入会リクエスト送信</span>
-        <span class="join-step-sub">フォームよりお名前・健康上の関心事をご記入</span>
+        <span class="join-step-sub">フォームよりお名前・必要事項をご記入</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 02</span>
         <span class="join-step-text">担当者よりご連絡</span>
-        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡。料金・プラン内容もこの段階でご説明いたします</span>
+        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡いたします</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 03</span>
         <span class="join-step-text">詳細ヒアリング・ご提案</span>
-        <span class="join-step-sub">健康目標・生活リズム・既往歴をお伺いし、最適なプログラムをご提案します</span>
+        <span class="join-step-sub">健康目標・生活リズム・既往歴をお伺いし、最適なプログラムと料金プランをご提案します</span>
       </div>
       <div class="join-step fade">
         <span class="join-step-num">STEP 04</span>

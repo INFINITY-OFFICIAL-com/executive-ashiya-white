@@ -63,38 +63,42 @@
 
     /* ═══ HERO ═══ */
     .fm-hero {
-      background: var(--ink);
+      background: var(--bg);
       padding: 8rem 2rem;
       text-align: center;
+      border-bottom: 1px solid var(--ink-line);
     }
     .fm-hero-label {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       letter-spacing: 0.4em;
       color: var(--gold);
       margin-bottom: 2rem;
     }
     .fm-hero-title {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      letter-spacing: 0.12em;
-      color: #fff;
-      margin: 0 0 0.6rem;
-    }
-    .fm-hero-ja {
       font-family: var(--serif-jp);
-      font-size: 0.78rem;
-      letter-spacing: 0.45em;
-      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      margin: 0 0 0.8rem;
+    }
+    .fm-hero-en {
       display: block;
+      font-family: var(--serif-en);
+      font-size: 0.82rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
       margin-bottom: 3rem;
     }
+    .fm-hero-ja {
+      display: none;
+    }
     .fm-hero-lead {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       line-height: 2.4;
-      color: rgba(255,255,255,0.6);
+      color: var(--ink);
       letter-spacing: 0.06em;
       max-width: 600px;
       margin: 0 auto;
@@ -125,21 +129,25 @@
       margin-bottom: 1.5rem;
     }
     .fm-title {
-      font-family: var(--serif-en);
+      font-family: var(--serif-jp);
       font-weight: 300;
       font-size: clamp(1.5rem, 3vw, 2.2rem);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       color: var(--ink);
-      margin: 0 0 0.4rem;
+      margin: 0 0 0.6rem;
       text-align: center;
     }
-    .fm-title-ja {
+    .fm-title-en {
       display: block;
-      font-size: 0.74rem;
-      letter-spacing: 0.3em;
-      color: var(--ink-faint);
+      font-family: var(--serif-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      color: var(--ink-soft);
       text-align: center;
       margin-bottom: 4rem;
+    }
+    .fm-title-ja {
+      display: none;
     }
 
     /* ═══ THIS MONTH ═══ */
@@ -173,9 +181,9 @@
     .fm-month-col-title-ja {
       display: block;
       font-family: var(--serif-jp);
-      font-size: 0.68rem;
+      font-size: 0.74rem;
       letter-spacing: 0.15em;
-      color: var(--ink-faint);
+      color: var(--ink);
       margin-bottom: 2rem;
     }
     .fm-month-item {
@@ -194,7 +202,7 @@
     .fm-month-item-title {
       display: block;
       font-family: var(--serif-jp);
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       font-weight: 400;
       letter-spacing: 0.06em;
       color: var(--ink);
@@ -243,9 +251,9 @@
     }
     .fm-contact-sub-ja {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.74rem;
       letter-spacing: 0.15em;
-      color: var(--ink-faint);
+      color: var(--ink);
       margin-bottom: 2.5rem;
     }
 
@@ -261,8 +269,8 @@
     .fm-desk-email:hover { color: var(--gold); }
     .fm-desk-hours {
       display: block;
-      font-size: 0.76rem;
-      color: var(--ink-soft);
+      font-size: 0.82rem;
+      color: var(--ink);
       letter-spacing: 0.06em;
       margin: 0.8rem 0 2.5rem;
     }
@@ -281,8 +289,8 @@
       margin: 0 0 2.5rem;
     }
     .fm-desk-areas li {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
+      font-size: 0.88rem;
+      color: var(--ink);
       letter-spacing: 0.05em;
       line-height: 2.2;
       padding-left: 1rem;
@@ -312,8 +320,8 @@
       margin: 0;
     }
     .fm-desk-examples li {
-      font-size: 0.76rem;
-      color: var(--ink-faint);
+      font-size: 0.82rem;
+      color: var(--ink);
       letter-spacing: 0.04em;
       line-height: 2;
       padding: 0.6rem 0;
@@ -500,8 +508,8 @@
       border-top: 1px solid var(--ink-line);
     }
     .fm-footer-copy {
-      font-size: 0.62rem;
-      color: var(--ink-faint);
+      font-size: 0.68rem;
+      color: var(--ink-soft);
       letter-spacing: 0.08em;
     }
 
@@ -541,8 +549,8 @@
   <!-- ═══ HERO ═══ -->
   <div class="fm-hero">
     <span class="fm-hero-label">MEMBERS ONLY</span>
-    <h1 class="fm-hero-title">For Members</h1>
-    <span class="fm-hero-ja">会 員 様 へ</span>
+    <h1 class="fm-hero-title">会員様へ</h1>
+    <span class="fm-hero-en">For Members</span>
     <p class="fm-hero-lead">
       日頃よりEXECUTIVE ASHIYAをお選びいただき、<br>
       誠にありがとうございます。<br>
@@ -553,8 +561,8 @@
   <!-- ═══ THIS MONTH ═══ -->
   <section class="fm-section">
     <span class="fm-num">MONTHLY UPDATE</span>
-    <h2 class="fm-title">This Month</h2>
-    <span class="fm-title-ja">今 月 の ご 案 内</span>
+    <h2 class="fm-title">今月のご案内</h2>
+    <span class="fm-title-en">This Month</span>
     <span class="fm-month-label">— MAY 2026 —</span>
 
     <div class="fm-month-grid">
@@ -619,8 +627,8 @@
   <!-- ═══ CONTACT FOR MEMBERS ═══ -->
   <section class="fm-section">
     <span class="fm-num">SUPPORT</span>
-    <h2 class="fm-title">Contact for Members</h2>
-    <span class="fm-title-ja">会 員 様 窓 口</span>
+    <h2 class="fm-title">会員様窓口</h2>
+    <span class="fm-title-en">Contact for Members</span>
 
     <div class="fm-contact-grid">
 
