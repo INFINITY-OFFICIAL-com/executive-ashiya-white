@@ -612,7 +612,7 @@
     .section-title-ja {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       letter-spacing: 0.3em;
       color: var(--ink-soft);
       text-align: center;
@@ -1532,7 +1532,7 @@
       margin: 4rem auto 0;
       padding-top: 3rem;
       border-top: 1px solid var(--ink-line);
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       line-height: 2.2;
       color: var(--ink-soft);
       letter-spacing: 0.04em;
@@ -1541,7 +1541,7 @@
     .concierge-note-en {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       color: rgba(0,0,0,0.3);
       margin-top: 0.8rem;
@@ -1557,6 +1557,7 @@
       .concierge-detail-close { top: max(1.2rem, env(safe-area-inset-top, 0px)); right: max(1.2rem, env(safe-area-inset-right, 0px)); width: 44px; height: 44px; }
       .concierge-detail-en { letter-spacing: 0.06em; }
       .concierge-detail-list li { font-size: 0.78rem; }
+      .concierge-note { letter-spacing: 0; font-size: 0.7rem; }
     }
 
     /* ════════ TRACK RECORD ════════ */
@@ -1727,7 +1728,7 @@
     .track-stat-num .small { font-size: 0.4em; color: var(--gold); }
     .track-stat-label {
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.28em;
       color: var(--gold);
       display: block;
@@ -1797,7 +1798,7 @@
     }
     .track-note {
       margin-top: 1.5rem;
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       color: var(--ink-faint);
       letter-spacing: 0.05em;
     }
@@ -1876,7 +1877,7 @@
     .join-step-num {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.32em;
       color: var(--gold);
       margin-bottom: 0.5rem;
@@ -1899,7 +1900,7 @@
     }
     .join-note {
       margin-top: 3rem;
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       color: var(--ink-faint);
       letter-spacing: 0.05em;
       text-align: center;
@@ -1997,7 +1998,7 @@
     }
     .f-links a {
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.22em;
       color: rgba(255, 255, 255, 0.55);
       text-decoration: none;
@@ -2027,7 +2028,7 @@
       margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       line-height: 2.2;
       color: rgba(255, 255, 255, 0.5);
       letter-spacing: 0.05em;
@@ -2040,12 +2041,12 @@
     .f-info a:hover { color: var(--gold); }
     .f-info-company {
       margin-top: 0.8rem;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       color: rgba(255, 255, 255, 0.35);
     }
     .f-copy {
       font-family: var(--serif-en);
-      font-size: 0.58rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       color: rgba(255, 255, 255, 0.35);
       display: block;
@@ -2136,6 +2137,7 @@
       .nav-links-pc { display: none; }
       .nav-cta { display: none; }
       .hamburger { display: flex; }
+      .logo-ja { font-size: 0.62rem; }
       section { padding: 4rem 1.6rem; }
       .track-map { height: 50vh; min-height: 300px; }
       .track-stats { grid-template-columns: 1fr; }
@@ -2147,7 +2149,7 @@
       .join-steps { grid-template-columns: 1fr; }
       .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; padding-bottom: 22vh; }
       .brand-en { font-size: clamp(2.4rem, 6.5vw, 5.2rem); margin-top: 1.5rem; }
-      .catch { margin-top: 2rem; }
+      .catch { margin-top: 2rem; font-size: clamp(1.15rem, 3.8vw, 1.55rem); }
       .hero-cta { position: absolute; bottom: 8.5rem; left: 0; right: 0; margin: 0 auto; width: 240px; padding: 0.75rem 0; text-align: center; }
       .hero-members-link { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
       .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
@@ -2182,8 +2184,7 @@
       font-size: 2.8rem;
       letter-spacing: 0.35em;
       color: var(--gold);
-      opacity: 0;
-      animation: loaderEnIn 1s ease forwards;
+      opacity: 0.7;
     }
     .loader-ja {
       font-family: var(--serif-jp);
@@ -2191,24 +2192,11 @@
       font-size: 0.85rem;
       letter-spacing: 0.45em;
       color: var(--gold);
-      opacity: 0;
-      animation: loaderJaIn 0.8s 0.3s ease forwards;
-    }
-    @keyframes loaderEnIn {
-      0%   { opacity: 0; letter-spacing: 0.15em; }
-      100% { opacity: 0.7; letter-spacing: 0.35em; }
-    }
-    @keyframes loaderJaIn {
-      0%   { opacity: 0; }
-      100% { opacity: 0.5; }
+      opacity: 0.5;
     }
     @media (max-width: 540px) {
       .loader-en { font-size: 1.6rem; letter-spacing: 0.25em; }
       .loader-ja { font-size: 0.7rem; letter-spacing: 0.35em; }
-      @keyframes loaderEnIn {
-        0%   { opacity: 0; letter-spacing: 0.1em; }
-        100% { opacity: 0.7; letter-spacing: 0.25em; }
-      }
     }
 
     /* ════════ BACK TO TOP ════════ */
@@ -2396,7 +2384,7 @@
     }
     .rep-credentials li {
       font-family: var(--serif-en);
-      font-size: 0.56rem;
+      font-size: 0.66rem;
       letter-spacing: 0.14em;
       color: var(--ink-faint);
       padding: 0.35rem 0 0.35rem 1.2rem;
@@ -2418,6 +2406,7 @@
         margin-top: 3rem;
       }
       .rep-photo { max-width: 300px; margin: 0 auto; }
+      .rep-role { font-size: 0.72rem; letter-spacing: 0; }
     }
 
     /* ════════ PRICING OVERVIEW ════════ */
@@ -2466,7 +2455,7 @@
       text-align: left;
     }
     .pricing-card-list li {
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       color: var(--ink-soft);
       line-height: 2;
       letter-spacing: 0.04em;
@@ -2524,7 +2513,7 @@
     }
     .medical-item-label {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       color: var(--ink-soft);
       letter-spacing: 0.08em;
     }
@@ -2563,7 +2552,7 @@
       margin: 0 0 1.5rem;
     }
     .cta-sub {
-      font-size: 0.74rem;
+      font-size: 0.84rem;
       color: var(--ink-soft);
       letter-spacing: 0.06em;
       line-height: 2;
@@ -3676,15 +3665,15 @@
       var items = cards.querySelectorAll('.ie-card');
       var total = items.length;
       var currentIdx = 0;
-      // Each card is 82% + 1rem gap; calculate shift per card
       function goTo(idx) {
         if (idx < 0) idx = total - 1;
         if (idx >= total) idx = 0;
         currentIdx = idx;
-        // 82% of container + gap
-        var shift = currentIdx * 84; // 82% card + ~2% gap
+        var cardWidth = items[0].offsetWidth;
+        var gap = parseFloat(getComputedStyle(cards).gap) || 16;
+        var shift = currentIdx * (cardWidth + gap);
         items.forEach(function(item) {
-          item.style.transform = 'translateX(-' + shift + '%)';
+          item.style.transform = 'translateX(-' + shift + 'px)';
         });
       }
       next.addEventListener('click', function(){ goTo(currentIdx + 1); });

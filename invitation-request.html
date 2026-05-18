@@ -75,7 +75,7 @@
     }
 
     .header-sub {
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       letter-spacing: 0.35em;
       color: var(--ink-soft);
     }
@@ -89,7 +89,7 @@
 
     .page-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       letter-spacing: 0.4em;
       color: var(--gold);
       margin-bottom: 3rem;
@@ -105,7 +105,7 @@
     }
 
     .intro-text {
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       line-height: 2.4;
       color: var(--ink-soft);
       text-align: center;
@@ -126,10 +126,12 @@
     .form-group:nth-child(4) { animation-delay: 0.25s; }
     .form-group:nth-child(5) { animation-delay: 0.3s; }
     .form-group:nth-child(6) { animation-delay: 0.35s; }
+    .form-group:nth-child(7) { animation-delay: 0.4s; }
+    .form-group:nth-child(8) { animation-delay: 0.45s; }
 
     .form-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       letter-spacing: 0.3em;
       color: var(--gold-dark);
       margin-bottom: 0.6rem;
@@ -137,14 +139,14 @@
 
     .form-label {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       letter-spacing: 0.15em;
       color: var(--ink);
       margin-bottom: 0.8rem;
     }
 
     .required {
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       color: var(--gold);
       letter-spacing: 0.1em;
       margin-left: 0.5rem;
@@ -152,7 +154,7 @@
     }
 
     .form-note {
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       color: var(--ink-soft);
       letter-spacing: 0.08em;
       margin-bottom: 0.8rem;
@@ -168,7 +170,7 @@
       border-bottom: 1px solid var(--gold-dark);
       color: var(--ink);
       font-family: 'Noto Serif JP', serif;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 300;
       padding: 0.9rem 1rem;
       outline: none;
@@ -187,7 +189,7 @@
     .form-input::placeholder,
     .form-textarea::placeholder {
       color: var(--ink-faint);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
     }
 
     .form-textarea {
@@ -226,7 +228,7 @@
     }
 
     .submit-note {
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       color: var(--ink-soft);
       letter-spacing: 0.1em;
       line-height: 2;
@@ -248,7 +250,7 @@
       border: 1px solid var(--gold);
       color: var(--gold);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       letter-spacing: 0.45em;
       padding: 1.2rem 4rem;
       cursor: pointer;
@@ -296,8 +298,8 @@
       padding: 1.2rem 1.5rem;
       margin-top: 1.5rem;
       background: rgba(160, 58, 58, 0.06);
-      border: 1px solid rgba(160, 58, 58, 0.2);
-      font-size: 0.65rem;
+      border: 1px solid rgba(160, 58, 58, 0.25);
+      font-size: 0.75rem;
       color: #8B3A3A;
       letter-spacing: 0.08em;
       line-height: 1.8;
@@ -309,7 +311,7 @@
       text-align: center;
       padding: 1.5rem 2rem 0;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       letter-spacing: 0.3em;
       color: var(--gold);
       text-decoration: none;
@@ -326,7 +328,7 @@
 
     .footer-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       letter-spacing: 0.3em;
       color: var(--gold-dark);
     }
@@ -436,14 +438,34 @@
         </select>
       </div>
 
-      <!-- 06: 健康上の課題 -->
+      <!-- 06: ご紹介者名 -->
       <div class="form-group">
         <div class="form-number">06</div>
-        <label class="form-label" for="field-health">現在、解決を望まれている健康上の課題<span class="required">必須</span></label>
-        <div class="form-note">具体的にお書きいただけますと、より適切なご案内が可能です。</div>
-        <textarea id="field-health" name="健康上の課題" class="form-textarea"
-          placeholder="例）睡眠の質が低い、慢性的な疲労感、体重管理、パフォーマンス向上 など"
-          required></textarea>
+        <label class="form-label" for="field-referrer">ご紹介者名<span class="required">必須</span></label>
+        <div class="form-note">ご紹介いただいた方のお名前をお書きください。</div>
+        <input type="text" id="field-referrer" name="ご紹介者名" class="form-input" placeholder="山田 花子" required />
+      </div>
+
+      <!-- 07: ご紹介者との関係 -->
+      <div class="form-group">
+        <div class="form-number">07</div>
+        <label class="form-label" for="field-referrer-relation">ご紹介者との関係<span class="required">必須</span></label>
+        <select id="field-referrer-relation" name="ご紹介者との関係" class="form-select" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="友人・知人">友人・知人</option>
+          <option value="ビジネスパートナー">ビジネスパートナー</option>
+          <option value="家族・親族">家族・親族</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+
+      <!-- 08: ご入会の動機・ご要望 -->
+      <div class="form-group">
+        <div class="form-number">08</div>
+        <label class="form-label" for="field-motivation">ご入会の動機・ご要望</label>
+        <div class="form-note">任意でご記入ください。</div>
+        <textarea id="field-motivation" name="ご入会の動機・ご要望" class="form-textarea"
+          placeholder="例）パフォーマンス向上に関心がある、紹介者から話を聞いて興味を持った など"></textarea>
       </div>
 
       <!-- SUBMIT -->
