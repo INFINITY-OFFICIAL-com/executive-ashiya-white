@@ -314,6 +314,41 @@
       border-color: var(--gold);
     }
 
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-family: var(--serif-en);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--ink-line-strong);
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+      font-family: var(--serif-en);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-faint);
+      transition: color 0.3s, border-color 0.3s, background 0.3s;
+      touch-action: manipulation;
+    }
+    .lang-btn:first-child { border-radius: 2px 0 0 2px; border-right: none; }
+    .lang-btn:last-child  { border-radius: 0 2px 2px 0; }
+    .lang-btn.active {
+      color: var(--ink);
+      background: rgba(28,31,46,0.06);
+      border-color: var(--ink-line-strong);
+    }
+    header.header-hero .lang-btn { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.2); }
+    header.header-hero .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
+    header.scrolled .lang-btn { color: var(--ink-faint); border-color: var(--ink-line-strong); }
+    header.scrolled .lang-btn.active { color: var(--ink); background: rgba(28,31,46,0.06); }
+
     .hamburger {
       display: none;
       width: 28px; height: 18px;
@@ -702,7 +737,7 @@
     .ie-card-date {
       display: block;
       font-family: var(--serif-en);
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       letter-spacing: 0.1em;
       color: var(--ink-faint);
       margin-bottom: 0.5rem;
@@ -1006,7 +1041,7 @@
     .ticker-disclaimer {
       text-align: center;
       font-family: var(--serif-en);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.1em;
       color: rgba(28,31,46,0.55);
@@ -1049,6 +1084,7 @@
       overflow: hidden;
       scroll-snap-align: center;
       border-radius: 0;
+      touch-action: manipulation;
     }
     .benefit-slide-img {
       position: absolute;
@@ -1268,6 +1304,7 @@
       flex-direction: column;
       justify-content: flex-end;
       text-align: left;
+      touch-action: manipulation;
     }
     .concierge-card-bg {
       position: absolute;
@@ -1372,7 +1409,7 @@
       to   { opacity: 1; }
     }
     .concierge-detail.closing {
-      animation: cDetailOverlayOut 0.5s ease forwards;
+      animation: cDetailOverlayOut 0.3s ease forwards;
     }
     @keyframes cDetailOverlayOut {
       from { opacity: 1; }
@@ -1407,6 +1444,7 @@
       padding: 0;
       z-index: 10;
       transition: border-color 0.3s, transform 0.3s;
+      touch-action: manipulation;
     }
     .concierge-detail-close:hover {
       border-color: var(--gold);
@@ -1679,10 +1717,54 @@
     }
     .track-map-label.active { opacity: 1; }
 
-    /* Content below map */
+    /* Content below map — accordion toggle */
+    .track-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 0 auto;
+      padding: 1.2rem 2.4rem;
+      background: none;
+      border: 1px solid var(--ink-line-strong);
+      cursor: pointer;
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--ink-soft);
+      transition: border-color 0.3s, color 0.3s;
+      touch-action: manipulation;
+    }
+    .track-toggle-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .track-toggle-btn svg {
+      width: 12px; height: 12px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      transition: transform 0.3s;
+    }
+    .track-toggle-btn.open svg {
+      transform: rotate(180deg);
+    }
+    .track-toggle-wrap {
+      padding: 2rem 2rem 1.5rem;
+      background: var(--bg);
+      text-align: center;
+    }
     .track-content {
-      padding: 5rem 2rem 4rem;
-      background: var(--bg-cream);
+      padding: 0 2rem 0;
+      background: var(--bg);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+    .track-content.open {
+      max-height: 1200px;
+      padding: 2rem 2rem 4rem;
     }
 
     /* Stats */
@@ -2651,6 +2733,10 @@
         <a class="nav-link" href="/faq">よくある質問</a>
         <a class="nav-link" href="for-members.html">会員ページ</a>
       </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ja" onclick="switchLang('ja')">JP</button>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
       <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -2725,6 +2811,42 @@
               <span class="ie-card-tag">COLUMN</span>
               <span class="ie-card-title">なぜエグゼクティブは「睡眠」に投資するのか</span>
               <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
+            </div>
+          </a>
+          <a href="news/2026-03-18-medical-network.html" class="ie-card fade">
+            <img class="ie-card-img" src="news-medical-facility.webp" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.03.18</span>
+              <span class="ie-card-tag">NEWS</span>
+              <span class="ie-card-title">提携医療機関ネットワークの構築について</span>
+              <span class="ie-card-sub">お客様により包括的なヘルスケアを提供するため、提携医療機関・整骨院・鍼灸院のネットワークを拡充いたしました。</span>
+            </div>
+          </a>
+          <a href="news/2026-03-12-private-training.html" class="ie-card fade">
+            <img class="ie-card-img" src="service-training.jpg" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.03.12</span>
+              <span class="ie-card-tag">COLUMN</span>
+              <span class="ie-card-title">完全出張パーソナルトレーニングの価値</span>
+              <span class="ie-card-sub">ジムに通う時代から、トレーナーが来る時代へ。完全出張パーソナルトレーニングが経営者に選ばれる理由を解説します。</span>
+            </div>
+          </a>
+          <a href="news/2026-03-01-oura-ring-conditioning.html" class="ie-card fade">
+            <img class="ie-card-img" src="conditioning.jpg" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.03.01</span>
+              <span class="ie-card-tag">SERVICE</span>
+              <span class="ie-card-title">Oura Ring連携 24時間コンディションサポート開始</span>
+              <span class="ie-card-sub">Oura Ringデータをもとに、睡眠・心拍変動・活動量を専属トレーナーが24時間モニタリング。日々の体調変化に即時対応します。</span>
+            </div>
+          </a>
+          <a href="news/2026-02-20-nutrition-program.html" class="ie-card fade">
+            <img class="ie-card-img" src="nutrition-design.jpg" alt="" loading="lazy" />
+            <div class="ie-card-body">
+              <span class="ie-card-date">2026.02.20</span>
+              <span class="ie-card-tag">SERVICE</span>
+              <span class="ie-card-title">管理栄養士によるフルオーダー食事管理プログラム提供開始</span>
+              <span class="ie-card-sub">血液検査40項目以上に基づき、管理栄養士が個別の食事プランを設計。毎月の検査結果に応じてプランを最適化します。</span>
             </div>
           </a>
         </div>
@@ -2851,10 +2973,9 @@
   <section id="services">
     <span class="section-label with-rule">SERVICES</span>
     <h2 class="section-title fade">サービス内容</h2>
-    <span class="section-title-ja fade">Core Service</span>
 
     <div class="benefits-carousel" id="benefitsCarousel">
-      <div class="benefit-slide fade" onclick="openConcierge('training')" style="cursor:pointer">
+      <div class="benefit-slide" onclick="openConcierge('training')" style="cursor:pointer">
         <img class="benefit-slide-img" src="service-training.jpg" alt="パーソナルトレーニング" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
@@ -2865,7 +2986,7 @@
         </div>
       </div>
 
-      <div class="benefit-slide fade" onclick="openConcierge('nutrition')" style="cursor:pointer">
+      <div class="benefit-slide" onclick="openConcierge('nutrition')" style="cursor:pointer">
         <img class="benefit-slide-img" src="service-culinary.jpg" alt="栄養設計" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
@@ -2876,7 +2997,7 @@
         </div>
       </div>
 
-      <div class="benefit-slide fade" onclick="openConcierge('monitoring')" style="cursor:pointer">
+      <div class="benefit-slide" onclick="openConcierge('monitoring')" style="cursor:pointer">
         <img class="benefit-slide-img" src="service-consultation.jpg" alt="ボディモニタリング" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
@@ -2887,7 +3008,7 @@
         </div>
       </div>
 
-      <div class="benefit-slide fade" onclick="openConcierge('conditioning')" style="cursor:pointer">
+      <div class="benefit-slide" onclick="openConcierge('conditioning')" style="cursor:pointer">
         <img class="benefit-slide-img" src="service-spa.jpg" alt="コンディショニング" loading="lazy" />
         <div class="benefit-slide-overlay"></div>
         <div class="benefit-slide-text">
@@ -2916,7 +3037,6 @@
     <div class="concierge-inner">
       <span class="section-label with-rule">MEMBER PRIVILEGES</span>
       <h2 class="section-title fade">コンシェルジュサービス</h2>
-      <span class="section-title-ja fade">Exclusive Concierge</span>
 
       <div class="concierge-grid">
         <div class="concierge-card fade" data-concierge="medical" onclick="openConcierge('medical')">
@@ -3104,7 +3224,14 @@
       <div class="track-map-label">ASHIYA, HYOGO — JAPAN</div>
     </div>
 
-    <div class="track-content">
+    <div class="track-toggle-wrap">
+      <button class="track-toggle-btn" id="trackToggle" onclick="toggleTrackContent()">
+        実績を見る
+        <svg viewBox="0 0 14 14"><path d="M2 5 L7 10 L12 5"/></svg>
+      </button>
+    </div>
+
+    <div class="track-content" id="trackContent">
       <div class="track-stats">
         <div class="track-stat-item">
           <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">0</div>
@@ -3164,36 +3291,6 @@
     </div>
   </section>
 
-  <!-- ════════ REPRESENTATIVE ════════ -->
-  <section id="representative">
-    <span class="section-label with-rule">FOUNDER</span>
-    <h2 class="section-title">代表挨拶</h2>
-
-    <div class="rep-inner">
-      <div class="rep-photo">
-        <img src="founder.jpg" alt="福田 泰士" loading="lazy" />
-      </div>
-      <div class="rep-text">
-        <span class="rep-name-ja">福田 泰士</span>
-        <span class="rep-name-en">Taishi Fukuda</span>
-        <span class="rep-role">EXECUTIVE ASHIYA 代表 / 株式会社ReFit 代表取締役</span>
-        <div class="rep-body">
-          <p>
-            私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。その後5,000名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。それは、一人ひとりの生活ごと対話し、寄り添い続ける存在です。
-          </p>
-          <p>
-            経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
-          </p>
-          <p>
-            トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、会員様の健康を長期的にお守りします。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="gold-divider"><hr /></div>
-
   <!-- ════════ HOW TO JOIN ════════ -->
   <section id="how-to-join">
     <span class="section-label with-rule">HOW TO JOIN</span>
@@ -3224,6 +3321,36 @@
     </div>
 
     <p class="join-note fade">※ ご紹介の方は STEP 02 からスタートいただけます</p>
+  </section>
+
+  <div class="gold-divider"><hr /></div>
+
+  <!-- ════════ REPRESENTATIVE ════════ -->
+  <section id="representative">
+    <span class="section-label with-rule">FOUNDER</span>
+    <h2 class="section-title">代表挨拶</h2>
+
+    <div class="rep-inner">
+      <div class="rep-photo">
+        <img src="founder.jpg" alt="福田 泰士" loading="lazy" />
+      </div>
+      <div class="rep-text">
+        <span class="rep-name-ja">福田 泰士</span>
+        <span class="rep-name-en">Taishi Fukuda</span>
+        <span class="rep-role">EXECUTIVE ASHIYA 代表 / 株式会社ReFit 代表取締役</span>
+        <div class="rep-body">
+          <p>
+            私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。その後5,000名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。それは、一人ひとりの生活ごと対話し、寄り添い続ける存在です。
+          </p>
+          <p>
+            経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
+          </p>
+          <p>
+            トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、会員様の健康を長期的にお守りします。
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ════════ CTA FINAL (S-4) ════════ -->
@@ -3559,6 +3686,25 @@
     }
 
 
+    // ════════ TRACK RECORD ACCORDION ════════
+    function toggleTrackContent() {
+      var content = document.getElementById('trackContent');
+      var btn = document.getElementById('trackToggle');
+      if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        btn.classList.remove('open');
+        btn.innerHTML = '実績を見る <svg viewBox="0 0 14 14"><path d="M2 5 L7 10 L12 5"/></svg>';
+      } else {
+        content.classList.add('open');
+        btn.classList.add('open');
+        btn.innerHTML = '閉じる <svg viewBox="0 0 14 14"><path d="M2 5 L7 10 L12 5"/></svg>';
+        // Trigger count-up animations for newly visible stats
+        content.querySelectorAll('[data-count]').forEach(function(el) {
+          countObserver.observe(el);
+        });
+      }
+    }
+
     // ════════ BACK TO TOP BUTTON ════════
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
@@ -3571,6 +3717,200 @@
       });
     }
 
+
+    // ════════ LANGUAGE TOGGLE ════════
+    (function() {
+      var translations = {
+        // Hero
+        '.catch': { ja: '健康寿命を、生涯最大の資産に。', en: 'Your health span — your greatest lifelong asset.' },
+        '.hero-cta': { ja: 'ご入会・お問い合わせ', en: 'Membership Inquiry' },
+        '.hero-members-link': { ja: '会員専用ページ', en: 'Members Page' },
+        // Nav
+        '.nav-links-pc .nav-link:nth-child(1)': { ja: 'サービス', en: 'Services' },
+        '.nav-links-pc .nav-link:nth-child(2)': { ja: '入会の流れ', en: 'How to Join' },
+        '.nav-links-pc .nav-link:nth-child(3)': { ja: 'よくある質問', en: 'FAQ' },
+        '.nav-links-pc .nav-link:nth-child(4)': { ja: '会員ページ', en: 'Members' },
+        // Mobile nav
+        '.mobile-nav a:nth-child(2)': { ja: 'サービス', en: 'Services' },
+        '.mobile-nav a:nth-child(3)': { ja: '実績', en: 'Track Record' },
+        '.mobile-nav a:nth-child(4)': { ja: '入会の流れ', en: 'How to Join' },
+        '.mobile-nav a:nth-child(5)': { ja: 'よくある質問', en: 'FAQ' },
+        '.mobile-nav a:nth-child(6)': { ja: '会員ページ', en: 'Members' },
+        '.mobile-nav a:nth-child(7)': { ja: 'ご入会・お問い合わせ', en: 'Membership Inquiry' },
+        // News
+        '.ie-heading-ja': { ja: 'お知らせ', en: 'News' },
+        '.ie-heading-en': { ja: 'Information', en: 'Information' },
+        '.ie-more': { ja: '一覧を見る', en: 'View All', html: true },
+        // Services
+        '#services .section-title': { ja: 'サービス内容', en: 'Services' },
+        // Service cards
+        '.benefit-slide:nth-child(1) .benefit-slide-title': { ja: 'パーソナルトレーニング', en: 'Personal Training' },
+        '.benefit-slide:nth-child(2) .benefit-slide-title': { ja: '栄養設計', en: 'Nutrition Design' },
+        '.benefit-slide:nth-child(3) .benefit-slide-title': { ja: 'ボディモニタリング', en: 'Body Monitoring' },
+        '.benefit-slide:nth-child(4) .benefit-slide-title': { ja: 'コンディショニング', en: 'Conditioning' },
+        // Concierge
+        '#concierge .section-title': { ja: 'コンシェルジュサービス', en: 'Concierge Services' },
+        '.concierge-note': { ja: '上記サービスはExecutive Ashiya会員の特権として手配可能です。<br>ご利用時は実費を申し受けます。', en: 'The above services are available exclusively to Executive Ashiya members.<br>Actual costs will be charged upon use.', html: true },
+        // Track Record
+        '.track-stat-sub:nth-child(1)': { ja: 'ReFit累計指導クライアント数', en: 'Total clients coached by ReFit' },
+        '#trackToggle': { ja: '実績を見る', en: 'View Track Record', keepSvg: true },
+        '.track-note': { ja: '* 数値は株式会社ReFit（代表・福田）の累計指導実績に基づきます。採用率はNSCA-CSCS・NASM-PES等の上位資格保持を前提とした選考基準です。', en: '* Figures are based on cumulative coaching results by ReFit, Inc. (CEO: Fukuda). Acceptance rate reflects selection criteria requiring advanced certifications such as NSCA-CSCS and NASM-PES.' },
+        '.track-nda-text': { ja: 'すべてのお客様と<a href="confidentiality.html" class="text-link">秘密保持契約</a>を締結。<br>ご利用の事実そのものが外部に知られることはありません。', en: 'We sign a <a href="confidentiality.html" class="text-link">non-disclosure agreement</a> with every client.<br>The very fact of your membership remains completely confidential.', html: true },
+        // Client categories
+        '.track-client-item:nth-child(1) .track-client-ja': { ja: '芸能・宝塚歌劇団関係者', en: 'Entertainment & Takarazuka Revue' },
+        '.track-client-item:nth-child(2) .track-client-ja': { ja: 'プロアスリート・五輪選手帯同', en: 'Professional Athletes & Olympic Support' },
+        '.track-client-item:nth-child(3) .track-client-ja': { ja: '上場企業経営者・役員', en: 'Listed Company Executives' },
+        '.track-client-item:nth-child(4) .track-client-ja': { ja: '開業医・勤務医', en: 'Medical Doctors' },
+        // Philosophy
+        '.philosophy-lead': { ja: '身体の変化に、先手を打つ。', en: 'Stay ahead of your body\'s changes.' },
+        '#philosophy .philosophy-body p:nth-child(1)': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは予防に特化したヘルスケアを提供しています。', en: 'Amid the demands of a busy life, your body changes silently. To prevent it from being too late when you notice, we provide healthcare focused on prevention.' },
+        '#philosophy .philosophy-body p:nth-child(2)': { ja: '血液検査40項目以上に基づく栄養設計、FMS（Functional Movement Screen）による筋骨格の評価、提携医療機関との連携。スポーツ科学・分子栄養学・予防医学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の身体を長期的に守ります。', en: 'Nutrition design based on 40+ blood test markers, musculoskeletal assessment via FMS (Functional Movement Screen), and collaboration with partner medical institutions. Our <a href="method.html" class="text-link">methodology</a> combines sports science, molecular nutrition, and preventive medicine to protect executives\' health long-term.', html: true },
+        // How to Join
+        '#how-to-join .section-title': { ja: '入会までの流れ', en: 'How to Join' },
+        '.join-step:nth-child(1) .join-step-text': { ja: 'ご入会リクエスト送信', en: 'Submit Membership Request' },
+        '.join-step:nth-child(1) .join-step-sub': { ja: 'フォームよりお名前・必要事項をご記入', en: 'Fill in your name and required details via the form' },
+        '.join-step:nth-child(2) .join-step-text': { ja: '担当者よりご連絡', en: 'We Contact You' },
+        '.join-step:nth-child(2) .join-step-sub': { ja: '2営業日以内にメールまたはお電話にてご連絡いたします', en: 'We will reach out by email or phone within 2 business days' },
+        '.join-step:nth-child(3) .join-step-text': { ja: '詳細ヒアリング・ご提案', en: 'Consultation & Proposal' },
+        '.join-step:nth-child(3) .join-step-sub': { ja: '健康目標・生活リズム・既往歴をお伺いし、最適なプログラムと料金プランをご提案します', en: 'We assess your health goals, lifestyle, and medical history to propose the optimal program and pricing' },
+        '.join-step:nth-child(4) .join-step-text': { ja: 'ご契約・プログラム開始', en: 'Contract & Program Start' },
+        '.join-step:nth-child(4) .join-step-sub': { ja: 'NDA締結後、体組成測定・姿勢評価を行い、専属チームがサポートを開始します', en: 'After signing the NDA, we perform body composition and posture assessments, and your dedicated team begins support' },
+        '.join-note': { ja: '※ ご紹介の方は STEP 02 からスタートいただけます', en: '* Referred members may start from STEP 02' },
+        // Representative
+        '#representative .section-title': { ja: '代表挨拶', en: 'Founder\'s Message' },
+        '.rep-role': { ja: 'EXECUTIVE ASHIYA 代表 / 株式会社ReFit 代表取締役', en: 'Founder, EXECUTIVE ASHIYA / CEO, ReFit Inc.' },
+        '.rep-body p:nth-child(1)': { ja: '私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。その後5,000名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。それは、一人ひとりの生活ごと対話し、寄り添い続ける存在です。', en: 'My starting point in the world of physical fitness was my own transformation. Working with over 5,000 clients since then, I learned that knowledge and training alone cannot reach every aspect of health. What\'s needed is someone who engages with each person\'s entire lifestyle and stays by their side.' },
+        '.rep-body p:nth-child(2)': { ja: '経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。', en: 'What systems do business leaders truly need to maintain peak decision-making, focus, and stamina? Executive Ashiya was founded as our answer to that question.' },
+        '.rep-body p:nth-child(3)': { ja: 'トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、会員様の健康を長期的にお守りします。', en: 'We optimize training, nutrition, and medical coordination for each individual, protecting our members\' health for the long term.' },
+        // CTA
+        '.cta-headline': { ja: '健康を生涯にわたり守る、<br>専属チームをお届けします。', en: 'A dedicated team to protect<br>your health for life.', html: true },
+        '.cta-sub': { ja: 'まずはご入会リクエストフォームより、<span class="sp-only"><br></span>お気軽にお問い合わせください。<br>2営業日以内に担当者より直接ご連絡いたします。', en: 'Start with our membership request form —<br>we\'ll contact you directly within 2 business days.', html: true },
+        '.cta-btn': { ja: 'ご入会・お問い合わせ', en: 'Membership Inquiry' },
+        '.cta-faq': { ja: 'サービス内容・医療連携・プライバシーに関する<span class="sp-only"><br></span>ご質問は<a href="/faq">こちら</a>', en: 'Questions about services, medical partnerships, or privacy? <a href="/faq">See FAQ</a>', html: true },
+        // Footer
+        '.f-links a:nth-child(1)': { ja: '会員専用ページ', en: 'Members Page' },
+        '.f-links a:nth-child(5)': { ja: '特定商取引法', en: 'Commercial Transactions Act' },
+        '.f-press': { ja: 'メディア関係者様へ', en: 'For Media' }
+      };
+
+      var currentLang = 'ja';
+      // Restore saved language preference
+      try { var saved = localStorage.getItem('ea-lang'); if (saved === 'en') { setTimeout(function(){ window.switchLang('en'); }, 100); } } catch(e) {}
+
+      window.switchLang = function(lang) {
+        if (lang === currentLang) return;
+        currentLang = lang;
+        try { localStorage.setItem('ea-lang', lang); } catch(e) {}
+
+        // Update button states
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+
+        // Apply translations
+        Object.keys(translations).forEach(function(selector) {
+          var el = document.querySelector(selector);
+          if (!el) return;
+          var t = translations[selector];
+          var text = t[lang];
+          if (!text) return;
+
+          if (t.keepSvg) {
+            var svg = el.querySelector('svg');
+            el.textContent = text + ' ';
+            if (svg) el.appendChild(svg);
+          } else if (t.html) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        });
+
+        // ie-more needs special handling (contains child elements)
+        var ieMore = document.querySelector('.ie-more');
+        if (ieMore) {
+          var circle = ieMore.querySelector('.ie-more-circle');
+          if (circle) {
+            ieMore.childNodes[0].textContent = lang === 'en' ? 'View All ' : '一覧を見る ';
+          }
+        }
+
+        // Track record stat subs (use parent context)
+        var statSubs = document.querySelectorAll('.track-stat-sub');
+        var subTexts = {
+          ja: ['ReFit累計指導クライアント数', 'クライアント満足度', '年間応募1,000名超から厳選採用'],
+          en: ['Total clients coached by ReFit', 'Client satisfaction rate', 'Selected from 1,000+ annual applicants']
+        };
+        statSubs.forEach(function(el, i) {
+          if (subTexts[lang][i]) el.textContent = subTexts[lang][i];
+        });
+
+        // Benefit slide arrows
+        document.querySelectorAll('.benefit-slide-arrow').forEach(function(el) {
+          el.textContent = lang === 'en' ? 'Learn More →' : '詳しく見る →';
+        });
+
+        // Concierge card arrows
+        document.querySelectorAll('.concierge-card-arrow').forEach(function(el) {
+          el.textContent = lang === 'en' ? 'Learn More →' : '詳しく見る →';
+        });
+
+        // News card titles and descriptions
+        var newsTranslations = [
+          { title: { ja: 'EXECUTIVE ASHIYA 正式サービス開始のお知らせ', en: 'EXECUTIVE ASHIYA Official Service Launch' },
+            sub: { ja: '完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。', en: 'Launching our fully mobile healthcare concierge service in the Ashiya, Kobe, and Osaka areas from June 1, 2026.' } },
+          { title: { ja: '提携医療ネットワーク拡充のお知らせ — 関西圏30施設体制へ', en: 'Medical Network Expansion — Now 30 Facilities in Kansai' },
+            sub: { ja: '人間ドック・PET-CT・再生医療クリニックを新たに追加。会員様の医療アクセスがさらに充実します。', en: 'Added comprehensive health checkups, PET-CT, and regenerative medicine clinics. Enhanced medical access for members.' } },
+          { title: { ja: '5月度オーダーメイドサプリメント処方受付開始', en: 'May Custom Supplement Prescriptions Now Open' },
+            sub: { ja: '血液検査データに基づく個別処方を毎月更新。今月の注目成分はNMN・グルタチオン。', en: 'Monthly personalized prescriptions based on blood test data. Featured ingredients: NMN & Glutathione.' } },
+          { title: { ja: 'なぜエグゼクティブは「睡眠」に投資するのか', en: 'Why Executives Invest in Sleep' },
+            sub: { ja: 'Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。', en: 'Analyzing executive sleep patterns through Oura Ring data and their impact on performance.' } },
+          { title: { ja: '提携医療機関ネットワークの構築について', en: 'Building Our Partner Medical Network' },
+            sub: { ja: 'お客様により包括的なヘルスケアを提供するため、提携医療機関・整骨院・鍼灸院のネットワークを拡充いたしました。', en: 'Expanding our network of partner medical facilities, orthopedic clinics, and acupuncture clinics for comprehensive healthcare.' } },
+          { title: { ja: '完全出張パーソナルトレーニングの価値', en: 'The Value of Fully Mobile Personal Training' },
+            sub: { ja: 'ジムに通う時代から、トレーナーが来る時代へ。完全出張パーソナルトレーニングが経営者に選ばれる理由を解説します。', en: 'From going to the gym to the trainer coming to you. Why executives choose fully mobile personal training.' } },
+          { title: { ja: 'Oura Ring連携 24時間コンディションサポート開始', en: 'Oura Ring Integration: 24/7 Conditioning Support Launched' },
+            sub: { ja: 'Oura Ringデータをもとに、睡眠・心拍変動・活動量を専属トレーナーが24時間モニタリング。日々の体調変化に即時対応します。', en: 'Your dedicated trainer monitors sleep, HRV, and activity data via Oura Ring around the clock, responding to daily condition changes immediately.' } },
+          { title: { ja: '管理栄養士によるフルオーダー食事管理プログラム提供開始', en: 'Full-Order Nutrition Program by Registered Dietitians Launched' },
+            sub: { ja: '血液検査40項目以上に基づき、管理栄養士が個別の食事プランを設計。毎月の検査結果に応じてプランを最適化します。', en: 'Registered dietitians design personalized meal plans based on 40+ blood test markers, optimizing monthly based on results.' } }
+        ];
+        document.querySelectorAll('.ie-card').forEach(function(card, i) {
+          if (newsTranslations[i]) {
+            var title = card.querySelector('.ie-card-title');
+            var sub = card.querySelector('.ie-card-sub');
+            if (title) title.textContent = newsTranslations[i].title[lang];
+            if (sub) sub.textContent = newsTranslations[i].sub[lang];
+          }
+        });
+
+        // Concierge card labels
+        var conciergeLabels = [
+          { ja: '医 療 ア ク セ ス', en: 'Medical Access' },
+          { ja: '美 容 ・ ボ デ ィ ケ ア', en: 'Aesthetic & Body Care' },
+          { ja: '食 ・ 栄 養', en: 'Culinary & Nutrition' }
+        ];
+        document.querySelectorAll('.concierge-card-ja').forEach(function(el, i) {
+          if (conciergeLabels[i]) el.textContent = conciergeLabels[i][lang];
+        });
+
+        // Footer
+        var fInfo = document.querySelector('.f-info');
+        if (fInfo) {
+          var fEmail = fInfo.querySelector('a[href*="mailto"]');
+          var fCompany = fInfo.querySelector('.f-info-company');
+          var fCompanyLink = fCompany ? fCompany.querySelector('a') : null;
+          if (fEmail) {
+            fInfo.childNodes[0].textContent = lang === 'en' ? 'Ashiya, Hyogo, Japan | ' : '兵庫県芦屋市 ｜ ';
+          }
+          if (fCompany && fCompanyLink) {
+            fCompany.childNodes[0].textContent = lang === 'en' ? 'Operated by ReFit, Inc. | ' : '運営：株式会社ReFit ｜ ';
+          }
+        }
+
+        // html lang attribute
+        document.documentElement.lang = lang === 'en' ? 'en' : 'ja';
+      };
+    })();
 
     // ════════ CONCIERGE DETAIL MODAL ════════
     function openConcierge(id) {
@@ -3589,7 +3929,7 @@
       setTimeout(() => {
         panel.classList.remove('open', 'closing');
         panel.style.display = 'none';
-      }, 500);
+      }, 300);
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -3600,7 +3940,7 @@
           setTimeout(() => {
             p.classList.remove('open', 'closing');
             p.style.display = 'none';
-          }, 500);
+          }, 300);
         });
       }
     });
