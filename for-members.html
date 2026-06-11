@@ -401,15 +401,16 @@
 
     /* ═══ MEMBERS GATE MODAL ═══ */
     .fm-gate-overlay {
-      display: none;
+      display: flex;
       position: fixed;
       inset: 0;
       z-index: 10000;
       justify-content: center;
       align-items: center;
-      background: rgba(8,10,16,0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(8,10,16,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: fmFadeIn 0.4s ease forwards;
     }
     .fm-gate-overlay.open {
       display: flex;
@@ -694,12 +695,11 @@
   <!-- ═══ MEMBERS GATE MODAL ═══ -->
   <div class="fm-gate-overlay" id="fm-gate">
     <div class="fm-gate-panel">
-      <button class="fm-gate-close" onclick="closeGate()" aria-label="閉じる"></button>
       <span class="fm-gate-icon">MEMBERS ONLY</span>
-      <p class="fm-gate-message">会員様専用コンテンツです</p>
+      <p class="fm-gate-message">会員様専用ページ</p>
       <p class="fm-gate-sub">
-        こちらの情報は会員様のみご覧いただけます。<br>
-        ログインしてご確認ください。
+        こちらは会員様専用のページです。<br>
+        ご登録のメールアドレスとパスワードでログインしてください。
       </p>
       <form class="fm-gate-form" id="fm-gate-form" novalidate>
         <div class="fm-login-group">
@@ -717,28 +717,8 @@
   </div>
 
   <script>
-    // Gate modal
-    function openGate() {
-      var gate = document.getElementById('fm-gate');
-      gate.classList.remove('closing');
-      gate.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeGate() {
-      var gate = document.getElementById('fm-gate');
-      gate.classList.add('closing');
-      document.body.style.overflow = '';
-      setTimeout(function() {
-        gate.classList.remove('open', 'closing');
-        document.getElementById('fm-gate-error').style.display = 'none';
-      }, 350);
-    }
-    document.getElementById('fm-gate').addEventListener('click', function(e) {
-      if (e.target === this) closeGate();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeGate();
-    });
+    // Gate modal - always shown, not closeable
+    document.body.style.overflow = 'hidden';
 
     // Gate form submit
     document.getElementById('fm-gate-form').addEventListener('submit', function(e) {
@@ -758,5 +738,6 @@
   </script>
 
   <script src="lang-toggle.js"></script>
+<script src="/site-password.js"></script>
 </body>
 </html>
