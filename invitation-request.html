@@ -377,9 +377,10 @@
     <div class="page-title">ご入会リクエスト</div>
 
     <p class="intro-text">
-      EXECUTIVE ASHIYAは完全招待制にてご案内しております。<br>
-      以下のフォームよりご入会のご意向をお知らせください。<br>
-      内容を確認のうえ、代表・福田より直接ご連絡を差し上げます。
+      EXECUTIVE ASHIYAは完全会員制にてご案内しております。<br>
+      現在、第1期の募集枠は満員となっております。<br>
+      ウェイティングリストへのご登録は以下のフォームよりお願いいたします。<br>
+      空きが出次第、代表・福田より直接ご連絡を差し上げます。
     </p>
 
     <form name="invitation-request" method="POST" action="/invitation-thanks.html"
@@ -441,16 +442,16 @@
       <!-- 06: ご紹介者名 -->
       <div class="form-group">
         <div class="form-number">06</div>
-        <label class="form-label" for="field-referrer">ご紹介者名<span class="required">必須</span></label>
-        <div class="form-note">ご紹介いただいた方のお名前をお書きください。</div>
-        <input type="text" id="field-referrer" name="ご紹介者名" class="form-input" placeholder="山田 花子" required />
+        <label class="form-label" for="field-referrer">ご紹介者名</label>
+        <div class="form-note">ご紹介いただいた方がいらっしゃる場合のみご記入ください。</div>
+        <input type="text" id="field-referrer" name="ご紹介者名" class="form-input" placeholder="山田 花子" />
       </div>
 
       <!-- 07: ご紹介者との関係 -->
       <div class="form-group">
         <div class="form-number">07</div>
-        <label class="form-label" for="field-referrer-relation">ご紹介者との関係<span class="required">必須</span></label>
-        <select id="field-referrer-relation" name="ご紹介者との関係" class="form-select" required>
+        <label class="form-label" for="field-referrer-relation">ご紹介者との関係</label>
+        <select id="field-referrer-relation" name="ご紹介者との関係" class="form-select">
           <option value="" disabled selected>選択してください</option>
           <option value="友人・知人">友人・知人</option>
           <option value="ビジネスパートナー">ビジネスパートナー</option>
@@ -489,7 +490,7 @@
   <a href="/" class="back-link">&larr; BACK TO TOP</a>
 
   <footer class="footer">
-    <div class="footer-text">&copy; EXECUTIVE ASHIYA — 株式会社REFIT</div>
+    <div class="footer-text">&copy; EXECUTIVE ASHIYA — 株式会社ReFit</div>
   </footer>
 
 <script>
