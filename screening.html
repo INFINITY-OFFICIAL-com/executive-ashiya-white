@@ -714,12 +714,19 @@
 </div>
 
 <script>
-  const CORRECT_PASSWORD = '48291736';
+  const HASH = '6ed79eeac110f54d0cbfbcea581d7953547b6e17f953c4a6fcf1365e8f2ad910';
 
-  function checkPassword() {
+  async function sha256(str) {
+    const buf = new TextEncoder().encode(str);
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function checkPassword() {
     const input = document.getElementById('pw-input').value;
     const error = document.getElementById('pw-error');
-    if (input === CORRECT_PASSWORD) {
+    const hashed = await sha256(input);
+    if (hashed === HASH) {
       document.getElementById('password-screen').style.opacity = '0';
       document.getElementById('password-screen').style.transition = 'opacity 0.6s';
       setTimeout(() => {

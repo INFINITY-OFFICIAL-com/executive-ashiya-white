@@ -176,7 +176,7 @@ doc.font(fontRegular)
    .fontSize(9)
    .fillColor(inkSoft)
    .text(
-     '株式会社ReFit\n〒530-0001 大阪府大阪市北区梅田1-1-3 大阪駅前第3ビル29階\nTEL: 080-7690-5653\nMail: info@executive-ashiya.com\nWeb: https://executive-ashiya.com',
+     '株式会社ReFit\n〒530-0001 大阪府大阪市北区梅田1-1-3 大阪駅前第3ビル29階\nMail: info@executive-ashiya.com\nWeb: https://executive-ashiya.com',
      60, contactInfoY, { width: doc.page.width - 120, lineGap: 6 }
    );
 

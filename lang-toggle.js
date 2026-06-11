@@ -353,7 +353,7 @@
       var title = document.querySelector('.form-title');
       if (title) title.textContent = lang === 'en' ? 'Membership Request' : 'ご入会リクエスト';
       var intro = document.querySelector('.form-intro');
-      if (intro) intro.textContent = lang === 'en' ? 'EXECUTIVE ASHIYA operates on an invitation-only basis. Please submit your interest through the form below. Representative Fukuda will contact you directly after review.' : 'EXECUTIVE ASHIYAは完全招待制にてご案内しております。以下のフォームよりご入会のご意向をお知らせください。内容を確認のうえ、代表・福田より直接ご連絡を差し上げます。';
+      if (intro) intro.textContent = lang === 'en' ? 'EXECUTIVE ASHIYA operates on a members-only basis. Please submit your interest through the form below. Representative Fukuda will contact you directly after review.' : 'EXECUTIVE ASHIYAは完全会員制にてご案内しております。以下のフォームよりご入会のご意向をお知らせください。内容を確認のうえ、代表・福田より直接ご連絡を差し上げます。';
       return;
     }
 
