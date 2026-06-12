@@ -350,10 +350,74 @@
 
     // ═══ INVITATION REQUEST ═══
     if (pageKey === 'invitation-request') {
-      var title = document.querySelector('.form-title');
-      if (title) title.textContent = lang === 'en' ? 'Membership Request' : 'ご入会リクエスト';
-      var intro = document.querySelector('.form-intro');
-      if (intro) intro.textContent = lang === 'en' ? 'EXECUTIVE ASHIYA operates on a members-only basis. Please submit your interest through the form below. Representative Fukuda will contact you directly after review.' : 'EXECUTIVE ASHIYAは完全会員制にてご案内しております。以下のフォームよりご入会のご意向をお知らせください。内容を確認のうえ、代表・福田より直接ご連絡を差し上げます。';
+      var title = document.querySelector('.page-title');
+      if (title) title.textContent = lang === 'en' ? 'Waiting List Registration' : '\u30A6\u30A7\u30A4\u30C6\u30A3\u30F3\u30B0\u30EA\u30B9\u30C8\u767B\u9332';
+      var intro = document.querySelector('.intro-text');
+      if (intro) intro.innerHTML = lang === 'en'
+        ? 'EXECUTIVE ASHIYA is a members-only<br>private healthcare concierge for executives.<br>The first cohort is now full.<br>We will contact you as soon as a spot becomes available.'
+        : 'EXECUTIVE ASHIYA\u306F\u3001\u7D4C\u55B6\u8005\u306E\u5065\u5EB7\u3092\u9577\u671F\u7684\u306B\u304A\u5B88\u308A\u3059\u308B<br>\u5B8C\u5168\u4F1A\u54E1\u5236\u306E\u30D8\u30EB\u30B9\u30B1\u30A2\u30B3\u30F3\u30B7\u30A7\u30EB\u30B8\u30E5\u3067\u3059\u3002<br>\u7B2C1\u671F\u4F1A\u54E1\u67A0\u306F\u6E80\u54E1\u306B\u3066\u7DE0\u3081\u5207\u3089\u305B\u3066\u3044\u305F\u3060\u304D\u307E\u3057\u305F\u3002<br>\u6B21\u671F\u52DF\u96C6\u306E\u969B\u3001\u512A\u5148\u7684\u306B\u3054\u6848\u5185\u3044\u305F\u3057\u307E\u3059\u3002';
+      // Form labels
+      var labels = document.querySelectorAll('.form-label');
+      var labelsJa = ['\u6C0F\u540D','\u6027\u5225','\u5E74\u9F62\u5C64','\u3054\u8077\u696D\u30FB\u5F79\u8077','\u4F1A\u793E\u540D\u30FB\u5C4B\u53F7','\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9','\u96FB\u8A71\u756A\u53F7','\u5C45\u4F4F\u30A8\u30EA\u30A2','\u73FE\u5728\u306E\u5065\u5EB7\u7FD2\u6163','\u73FE\u5728\u53D6\u308A\u7D44\u3093\u3067\u3044\u308B\u3082\u306E\u304C\u3042\u308C\u3070\u3001\u3059\u3079\u3066\u304A\u9078\u3073\u304F\u3060\u3055\u3044\u3002','\u3054\u7D39\u4ECB\u8005\u540D','\u3054\u7D39\u4ECB\u8005\u3068\u306E\u95A2\u4FC2','\u3054\u5165\u4F1A\u306E\u52D5\u6A5F\u30FB\u3054\u8981\u671B','\u79D8\u5BC6\u4FDD\u6301\u3078\u306E\u540C\u610F'];
+      var labelsEn = ['Full Name','Gender','Age Group','Occupation / Title','Company Name','Email Address','Phone Number','Area of Residence','Current Health Habits','Please select all that currently apply.','Referrer Name','Relationship with Referrer','Reason for Interest','Confidentiality Agreement'];
+      labels.forEach(function(el, i) {
+        if (i < labelsEn.length) {
+          var req = el.querySelector('.required');
+          el.textContent = lang === 'en' ? labelsEn[i] : labelsJa[i];
+          if (req) { el.appendChild(document.createTextNode(' ')); el.appendChild(req); }
+        }
+      });
+      // Submit button
+      var submitSpan = document.querySelector('.submit-btn span');
+      if (submitSpan) submitSpan.textContent = lang === 'en' ? 'Submit Request' : '\u30EA\u30AF\u30A8\u30B9\u30C8\u3092\u9001\u4FE1\u3059\u308B';
+      // Submit note
+      var submitNote = document.querySelector('.submit-note');
+      if (submitNote) submitNote.innerHTML = lang === 'en'
+        ? 'All applications are personally reviewed by our representative.<br>You will hear from us within 2 business days.<br><a href="privacy.html">Privacy Policy</a>'
+        : '\u3059\u3079\u3066\u306E\u304A\u7533\u3057\u8FBC\u307F\u306B\u5BFE\u3057\u3001\u4EE3\u8868\u30FB\u798F\u7530\u304C\u76F4\u63A5\u78BA\u8A8D\u3092\u884C\u3044\u307E\u3059\u3002<br>2\u55B6\u696D\u65E5\u4EE5\u5185\u306B\u3054\u9023\u7D61\u3092\u5DEE\u3057\u4E0A\u3052\u307E\u3059\u3002<br><a href="privacy.html">\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC</a>';
+      // Checkbox text (consent)
+      var chkSpan = document.querySelector('.form-group:last-of-type .form-checkbox span');
+      if (chkSpan) chkSpan.textContent = lang === 'en' ? 'I agree and wish to register' : '\u4E0A\u8A18\u306B\u540C\u610F\u306E\u3046\u3048\u3001\u767B\u9332\u3057\u307E\u3059';
+      // Required badge text
+      var reqs = document.querySelectorAll('.required');
+      reqs.forEach(function(r){ r.textContent = lang === 'en' ? 'Required' : '\u5FC5\u9808'; });
+      // Form notes
+      var notes = document.querySelectorAll('.form-note');
+      var notesJa = ['\u6CD5\u4EBA\u306B\u6240\u5C5E\u3055\u308C\u3066\u3044\u308B\u5834\u5408\u306E\u307F\u3054\u8A18\u5165\u304F\u3060\u3055\u3044\u3002','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u3044\u305F\u65B9\u304C\u3044\u3089\u3063\u3057\u3083\u308B\u5834\u5408\u306E\u307F\u3054\u8A18\u5165\u304F\u3060\u3055\u3044\u3002','\u4EFB\u610F\u3067\u3054\u8A18\u5165\u304F\u3060\u3055\u3044\u3002','\u3054\u767B\u9332\u5185\u5BB9\u306F\u53B3\u91CD\u306B\u7BA1\u7406\u3057\u3001\u3054\u5165\u4F1A\u306B\u95A2\u3059\u308B\u3054\u6848\u5185\u4EE5\u5916\u306E\u76EE\u7684\u306B\u306F\u4E00\u5207\u4F7F\u7528\u3044\u305F\u3057\u307E\u305B\u3093\u3002'];
+      var notesEn = ['Please fill in only if you are affiliated with a company.','Please fill in only if you have a referrer.','Optional.','Your information is strictly managed and will never be used for purposes other than membership-related communications.'];
+      notes.forEach(function(el, i){ if(i < notesEn.length) el.textContent = lang === 'en' ? notesEn[i] : notesJa[i]; });
+      // Health habit checkboxes
+      var hcSpans = document.querySelectorAll('.form-checks .form-checkbox span');
+      var hcJa = ['\u5B9A\u671F\u7684\u306A\u904B\u52D5\u30FB\u30C8\u30EC\u30FC\u30CB\u30F3\u30B0','\u98DF\u4E8B\u7BA1\u7406\u30FB\u6804\u990A\u6307\u5C0E','\u5B9A\u671F\u5065\u5EB7\u8A3A\u65AD\u30FB\u4EBA\u9593\u30C9\u30C3\u30AF','\u30B5\u30D7\u30EA\u30E1\u30F3\u30C8\u30FB\u4E88\u9632\u533B\u7642','\u7761\u7720\u6539\u5584\u30FB\u30B9\u30C8\u30EC\u30B9\u7BA1\u7406','\u7279\u306B\u306A\u3057'];
+      var hcEn = ['Regular Exercise / Training','Nutrition / Diet Management','Regular Health Checkups','Supplements / Preventive Care','Sleep / Stress Management','None'];
+      hcSpans.forEach(function(el, i){ if(i < hcEn.length) el.textContent = lang === 'en' ? hcEn[i] : hcJa[i]; });
+      // Select options
+      var selDefault = lang === 'en' ? 'Please select' : '\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044';
+      document.querySelectorAll('.form-select option[disabled]').forEach(function(o){ o.textContent = selDefault; });
+      // Gender
+      var gOpts = document.querySelectorAll('#field-gender option:not([disabled])');
+      var gJa = ['\u7537\u6027','\u5973\u6027','\u56DE\u7B54\u3057\u306A\u3044']; var gEn = ['Male','Female','Prefer not to say'];
+      gOpts.forEach(function(o,i){ if(i<gEn.length) o.textContent = lang==='en' ? gEn[i] : gJa[i]; });
+      // Age
+      var aOpts = document.querySelectorAll('#field-age option:not([disabled])');
+      var aJa = ['20\u4EE3','30\u4EE3','40\u4EE3','50\u4EE3','60\u4EE3\u4EE5\u4E0A']; var aEn = ['20s','30s','40s','50s','60+'];
+      aOpts.forEach(function(o,i){ if(i<aEn.length) o.textContent = lang==='en' ? aEn[i] : aJa[i]; });
+      // Area
+      var arOpts = document.querySelectorAll('#field-area option:not([disabled])');
+      var arJa = ['\u82A6\u5C4B\u5E02','\u897F\u5BAE\u5E02','\u5B9D\u585A\u5E02','\u795E\u6238\u5E02','\u5927\u962A\u5E9C','\u4EAC\u90FD\u5E9C','\u95A2\u6771','\u305D\u306E\u4ED6'];
+      var arEn = ['Ashiya','Nishinomiya','Takarazuka','Kobe','Osaka','Kyoto','Kanto','Other'];
+      arOpts.forEach(function(o,i){ if(i<arEn.length) o.textContent = lang==='en' ? arEn[i] : arJa[i]; });
+      // Referrer relation
+      var rrOpts = document.querySelectorAll('#field-referrer-relation option:not([disabled])');
+      var rrJa = ['\u53CB\u4EBA\u30FB\u77E5\u4EBA','\u30D3\u30B8\u30CD\u30B9\u30D1\u30FC\u30C8\u30CA\u30FC','\u5BB6\u65CF\u30FB\u89AA\u65CF','\u305D\u306E\u4ED6'];
+      var rrEn = ['Friend / Acquaintance','Business Partner','Family / Relative','Other'];
+      rrOpts.forEach(function(o,i){ if(i<rrEn.length) o.textContent = lang==='en' ? rrEn[i] : rrJa[i]; });
+      // Placeholders
+      var ph = { 'field-name': ['Taro Yamada','\u5C71\u7530 \u592A\u90CE'], 'field-occupation': ['e.g. CEO, Doctor, Attorney','\u4F8B\uFF09\u4F1A\u793E\u7D4C\u55B6\u3001\u533B\u5E2B\u3001\u5F01\u8B77\u58EB \u306A\u3069'], 'field-company': ['Company Name','\u682A\u5F0F\u4F1A\u793E\u3007\u3007'], 'field-referrer': ['Hanako Yamada','\u5C71\u7530 \u82B1\u5B50'], 'field-motivation': ['e.g. Interested in performance improvement, heard about it from a referrer','\u4F8B\uFF09\u30D1\u30D5\u30A9\u30FC\u30DE\u30F3\u30B9\u5411\u4E0A\u306B\u95A2\u5FC3\u304C\u3042\u308B\u3001\u7D39\u4ECB\u8005\u304B\u3089\u8A71\u3092\u805E\u3044\u3066\u8208\u5473\u3092\u6301\u3063\u305F \u306A\u3069'] };
+      Object.keys(ph).forEach(function(id){ var el=document.getElementById(id); if(el) el.placeholder = lang==='en' ? ph[id][0] : ph[id][1]; });
+      // Error message
+      var formErr = document.getElementById('form-error');
+      if (formErr) formErr.textContent = lang === 'en' ? 'Submission failed. Please try again later.' : '\u9001\u4FE1\u306B\u5931\u6557\u3057\u307E\u3057\u305F\u3002\u6642\u9593\u3092\u304A\u3044\u3066\u518D\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002';
       return;
     }
 
@@ -454,7 +518,11 @@
           del_: [].map.call(d.querySelectorAll('.fm-desk-examples li'),function(e){return e.textContent;}),
           lf: (d.querySelector('.fm-login-forgot')||{}).innerHTML||'',
           gm: (d.querySelector('.fm-gate-message')||{}).textContent||'',
-          gs: (d.querySelector('.fm-gate-sub')||{}).innerHTML||''
+          gs: (d.querySelector('.fm-gate-sub')||{}).innerHTML||'',
+          gn: (d.querySelector('.fm-gate-nda')||{}).innerHTML||'',
+          gnm: (d.querySelector('.fm-gate-nonmember')||{}).innerHTML||'',
+          ge: '会員情報との一致が確認できませんでした。ご不明な点はコンシェルジュデスクまでお問い合わせください。',
+          ge2: '会員情報との一致が確認できませんでした。ご不明な点はコンシェルジュデスクまでお問い合わせください。'
         };
       }
       var o = window._fmO;
@@ -478,7 +546,10 @@
         d.querySelectorAll('.fm-desk-examples li').forEach(function(e,i){if(dels[i])e.textContent=dels[i];});
         el=d.querySelector('.fm-login-forgot');if(el)el.innerHTML='If you have forgotten your password, please contact the Concierge Desk.<br>We will reissue it after identity verification.';
         el=d.querySelector('.fm-gate-message');if(el)el.textContent='Members-Only Content';
-        el=d.querySelector('.fm-gate-sub');if(el)el.innerHTML='This information is available to members only.<br>Please log in to access.';
+        el=d.querySelector('.fm-gate-sub');if(el)el.innerHTML='Access is restricted to members who have<br>signed a confidentiality agreement.';
+        el=d.querySelector('.fm-gate-nda');if(el)el.innerHTML='All member information is strictly secured.<br>If you have forgotten your password, please contact the Concierge Desk.';
+        el=d.querySelector('.fm-gate-nonmember');if(el)el.innerHTML='Non-members may apply via the <a href="invitation-request.html">Waiting List</a>.';
+        window._fmErrEN = true;
       } else {
         var el=d.querySelector('.fm-hero-title');if(el)el.textContent=o.ht;
         el=d.querySelector('.fm-hero-lead');if(el)el.innerHTML=o.hl;
@@ -493,6 +564,9 @@
         el=d.querySelector('.fm-login-forgot');if(el)el.innerHTML=o.lf;
         el=d.querySelector('.fm-gate-message');if(el)el.textContent=o.gm;
         el=d.querySelector('.fm-gate-sub');if(el)el.innerHTML=o.gs;
+        el=d.querySelector('.fm-gate-nda');if(el)el.innerHTML=o.gn;
+        el=d.querySelector('.fm-gate-nonmember');if(el)el.innerHTML=o.gnm;
+        window._fmErrEN = false;
       }
       return;
     }
@@ -526,6 +600,7 @@
         d.querySelectorAll('.checkbox-item span').forEach(function(e,i){if(cbs[i])e.textContent=cbs[i];});
         el=d.querySelector('.submit-note');if(el)el.innerHTML='A representative will contact you within 3 business days after submission.<br>All information is strictly managed and used solely for screening purposes.';
         el=d.querySelector('.footer-text');if(el)el.textContent='\u00a9 EXECUTIVE ASHIYA \u2014 ReFit, Inc. \u2014 CONFIDENTIAL';
+        window._scLangEN = true;
       } else {
         var el=d.getElementById('pw-error');if(el)el.textContent=o.pe;
         el=d.querySelector('.section-title');if(el)el.textContent=o.st;
@@ -535,6 +610,7 @@
         d.querySelectorAll('.checkbox-item span').forEach(function(e,i){if(o.cb[i]!==undefined)e.textContent=o.cb[i];});
         el=d.querySelector('.submit-note');if(el)el.innerHTML=o.sn;
         el=d.querySelector('.footer-text');if(el)el.textContent=o.ft;
+        window._scLangEN = false;
       }
       return;
     }
@@ -552,10 +628,17 @@
     }
   }
 
+  // Notify site-password overlay of language change
+  function notifySitePw(lang) {
+    if (typeof window._spSetLang === 'function') window._spSetLang(lang);
+  }
+
   // Event listeners
   toggle.querySelectorAll('.ea-lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      switchLang(btn.getAttribute('data-lang'));
+      var l = btn.getAttribute('data-lang');
+      switchLang(l);
+      notifySitePw(l);
     });
   });
 
@@ -563,7 +646,7 @@
   try {
     var saved = localStorage.getItem('ea-lang');
     if (saved === 'en') {
-      setTimeout(function() { switchLang('en'); }, 100);
+      setTimeout(function() { switchLang('en'); notifySitePw('en'); }, 100);
     }
   } catch(e) {}
 })();

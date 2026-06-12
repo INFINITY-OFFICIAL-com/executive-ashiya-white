@@ -2602,19 +2602,138 @@
   <style>
     html.ea-revisit #loader { display: none !important; }
     html.ea-revisit body.loading, html.ea-revisit.loading { overflow: auto; }
-    /* ── LOCKDOWN: ヒーロー以下非表示 ── */
+    /* ── LOCKDOWN: ヒーローオンリーモード ── */
     .info-event-area,
     #services,
     .video-break,
     #concierge,
-    .concierge-detail-modal,
+    .concierge-detail,
     #track-record,
     #philosophy,
     .gold-divider,
     #how-to-join,
     #representative,
     #cta-final,
-    .back-to-top { display: none !important; }
+    .white-to-dark-transition,
+    footer,
+    .back-to-top,
+    .hero-scroll-hint { display: none !important; }
+
+    /* スクロール無効化（Hero 1画面のみ） */
+    html, body {
+      overflow: hidden !important;
+      height: 100vh;
+      height: 100svh;
+    }
+
+    /* PC版もハンバーガーメニューに統一 */
+    .hamburger { display: flex !important; }
+    .nav-links-pc { display: none !important; }
+
+    /* ハンバーガーメニュー内の区切り線 */
+    .mobile-nav-separator {
+      border: none;
+      border-top: 1px solid var(--ink-line);
+      margin: 0.8rem 0;
+    }
+    /* ハンバーガーメニュー内のコピーライト */
+    .mobile-nav-copy {
+      font-family: var(--serif-en);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-faint);
+      padding: 0.4rem 0 0;
+      display: block;
+    }
+    /* ハンバーガーメニュー内の小リンク */
+    .mobile-nav .mobile-nav-sub {
+      font-size: 0.72rem !important;
+      letter-spacing: 0.15em !important;
+      color: var(--ink-faint) !important;
+      border-bottom: none !important;
+      padding: 0.3rem 0 !important;
+    }
+
+    /* サービス定義ライン */
+    .hero-descriptor {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.55);
+      margin: 2rem 0 0;
+      position: relative;
+    }
+    .hero-descriptor::before,
+    .hero-descriptor::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+      vertical-align: middle;
+      margin: 0 1rem;
+    }
+    /* 第1期満員ライン */
+    .hero-cohort {
+      font-family: var(--serif-jp);
+      font-weight: 300;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5);
+      margin: 1.2rem 0 0;
+      position: relative;
+    }
+    @media (max-width: 880px) {
+      .hero-descriptor {
+        font-size: 0.58rem;
+        letter-spacing: 0.25em;
+        margin-top: 1.4rem;
+      }
+      .hero-descriptor::before,
+      .hero-descriptor::after {
+        width: 14px;
+        margin: 0 0.6rem;
+      }
+      .hero-cohort {
+        position: absolute;
+        bottom: 3rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 0.6rem;
+      }
+    }
+
+    /* Hero下端ステータスバー */
+    .hero-status-bar {
+      position: absolute;
+      bottom: 2rem;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      text-align: center;
+      font-family: var(--serif-en);
+      font-size: 0.52rem;
+      letter-spacing: 0.45em;
+      color: rgba(255,255,255,0.3);
+      pointer-events: none;
+      opacity: 0;
+      animation: statusBarIn 1s 3s ease forwards;
+    }
+    @keyframes statusBarIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 880px) {
+      .hero-status-bar {
+        font-size: 0.42rem;
+        letter-spacing: 0.35em;
+        bottom: 1.4rem;
+      }
+    }
   </style>
 </head>
 <body class="loading">
@@ -2643,9 +2762,16 @@
         <span></span><span></span><span></span>
       </button>
     </nav>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー">
+    <nav class="mobile-nav" id="mobile-nav" aria-label="メニュー">
       <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="メニューを閉じる"></button>
       <a href="invitation-request.html" onclick="closeMobileNav()">ウェイティングリスト登録</a>
+      <a href="for-members.html" onclick="closeMobileNav()">会員専用ページ</a>
+      <hr class="mobile-nav-separator" />
+      <a href="mailto:info@executive-ashiya.com" class="mobile-nav-sub" onclick="closeMobileNav()">お問い合わせ</a>
+      <a href="privacy.html" class="mobile-nav-sub" onclick="closeMobileNav()">Privacy Policy</a>
+      <a href="tokushoho.html" class="mobile-nav-sub" onclick="closeMobileNav()">特定商取引法に基づく表記</a>
+      <hr class="mobile-nav-separator" />
+      <span class="mobile-nav-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
     </nav>
   </header>
 
@@ -2657,10 +2783,13 @@
     <div class="hero-text">
       <h1 class="brand-en fade">EXECUTIVE ASHIYA</h1>
       <p class="brand-ja fade">エ グ ゼ ク テ ィ ブ 芦 屋</p>
+      <p class="hero-descriptor fade">Private Healthcare Concierge</p>
       <p class="catch fade">健康寿命を、生涯最大の資産に。</p>
       <a href="invitation-request.html" class="hero-cta fade">ウェイティングリスト登録</a>
+      <p class="hero-cohort fade">第1期：満員 ｜ 現在ウェイティングリスト受付中</p>
       <a href="for-members.html" class="hero-members-link fade">会員専用ページ</a>
     </div>
+    <div class="hero-status-bar">ASHIYA, HYOGO &mdash; MEMBERS ONLY &mdash; EST. 2026</div>
   </section>
 
   <!-- ════════ INFORMATION & EVENT ════════ -->
@@ -3504,11 +3633,11 @@
         // Hero
         '.catch': { ja: '健康寿命を、生涯最大の資産に。', en: 'Your health span — your greatest lifelong asset.' },
         '.hero-cta': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
+        '.hero-cohort': { ja: '第1期：満員 ｜ 現在ウェイティングリスト受付中', en: 'First Cohort: Full ｜ Now accepting via waiting list' },
         '.hero-members-link': { ja: '会員専用ページ', en: 'Members Page' },
         // Footer
-        '.f-links a:nth-child(1)': { ja: '会員専用ページ', en: 'Members Page' },
-        '.f-links a:nth-child(5)': { ja: '特定商取引法', en: 'Commercial Transactions Act' },
-        '.f-press': { ja: 'メディア関係者様へ', en: 'For Media' }
+        '.f-links a:nth-child(2)': { ja: '特定商取引法', en: 'Commercial Transactions Act' },
+        '.f-links a:nth-child(3)': { ja: 'お問い合わせ', en: 'Contact' }
       };
 
       var currentLang = 'ja';
@@ -3616,19 +3745,24 @@
         // Footer
         var fInfo = document.querySelector('.f-info');
         if (fInfo) {
-          var fEmail = fInfo.querySelector('a[href*="mailto"]');
-          var fCompany = fInfo.querySelector('.f-info-company');
-          var fCompanyLink = fCompany ? fCompany.querySelector('a') : null;
-          if (fEmail) {
-            fInfo.childNodes[0].textContent = lang === 'en' ? 'Ashiya, Hyogo, Japan | ' : '兵庫県芦屋市 ｜ ';
-          }
-          if (fCompany && fCompanyLink) {
-            fCompany.childNodes[0].textContent = lang === 'en' ? 'Operated by ReFit, Inc. | ' : '運営：株式会社ReFit ｜ ';
-          }
+          fInfo.textContent = lang === 'en' ? 'Operated by ReFit, Inc.' : '\u904B\u55B6\uFF1A\u682A\u5F0F\u4F1A\u793EReFit';
         }
+
+        // Mobile nav translations
+        var mobileLinks = document.querySelectorAll('.mobile-nav > a');
+        var mobileLabelsJa = ['\u30A6\u30A7\u30A4\u30C6\u30A3\u30F3\u30B0\u30EA\u30B9\u30C8\u767B\u9332', '\u4F1A\u54E1\u5C02\u7528\u30DA\u30FC\u30B8', '\u304A\u554F\u3044\u5408\u308F\u305B', 'Privacy Policy', '\u7279\u5B9A\u5546\u53D6\u5F15\u6CD5\u306B\u57FA\u3065\u304F\u8868\u8A18'];
+        var mobileLabelsEn = ['Join Waiting List', 'Members Page', 'Contact', 'Privacy Policy', 'Commercial Transactions Act'];
+        mobileLinks.forEach(function(el, i) {
+          if (i < mobileLabelsEn.length) {
+            el.textContent = lang === 'en' ? mobileLabelsEn[i] : mobileLabelsJa[i];
+          }
+        });
 
         // html lang attribute
         document.documentElement.lang = lang === 'en' ? 'en' : 'ja';
+
+        // Notify site-password overlay
+        if (typeof window._spSetLang === 'function') window._spSetLang(lang);
       };
     })();
 

@@ -589,18 +589,21 @@
   </footer>
 
 <script>
-  const _hash = '9b54561840720348ca35461bda9efad77b5df86854ddeb729e290ffe4fdb1658';
-  async function sha256(str) {
+  const _t = [atob('OWI1NDU2MTg0MDcyMDM0OGNhMzU0NjFiZGE5ZWZhZDc='), atob('N2I1ZGY4Njg1NGRkZWI3MjllMjkwZmZlNGZkYjE2NTg=')];
+  const _v = function() { return _t[0] + _t[1]; };
+  var _fc = 0;
+  async function _h(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
     return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
   }
   async function checkPassword() {
+    if (_fc >= 5) return;
     const input = document.getElementById('pw-input');
     const error = document.getElementById('pw-error');
     const content = document.getElementById('members-content');
-    const inputHash = await sha256(input.value);
+    const inputHash = await _h(input.value);
 
-    if (inputHash === _hash) {
+    if (inputHash === _v()) {
       error.classList.remove('show');
       document.getElementById('pw-form').style.display = 'none';
       error.style.display = 'none';
@@ -617,7 +620,15 @@
         }, 200);
       }, 600);
     } else {
-      error.classList.add('show');
+      _fc++;
+      if (_fc >= 5) {
+        error.textContent = '\u8907\u6570\u56DE\u306E\u8A8D\u8A3C\u5931\u6557\u3092\u691C\u77E5\u3057\u307E\u3057\u305F\u3002\u3057\u3070\u3089\u304F\u304A\u5F85\u3061\u304F\u3060\u3055\u3044\u3002';
+        error.classList.add('show');
+        document.getElementById('pw-btn').disabled = true;
+        setTimeout(function() { _fc = 0; document.getElementById('pw-btn').disabled = false; error.classList.remove('show'); }, 60000);
+      } else {
+        error.classList.add('show');
+      }
       input.value = '';
       input.focus();
     }

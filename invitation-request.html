@@ -36,7 +36,7 @@
       background: var(--bg);
       color: var(--ink);
       font-family: 'Noto Serif JP', serif;
-      font-weight: 300;
+      font-weight: 400;
       min-height: 100vh;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -129,6 +129,11 @@
     .form-group:nth-child(6) { animation-delay: 0.35s; }
     .form-group:nth-child(7) { animation-delay: 0.4s; }
     .form-group:nth-child(8) { animation-delay: 0.45s; }
+    .form-group:nth-child(9) { animation-delay: 0.5s; }
+    .form-group:nth-child(10) { animation-delay: 0.55s; }
+    .form-group:nth-child(11) { animation-delay: 0.6s; }
+    .form-group:nth-child(12) { animation-delay: 0.65s; }
+    .form-group:nth-child(13) { animation-delay: 0.7s; }
 
     .form-number {
       font-family: 'Cormorant Garamond', serif;
@@ -140,7 +145,8 @@
 
     .form-label {
       display: block;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
+      font-weight: 500;
       letter-spacing: 0.15em;
       color: var(--ink);
       margin-bottom: 0.8rem;
@@ -171,8 +177,8 @@
       border-bottom: 1px solid var(--gold-dark);
       color: var(--ink);
       font-family: 'Noto Serif JP', serif;
-      font-size: 0.85rem;
-      font-weight: 300;
+      font-size: 0.88rem;
+      font-weight: 400;
       padding: 0.9rem 1rem;
       outline: none;
       transition: all 0.3s;
@@ -206,6 +212,33 @@
     .form-select option {
       background: var(--field-bg);
       color: var(--ink);
+    }
+
+    /* ─── CHECKBOX GROUP ─── */
+    .form-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    /* ─── CHECKBOX ─── */
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      cursor: pointer;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+    .form-checkbox input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 0.3rem;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
     /* ─── SUBMIT ─── */
@@ -358,6 +391,20 @@
       .content {
         padding: 3.5rem 1.5rem 4rem;
       }
+      .page-title {
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+        white-space: nowrap;
+      }
+      .page-title::before,
+      .page-title::after {
+        margin: 0 0.5rem;
+      }
+      .intro-text {
+        font-size: 0.82rem;
+        text-align: left;
+        line-height: 2.2;
+      }
       .submit-btn {
         padding: 1.1rem 2.5rem;
         letter-spacing: 0.3em;
@@ -378,10 +425,10 @@
     <div class="page-title">ウェイティングリスト登録</div>
 
     <p class="intro-text">
-      EXECUTIVE ASHIYAは完全会員制にてご案内しております。<br>
-      現在、第1期の募集枠は満員となっております。<br>
-      ウェイティングリストへのご登録は以下のフォームよりお願いいたします。<br>
-      空きが出次第、代表・福田より直接ご連絡を差し上げます。
+      EXECUTIVE ASHIYAは、経営者の健康を長期的にお守りする<br>
+      完全会員制のヘルスケアコンシェルジュです。<br>
+      第1期会員枠は満員にて締め切らせていただきました。<br>
+      次期募集の際、優先的にご案内いたします。
     </p>
 
     <form name="invitation-request" method="POST" action="/invitation-thanks.html"
@@ -409,23 +456,52 @@
         </select>
       </div>
 
-      <!-- 03: メールアドレス -->
+      <!-- 03: 年齢層 -->
       <div class="form-group">
         <div class="form-number">03</div>
+        <label class="form-label" for="field-age">年齢層<span class="required">必須</span></label>
+        <select id="field-age" name="年齢層" class="form-select" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="20代">20代</option>
+          <option value="30代">30代</option>
+          <option value="40代">40代</option>
+          <option value="50代">50代</option>
+          <option value="60代以上">60代以上</option>
+        </select>
+      </div>
+
+      <!-- 04: ご職業・役職 -->
+      <div class="form-group">
+        <div class="form-number">04</div>
+        <label class="form-label" for="field-occupation">ご職業・役職<span class="required">必須</span></label>
+        <input type="text" id="field-occupation" name="ご職業・役職" class="form-input" placeholder="例）会社経営、医師、弁護士 など" required />
+      </div>
+
+      <!-- 05: 会社名 -->
+      <div class="form-group">
+        <div class="form-number">05</div>
+        <label class="form-label" for="field-company">会社名・屋号</label>
+        <div class="form-note">法人に所属されている場合のみご記入ください。</div>
+        <input type="text" id="field-company" name="会社名" class="form-input" placeholder="株式会社〇〇" />
+      </div>
+
+      <!-- 06: メールアドレス -->
+      <div class="form-group">
+        <div class="form-number">06</div>
         <label class="form-label" for="field-email">メールアドレス<span class="required">必須</span></label>
         <input type="email" id="field-email" name="メールアドレス" class="form-input" placeholder="your@email.com" required />
       </div>
 
-      <!-- 04: 電話番号 -->
+      <!-- 07: 電話番号 -->
       <div class="form-group">
-        <div class="form-number">04</div>
+        <div class="form-number">07</div>
         <label class="form-label" for="field-phone">電話番号<span class="required">必須</span></label>
         <input type="tel" id="field-phone" name="電話番号" class="form-input" placeholder="090-1234-5678" required />
       </div>
 
-      <!-- 05: 居住エリア -->
+      <!-- 08: 居住エリア -->
       <div class="form-group">
-        <div class="form-number">05</div>
+        <div class="form-number">08</div>
         <label class="form-label" for="field-area">居住エリア<span class="required">必須</span></label>
         <select id="field-area" name="居住エリア" class="form-select" required>
           <option value="" disabled selected>選択してください</option>
@@ -440,17 +516,32 @@
         </select>
       </div>
 
-      <!-- 06: ご紹介者名 -->
+      <!-- 09: 現在の健康習慣 -->
       <div class="form-group">
-        <div class="form-number">06</div>
+        <div class="form-number">09</div>
+        <label class="form-label" for="field-health">現在の健康習慣<span class="required">必須</span></label>
+        <label class="form-label" style="font-weight:400; font-size:0.78rem; color:var(--ink-soft); margin-bottom:0.5rem;">現在取り組んでいるものがあれば、すべてお選びください。</label>
+        <div class="form-checks">
+          <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="定期的な運動・トレーニング" /><span>定期的な運動・トレーニング</span></label>
+          <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="食事管理・栄養指導" /><span>食事管理・栄養指導</span></label>
+          <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="定期健康診断・人間ドック" /><span>定期健康診断・人間ドック</span></label>
+          <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="サプリメント・予防医療" /><span>サプリメント・予防医療</span></label>
+          <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="睡眠改善・ストレス管理" /><span>睡眠改善・ストレス管理</span></label>
+          <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="特になし" /><span>特になし</span></label>
+        </div>
+      </div>
+
+      <!-- 10: ご紹介者名 -->
+      <div class="form-group">
+        <div class="form-number">10</div>
         <label class="form-label" for="field-referrer">ご紹介者名</label>
         <div class="form-note">ご紹介いただいた方がいらっしゃる場合のみご記入ください。</div>
         <input type="text" id="field-referrer" name="ご紹介者名" class="form-input" placeholder="山田 花子" />
       </div>
 
-      <!-- 07: ご紹介者との関係 -->
+      <!-- 11: ご紹介者との関係 -->
       <div class="form-group">
-        <div class="form-number">07</div>
+        <div class="form-number">11</div>
         <label class="form-label" for="field-referrer-relation">ご紹介者との関係</label>
         <select id="field-referrer-relation" name="ご紹介者との関係" class="form-select">
           <option value="" disabled selected>選択してください</option>
@@ -461,19 +552,31 @@
         </select>
       </div>
 
-      <!-- 08: ご入会の動機・ご要望 -->
+      <!-- 12: ご入会の動機・ご要望 -->
       <div class="form-group">
-        <div class="form-number">08</div>
+        <div class="form-number">12</div>
         <label class="form-label" for="field-motivation">ご入会の動機・ご要望</label>
         <div class="form-note">任意でご記入ください。</div>
         <textarea id="field-motivation" name="ご入会の動機・ご要望" class="form-textarea"
           placeholder="例）パフォーマンス向上に関心がある、紹介者から話を聞いて興味を持った など"></textarea>
       </div>
 
+      <!-- 13: 秘密保持への同意 -->
+      <div class="form-group">
+        <div class="form-number">13</div>
+        <label class="form-label">秘密保持への同意<span class="required">必須</span></label>
+        <div class="form-note">ご登録内容は厳重に管理し、ご入会に関するご案内以外の目的には一切使用いたしません。</div>
+        <label class="form-checkbox">
+          <input type="checkbox" name="秘密保持同意" value="同意する" required />
+          <span>上記に同意のうえ、登録します</span>
+        </label>
+      </div>
+
       <!-- SUBMIT -->
       <div class="submit-wrap">
         <p class="submit-note">
-          ご記入いただいた情報は、ご入会に関するご案内のみに使用いたします。<br>
+          すべてのお申し込みに対し、代表・福田が直接確認を行います。<br>
+          2営業日以内にご連絡を差し上げます。<br>
           <a href="privacy.html">プライバシーポリシー</a>
         </p>
         <button type="submit" class="submit-btn" id="submit-btn">
