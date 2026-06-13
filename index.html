@@ -235,6 +235,85 @@
     header.scrolled .lang-btn { color: var(--ink-faint); border-color: var(--ink-line-strong); }
     header.scrolled .lang-btn.active { color: var(--ink); background: rgba(28,31,46,0.06); }
 
+    /* ── Nav Dropdown ── */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-toggle {
+      font-family: var(--serif-en);
+      font-weight: 400;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: var(--ink-soft);
+      padding: 0.3rem 0;
+      transition: color 0.3s;
+      cursor: pointer;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-dropdown-toggle:hover { color: var(--ink); }
+    .nav-dropdown-toggle svg {
+      width: 8px;
+      height: 8px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      transition: transform 0.3s;
+    }
+    .nav-dropdown.open .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    header.header-hero .nav-dropdown-toggle {
+      color: rgba(255,255,255,0.85);
+    }
+    header.header-hero .nav-dropdown-toggle:hover {
+      color: #fff;
+    }
+    header.scrolled .nav-dropdown-toggle {
+      color: var(--ink-soft);
+    }
+    header.scrolled .nav-dropdown-toggle:hover {
+      color: var(--ink);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.8rem);
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--ink-line);
+      padding: 0.6rem 0;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+      z-index: 200;
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: block;
+      font-family: var(--serif-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-soft);
+      padding: 0.5rem 1.4rem;
+      transition: color 0.3s, background 0.3s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover {
+      color: var(--gold);
+      background: rgba(139, 111, 31, 0.04);
+    }
+
     .hamburger {
       display: none;
       width: 28px; height: 18px;
@@ -257,48 +336,169 @@
 
     .mobile-nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      background: var(--bg);
-      padding: 6rem 2rem 3rem;
-      transform: translateY(-100%);
-      transition: transform 0.5s cubic-bezier(.7,.0,.2,1);
+      inset: 0;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(32px) saturate(1.3);
+      -webkit-backdrop-filter: blur(32px) saturate(1.3);
+      padding: 0;
+      clip-path: circle(0% at calc(100% - 3rem) 2rem);
+      transition: clip-path 0.7s cubic-bezier(0.65, 0, 0.35, 1);
       z-index: 90;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      border-bottom: 1px solid var(--ink-line);
+      justify-content: center;
+      overflow-y: auto;
+      visibility: hidden;
     }
-    .mobile-nav.open { transform: translateY(0); }
+    .mobile-nav.open {
+      clip-path: circle(150% at calc(100% - 3rem) 2rem);
+      visibility: visible;
+    }
+    .mobile-nav.open .mnav-brand,
+    .mobile-nav.open .mnav-main a,
+    .mobile-nav.open .mnav-section a,
+    .mobile-nav.open .mnav-section-label,
+    .mobile-nav.open .mnav-footer {
+      opacity: 1;
+      transform: translateX(0);
+    }
     .mobile-nav-close {
       position: absolute;
-      top: 1.8rem;
-      right: 1.6rem;
-      width: 28px;
-      height: 28px;
+      top: 1.6rem;
+      right: 2.4rem;
+      width: 36px;
+      height: 36px;
       background: none;
       border: none;
       cursor: pointer;
       padding: 0;
+      z-index: 2;
     }
     .mobile-nav-close::before,
     .mobile-nav-close::after {
       content: '';
       position: absolute;
       top: 50%;
-      left: 0;
-      width: 100%;
+      left: 15%;
+      width: 70%;
       height: 1px;
       background: var(--ink);
+      transition: transform 0.3s;
     }
     .mobile-nav-close::before { transform: rotate(45deg); }
     .mobile-nav-close::after { transform: rotate(-45deg); }
-    .mobile-nav a {
+    .mobile-nav-close:hover::before { transform: rotate(135deg); }
+    .mobile-nav-close:hover::after { transform: rotate(45deg); }
+
+    /* Brand header inside menu */
+    .mnav-brand {
+      padding: 0 3.5rem 2.5rem;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .mnav-brand-en {
       font-family: var(--serif-en);
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Main nav links */
+    .mnav-main {
+      padding: 0 3.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .mnav-main a {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-family: var(--serif-jp);
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
       color: var(--ink);
-      padding: 0.6rem 0;
+      padding: 1.2rem 0;
       border-bottom: 1px solid var(--ink-line);
+      text-decoration: none;
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .mnav-main a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .mnav-main a:hover::after { transform: scaleX(1); }
+    .mnav-main a:hover { color: var(--gold); }
+
+    /* Section groups */
+    .mnav-section {
+      padding: 2rem 3.5rem 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .mnav-section-label {
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      margin-bottom: 1rem;
+    }
+    .mnav-section a {
+      font-family: var(--serif-jp);
+      font-size: 0.88rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      padding: 0.65rem 0;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.3s;
+      border: none;
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+    }
+    .mnav-section a::after {
+      content: '';
+      position: absolute;
+      bottom: 0.4rem;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .mnav-section a:hover { color: var(--ink); }
+    .mnav-section a:hover::after { width: 100%; }
+
+    /* Footer */
+    .mnav-footer {
+      padding: 3rem 3.5rem 0;
+      opacity: 0;
+      transform: translateX(15px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     /* ════════ HERO ════════ */
@@ -401,7 +601,7 @@
       font-size: clamp(2.4rem, 4.5vw, 3.8rem);
       letter-spacing: 0.26em;
       color: #fff;
-      margin: 0;
+      margin: 3.5rem 0 0;
       line-height: 1.1;
       position: relative;
     }
@@ -2630,72 +2830,26 @@
     .hamburger { display: flex !important; }
     .nav-links-pc { display: none !important; }
 
-    /* ハンバーガーメニュー内の区切り線 */
-    .mobile-nav-separator {
-      border: none;
-      border-top: 1px solid var(--ink-line);
-      margin: 0.8rem 0;
-    }
     /* ハンバーガーメニュー内のコピーライト */
     .mobile-nav-copy {
       font-family: var(--serif-en);
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
       color: var(--ink-faint);
-      padding: 0.4rem 0 0;
       display: block;
     }
-    /* ハンバーガーメニュー内の小リンク */
-    .mobile-nav .mobile-nav-sub {
-      font-size: 0.72rem !important;
-      letter-spacing: 0.15em !important;
-      color: var(--ink-faint) !important;
-      border-bottom: none !important;
-      padding: 0.3rem 0 !important;
-    }
 
-    /* サービス定義ライン */
-    .hero-descriptor {
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-weight: 300;
-      font-size: 0.68rem;
-      letter-spacing: 0.35em;
-      color: rgba(255,255,255,0.55);
-      margin: 2rem 0 0;
-      position: relative;
-    }
-    .hero-descriptor::before,
-    .hero-descriptor::after {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1px;
-      background: rgba(255,255,255,0.35);
-      vertical-align: middle;
-      margin: 0 1rem;
-    }
     /* 第1期満員ライン */
     .hero-cohort {
       font-family: var(--serif-jp);
       font-weight: 300;
       font-size: 0.68rem;
       letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.5);
+      color: #ffffff !important;
       margin: 1.2rem 0 0;
       position: relative;
     }
     @media (max-width: 880px) {
-      .hero-descriptor {
-        font-size: 0.58rem;
-        letter-spacing: 0.25em;
-        margin-top: 1.4rem;
-      }
-      .hero-descriptor::before,
-      .hero-descriptor::after {
-        width: 14px;
-        margin: 0 0.6rem;
-      }
       .hero-cohort {
         position: absolute;
         bottom: 3rem;
@@ -2753,6 +2907,19 @@
       </a>
       <div class="nav-links-pc">
         <a class="nav-link" href="invitation-request.html">ウェイティングリスト</a>
+        <div class="nav-dropdown" id="navDropdown">
+          <button class="nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-expanded="false">
+            運営情報
+            <svg viewBox="0 0 10 10"><path d="M2 4 L5 7 L8 4"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="transparency.html#operations">運営体制</a>
+            <a href="transparency.html#scope">提供範囲</a>
+            <a href="transparency.html#experts">専門家体制</a>
+            <a href="transparency.html#medical">医療非関与</a>
+            <a href="transparency.html#medical">責任分界</a>
+          </div>
+        </div>
       </div>
       <div class="lang-toggle">
         <button class="lang-btn active" data-lang="ja" onclick="switchLang('ja')">JP</button>
@@ -2764,14 +2931,27 @@
     </nav>
     <nav class="mobile-nav" id="mobile-nav" aria-label="メニュー">
       <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="メニューを閉じる"></button>
-      <a href="invitation-request.html" onclick="closeMobileNav()">ウェイティングリスト登録</a>
-      <a href="for-members.html" onclick="closeMobileNav()">会員専用ページ</a>
-      <hr class="mobile-nav-separator" />
-      <a href="mailto:info@executive-ashiya.com" class="mobile-nav-sub" onclick="closeMobileNav()">お問い合わせ</a>
-      <a href="privacy.html" class="mobile-nav-sub" onclick="closeMobileNav()">Privacy Policy</a>
-      <a href="tokushoho.html" class="mobile-nav-sub" onclick="closeMobileNav()">特定商取引法に基づく表記</a>
-      <hr class="mobile-nav-separator" />
-      <span class="mobile-nav-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
+      <div class="mnav-brand">
+        <span class="mnav-brand-en">EXECUTIVE ASHIYA</span>
+      </div>
+      <div class="mnav-main">
+        <a href="invitation-request.html" onclick="closeMobileNav()" class="mnav-primary">ウェイティングリスト登録</a>
+        <a href="for-members.html" onclick="closeMobileNav()" class="mnav-primary">会員専用ページ</a>
+      </div>
+      <div class="mnav-section">
+        <a href="transparency.html#operations" class="mobile-nav-sub" onclick="closeMobileNav()">運営体制</a>
+        <a href="transparency.html#scope" class="mobile-nav-sub" onclick="closeMobileNav()">提供範囲</a>
+        <a href="transparency.html#experts" class="mobile-nav-sub" onclick="closeMobileNav()">専門家体制</a>
+        <a href="transparency.html#medical" class="mobile-nav-sub" onclick="closeMobileNav()">医療非関与・責任分界</a>
+      </div>
+      <div class="mnav-section">
+        <a href="mailto:info@executive-ashiya.com" class="mobile-nav-sub" onclick="closeMobileNav()">お問い合わせ</a>
+        <a href="privacy.html" class="mobile-nav-sub" onclick="closeMobileNav()">Privacy Policy</a>
+        <a href="tokushoho.html" class="mobile-nav-sub" onclick="closeMobileNav()">特定商取引法に基づく表記</a>
+      </div>
+      <div class="mnav-footer">
+        <span class="mobile-nav-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
+      </div>
     </nav>
   </header>
 
@@ -2783,7 +2963,6 @@
     <div class="hero-text">
       <h1 class="brand-en fade">EXECUTIVE ASHIYA</h1>
       <p class="brand-ja fade">エ グ ゼ ク テ ィ ブ 芦 屋</p>
-      <p class="hero-descriptor fade">Private Healthcare Concierge</p>
       <p class="catch fade">健康寿命を、生涯最大の資産に。</p>
       <a href="invitation-request.html" class="hero-cta fade">ウェイティングリスト登録</a>
       <p class="hero-cohort fade">第1期：満員 ｜ 現在ウェイティングリスト受付中</p>
@@ -2825,8 +3004,8 @@
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.25</span>
               <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">医療アクセスサポート体制拡充のお知らせ</span>
-              <span class="ie-card-sub">人間ドック・PET-CT等の予約代行先を拡充。会員様の医療アクセスがさらに充実します。</span>
+              <span class="ie-card-title">予約・調整サポート体制拡充のお知らせ</span>
+              <span class="ie-card-sub">各種検査・施設等の予約代行先を拡充。会員様のサポート体制がさらに充実します。</span>
             </div>
           </a>
           <a href="news/2026-04-18-supplement-prescription.html" class="ie-card fade">
@@ -2834,8 +3013,8 @@
             <div class="ie-card-body">
               <span class="ie-card-date">2026.04.18</span>
               <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">5月度オーダーメイドサプリメント処方受付開始</span>
-              <span class="ie-card-sub">血液検査データに基づく個別処方を毎月更新。今月の注目成分はNMN・グルタチオン。</span>
+              <span class="ie-card-title">5月度オーダーメイドサプリメント提案受付開始</span>
+              <span class="ie-card-sub">お客様の生活データに基づくサプリメント提案を毎月更新。今月の注目成分はNMN・グルタチオン。</span>
             </div>
           </a>
           <a href="news/2026-04-10-sleep-investment.html" class="ie-card fade">
@@ -2852,8 +3031,8 @@
             <div class="ie-card-body">
               <span class="ie-card-date">2026.03.18</span>
               <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">医療アクセスサポート体制の構築について</span>
-              <span class="ie-card-sub">お客様により包括的なヘルスケアを提供するため、医療機関・整骨院・鍼灸院のご紹介体制を整備いたしました。</span>
+              <span class="ie-card-title">予約・調整サポート体制の構築について</span>
+              <span class="ie-card-sub">お客様により包括的なサポートを提供するため、各種施設のご紹介体制を整備いたしました。</span>
             </div>
           </a>
           <a href="news/2026-03-12-private-training.html" class="ie-card fade">
@@ -2880,7 +3059,7 @@
               <span class="ie-card-date">2026.02.20</span>
               <span class="ie-card-tag">SERVICE</span>
               <span class="ie-card-title">管理栄養士によるフルオーダー食事管理プログラム提供開始</span>
-              <span class="ie-card-sub">血液検査40項目以上に基づき、管理栄養士が個別の食事プランを設計。毎月の検査結果に応じてプランを最適化します。</span>
+              <span class="ie-card-sub">体組成・生活データに基づき、管理栄養士が個別の食事プランを設計。毎月のデータに応じてプランを調整します。</span>
             </div>
           </a>
         </div>
@@ -3022,15 +3201,15 @@
     <div class="concierge-detail-inner">
       <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
       <span class="concierge-detail-num">01</span>
-      <span class="concierge-detail-en">Medical Access</span>
-      <span class="concierge-detail-ja">医 療 ア ク セ ス</span>
+      <span class="concierge-detail-en">Reservation Support</span>
+      <span class="concierge-detail-ja">予 約 ・ 調 整 サ ポ ー ト</span>
       <div class="concierge-detail-line"></div>
       <ul class="concierge-detail-list">
-        <li>関西・首都圏の人間ドック・PET-CT施設の優先予約代行。会員のご希望に応じて最適な施設をご案内いたします</li>
-        <li>遺伝子検査（疾患リスク・薬剤感受性）・腸内フローラ解析・ホルモンパネル等の先端検査を、会員のご要望に応じて手配</li>
-        <li>国内外の専門医によるセカンドオピニオン取得サポート。会員のご状況に応じて適切な専門医をご紹介</li>
-        <li>会員のご関心に応じて、先端医療に関する情報提供およびクリニックのご紹介を行います。施術前後のコンディショニングも一括管理</li>
-        <li>健康診断・血液検査データを専属トレーナーが確認し、トレーニング負荷・栄養プランの最適化に活用</li>
+        <li>会員のご希望に応じた各種施設の予約代行・日程調整</li>
+        <li>会員のご要望に応じた各種検査の手配サポート</li>
+        <li>会員のご状況に応じた各種専門家のご紹介</li>
+        <li>施設やサービスに関する情報提供およびご紹介</li>
+        <li>各種データを専属トレーナーが確認し、トレーニング負荷・栄養プランの調整に活用</li>
       </ul>
     </div>
   </div>
@@ -3048,7 +3227,7 @@
         <li>会員のご希望に応じて、美容鍼・各種施術等を目的別にコーディネート</li>
         <li>国内外のプライベートスパ・リトリート施設（有馬・淡路・京都・沖縄等）の予約代行。ウェルネスプログラム付きステイのご提案</li>
         <li>経験10年以上のボディケアセラピスト（整体・アロマ・リンパドレナージュ）をご自宅・滞在先へ派遣。定期ケアスケジュールも設計</li>
-        <li>皮膚科医・管理栄養士と連携し、体質・肌質・生活習慣に基づくスキンケア＋インナーケアの処方を一元設計</li>
+        <li>専門家と連携し、体質・肌質・生活習慣に基づくスキンケア＋インナーケアの提案を一元設計</li>
       </ul>
     </div>
   </div>
@@ -3063,7 +3242,7 @@
       <div class="concierge-detail-line"></div>
       <ul class="concierge-detail-list">
         <li>関西のミシュラン星付きシェフ（日本料理・フレンチ・イタリアン）によるプライベートダイニングをご自宅へ。記念日・接待利用にも対応</li>
-        <li>管理栄養士が血液検査データ・体組成・生活リズムを踏まえ、減量・筋力増強・抗酸化等の目標別オーダーメイド献立を毎週更新</li>
+        <li>管理栄養士が体組成・生活リズムを踏まえ、減量・筋力増強・抗酸化等の目標別オーダーメイド献立を毎週更新</li>
         <li>全国の契約農家からのオーガニック食材、海外直輸入サプリメント（NMN・グルタチオン等）、機能性食品の調達をワンストップで代行</li>
         <li>神戸・大阪・京都の予約困難店・会員制レストランへの優先予約。ソムリエ手配やプライベートルームの確保も対応</li>
         <li>アレルギー・食事制限（グルテンフリー・ケトジェニック等）に対応した、国内外の旅行先での食事プランニング・レストランリサーチ</li>
@@ -3085,7 +3264,7 @@
         <li>FMS（Functional Movement Screen）による筋骨格の精密評価をもとに、筋力強化・可動域改善・姿勢矯正を目的としたプログラムを設計</li>
         <li>InBody体組成計による定期測定（筋肉量・体脂肪率・部位別バランス）で、プログラムの効果を数値で可視化。毎月レポートをお届け</li>
         <li>セッション以外の日もLINEで運動指導を継続。自宅でできるストレッチ・セルフケアメニューを動画付きでご提供</li>
-        <li>ゴルフ・テニス等のスポーツパフォーマンス向上、腰痛・肩こり等の慢性症状改善にも対応。必要に応じて医療機関と連携し安全性を担保</li>
+        <li>ゴルフ・テニス等のスポーツパフォーマンス向上にも対応。日常的な身体づくりの範囲でサポートいたします</li>
       </ul>
     </div>
   </div>
@@ -3099,8 +3278,8 @@
       <span class="concierge-detail-ja">栄 養 設 計</span>
       <div class="concierge-detail-line"></div>
       <ul class="concierge-detail-list">
-        <li>年2回の血液検査（脂質・肝機能・HbA1c・ホルモン・ビタミン・ミネラル等40項目以上）に基づき、管理栄養士が個別食事プランを作成</li>
-        <li>分子栄養学に基づくオーダーメイドサプリメントを毎月配送。ビタミンD・亜鉛・マグネシウム・オメガ3等を血液データに応じて処方</li>
+        <li>体組成・生活データに基づき、管理栄養士が個別食事プランを作成</li>
+        <li>分子栄養学に基づくオーダーメイドサプリメントを毎月配送。ビタミンD・亜鉛・マグネシウム・オメガ3等を生活データに応じて提案</li>
         <li>食事写真フィードバック＋月次栄養レポートで、日々の食事内容を継続的にモニタリング。外食が多い方にも実践的な改善提案</li>
         <li>減量・筋力増強・抗酸化・腸内環境改善等、目標別のオーダーメイド献立を毎週更新。ご家族の食事との両立もサポート</li>
         <li>アレルギー・食事制限（グルテンフリー・ケトジェニック・糖質制限等）に完全対応。出張先・旅行先の食事プランニングも実施</li>
@@ -3120,7 +3299,7 @@
         <li>Oura Ring・Apple Watchによる睡眠スコア・HRV（心拍変動）・安静時心拍数・活動量の24時間リアルタイム追跡。データは専属トレーナーと常時共有</li>
         <li>睡眠の質が低下した翌日は運動強度を自動調整、HRVが低下傾向の場合はリカバリーデイを提案。データドリブンなコンディション管理を実現</li>
         <li>InBody体組成計による月次測定で筋肉量・体脂肪率・部位別バランス・体水分量を定量評価。推移グラフで長期的な変化を可視化</li>
-        <li>年2回の血液検査データをトレーナー・管理栄養士が確認し、トレーニング負荷と栄養プランを最適化</li>
+        <li>定期的な各種データをトレーナー・管理栄養士が確認し、トレーニング負荷と栄養プランを調整</li>
         <li>月次コンディションレポートをお届け。睡眠・運動・栄養・ストレスの4軸で総合的な健康スコアを算出し、改善提案を添えてご報告</li>
       </ul>
     </div>
@@ -3199,8 +3378,8 @@
     <span class="section-label with-rule">PHILOSOPHY</span>
     <p class="philosophy-lead">身体の変化に、先手を打つ。</p>
     <div class="philosophy-body">
-      <p>多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは予防に特化したヘルスケアを提供しています。</p>
-      <p>血液検査40項目以上に基づく栄養設計、FMS（Functional Movement Screen）による筋骨格の評価、提携医療機関との連携。スポーツ科学・分子栄養学・予防医学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の身体を長期的に守ります。</p>
+      <p>多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常コンディション管理に特化したサポートを提供しています。</p>
+      <p>体組成データに基づく栄養設計、FMS（Functional Movement Screen）による動作評価、専門家との連携。スポーツ科学・分子栄養学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の日常コンディションを長期的に守ります。</p>
     </div>
   </section>
 
@@ -3259,7 +3438,7 @@
             経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
           </p>
           <p>
-            トレーニング、栄養、医療連携のすべてを一人ひとりに最適化し、会員様の健康を長期的にお守りします。
+            トレーニング、栄養、生活習慣のすべてを一人ひとりに最適化し、会員様の日常コンディションを長期的にお守りします。
           </p>
         </div>
       </div>
@@ -3278,7 +3457,7 @@
       2営業日以内に代表・福田より直接ご連絡いたします。
     </p>
     <a href="invitation-request.html" class="cta-btn fade">ウェイティングリスト登録</a>
-    <p class="cta-faq fade">サービス内容・医療連携・プライバシーに関する<br class="sp-only">ご質問は<a href="/faq">こちら</a></p>
+    <p class="cta-faq fade">サービス内容・提供範囲・プライバシーに関する<br class="sp-only">ご質問は<a href="mailto:info@executive-ashiya.com">こちら</a></p>
   </section>
 
   <!-- ════════ BACK TO TOP ════════ -->
@@ -3290,9 +3469,12 @@
   <footer>
     <span class="f-brand">EXECUTIVE ASHIYA</span>
     <div class="f-links">
-      <a href="privacy.html">PRIVACY POLICY</a>
-      <a href="tokushoho.html">特定商取引法</a>
+      <a href="for-members.html">会員ログイン</a>
+      <a href="transparency.html">運営体制</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="privacy.html">プライバシーポリシー</a>
       <a href="mailto:info@executive-ashiya.com">お問い合わせ</a>
+      <a href="transparency.html#medical">医療非関与について</a>
     </div>
     <div class="f-info">
       運営：株式会社ReFit
@@ -3485,6 +3667,17 @@
       const isOpen = nav.classList.contains('open');
       btn.setAttribute('aria-expanded', isOpen);
       btn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+      // Stagger link animations
+      if (isOpen) {
+        var items = nav.querySelectorAll('.mnav-brand, .mnav-main a, .mnav-section-label, .mnav-section a, .mnav-footer');
+        items.forEach(function(el, i) {
+          el.style.transitionDelay = (0.04 * i + 0.3) + 's';
+        });
+      } else {
+        nav.querySelectorAll('.mnav-brand, .mnav-main a, .mnav-section-label, .mnav-section a, .mnav-footer').forEach(function(el) {
+          el.style.transitionDelay = '0s';
+        });
+      }
     }
     function closeMobileNav() {
       const btn = document.getElementById('hamburger');
@@ -3493,6 +3686,23 @@
       btn.setAttribute('aria-label', 'メニューを開く');
       document.getElementById('mobile-nav').classList.remove('open');
     }
+
+    // Nav dropdown
+    function toggleNavDropdown() {
+      var dd = document.getElementById('navDropdown');
+      var btn = dd.querySelector('.nav-dropdown-toggle');
+      dd.classList.toggle('open');
+      btn.setAttribute('aria-expanded', dd.classList.contains('open'));
+    }
+    // Close dropdown on outside click
+    document.addEventListener('click', function(e) {
+      var dd = document.getElementById('navDropdown');
+      if (dd && !dd.contains(e.target)) {
+        dd.classList.remove('open');
+        var btn = dd.querySelector('.nav-dropdown-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
 
     // Fade in (includes stagger, gold-divider, section-label)
     const observer = new IntersectionObserver((entries) => {
@@ -3708,20 +3918,20 @@
             sub: { ja: '多数のお申し込みをいただき、第1期の募集枠は満員となりました。現在ウェイティングリストにてお申し込みを承っております。', en: 'Due to high demand, our first cohort is now full. We are currently accepting applications via our waiting list.' } },
           { title: { ja: 'EXECUTIVE ASHIYA 正式サービス開始のお知らせ', en: 'EXECUTIVE ASHIYA Official Service Launch' },
             sub: { ja: '完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。', en: 'Launching our fully mobile healthcare concierge service in the Ashiya, Kobe, and Osaka areas from June 1, 2026.' } },
-          { title: { ja: '医療アクセスサポート体制拡充のお知らせ', en: 'Medical Access Support Expansion' },
-            sub: { ja: '人間ドック・PET-CT等の予約代行先を拡充。会員様の医療アクセスがさらに充実します。', en: 'Expanded reservation support for comprehensive health checkups and PET-CT. Enhanced medical access for members.' } },
-          { title: { ja: '5月度オーダーメイドサプリメント処方受付開始', en: 'May Custom Supplement Prescriptions Now Open' },
-            sub: { ja: '血液検査データに基づく個別処方を毎月更新。今月の注目成分はNMN・グルタチオン。', en: 'Monthly personalized prescriptions based on blood test data. Featured ingredients: NMN & Glutathione.' } },
+          { title: { ja: '予約・調整サポート体制拡充のお知らせ', en: 'Reservation Support Expansion' },
+            sub: { ja: '各種検査・施設等の予約代行先を拡充。会員様のサポート体制がさらに充実します。', en: 'Expanded reservation support for various facilities. Enhanced support system for members.' } },
+          { title: { ja: '5月度オーダーメイドサプリメント提案受付開始', en: 'May Custom Supplement Recommendations Now Open' },
+            sub: { ja: 'お客様の生活データに基づくサプリメント提案を毎月更新。今月の注目成分はNMN・グルタチオン。', en: 'Monthly personalized supplement recommendations based on lifestyle data. Featured ingredients: NMN & Glutathione.' } },
           { title: { ja: 'なぜエグゼクティブは「睡眠」に投資するのか', en: 'Why Executives Invest in Sleep' },
             sub: { ja: 'Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。', en: 'Analyzing executive sleep patterns through Oura Ring data and their impact on performance.' } },
-          { title: { ja: '医療アクセスサポート体制の構築について', en: 'Building Our Medical Access Support System' },
-            sub: { ja: 'お客様により包括的なヘルスケアを提供するため、医療機関・整骨院・鍼灸院のご紹介体制を整備いたしました。', en: 'Establishing a comprehensive referral system for medical institutions, orthopedic clinics, and acupuncture clinics.' } },
+          { title: { ja: '予約・調整サポート体制の構築について', en: 'Building Our Reservation Support System' },
+            sub: { ja: 'お客様により包括的なサポートを提供するため、各種施設のご紹介体制を整備いたしました。', en: 'Establishing a comprehensive referral system for various facilities to provide more comprehensive support.' } },
           { title: { ja: '完全出張パーソナルトレーニングの価値', en: 'The Value of Fully Mobile Personal Training' },
             sub: { ja: 'ジムに通う時代から、トレーナーが来る時代へ。完全出張パーソナルトレーニングが経営者に選ばれる理由を解説します。', en: 'From going to the gym to the trainer coming to you. Why executives choose fully mobile personal training.' } },
           { title: { ja: 'Oura Ring連携 24時間コンディションサポート開始', en: 'Oura Ring Integration: 24/7 Conditioning Support Launched' },
             sub: { ja: 'Oura Ringデータをもとに、睡眠・心拍変動・活動量を専属トレーナーが24時間モニタリング。日々の体調変化に即時対応します。', en: 'Your dedicated trainer monitors sleep, HRV, and activity data via Oura Ring around the clock, responding to daily condition changes immediately.' } },
           { title: { ja: '管理栄養士によるフルオーダー食事管理プログラム提供開始', en: 'Full-Order Nutrition Program by Registered Dietitians Launched' },
-            sub: { ja: '血液検査40項目以上に基づき、管理栄養士が個別の食事プランを設計。毎月の検査結果に応じてプランを最適化します。', en: 'Registered dietitians design personalized meal plans based on 40+ blood test markers, optimizing monthly based on results.' } }
+            sub: { ja: '体組成・生活データに基づき、管理栄養士が個別の食事プランを設計。毎月のデータに応じてプランを調整します。', en: 'Registered dietitians design personalized meal plans based on body composition and lifestyle data, adjusting monthly.' } }
         ];
         document.querySelectorAll('.ie-card').forEach(function(card, i) {
           if (newsTranslations[i]) {
