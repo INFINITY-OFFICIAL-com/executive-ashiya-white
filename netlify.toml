@@ -11,33 +11,3 @@
   from = "/invitation-thanks"
   to = "/invitation-thanks.html"
   status = 200
-
-[[redirects]]
-  from = "/news"
-  to = "/news/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/members"
-  to = "/members.html"
-  status = 200
-
-[[redirects]]
-  from = "/faq"
-  to = "/faq/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/press-kit"
-  to = "/press-kit/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/press-kit/contact"
-  to = "/press-kit/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/press-kit/thanks"
-  to = "/press-kit/thanks.html"
-  status = 200

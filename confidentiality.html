@@ -3,111 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>Confidentiality — 守秘について | EXECUTIVE ASHIYA</title>
+  <title>守秘について | EXECUTIVE ASHIYA</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="description" content="EXECUTIVE ASHIYAの守秘体制。全スタッフがNDAを締結し、会員様の個人情報・ご利用の事実を永続的に保護します。" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
   <style>
+    @font-face { font-family: "PP Editorial New Ultralight"; src: url("https://framerusercontent.com/assets/Ml5YdxLwsCRqmN9FGRm5d77gY.woff") format("woff"); font-display: swap; font-weight: 200 }
+    @font-face { font-family: "GT Ultra Regular"; src: url("https://framerusercontent.com/assets/E7NT7OKE4dhDFSJzDTwTGJfBWvg.woff2") format("woff2"); font-display: swap; font-weight: 400 }
+    @font-face { font-family: "GT Ultra Light"; src: url("https://framerusercontent.com/assets/n9Vhq2sZQxG7bR7IK2xHSs4VGs.woff") format("woff"); font-display: swap; font-weight: 300 }
+
     :root {
-      --bg: #FFFFFF;
-      --bg-alt: #FFFFFF;
-      --gold: #8B6F1F;
-      --ink: #1C1F2E;
-      --ink-soft: rgba(28,31,46,0.55);
-      --ink-faint: rgba(28,31,46,0.22);
-      --ink-line: rgba(28,31,46,0.08);
-      --serif-en: 'Cormorant Garamond', serif;
-      --serif-jp: 'Noto Serif JP', serif;
+      --dark-green: #1e392b;
+      --cream: #fbf9f3;
+      --text-brown: rgb(88, 80, 60);
+      --green-accent: rgb(43, 82, 62);
+      --font-editorial: "PP Editorial New Ultralight", Georgia, serif;
+      --font-body: "GT Ultra Regular", Georgia, serif;
+      --font-heading: "GT Ultra Light", Georgia, serif;
+      --font-jp: 'Noto Serif JP', '游明朝', serif;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--serif-jp);
+      background: var(--cream);
+      color: var(--text-brown);
+      font-family: var(--font-jp);
       font-weight: 300;
       line-height: 2.2;
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased;
     }
-    .c-header {
-      padding: 2rem 3rem;
+    .page-header {
+      padding: 1.5rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--ink-line);
+      border-bottom: 1px solid rgba(88, 80, 60, 0.12);
     }
-    .c-header-logo {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: 0.82rem;
-      letter-spacing: 0.35em;
-      color: var(--ink);
+    .page-header-logo {
+      font-family: var(--font-editorial);
+      font-weight: 200;
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      color: var(--text-brown);
       text-decoration: none;
     }
-    .c-header-back {
-      font-family: var(--serif-en);
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      color: var(--gold);
+    .page-header-back {
+      font-family: var(--font-jp);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--green-accent);
       text-decoration: none;
       transition: opacity 0.3s;
     }
-    .c-header-back:hover { opacity: 0.6; }
+    .page-header-back:hover { opacity: 0.6; }
 
     .c-hero {
-      background: var(--ink);
-      padding: 8rem 2rem;
+      background: var(--dark-green);
+      padding: 7rem 2rem;
       text-align: center;
     }
     .c-hero-label {
       display: block;
-      font-family: var(--serif-en);
+      font-family: var(--font-jp);
       font-size: 0.65rem;
       letter-spacing: 0.4em;
-      color: rgba(255,255,255,0.35);
+      color: rgba(251, 249, 243, 0.35);
       margin-bottom: 2rem;
     }
     .c-hero-title {
-      font-family: var(--serif-en);
-      font-weight: 300;
+      font-family: var(--font-editorial);
+      font-weight: 200;
       font-size: clamp(2rem, 5vw, 3.2rem);
       letter-spacing: 0.12em;
-      color: #fff;
+      color: var(--cream);
       margin: 0 0 0.6rem;
     }
     .c-hero-ja {
-      font-family: var(--serif-jp);
+      font-family: var(--font-jp);
       font-size: 0.82rem;
       letter-spacing: 0.45em;
-      color: rgba(255,255,255,0.4);
+      color: rgba(251, 249, 243, 0.4);
       display: block;
       margin-bottom: 3rem;
     }
     .c-hero-motto {
-      font-family: var(--serif-jp);
+      font-family: var(--font-jp);
       font-weight: 300;
       font-size: clamp(1.1rem, 2.4vw, 1.5rem);
       letter-spacing: 0.22em;
-      color: #fff;
+      color: var(--cream);
       line-height: 1.9;
       margin: 0;
     }
 
     .c-section {
-      padding: 7rem 2rem;
+      padding: 6rem 2rem;
       max-width: 780px;
       margin: 0 auto;
     }
     .c-body {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       line-height: 2.6;
-      color: var(--ink-soft);
-      letter-spacing: 0.06em;
+      color: rgba(88, 80, 60, 0.75);
+      letter-spacing: 0.04em;
     }
     .c-body p { margin: 0 0 2rem; }
     .c-body p:last-child { margin-bottom: 0; }
@@ -121,66 +122,63 @@
     }
     .c-item {
       padding-left: 1.4rem;
-      border-left: 1px solid rgba(139,111,31,0.4);
+      border-left: 1px solid rgba(43, 82, 62, 0.4);
     }
     .c-item-en {
       display: block;
-      font-family: var(--serif-en);
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      color: var(--gold);
+      font-family: var(--font-editorial);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--green-accent);
       margin-bottom: 0.6rem;
     }
     .c-item p {
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       line-height: 2.2;
-      color: var(--ink-soft);
+      color: rgba(88, 80, 60, 0.7);
       letter-spacing: 0.04em;
       margin: 0;
     }
-
     .c-signature {
       margin-top: 5rem;
       text-align: center;
-      font-family: var(--serif-en);
+      font-family: var(--font-editorial);
       font-style: italic;
       font-size: 0.78rem;
       letter-spacing: 0.36em;
-      color: var(--gold);
+      color: var(--green-accent);
       opacity: 0.7;
     }
 
-    .c-footer {
+    .page-footer {
+      background: var(--dark-green);
       text-align: center;
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--ink-line);
+      padding: 2.5rem 2rem;
     }
-    .c-footer-copy {
-      font-size: 0.68rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.08em;
+    .page-footer-copy {
+      font-size: 0.7rem;
+      color: rgba(251, 249, 243, 0.5);
+      letter-spacing: 0.06em;
     }
-
     @media (max-width: 880px) {
-      .c-header { padding: 1.6rem 1.4rem; }
+      .page-header { padding: 1.2rem 1.4rem; }
       .c-hero { padding: 5rem 1.6rem; }
-      .c-section { padding: 5rem 1.6rem; }
+      .c-section { padding: 4rem 1.6rem; }
       .c-items { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="c-header">
-    <a href="index.html" class="c-header-logo">EXECUTIVE ASHIYA</a>
-    <a href="index.html" class="c-header-back">&larr; BACK TO TOP</a>
+  <div class="page-header">
+    <a href="index.html" class="page-header-logo">EXECUTIVE ASHIYA</a>
+    <a href="index.html" class="page-header-back">&larr; トップページへ戻る</a>
   </div>
 
   <div class="c-hero">
     <span class="c-hero-label">CONFIDENTIALITY</span>
     <h1 class="c-hero-title">Absolute Discretion</h1>
     <span class="c-hero-ja">守 秘 に つ い て</span>
-    <p class="c-hero-motto">沈黙は、最上の信頼の証。</p>
   </div>
 
   <div class="c-section">
@@ -223,11 +221,8 @@
     <p class="c-signature">— YOUR PRIVACY IS OUR PRINCIPLE —</p>
   </div>
 
-  <div class="c-footer">
-    <span class="c-footer-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
+  <div class="page-footer">
+    <span class="page-footer-copy">&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</span>
   </div>
-
-  <script src="lang-toggle.js"></script>
-<script src="/site-password.js"></script>
 </body>
 </html>

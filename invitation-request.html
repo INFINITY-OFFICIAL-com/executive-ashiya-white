@@ -3,54 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow" />
-  <title>ご入会リクエスト | EXECUTIVE ASHIYA</title>
-  <meta name="description" content="EXECUTIVE ASHIYA 招待制ヘルスケアコンシェルジュへのご入会リクエストフォーム" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>ウェイティングリスト登録 | EXECUTIVE ASHIYA</title>
+  <meta name="description" content="EXECUTIVE ASHIYA 完全会員制ヘルスケアコンシェルジュへのウェイティングリスト登録フォーム" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
+    @font-face { font-family: "PP Editorial New Ultralight"; src: url("https://framerusercontent.com/assets/Ml5YdxLwsCRqmN9FGRm5d77gY.woff") format("woff"); font-display: swap; font-weight: 200 }
+    @font-face { font-family: "GT Ultra Regular"; src: url("https://framerusercontent.com/assets/E7NT7OKE4dhDFSJzDTwTGJfBWvg.woff2") format("woff2"); font-display: swap; font-weight: 400 }
+    @font-face { font-family: "GT Ultra Light"; src: url("https://framerusercontent.com/assets/n9Vhq2sZQxG7bR7IK2xHSs4VGs.woff") format("woff"); font-display: swap; font-weight: 300 }
+
     :root {
-      --bg: #FFFFFF;
-      --bg-card: #FFFFFF;
-      --gold: #8B6F1F;
-      --gold-light: #B89134;
-      --gold-dark: #6A521A;
-      --gold-soft: rgba(139, 111, 31, 0.16);
-      --ink: #1C1F2E;
-      --ink-soft: rgba(28, 31, 46, 0.55);
-      --ink-faint: rgba(28, 31, 46, 0.22);
-      --ink-line: rgba(28, 31, 46, 0.13);
-      --field-bg: #FFFFFF;
-      --field-border: rgba(28, 31, 46, 0.18);
+      --dark-green: #1e392b;
+      --cream: #fbf9f3;
+      --text-brown: rgb(88, 80, 60);
+      --text-brown-soft: rgba(88, 80, 60, 0.65);
+      --text-brown-faint: rgba(88, 80, 60, 0.35);
+      --green-accent: rgb(43, 82, 62);
+      --line-color: rgba(88, 80, 60, 0.12);
+      --font-editorial: "PP Editorial New Ultralight", Georgia, serif;
+      --font-body: "GT Ultra Regular", Georgia, serif;
+      --font-heading: "GT Ultra Light", Georgia, serif;
+      --font-jp: 'Noto Serif JP', '游明朝', serif;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Noto Serif JP', serif;
-      font-weight: 400;
+      background: var(--cream);
+      color: var(--text-brown);
+      font-family: var(--font-jp);
+      font-weight: 300;
       min-height: 100vh;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
     /* ─── HEADER ─── */
-    .header {
-      padding: 3rem 2rem 2rem;
+    .page-header {
+      padding: 2.5rem 2rem 2rem;
       text-align: center;
-      border-bottom: 1px solid var(--ink-line);
+      border-bottom: 1px solid var(--line-color);
       position: relative;
     }
-
-    .header::after {
+    .page-header::after {
       content: '';
       position: absolute;
       bottom: -1px;
@@ -58,27 +55,24 @@
       transform: translateX(-50%);
       width: 60px;
       height: 1px;
-      background: var(--gold);
+      background: var(--green-accent);
     }
-
     .header-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      letter-spacing: 0.5em;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
+      font-family: var(--font-editorial);
+      font-weight: 200;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      letter-spacing: 0.3em;
+      color: var(--text-brown);
       text-decoration: none;
       display: block;
+      margin-bottom: 0.4rem;
     }
-
-    .header-logo:hover {
-      opacity: 0.7;
-    }
-
+    .header-logo:hover { opacity: 0.7; }
     .header-sub {
+      font-family: var(--font-jp);
       font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      color: var(--ink-soft);
+      letter-spacing: 0.3em;
+      color: var(--text-brown-soft);
     }
 
     /* ─── CONTENT ─── */
@@ -89,29 +83,29 @@
     }
 
     .page-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      letter-spacing: 0.4em;
-      color: var(--gold);
+      font-family: var(--font-editorial);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      letter-spacing: 0.3em;
+      color: var(--green-accent);
       margin-bottom: 3rem;
       text-align: center;
-      position: relative;
     }
-
     .page-title::before,
     .page-title::after {
       content: '—';
       margin: 0 1rem;
-      color: var(--gold-dark);
+      color: var(--green-accent);
+      opacity: 0.5;
     }
 
     .intro-text {
-      font-size: 0.95rem;
+      font-family: var(--font-jp);
+      font-size: 0.92rem;
       line-height: 2.4;
-      color: var(--ink-soft);
+      color: var(--text-brown-soft);
       text-align: center;
       margin-bottom: 4.5rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
 
     /* ─── FORM ─── */
@@ -120,7 +114,6 @@
       position: relative;
       animation: fadeUp 0.6s ease both;
     }
-
     .form-group:nth-child(1) { animation-delay: 0.1s; }
     .form-group:nth-child(2) { animation-delay: 0.15s; }
     .form-group:nth-child(3) { animation-delay: 0.2s; }
@@ -136,34 +129,36 @@
     .form-group:nth-child(13) { animation-delay: 0.7s; }
 
     .form-number {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--font-editorial);
       font-size: 0.65rem;
       letter-spacing: 0.3em;
-      color: var(--gold-dark);
+      color: var(--green-accent);
       margin-bottom: 0.6rem;
     }
 
     .form-label {
       display: block;
+      font-family: var(--font-jp);
       font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.15em;
-      color: var(--ink);
+      letter-spacing: 0.12em;
+      color: var(--text-brown);
       margin-bottom: 0.8rem;
     }
 
     .required {
       font-size: 0.6rem;
-      color: var(--gold);
+      color: var(--green-accent);
       letter-spacing: 0.1em;
       margin-left: 0.5rem;
       vertical-align: middle;
     }
 
     .form-note {
+      font-family: var(--font-jp);
       font-size: 0.72rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
+      color: var(--text-brown-soft);
+      letter-spacing: 0.06em;
       margin-bottom: 0.8rem;
       line-height: 1.8;
     }
@@ -172,71 +167,59 @@
     .form-select,
     .form-textarea {
       width: 100%;
-      background: var(--field-bg);
-      border: 1px solid var(--field-border);
-      border-bottom: 1px solid var(--gold-dark);
-      color: var(--ink);
-      font-family: 'Noto Serif JP', serif;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid var(--line-color);
+      border-bottom: 1px solid var(--green-accent);
+      color: var(--text-brown);
+      font-family: var(--font-jp);
       font-size: 0.88rem;
-      font-weight: 400;
+      font-weight: 300;
       padding: 0.9rem 1rem;
       outline: none;
       transition: all 0.3s;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       -webkit-appearance: none;
     }
-
     .form-input:focus,
     .form-select:focus,
     .form-textarea:focus {
-      border-color: var(--gold);
-      background: #FFFFFF;
+      border-color: var(--green-accent);
+      background: rgba(255,255,255,0.9);
     }
-
     .form-input::placeholder,
     .form-textarea::placeholder {
-      color: var(--ink-faint);
+      color: var(--text-brown-faint);
       font-size: 0.75rem;
     }
-
     .form-textarea {
       resize: vertical;
       min-height: 140px;
       line-height: 1.9;
     }
+    .form-select { cursor: pointer; }
 
-    .form-select {
-      cursor: pointer;
-    }
-
-    .form-select option {
-      background: var(--field-bg);
-      color: var(--ink);
-    }
-
-    /* ─── CHECKBOX GROUP ─── */
+    /* ─── CHECKBOX ─── */
     .form-checks {
       display: flex;
       flex-direction: column;
       gap: 0.7rem;
     }
-
-    /* ─── CHECKBOX ─── */
     .form-checkbox {
       display: flex;
       align-items: flex-start;
       gap: 0.8rem;
       cursor: pointer;
+      font-family: var(--font-jp);
       font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      color: var(--ink);
+      letter-spacing: 0.04em;
+      color: var(--text-brown);
       line-height: 1.8;
     }
     .form-checkbox input[type="checkbox"] {
       width: 18px;
       height: 18px;
       margin-top: 0.3rem;
-      accent-color: var(--gold);
+      accent-color: var(--green-accent);
       cursor: pointer;
       flex-shrink: 0;
     }
@@ -246,10 +229,9 @@
       text-align: center;
       margin-top: 4rem;
       padding-top: 3rem;
-      border-top: 1px solid var(--ink-line);
+      border-top: 1px solid var(--line-color);
       position: relative;
     }
-
     .submit-wrap::before {
       content: '';
       position: absolute;
@@ -258,72 +240,53 @@
       transform: translateX(-50%);
       width: 60px;
       height: 1px;
-      background: var(--gold);
+      background: var(--green-accent);
     }
-
     .submit-note {
+      font-family: var(--font-jp);
       font-size: 0.72rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.1em;
+      color: var(--text-brown-soft);
+      letter-spacing: 0.06em;
       line-height: 2;
       margin-bottom: 2.5rem;
     }
-
     .submit-note a {
-      color: var(--gold);
+      color: var(--green-accent);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-
-    .submit-note a:hover {
-      opacity: 0.7;
-    }
+    .submit-note a:hover { opacity: 0.7; }
 
     .submit-btn {
       background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.45em;
+      border: 1px solid var(--green-accent);
+      color: var(--green-accent);
+      font-family: var(--font-jp);
+      font-size: 0.82rem;
+      letter-spacing: 0.3em;
       padding: 1.2rem 4rem;
       cursor: pointer;
       transition: all 0.4s;
       position: relative;
       overflow: hidden;
     }
-
     .submit-btn::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--gold);
+      background: var(--green-accent);
       transform: translateX(-100%);
       transition: transform 0.4s;
     }
-
-    .submit-btn:hover::before {
-      transform: translateX(0);
-    }
-
+    .submit-btn:hover::before { transform: translateX(0); }
     .submit-btn span {
       position: relative;
       z-index: 1;
       transition: color 0.4s;
     }
-
-    .submit-btn:hover span {
-      color: var(--bg);
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .submit-btn:disabled::before {
-      display: none;
-    }
+    .submit-btn:hover span { color: var(--cream); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .submit-btn:disabled::before { display: none; }
 
     /* ─── ERROR ─── */
     .form-error {
@@ -335,45 +298,36 @@
       border: 1px solid rgba(160, 58, 58, 0.25);
       font-size: 0.75rem;
       color: #8B3A3A;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       line-height: 1.8;
     }
 
-    /* ─── BACK LINK ─── */
+    /* ─── BACK & FOOTER ─── */
     .back-link {
       display: block;
       text-align: center;
       padding: 1.5rem 2rem 0;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--font-jp);
       font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
+      letter-spacing: 0.08em;
+      color: var(--green-accent);
       text-decoration: none;
       transition: opacity 0.3s;
     }
     .back-link:hover { opacity: 0.6; }
 
-    /* ─── FOOTER ─── */
-    .footer {
+    .page-footer {
+      background: var(--dark-green);
       text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--ink-line);
+      padding: 2.5rem 2rem;
+      margin-top: 3rem;
+    }
+    .page-footer-copy {
+      font-size: 0.7rem;
+      color: rgba(251, 249, 243, 0.5);
+      letter-spacing: 0.06em;
     }
 
-    .footer-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      color: var(--gold-dark);
-    }
-
-    /* ─── ANIMATION ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─── VISUALLY HIDDEN ─── */
     .visually-hidden {
       position: absolute !important;
       width: 1px !important;
@@ -386,37 +340,24 @@
       border: 0 !important;
     }
 
-    /* ─── RESPONSIVE ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
-      .content {
-        padding: 3.5rem 1.5rem 4rem;
-      }
-      .page-title {
-        font-size: 0.78rem;
-        letter-spacing: 0.2em;
-        white-space: nowrap;
-      }
-      .page-title::before,
-      .page-title::after {
-        margin: 0 0.5rem;
-      }
-      .intro-text {
-        font-size: 0.82rem;
-        text-align: left;
-        line-height: 2.2;
-      }
-      .submit-btn {
-        padding: 1.1rem 2.5rem;
-        letter-spacing: 0.3em;
-        font-size: 0.7rem;
-      }
+      .content { padding: 3.5rem 1.5rem 4rem; }
+      .page-title { font-size: 0.78rem; letter-spacing: 0.2em; }
+      .page-title::before, .page-title::after { margin: 0 0.5rem; }
+      .intro-text { font-size: 0.82rem; text-align: left; line-height: 2.2; }
+      .submit-btn { padding: 1.1rem 2.5rem; letter-spacing: 0.2em; font-size: 0.75rem; }
     }
   </style>
 </head>
 <body>
 
-  <header class="header">
-    <a href="/" class="header-logo">EXECUTIVE ASHIYA</a>
+  <header class="page-header">
+    <a href="index.html" class="header-logo">EXECUTIVE ASHIYA</a>
     <div class="header-sub">INVITATION REQUEST</div>
   </header>
 
@@ -427,8 +368,7 @@
     <p class="intro-text">
       EXECUTIVE ASHIYAは、経営者の健康を長期的にお守りする<br>
       完全会員制のヘルスケアコンシェルジュです。<br>
-      第1期会員枠は満員にて締め切らせていただきました。<br>
-      次期募集の際、優先的にご案内いたします。
+      ご登録いただいた方へ、優先的にご案内いたします。
     </p>
 
     <form name="invitation-request" method="POST" action="/invitation-thanks.html"
@@ -519,8 +459,8 @@
       <!-- 09: 現在の健康習慣 -->
       <div class="form-group">
         <div class="form-number">09</div>
-        <label class="form-label" for="field-health">現在の健康習慣<span class="required">必須</span></label>
-        <label class="form-label" style="font-weight:400; font-size:0.78rem; color:var(--ink-soft); margin-bottom:0.5rem;">現在取り組んでいるものがあれば、すべてお選びください。</label>
+        <label class="form-label">現在の健康習慣<span class="required">必須</span></label>
+        <div class="form-note">現在取り組んでいるものがあれば、すべてお選びください。</div>
         <div class="form-checks">
           <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="定期的な運動・トレーニング" /><span>定期的な運動・トレーニング</span></label>
           <label class="form-checkbox"><input type="checkbox" name="健康習慣" value="食事管理・栄養指導" /><span>食事管理・栄養指導</span></label>
@@ -575,7 +515,7 @@
       <!-- SUBMIT -->
       <div class="submit-wrap">
         <p class="submit-note">
-          すべてのお申し込みに対し、代表・福田が直接確認を行います。<br>
+          すべてのお申し込みに対し、担当が直接確認を行います。<br>
           2営業日以内にご連絡を差し上げます。<br>
           <a href="privacy.html">プライバシーポリシー</a>
         </p>
@@ -591,32 +531,24 @@
 
   </div>
 
-  <a href="/" class="back-link">&larr; BACK TO TOP</a>
+  <a href="index.html" class="back-link">&larr; トップページへ戻る</a>
 
-  <footer class="footer">
-    <div class="footer-text">&copy; EXECUTIVE ASHIYA — 株式会社ReFit</div>
-  </footer>
+  <div class="page-footer">
+    <span class="page-footer-copy">&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</span>
+  </div>
 
 <script>
-  // Record form load time for time-based spam check
   document.getElementById('form-loaded-at').value = Date.now().toString();
-
-  // Double-submit prevention
   var form = document.getElementById('invitation-form');
   var submitBtn = document.getElementById('submit-btn');
   var isSubmitting = false;
-
   form.addEventListener('submit', function(e) {
-    if (isSubmitting) {
-      e.preventDefault();
-      return;
-    }
+    if (isSubmitting) { e.preventDefault(); return; }
     isSubmitting = true;
     submitBtn.disabled = true;
     submitBtn.querySelector('span').textContent = '送信中…';
   });
 </script>
-<script src="lang-toggle.js"></script>
 
 </body>
 </html>

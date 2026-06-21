@@ -3,53 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
   <title>特定商取引法に基づく表記 | EXECUTIVE ASHIYA</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@200;300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
   <style>
+    @font-face { font-family: "PP Editorial New Ultralight"; src: url("https://framerusercontent.com/assets/Ml5YdxLwsCRqmN9FGRm5d77gY.woff") format("woff"); font-display: swap; font-weight: 200 }
+    @font-face { font-family: "GT Ultra Regular"; src: url("https://framerusercontent.com/assets/E7NT7OKE4dhDFSJzDTwTGJfBWvg.woff2") format("woff2"); font-display: swap; font-weight: 400 }
+
     :root {
-      --bg: #FFFFFF;
-      --gold: #8B6F1F;
-      --ink: #1C1F2E;
-      --ink-soft: rgba(28, 31, 46, 0.55);
-      --ink-faint: rgba(28, 31, 46, 0.22);
-      --ink-line: rgba(28, 31, 46, 0.13);
+      --dark-green: #1e392b;
+      --cream: #fbf9f3;
+      --text-brown: rgb(88, 80, 60);
+      --green-accent: rgb(43, 82, 62);
+      --font-editorial: "PP Editorial New Ultralight", Georgia, serif;
+      --font-body: "GT Ultra Regular", Georgia, serif;
+      --font-jp: 'Noto Serif JP', '游明朝', serif;
     }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Noto Serif JP', serif;
+      background: var(--cream);
+      color: var(--text-brown);
+      font-family: var(--font-jp);
       font-weight: 300;
       line-height: 2.2;
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased;
     }
+    .page-header {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(88, 80, 60, 0.12);
+    }
+    .page-header-logo {
+      font-family: var(--font-editorial);
+      font-weight: 200;
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      color: var(--text-brown);
+      text-decoration: none;
+    }
+    .page-header-back {
+      font-family: var(--font-jp);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--green-accent);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .page-header-back:hover { opacity: 0.6; }
     .container {
       max-width: 700px;
       margin: 0 auto;
-      padding: 8rem 2rem;
+      padding: 6rem 2rem 8rem;
     }
-    .back-link {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 4rem;
-      transition: opacity 0.3s;
-    }
-    .back-link:hover { opacity: 0.6; }
     h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-editorial);
+      font-weight: 200;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: 0.08em;
+      color: var(--text-brown);
       margin-bottom: 4rem;
     }
     table {
@@ -59,35 +76,55 @@
     }
     th, td {
       font-size: 0.85rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       line-height: 2.4;
       padding: 1.2rem 0;
-      border-bottom: 1px solid var(--ink-line);
+      border-bottom: 1px solid rgba(88, 80, 60, 0.12);
       text-align: left;
       vertical-align: top;
     }
     th {
-      font-weight: 400;
-      color: var(--ink);
+      font-family: var(--font-jp);
+      font-weight: 500;
+      color: var(--text-brown);
       width: 30%;
       white-space: nowrap;
       padding-right: 2rem;
     }
     td {
-      color: var(--ink-soft);
+      color: rgba(88, 80, 60, 0.75);
     }
-    .note {
+    .date-note {
       margin-top: 4rem;
       font-size: 0.72rem;
-      color: var(--ink-faint);
+      color: rgba(88, 80, 60, 0.4);
+    }
+    .page-footer {
+      background: var(--dark-green);
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+    .page-footer-copy {
+      font-size: 0.7rem;
+      color: rgba(251, 249, 243, 0.5);
+      letter-spacing: 0.06em;
+    }
+    @media (max-width: 640px) {
+      .page-header { padding: 1.2rem 1.4rem; }
+      .container { padding: 4rem 1.5rem 6rem; }
+      th { width: auto; white-space: normal; display: block; padding-bottom: 0; border-bottom: none; }
+      td { display: block; padding-top: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link">&larr; BACK TO TOP</a>
+  <div class="page-header">
+    <a href="index.html" class="page-header-logo">EXECUTIVE ASHIYA</a>
+    <a href="index.html" class="page-header-back">&larr; トップページへ戻る</a>
+  </div>
 
-    <h1>Notation Based on the<br>Specified Commercial Transactions Act</h1>
+  <div class="container">
+    <h1>Specified Commercial Transactions Act</h1>
 
     <table>
       <tr>
@@ -151,9 +188,12 @@
       </tr>
     </table>
 
-    <p class="note">制定日：2026年3月19日 ／ 最終改定：2026年4月10日</p>
-    <p class="note" style="margin-top:0.5rem;">※ 本表記は法令遵守のため随時見直しを行います。最新の契約条件はご契約時にお渡しする契約書面をご確認ください。</p>
+    <p class="date-note">制定日：2026年3月19日 ／ 最終改定：2026年4月10日</p>
+    <p class="date-note" style="margin-top:0.5rem;">※ 本表記は法令遵守のため随時見直しを行います。最新の契約条件はご契約時にお渡しする契約書面をご確認ください。</p>
   </div>
-  <script src="lang-toggle.js"></script>
+
+  <div class="page-footer">
+    <span class="page-footer-copy">&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</span>
+  </div>
 </body>
 </html>

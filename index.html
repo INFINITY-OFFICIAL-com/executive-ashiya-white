@@ -1,4123 +1,718 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>EXECUTIVE ASHIYA | エグゼクティブ芦屋 — 健康寿命を、生涯最大の資産に。</title>
-  <meta name="description" content="EXECUTIVE ASHIYA — 芦屋発の完全会員制ヘルスケアコンシェルジュ" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="EXECUTIVE ASHIYA" />
-  <meta name="theme-color" content="#FFFFFF" />
-  <link rel="canonical" href="https://executive-ashiya.com/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
-  <!-- OGP -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="EXECUTIVE ASHIYA" />
-  <meta property="og:title" content="EXECUTIVE ASHIYA | エグゼクティブ芦屋 — 健康寿命を、生涯最大の資産に。" />
-  <meta property="og:description" content="芦屋発の完全会員制ヘルスケアコンシェルジュ" />
-  <meta property="og:url" content="https://executive-ashiya.com/" />
-  <meta property="og:image" content="https://executive-ashiya.com/ogp.jpg" />
-  <meta property="og:image:width" content="1672" />
-  <meta property="og:image:height" content="941" />
-  <meta property="og:locale" content="ja_JP" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="EXECUTIVE ASHIYA | エグゼクティブ芦屋" />
-  <meta name="twitter:description" content="芦屋発の完全会員制ヘルスケアコンシェルジュ" />
-  <meta name="twitter:image" content="https://executive-ashiya.com/ogp.jpg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;600;700&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #FFFFFF;             /* pure white */
-      --bg-alt: #FFFFFF;        /* pure white */
-      --bg-deep: #FFFFFF;       /* pure white */
-      --bg-card: #FFFFFF;       /* card white */
-      --ink: #1C1F2E;           /* deep navy-charcoal */
-      --ink-soft: rgba(28, 31, 46, 0.88);
-      --ink-faint: rgba(28, 31, 46, 0.62);
-      --ink-line: rgba(28, 31, 46, 0.1);
-      --ink-line-strong: rgba(28, 31, 46, 0.22);
-      --navy: #1B2A4E;
-      --navy-soft: #2C3A5C;
-      --gold: #8B6F1F;          /* deep antique gold */
-      --gold-light: #B89134;    /* champagne highlight */
-      --gold-deep: #6A521A;
-      --gold-soft: rgba(139, 111, 31, 0.16);
-      --serif-en: 'Cormorant Garamond', 'Noto Serif JP', Georgia, serif;
-      --serif-jp: 'Noto Serif JP', 'Yu Mincho', '游明朝', serif;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      overflow-x: clip;
-      background: #FFFFFF;
-      color-scheme: light;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 2.0;
-      -webkit-font-smoothing: auto;
-      -moz-osx-font-smoothing: auto;
-      overflow-x: clip;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; }
-
-    /* ════════ NAV ════════ */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      border-bottom: 1px solid transparent;
-      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
-    }
-    header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom-color: var(--ink-line);
-    }
-    /* Hero上: 白文字 */
-    header.header-hero .logo,
-    header.header-hero .nav-link {
-      color: rgba(255,255,255,0.85);
-    }
-    header.header-hero .nav-link:hover {
-      color: #fff;
-    }
-    header.header-hero .nav-cta {
-      background: transparent;
-      border-color: rgba(255,255,255,0.5);
-      color: #fff;
-    }
-    header.header-hero .nav-cta:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: #fff;
-    }
-    header.header-hero .logo-ja {
-      color: rgba(255,255,255,0.5);
-    }
-    header.header-hero .hamburger span {
-      background: #fff;
-    }
-    /* scrolled時は通常色に戻す */
-    header.scrolled .logo { color: var(--ink); }
-    header.scrolled .logo-ja { color: var(--ink-soft); }
-    header.scrolled .nav-link { color: var(--ink-soft); }
-    header.scrolled .nav-link:hover { color: var(--ink); }
-    header.scrolled .nav-cta { background: var(--ink); border-color: var(--ink); color: var(--bg); }
-    header.scrolled .nav-cta:hover { background: var(--gold); border-color: var(--gold); }
-    header.scrolled .hamburger span { background: var(--ink); }
-    nav.primary {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 1.4rem 2.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    .logo {
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 0.95rem;
-      letter-spacing: 0.32em;
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      flex-shrink: 0;
-    }
-    .logo-ja {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.5rem;
-      letter-spacing: 0.4em;
-      color: var(--ink-soft);
-      margin-top: 0.25rem;
-      font-weight: 300;
-    }
-    .nav-links-pc {
-      display: flex;
-      gap: 2.4rem;
-      align-items: center;
-    }
-    .nav-link {
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      color: var(--ink-soft);
-      position: relative;
-      padding: 0.3rem 0;
-      transition: color 0.3s;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -4px;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: width 0.4s, left 0.4s;
-    }
-    .nav-link:hover { color: var(--ink); }
-    .nav-link:hover::after { width: 100%; left: 0; }
-
-    .nav-cta {
-      font-family: var(--serif-en);
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      color: var(--bg);
-      background: var(--ink);
-      padding: 0.7rem 1.4rem;
-      border: 1px solid var(--ink);
-      transition: background 0.4s, color 0.4s, border-color 0.4s;
-    }
-    .nav-cta:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    /* Language toggle */
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      font-family: var(--serif-en);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    .lang-btn {
-      background: none;
-      border: 1px solid var(--ink-line-strong);
-      padding: 0.3rem 0.5rem;
-      cursor: pointer;
-      font-family: var(--serif-en);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      color: var(--ink-faint);
-      transition: color 0.3s, border-color 0.3s, background 0.3s;
-      touch-action: manipulation;
-    }
-    .lang-btn:first-child { border-radius: 2px 0 0 2px; border-right: none; }
-    .lang-btn:last-child  { border-radius: 0 2px 2px 0; }
-    .lang-btn.active {
-      color: var(--ink);
-      background: rgba(28,31,46,0.06);
-      border-color: var(--ink-line-strong);
-    }
-    header.header-hero .lang-btn { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.2); }
-    header.header-hero .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
-    header.scrolled .lang-btn { color: var(--ink-faint); border-color: var(--ink-line-strong); }
-    header.scrolled .lang-btn.active { color: var(--ink); background: rgba(28,31,46,0.06); }
-
-    /* ── Nav Dropdown ── */
-    .nav-dropdown {
-      position: relative;
-    }
-    .nav-dropdown-toggle {
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      color: var(--ink-soft);
-      padding: 0.3rem 0;
-      transition: color 0.3s;
-      cursor: pointer;
-      background: none;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .nav-dropdown-toggle:hover { color: var(--ink); }
-    .nav-dropdown-toggle svg {
-      width: 8px;
-      height: 8px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      transition: transform 0.3s;
-    }
-    .nav-dropdown.open .nav-dropdown-toggle svg {
-      transform: rotate(180deg);
-    }
-    header.header-hero .nav-dropdown-toggle {
-      color: rgba(255,255,255,0.85);
-    }
-    header.header-hero .nav-dropdown-toggle:hover {
-      color: #fff;
-    }
-    header.scrolled .nav-dropdown-toggle {
-      color: var(--ink-soft);
-    }
-    header.scrolled .nav-dropdown-toggle:hover {
-      color: var(--ink);
-    }
-    .nav-dropdown-menu {
-      position: absolute;
-      top: calc(100% + 0.8rem);
-      right: 0;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--ink-line);
-      padding: 0.6rem 0;
-      min-width: 200px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-8px);
-      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-      z-index: 200;
-    }
-    .nav-dropdown.open .nav-dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .nav-dropdown-menu a {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      color: var(--ink-soft);
-      padding: 0.5rem 1.4rem;
-      transition: color 0.3s, background 0.3s;
-      white-space: nowrap;
-    }
-    .nav-dropdown-menu a:hover {
-      color: var(--gold);
-      background: rgba(139, 111, 31, 0.04);
-    }
-
-    .hamburger {
-      display: none;
-      width: 28px; height: 18px;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-    .hamburger span {
-      display: block;
-      height: 1px;
-      background: var(--ink);
-      transition: transform 0.3s, opacity 0.3s;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    .mobile-nav {
-      position: fixed;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(32px) saturate(1.3);
-      -webkit-backdrop-filter: blur(32px) saturate(1.3);
-      padding: 0;
-      clip-path: circle(0% at calc(100% - 3rem) 2rem);
-      transition: clip-path 0.7s cubic-bezier(0.65, 0, 0.35, 1);
-      z-index: 90;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      overflow-y: auto;
-      visibility: hidden;
-    }
-    .mobile-nav.open {
-      clip-path: circle(150% at calc(100% - 3rem) 2rem);
-      visibility: visible;
-    }
-    .mobile-nav.open .mnav-brand,
-    .mobile-nav.open .mnav-main a,
-    .mobile-nav.open .mnav-section a,
-    .mobile-nav.open .mnav-section-label,
-    .mobile-nav.open .mnav-footer {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .mobile-nav-close {
-      position: absolute;
-      top: 1.6rem;
-      right: 2.4rem;
-      width: 36px;
-      height: 36px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 2;
-    }
-    .mobile-nav-close::before,
-    .mobile-nav-close::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 15%;
-      width: 70%;
-      height: 1px;
-      background: var(--ink);
-      transition: transform 0.3s;
-    }
-    .mobile-nav-close::before { transform: rotate(45deg); }
-    .mobile-nav-close::after { transform: rotate(-45deg); }
-    .mobile-nav-close:hover::before { transform: rotate(135deg); }
-    .mobile-nav-close:hover::after { transform: rotate(45deg); }
-
-    /* Brand header inside menu */
-    .mnav-brand {
-      padding: 0 3.5rem 2.5rem;
-      opacity: 0;
-      transform: translateX(30px);
-      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
-    .mnav-brand-en {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.4em;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Main nav links */
-    .mnav-main {
-      padding: 0 3.5rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .mnav-main a {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      font-family: var(--serif-jp);
-      font-size: 0.95rem;
-      font-weight: 300;
-      letter-spacing: 0.18em;
-      color: var(--ink);
-      padding: 1.2rem 0;
-      border-bottom: 1px solid var(--ink-line);
-      text-decoration: none;
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .mnav-main a::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
-    .mnav-main a:hover::after { transform: scaleX(1); }
-    .mnav-main a:hover { color: var(--gold); }
-
-    /* Section groups */
-    .mnav-section {
-      padding: 2rem 3.5rem 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .mnav-section-label {
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      opacity: 0;
-      transform: translateX(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      margin-bottom: 1rem;
-    }
-    .mnav-section a {
-      font-family: var(--serif-jp);
-      font-size: 0.88rem;
-      font-weight: 300;
-      letter-spacing: 0.14em;
-      color: var(--ink-soft);
-      padding: 0.65rem 0;
-      text-decoration: none;
-      opacity: 0;
-      transform: translateX(20px);
-      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.3s;
-      border: none;
-      position: relative;
-      display: inline-block;
-      width: fit-content;
-    }
-    .mnav-section a::after {
-      content: '';
-      position: absolute;
-      bottom: 0.4rem;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: width 0.3s ease;
-    }
-    .mnav-section a:hover { color: var(--ink); }
-    .mnav-section a:hover::after { width: 100%; }
-
-    /* Footer */
-    .mnav-footer {
-      padding: 3rem 3.5rem 0;
-      opacity: 0;
-      transform: translateX(15px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    /* ════════ HERO ════════ */
-    #hero {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      height: 100svh;
-      max-width: none;
-      padding: 0;
-      background: #000;
-      overflow: hidden;
-    }
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .hero-video::-webkit-media-controls,
-    .hero-video::-webkit-media-controls-start-playback-button,
-    .hero-video::-webkit-media-controls-play-button,
-    .hero-video::-webkit-media-controls-panel,
-    .hero-video::-webkit-media-controls-enclosure,
-    .hero-video::-webkit-media-controls-overlay-play-button,
-    .hero-video::-webkit-media-controls-current-time-display,
-    .hero-video::-webkit-media-controls-time-remaining-display,
-    .hero-video::-webkit-media-controls-timeline,
-    .hero-video::-webkit-media-controls-volume-slider,
-    .hero-video::-webkit-media-controls-mute-button,
-    .hero-video::-webkit-media-controls-fullscreen-button {
-      display: none !important;
-      -webkit-appearance: none !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      visibility: hidden !important;
-    }
-    .hero-video::-moz-media-controls { display: none !important; }
-    .hero-video::--ms-media-controls { display: none !important; }
-    .hero-video-sp { display: none; }
-    .hero-canvas-sp {
-      display: none;
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
-    @media (max-width: 880px) {
-      .hero-video-pc { display: none; }
-      .hero-canvas-sp { display: block; }
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-      z-index: 1;
-    }
-    .hero-text {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .hero-roman {
-      position: relative;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.7rem;
-      letter-spacing: 0.4em;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 2rem;
-    }
-    .hero-roman::before,
-    .hero-roman::after {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: rgba(255,255,255,0.5);
-      vertical-align: middle;
-      margin: 0 1.2rem;
-    }
-    .brand-en {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-      letter-spacing: 0.26em;
-      color: #fff;
-      margin: 3.5rem 0 0;
-      line-height: 1.1;
-      position: relative;
-    }
-    .brand-ja {
-      font-family: var(--serif-jp);
-      font-weight: 200;
-      font-size: 0.92rem;
-      letter-spacing: 0.7em;
-      color: rgba(255,255,255,0.75);
-      margin: 1.6rem 0 0;
-      position: relative;
-    }
-    .catch {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: clamp(1.05rem, 2.4vw, 1.55rem);
-      letter-spacing: 0.18em;
-      color: #fff;
-      margin: 3rem 0 0;
-      line-height: 2.2;
-      position: relative;
-    }
-    .hero-desc {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.65);
-      margin: 1.2rem 0 0;
-      position: relative;
-    }
-    .hero-exclusive {
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.34em;
-      color: rgba(255,255,255,0.8);
-      margin: 2.4rem 0 0;
-      position: relative;
-    }
-    /* A1: Scroll-down arrow */
-    .hero-scroll-hint {
-      position: absolute;
-      bottom: 2.4rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-      opacity: 0;
-      animation: heroHintIn 1s 2.5s ease forwards;
-    }
-    .hero-scroll-hint span {
-      font-family: var(--serif-en);
-      font-size: 0.5rem;
-      letter-spacing: 0.35em;
-      color: rgba(255,255,255,0.7);
-    }
-    .hero-scroll-hint svg {
-      width: 16px;
-      height: 24px;
-      animation: scrollArrowBounce 2s ease-in-out infinite;
-    }
-    .hero-scroll-hint svg path {
-      stroke: rgba(255,255,255,0.7);
-      fill: none;
-      stroke-width: 1.5;
-    }
-    @keyframes heroHintIn {
-      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-      to { opacity: 1; transform: translateX(-50%) translateY(0); }
-    }
-    @keyframes scrollArrowBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-
-    /* ════════ SECTION COMMON ════════ */
-    section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
-      position: relative;
-    }
-    .section-num {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.62rem;
-      letter-spacing: 0.4em;
-      color: var(--gold);
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .section-label {
-      display: block;
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: 0.65rem;
-      letter-spacing: 0.42em;
-      color: var(--gold);
-      text-align: center;
-      margin-bottom: 0.8rem;
-    }
-    .section-label.with-rule::before,
-    .section-label.with-rule::after {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-      vertical-align: middle;
-      margin: 0 1.2rem;
-      opacity: 0.6;
-    }
-    .section-title {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      letter-spacing: 0.12em;
-      text-align: center;
-      color: var(--ink);
-      margin: 0 0 1rem;
-      line-height: 1.5;
-    }
-    .section-title-ja {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.82rem;
-      letter-spacing: 0.3em;
-      color: var(--ink-soft);
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .section-intro {
-      max-width: 720px;
-      margin: 0 auto 4rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      line-height: 2.4;
-      color: var(--ink-soft);
-      text-align: center;
-    }
-
-    /* Diamond divider — removed */
-    .diamond-divider { display: none; }
-
-    /* Gold divider line */
-    .gold-divider {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .gold-divider hr {
-      border: none;
-      height: 1px;
-      background: var(--gold-light);
-      opacity: 0.6;
-      margin: 0;
-    }
-
-    /* ════════ INFORMATION & EVENT ════════ */
-    .info-event-area {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 3.5rem 2rem 0;
-      overflow: hidden;
-    }
-    .ie-section {
-      margin-bottom: 3.5rem;
-    }
-    .ie-heading {
-      display: flex;
-      align-items: baseline;
-      gap: 1.2rem;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.2rem;
-      border-bottom: 2px solid var(--ink);
-    }
-    .ie-heading-ja {
-      font-family: var(--serif-jp);
-      font-weight: 400;
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-      color: var(--ink);
-    }
-    .ie-heading-en {
-      font-family: var(--serif-en);
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      color: var(--ink-faint);
-      text-transform: uppercase;
-    }
-    .ie-cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-    .ie-card {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: opacity 0.3s;
-    }
-    .ie-card:hover { opacity: 0.7; }
-    .ie-card-img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      display: block;
-      background: var(--ink-line);
-    }
-    .ie-card-body {
-      padding: 1.2rem 0 0;
-    }
-    .ie-card-date {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      color: var(--ink-faint);
-      margin-bottom: 0.5rem;
-    }
-    .ie-card-tag {
-      display: inline-block;
-      font-family: var(--serif-en);
-      font-size: 0.52rem;
-      letter-spacing: 0.15em;
-      color: #fff;
-      background: var(--ink);
-      padding: 0.15rem 0.7rem;
-      margin-right: 0.6rem;
-      vertical-align: middle;
-    }
-    .ie-card-tag.is-event { background: var(--gold); }
-
-    /* ── News carousel (mobile) ── */
-    .ie-cards-wrap { position: relative; }
-    .ie-nav { display: none; }
-
-    @media (max-width: 540px) {
-      .ie-cards-wrap { overflow: hidden; }
-      .ie-cards {
-        display: flex !important;
-        grid-template-columns: none !important;
-        gap: 1rem !important;
-        overflow: hidden;
-        padding-bottom: 0.5rem;
-        touch-action: pan-y;
-      }
-      .ie-cards .ie-card {
-        flex: 0 0 82%;
-        min-width: 82%;
-        transition: transform 0.4s ease;
-      }
-      .ie-nav {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1.2rem;
-      }
-      .ie-nav-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 1px solid var(--ink);
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background 0.3s, border-color 0.3s;
-      }
-      .ie-nav-btn:active {
-        background: var(--ink);
-      }
-      .ie-nav-btn:active svg { stroke: #fff; }
-      .ie-nav-btn svg {
-        width: 12px;
-        height: 12px;
-        stroke: var(--ink);
-        fill: none;
-        stroke-width: 2;
-      }
-    }
-    .ie-card-title {
-      display: block;
-      font-family: var(--serif-jp);
-      font-weight: 400;
-      font-size: 0.92rem;
-      line-height: 1.9;
-      letter-spacing: 0.04em;
-      color: var(--ink);
-      margin-top: 0.6rem;
-    }
-    .ie-card-sub {
-      display: block;
-      font-size: 0.78rem;
-      line-height: 1.8;
-      color: var(--ink-soft);
-      margin-top: 0.3rem;
-    }
-    .ie-more {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.6rem;
-      margin-top: 1.8rem;
-      font-family: var(--serif-en);
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      color: var(--ink);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .ie-more:hover { color: var(--gold); }
-    .ie-more-circle {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid var(--ink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .ie-more:hover .ie-more-circle {
-      border-color: var(--gold);
-      background: var(--gold);
-    }
-    .ie-more-circle svg {
-      width: 10px;
-      height: 10px;
-      stroke: var(--ink);
-      fill: none;
-      stroke-width: 2;
-      transition: stroke 0.3s;
-    }
-    .ie-more:hover .ie-more-circle svg { stroke: #fff; }
-
-    @media (max-width: 880px) {
-      .info-event-area { padding: 2.5rem 1.6rem 0; }
-      .ie-section { margin-bottom: 2.5rem; }
-      .ie-cards { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      .ie-heading { gap: 0.8rem; margin-bottom: 1.8rem; padding-bottom: 1rem; }
-      .ie-heading-ja { font-size: 0.95rem; }
-    }
-    @media (max-width: 540px) {
-      .ie-cards { grid-template-columns: 1fr; gap: 2rem; }
-    }
-
-    /* ════════ PHILOSOPHY ════════ */
-    #philosophy {
-      text-align: center;
-      position: relative;
-      padding-bottom: 0;
-      background: var(--bg-alt);
-      max-width: none;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    #philosophy > *:not(.philosophy-image) {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-    .philosophy-image {
-      width: calc(100% + 4rem);
-      margin: 3rem -2rem 0;
-      overflow: hidden;
-    }
-    .philosophy-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: saturate(0.85) contrast(1.05);
-    }
-    .philosophy-lead {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: clamp(1.15rem, 3.2vw, 2.2rem);
-      letter-spacing: 0.22em;
-      color: var(--ink);
-      margin: 0 0 3rem;
-      line-height: 1.9;
-    }
-    .philosophy-body {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 0.95rem;
-      line-height: 2.6;
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
-    }
-    .philosophy-body p { margin: 0 0 2rem; }
-    .text-link {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(139,111,31,0.3);
-      transition: border-color 0.3s, opacity 0.3s;
-    }
-    .text-link:hover { border-color: var(--gold); opacity: 0.7; }
-    .philosophy-signature {
-      margin-top: 1.5rem;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.78rem;
-      letter-spacing: 0.36em;
-      color: var(--gold);
-      display: inline-block;
-    }
-
-    /* ════════ LOGO TICKER ════════ */
-    .logo-ticker {
-      background: #FFFFFF;
-      padding: 2.8rem 0 1.4rem;
-      overflow: hidden;
-      position: relative;
-      border-top: 1px solid var(--ink-line);
-      border-bottom: 1px solid var(--ink-line);
-    }
-    .logo-ticker-heading {
-      text-align: center;
-      margin-bottom: 1.2rem;
-    }
-    .logo-ticker-label {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: rgba(28,31,46,0.75);
-      margin-bottom: 0.3rem;
-    }
-    .logo-ticker-sub {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      color: rgba(28,31,46,0.6);
-    }
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: tickerScroll 45s linear infinite;
-      will-change: transform;
-      pointer-events: none;
-    }
-    @keyframes tickerScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .ticker-set {
-      display: flex;
-      align-items: flex-start;
-      gap: 4.5rem;
-      padding: 0 2.25rem;
-    }
-    .ticker-logo {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.6rem;
-      opacity: 0.7;
-      transition: opacity 0.4s;
-    }
-    .ticker-logo {
-      pointer-events: none;
-    }
-    .ticker-logo-icon {
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .ticker-logo-icon svg {
-      height: 100%;
-      width: auto;
-      display: block;
-      fill: currentColor;
-    }
-    .ticker-logo-icon.lg { height: 40px; }
-    /* text-only brand mark (no SVG) */
-    .ticker-logo-mark {
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: inherit;
-    }
-    .ticker-brand-name {
-      font-size: 0.52rem;
-      letter-spacing: 0.2em;
-      color: rgba(28,31,46,0.45) !important;
-      text-transform: uppercase;
-      white-space: nowrap;
-      text-align: center;
-      line-height: 1;
-    }
-    /* Brand-specific typography */
-    .font-apple      { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; color: #1C1C1C; }
-    .font-abbott     { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 600; color: #009CDE; }
-    .font-amex       { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 600; letter-spacing: 0.12em !important; color: #006FCF; }
-    .font-emirates   { font-family: var(--serif-en); font-weight: 400; font-style: italic; color: #D71920; }
-    .font-bentley    { font-family: var(--serif-en); font-weight: 400; letter-spacing: 0.3em !important; color: #333333; }
-    .font-rr         { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; letter-spacing: 0.25em !important; color: #680021; }
-    .font-ritz       { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; letter-spacing: 0.18em !important; color: #1A1F71; }
-    .font-oura       { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 300; letter-spacing: 0.35em !important; color: #1C1C1C; }
-    .font-technogym  { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 700; letter-spacing: 0.15em !important; color: #1A1A1A; }
-    .font-aman       { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; letter-spacing: 0.45em !important; color: #1C1C1C; }
-    .font-fourseasons { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; letter-spacing: 0.15em !important; color: #1C1C1C; }
-    .font-netjets    { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 600; letter-spacing: 0.18em !important; color: #1A1A1A; }
-    .font-vistajet   { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 300; letter-spacing: 0.25em !important; color: #6B0F24; }
-    .ticker-disclaimer {
-      text-align: center;
-      font-family: var(--serif-en);
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      color: rgba(28,31,46,0.55);
-      margin-top: 1.2rem;
-      padding: 0 2rem;
-    }
-
-    /* ════════ BENEFITS CAROUSEL ════════ */
-    #services {
-      max-width: none;
-      padding: 5rem 0 4rem;
-      text-align: center;
-      overflow: hidden;
-    }
-    #services .section-label,
-    #services .section-title,
-    #services .section-title-ja {
-      padding: 0 2rem;
-    }
-    .benefits-carousel {
-      margin-top: 3rem;
-      padding: 0 0 2rem;
-      display: flex;
-      gap: 1.6rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      cursor: grab;
-      padding-left: calc((100vw - 1100px) / 2);
-      padding-right: calc((100vw - 1100px) / 2);
-    }
-    .benefits-carousel::-webkit-scrollbar { display: none; }
-    .benefits-carousel.grabbing { cursor: grabbing; }
-    .benefit-slide {
-      flex: 0 0 auto;
-      width: min(72vw, 520px);
-      aspect-ratio: 4 / 5;
-      position: relative;
-      overflow: hidden;
-      scroll-snap-align: center;
-      border-radius: 0;
-      touch-action: manipulation;
-    }
-    .benefit-slide-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .benefit-slide-img--no-photo {
-      object-fit: unset;
-    }
-    .benefit-slide:hover .benefit-slide-img {
-      transform: scale(1.03);
-    }
-    .benefit-slide-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.65) 0%,
-        rgba(0,0,0,0.15) 50%,
-        rgba(0,0,0,0.05) 100%
-      );
-    }
-    .benefit-slide-text {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 2.4rem 2rem;
-      z-index: 2;
-    }
-    .benefit-slide-num {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.56rem;
-      letter-spacing: 0.34em;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.8rem;
-    }
-    .benefit-slide-title {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
-      letter-spacing: 0.14em;
-      color: #fff;
-      line-height: 1.8;
-      margin: 0 0 0.6rem;
-    }
-    .benefit-slide-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-weight: 300;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      color: rgba(255,255,255,0.65);
-    }
-    .benefit-slide-arrow {
-      display: block;
-      margin-top: 1.2rem;
-      font-family: var(--serif-jp);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.7);
-      transition: color 0.3s;
-    }
-    .benefit-slide:hover .benefit-slide-arrow { color: #fff; }
-    .benefits-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      margin-top: 1.6rem;
-    }
-    .benefits-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--ink-line-strong);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .benefits-dot.active {
-      background: var(--gold);
-      transform: scale(1.3);
-    }
-    @media (max-width: 880px) {
-      #services { padding: 3.5rem 0 3rem; }
-      .benefits-carousel {
-        padding-left: 0;
-        padding-right: 0;
-        gap: 0.6rem;
-      }
-      .benefit-slide {
-        width: 92vw;
-        aspect-ratio: 3 / 4;
-      }
-    }
-
-    /* ════════ VIDEO BREAK ════════ */
-    .video-break {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      height: 50vh;
-      max-height: 420px;
-      min-height: 240px;
-      background: #000;
-    }
-    .video-break video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
-    .video-break-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.25);
-      z-index: 1;
-    }
-    .video-break-text {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .video-break-text span {
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(0.8rem, 2vw, 1.1rem);
-      letter-spacing: 0.36em;
-      color: rgba(255,255,255,0.85);
-    }
-    .video-break-sp { display: none; }
-    @media (max-width: 880px) {
-      .video-break { height: 40vh; max-height: 340px; }
-      .video-break-pc { display: none; }
-      .video-break-sp { display: block; }
-    }
-
-    /* ════════ SERVICES (CORE) ════════ */
-    #services {
-      max-width: none;
-      background: #fff;
-      padding: 6rem 2rem 5rem;
-      text-align: center;
-    }
-    .services-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-    .core-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
-      margin-top: 4rem;
-    }
-    .core-note {
-      margin: 3rem auto 0;
-      max-width: 700px;
-      font-size: 0.85rem;
-      line-height: 2.2;
-      color: var(--ink-soft);
-      letter-spacing: 0.04em;
-    }
-    .core-note-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      color: rgba(0,0,0,0.3);
-      margin-top: 0.8rem;
-    }
-    @media (max-width: 880px) {
-      #services { padding: 4rem 1.6rem 3.5rem; }
-      .core-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3px;
-      }
-    }
-    @media (max-width: 540px) {
-      .core-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ════════ CONCIERGE / MEMBER PRIVILEGES ════════ */
-    #concierge {
-      max-width: none;
-      background: #fff;
-      padding: 6rem 2rem 5rem;
-      text-align: center;
-    }
-    .concierge-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-    .concierge-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-      margin-top: 4rem;
-    }
-    .concierge-card {
-      position: relative;
-      min-height: 420px;
-      overflow: hidden;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      text-align: left;
-      touch-action: manipulation;
-    }
-    .concierge-card-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.8s ease;
-    }
-    .concierge-card:hover .concierge-card-bg {
-      transform: scale(1.05);
-    }
-    .concierge-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.55) 60%,
-        rgba(0,0,0,0.78) 100%
-      );
-      transition: background 0.5s;
-    }
-    .concierge-card:hover .concierge-card-overlay {
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.25) 0%,
-        rgba(0,0,0,0.65) 60%,
-        rgba(0,0,0,0.85) 100%
-      );
-    }
-    .concierge-card-body {
-      position: relative;
-      z-index: 2;
-      padding: 2.5rem 2.4rem;
-    }
-    .concierge-card-num {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      margin-bottom: 1.4rem;
-    }
-    .concierge-card-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
-      letter-spacing: 0.06em;
-      color: #fff;
-      margin-bottom: 0.4rem;
-      line-height: 1.3;
-    }
-    .concierge-card-ja {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.78rem;
-      letter-spacing: 0.3em;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0;
-    }
-    .concierge-card-arrow {
-      display: inline-block;
-      margin-top: 1.4rem;
-      font-family: var(--serif-en);
-      font-size: 0.55rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      opacity: 0.8;
-      transition: opacity 0.3s, letter-spacing 0.3s;
-    }
-    .concierge-card:hover .concierge-card-arrow {
-      opacity: 1;
-      letter-spacing: 0.4em;
-    }
-    /* ═══ CINEMATIC DETAIL MODAL ═══ */
-    .concierge-detail {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background-size: cover;
-      background-position: center;
-      justify-content: center;
-      align-items: center;
-    }
-    .concierge-detail::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(8,10,16,0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    .concierge-detail.open {
-      display: flex;
-      animation: cDetailOverlayIn 0.7s ease forwards;
-    }
-    @keyframes cDetailOverlayIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    .concierge-detail.closing {
-      animation: cDetailOverlayOut 0.3s ease forwards;
-    }
-    @keyframes cDetailOverlayOut {
-      from { opacity: 1; }
-      to   { opacity: 0; }
-    }
-    /* Background images per modal */
-    #concierge-medical  { background: linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%); }
-    #concierge-aesthetic { background: linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%); }
-    #concierge-culinary  { background: linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%); }
-
-    .concierge-detail-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 640px;
-      width: 90%;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 3rem 2rem 3rem;
-      text-align: center;
-      background: none;
-    }
-    /* Close button — absolute within .concierge-detail (fixed inset:0 parent) */
-    .concierge-detail-close {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      width: 44px;
-      height: 44px;
-      background: none;
-      border: 1px solid rgba(255,255,255,0.15);
-      cursor: pointer;
-      padding: 0;
-      z-index: 10;
-      transition: border-color 0.3s, transform 0.3s;
-      touch-action: manipulation;
-    }
-    .concierge-detail-close:hover {
-      border-color: var(--gold);
-      transform: rotate(90deg);
-    }
-    .concierge-detail-close::before,
-    .concierge-detail-close::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 18px;
-      height: 1px;
-      background: rgba(255,255,255,0.6);
-      transition: background 0.3s;
-    }
-    .concierge-detail-close::before { transform: translate(-50%,-50%) rotate(45deg); }
-    .concierge-detail-close::after  { transform: translate(-50%,-50%) rotate(-45deg); }
-    .concierge-detail-close:hover::before,
-    .concierge-detail-close:hover::after { background: var(--gold); }
-
-    /* Typography — all white on dark */
-    .concierge-detail .concierge-detail-num,
-    .concierge-detail .concierge-detail-en,
-    .concierge-detail .concierge-detail-ja {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    .concierge-detail-num {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.7rem;
-      letter-spacing: 0.45em;
-      color: var(--gold);
-      margin-bottom: 1.6rem;
-    }
-    .concierge-detail-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      letter-spacing: 0.1em;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    .concierge-detail-ja {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.72rem;
-      letter-spacing: 0.45em;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 2.8rem;
-    }
-    /* Gold line — animates width */
-    .concierge-detail .concierge-detail-line {
-      width: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 2.8rem;
-      opacity: 0;
-    }
-    /* Detail list — white text */
-    .concierge-detail-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .concierge-detail-list li {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: 0.95rem;
-      line-height: 2.2;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.85);
-      padding: 0.7rem 0 0.7rem 1.6em;
-      text-indent: -1.6em;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    .concierge-detail-list li:last-child { border-bottom: none; }
-    .concierge-detail-list li::before {
-      content: '◆';
-      color: var(--gold);
-      margin-right: 0.7em;
-      font-size: 0.45rem;
-      vertical-align: middle;
-    }
-    /* ─── Staggered animations (trigger on .open) ─── */
-    .concierge-detail.open .concierge-detail-num {
-      animation: cDetailFadeUp 0.6s 0.15s ease forwards;
-    }
-    .concierge-detail.open .concierge-detail-en {
-      animation: cDetailFadeUp 0.6s 0.25s ease forwards;
-    }
-    .concierge-detail.open .concierge-detail-ja {
-      animation: cDetailFadeUp 0.6s 0.35s ease forwards;
-    }
-    .concierge-detail.open .concierge-detail-line {
-      animation: cDetailGoldLine 0.9s 0.45s ease forwards;
-    }
-    .concierge-detail.open .concierge-detail-list li:nth-child(1) { animation: cDetailFadeUp 0.5s 0.6s ease forwards; }
-    .concierge-detail.open .concierge-detail-list li:nth-child(2) { animation: cDetailFadeUp 0.5s 0.75s ease forwards; }
-    .concierge-detail.open .concierge-detail-list li:nth-child(3) { animation: cDetailFadeUp 0.5s 0.9s ease forwards; }
-    .concierge-detail.open .concierge-detail-list li:nth-child(4) { animation: cDetailFadeUp 0.5s 1.05s ease forwards; }
-    .concierge-detail.open .concierge-detail-list li:nth-child(5) { animation: cDetailFadeUp 0.5s 1.2s ease forwards; }
-
-    @keyframes cDetailFadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes cDetailGoldLine {
-      from { width: 0; opacity: 0; }
-      to   { width: 100%; opacity: 0.7; }
-    }
-    .concierge-note {
-      max-width: 800px;
-      margin: 4rem auto 0;
-      padding-top: 3rem;
-      border-top: 1px solid var(--ink-line);
-      font-size: 0.82rem;
-      line-height: 2.2;
-      color: var(--ink-soft);
-      letter-spacing: 0.04em;
-      text-align: center;
-    }
-    .concierge-note-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: rgba(0,0,0,0.3);
-      margin-top: 0.8rem;
-    }
-    @media (max-width: 880px) {
-      #concierge { padding: 4rem 1.6rem 3.5rem; }
-      .concierge-grid {
-        grid-template-columns: 1fr;
-        gap: 3px;
-      }
-      .concierge-card { min-height: 300px; }
-      .concierge-detail-inner { padding: 2.5rem 1.6rem 2rem; }
-      .concierge-detail-close { top: max(1.2rem, env(safe-area-inset-top, 0px)); right: max(1.2rem, env(safe-area-inset-right, 0px)); width: 44px; height: 44px; }
-      .concierge-detail-en { letter-spacing: 0.06em; }
-      .concierge-detail-list li { font-size: 0.78rem; }
-      .concierge-note { letter-spacing: 0; font-size: 0.7rem; }
-    }
-
-    /* ════════ TRACK RECORD ════════ */
-    .track-record-section {
-      background: var(--bg);
-      padding: 0;
-      text-align: center;
-      position: relative;
-    }
-    /* Full-width map as section background */
-    .track-map {
-      position: relative;
-      width: 100%;
-      height: 80vh;
-      min-height: 500px;
-      overflow: hidden;
-    }
-    .track-map-layer {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 1.5s ease, transform 5s ease-out;
-      transform: scale(1);
-    }
-    .track-map-layer img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: sepia(0.5) saturate(0.6) brightness(0.9);
-    }
-    .track-map-layer.active { opacity: 1; }
-    .track-map-layer.zoom { transform: scale(1.5); }
-    /* Overlay for text readability */
-    .track-map-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(28,31,46,0.45);
-      z-index: 2;
-    }
-    /* TRACK RECORD: keep English big, Japanese small */
-    .section-title--en {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
-      letter-spacing: 0.12em;
-      line-height: 1.3;
-    }
-    .section-title-ja--jp {
-      font-family: var(--serif-jp);
-      font-size: 0.68rem;
-      letter-spacing: 0.4em;
-    }
-    /* Section heading on top of map */
-    .track-map-heading {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .track-map-heading .section-label,
-    .track-map-heading .section-title,
-    .track-map-heading .section-title-ja {
-      color: #fff;
-    }
-    .track-map-heading .section-label.with-rule::before,
-    .track-map-heading .section-label.with-rule::after {
-      background: rgba(255,255,255,0.5);
-    }
-    /* Pin */
-    .track-map-pin {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 4;
-      opacity: 0;
-      transition: opacity 0.8s;
-    }
-    .track-map-pin.active { opacity: 1; }
-    .track-map-pin span {
-      display: block;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 24px rgba(139,111,31,0.7), 0 0 50px rgba(139,111,31,0.3);
-      animation: pin-pulse 2s ease-in-out infinite;
-    }
-    @keyframes pin-pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-    .track-map-pin::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 14px; height: 14px;
-      border: 1px solid rgba(139,111,31,0.5);
-      border-radius: 50%;
-      animation: pin-ring 2s ease-out infinite;
-    }
-    @keyframes pin-ring {
-      0% { width: 14px; height: 14px; opacity: 0.8; }
-      100% { width: 50px; height: 50px; opacity: 0; }
-    }
-    .track-map-label {
-      position: absolute;
-      bottom: 2rem; right: 2rem;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      color: var(--gold);
-      opacity: 0;
-      transition: opacity 0.8s;
-      z-index: 5;
-    }
-    .track-map-label.active { opacity: 1; }
-
-    /* Content below map — accordion toggle */
-    .track-toggle-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      margin: 0 auto;
-      padding: 1.2rem 2.4rem;
-      background: none;
-      border: 1px solid var(--ink-line-strong);
-      cursor: pointer;
-      font-family: var(--serif-jp);
-      font-size: 0.88rem;
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      color: var(--ink-soft);
-      transition: border-color 0.3s, color 0.3s;
-      touch-action: manipulation;
-    }
-    .track-toggle-btn:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-    .track-toggle-btn svg {
-      width: 12px; height: 12px;
-      stroke: currentColor;
-      stroke-width: 1.5;
-      fill: none;
-      transition: transform 0.3s;
-    }
-    .track-toggle-btn.open svg {
-      transform: rotate(180deg);
-    }
-    .track-toggle-wrap {
-      padding: 2rem 2rem 1.5rem;
-      background: var(--bg);
-      text-align: center;
-    }
-    .track-content {
-      padding: 0 2rem 0;
-      background: var(--bg);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-    }
-    .track-content.open {
-      max-height: 1200px;
-      padding: 2rem 2rem 4rem;
-    }
-
-    /* Stats */
-    .track-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin: 0 auto;
-      max-width: 1100px;
-      width: 100%;
-      border-top: 1px solid var(--ink-line);
-      border-bottom: 1px solid var(--ink-line);
-      position: relative;
-    }
-    .track-stats::before {
-      content: '';
-      position: absolute;
-      top: -6px; left: 50%; transform: translateX(-50%);
-      width: 40px; height: 1px;
-      background: var(--gold);
-    }
-    .track-stats::after {
-      content: '';
-      position: absolute;
-      bottom: -6px; left: 50%; transform: translateX(-50%);
-      width: 40px; height: 1px;
-      background: var(--gold);
-    }
-    .track-stat-item {
-      padding: 2.5rem 1rem;
-      border-right: 1px solid var(--ink-line);
-    }
-    .track-stat-item:last-child { border-right: none; }
-    .track-stat-num {
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      color: var(--ink);
-      letter-spacing: 0.02em;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .track-stat-num .small { font-size: 0.4em; color: var(--gold); }
-    .track-stat-label {
-      font-family: var(--serif-en);
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .track-stat-sub {
-      font-size: 0.88rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.06em;
-      margin: 0;
-    }
-    .track-nda {
-      max-width: 900px;
-      margin: 2.5rem auto 0;
-      padding: 2rem 0;
-    }
-    .track-nda-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.62rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .track-nda-text {
-      font-size: 0.95rem;
-      line-height: 2.2;
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
-      margin: 0;
-    }
-    .track-nda-text a.text-link {
-      color: var(--gold) !important;
-      border-color: var(--gold-soft) !important;
-    }
-    .track-clients {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto 1rem;
-      border-top: 1px solid var(--ink-line);
-    }
-    .track-client-item {
-      padding: 1.6rem 1rem;
-      border-right: 1px solid var(--ink-line);
-      border-bottom: 1px solid var(--ink-line);
-      text-align: center;
-    }
-    .track-client-item:last-child { border-right: none; }
-    .track-client-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
-    .track-client-ja {
-      display: block;
-      font-size: 0.88rem;
-      letter-spacing: 0.1em;
-      color: var(--ink-soft);
-    }
-    .track-note {
-      margin-top: 1.5rem;
-      font-size: 0.72rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.05em;
-    }
-
-
-    /* ════════ HOW TO JOIN ════════ */
-    #how-to-join {
-      text-align: center;
-    }
-
-    /* Vertical timeline */
-    .join-steps {
-      max-width: 660px;
-      margin: 0 auto;
-      position: relative;
-      padding-left: 2.6rem;
-      text-align: left;
-    }
-    .join-steps::before {
-      content: '';
-      position: absolute;
-      left: 11px;
-      top: 16px;
-      bottom: 16px;
-      width: 1px;
-      background: linear-gradient(180deg, var(--gold) 0%, rgba(139, 111, 31, 0.5) 70%, rgba(139, 111, 31, 0.15) 100%);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 2.5s cubic-bezier(.25,.46,.45,.94);
-    }
-    .join-steps.line-active::before {
-      transform: scaleY(1);
-    }
-    .join-step {
-      position: relative;
-      display: block;
-      padding: 1.4rem 0;
-      background: none;
-      border: none;
-    }
-    .join-step + .join-step {
-      border-top: 1px dashed var(--ink-line);
-    }
-    .join-step::before {
-      content: '';
-      position: absolute;
-      left: -2.6rem;
-      top: 1.85rem;
-      width: 23px;
-      height: 23px;
-      background: var(--bg);
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      box-sizing: border-box;
-      transform: scale(0);
-      transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
-    }
-    .join-step.dot-active::before {
-      transform: scale(1);
-    }
-    .join-step::after {
-      content: '';
-      position: absolute;
-      left: calc(-2.6rem + 7px);
-      top: calc(1.85rem + 7px);
-      width: 9px;
-      height: 9px;
-      background: var(--gold);
-      border-radius: 50%;
-      transform: scale(0);
-      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1) 0.15s;
-    }
-    .join-step.dot-active::after {
-      transform: scale(1);
-    }
-    .join-step-num {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.72rem;
-      letter-spacing: 0.32em;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-    .join-step-text {
-      display: block;
-      font-size: 1rem;
-      color: var(--ink);
-      letter-spacing: 0.04em;
-      line-height: 1.9;
-      font-weight: 300;
-    }
-    .join-step-sub {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--ink-faint);
-      margin-top: 0.5rem;
-      letter-spacing: 0.04em;
-      line-height: 1.8;
-    }
-    .join-note {
-      margin-top: 3rem;
-      font-size: 0.78rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.05em;
-      text-align: center;
-    }
-
-    /* ════════ FAQ (inline in CTA) ════════ */
-    .cta-faq {
-      margin-top: 1.8rem;
-      font-size: 0.8rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.05em;
-    }
-    .cta-faq a {
-      color: var(--gold);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: opacity 0.3s;
-    }
-    .cta-faq a:hover { opacity: 0.6; }
-
-    /* ════════ HERO CTA ════════ */
-    .hero-cta {
-      display: inline-block;
-      margin-top: 4.5rem;
-      padding: 1.2rem 0;
-      width: 340px;
-      text-align: center;
-      font-family: var(--serif-jp);
-      font-size: 1.05rem;
-      letter-spacing: 0.22em;
-      color: #fff;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.6);
-      transition: background 0.4s, border-color 0.4s;
-      text-decoration: none;
-    }
-    .hero-cta:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: #fff;
-    }
-    .hero-members-link {
-      display: inline-block;
-      margin-top: 1.2rem;
-      font-family: var(--serif-jp);
-      font-size: 0.88rem;
-      letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      padding-bottom: 0.2rem;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .hero-members-link:hover {
-      color: #fff;
-      border-color: #fff;
-    }
-
-    /* ════════ FOOTER ════════ */
-    footer {
-      background: var(--ink);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 5rem 2rem 3rem;
-      text-align: center;
-      border-top: 1px solid var(--gold);
-    }
-    .f-emblem {
-      margin-bottom: 1.4rem;
-      opacity: 0.6;
-    }
-    .f-emblem svg path,
-    .f-emblem svg line { stroke: var(--gold); }
-    .f-brand {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.95rem;
-      letter-spacing: 0.32em;
-      color: rgba(255, 255, 255, 0.95);
-      margin-bottom: 3rem;
-    }
-    .f-tagline {
-      font-family: var(--serif-en);
-      font-style: italic;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 2rem;
-    }
-    .f-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem 2.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    .f-links a {
-      font-family: var(--serif-en);
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      color: rgba(255, 255, 255, 0.55);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .f-links a:hover { color: var(--gold); }
-    .f-press {
-      display: inline-block;
-      margin-top: 0;
-      margin-bottom: 2.5rem;
-      font-family: var(--serif-jp);
-      font-size: 0.82rem;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      background: transparent;
-      border: 1px solid var(--gold);
-      padding: 0.9rem 3rem;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .f-press:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #fff;
-    }
-    .f-info {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.82rem;
-      line-height: 2.2;
-      color: rgba(255, 255, 255, 0.5);
-      letter-spacing: 0.05em;
-    }
-    .f-info a {
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .f-info a:hover { color: var(--gold); }
-    .f-info-company {
-      margin-top: 0.8rem;
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.35);
-    }
-    .f-copy {
-      font-family: var(--serif-en);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      color: rgba(255, 255, 255, 0.35);
-      display: block;
-      margin-top: 1.4rem;
-    }
-    @media (max-width: 600px) {
-      footer {
-        padding: 3.5rem 1.5rem 2.5rem;
-      }
-      .f-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-        margin: 0 auto 2rem;
-      }
-      .f-info {
-        margin-top: 2rem;
-      }
-      .f-info-company {
-        margin-top: 1rem;
-      }
-    }
-
-
-    /* ════════ FADE ════════ */
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .fade.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* News cards — vertical fade (prevents horizontal overflow jitter) */
-    .ie-card.fade { transform: translateY(20px); }
-    .ie-card.fade.visible { transform: translateY(0); }
-    /* Staggered step animation */
-    .join-step.fade { transform: translateX(-20px); }
-    .join-step.fade.visible { transform: translateX(0); }
-
-    /* ═══ B. Section title: no animation ═══ */
-    .section-title.fade {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-    .section-title.fade.visible {
-      opacity: 1;
-    }
-    .section-title-ja.fade {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-
-    /* ═══ D. Gold line — no animation ═══ */
-    .gold-divider hr {
-      transform: scaleX(1);
-    }
-    .section-label {
-      opacity: 1 !important;
-    }
-    .section-label.with-rule::before,
-    .section-label.with-rule::after {
-      transform: scaleX(1);
-    }
-
-    .sp-only { display: none; }
-    @media (max-width: 880px) {
-      .sp-only { display: inline; }
-      .cta-headline { letter-spacing: 0.1em; font-size: 1.1rem; }
-
-    }
-
-    .visually-hidden {
-      position: absolute !important;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0);
-      border: 0;
-    }
-
-    /* ════════ MOBILE ════════ */
-    @media (max-width: 880px) {
-      nav.primary { padding: 1.2rem 1.6rem; }
-      .nav-links-pc { display: none; }
-      .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .logo-ja { font-size: 0.62rem; }
-      section { padding: 4rem 1.6rem; }
-      .track-map { height: 50vh; min-height: 300px; }
-      .track-stats { grid-template-columns: 1fr; }
-      .track-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .track-stat-item:last-child { border-bottom: none; }
-      .track-clients { grid-template-columns: repeat(2, 1fr); }
-      .track-client-item:nth-child(2) { border-right: none; }
-      .track-client-item:nth-child(4) { border-right: none; }
-      .join-steps { grid-template-columns: 1fr; }
-      .hero-text { padding: 2rem 1.6rem 0; justify-content: center; position: relative; padding-bottom: 22vh; }
-      .brand-en { font-size: clamp(2.4rem, 6.5vw, 5.2rem); margin-top: 1.5rem; }
-      .catch { margin-top: 2rem; font-size: clamp(1.15rem, 3.8vw, 1.55rem); }
-      .hero-cta { position: absolute; bottom: 8.5rem; left: 0; right: 0; margin: 0 auto; width: 280px; padding: 0.9rem 0; text-align: center; font-size: 0.95rem; }
-      .hero-members-link { position: absolute; bottom: 5.5rem; left: 0; right: 0; margin: 0 auto; width: fit-content; text-align: center; }
-      .philosophy-image { width: calc(100% + 3.2rem); margin-left: -1.6rem; margin-right: -1.6rem; }
-      .pw-form { flex-direction: column; max-width: 280px; }
-      .pw-input { border-right: 1px solid var(--ink-line-strong); border-bottom: none; }
-      .pw-btn { width: 100%; }
-      .join-steps { padding-left: 2.2rem; max-width: 100%; }
-      .join-step::before { left: -2.2rem; }
-      .join-step::after { left: calc(-2.2rem + 7px); }
-    }
-
-    /* ════════ LOADER ════════ */
-    html.loading, body.loading { overflow: hidden; touch-action: none; }
-    body.loading * { pointer-events: none !important; }
-    #loader {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      z-index: 100000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      transition: opacity 0.8s ease;
-    }
-    #loader { pointer-events: auto !important; touch-action: none; }
-    #loader.fade-out { opacity: 0; pointer-events: none !important; }
-    .loader-en {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 2.8rem;
-      letter-spacing: 0.35em;
-      color: var(--gold);
-      opacity: 0.7;
-    }
-    .loader-ja {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: 0.85rem;
-      letter-spacing: 0.45em;
-      color: var(--gold);
-      opacity: 0.5;
-    }
-    @media (max-width: 540px) {
-      .loader-en { font-size: 1.6rem; letter-spacing: 0.25em; }
-      .loader-ja { font-size: 0.7rem; letter-spacing: 0.35em; }
-    }
-
-    /* ════════ BACK TO TOP ════════ */
-    .back-to-top {
-      position: fixed;
-      bottom: 2.4rem;
-      left: 2.4rem;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg);
-      border: 1px solid var(--ink-line);
-      z-index: 80;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s, background 0.4s, border-color 0.4s, transform 0.3s;
-      cursor: pointer;
-    }
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .back-to-top:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-    .back-to-top svg {
-      width: 14px;
-      height: 14px;
-    }
-    .back-to-top svg path {
-      stroke: var(--ink);
-      fill: none;
-      stroke-width: 2;
-      transition: stroke 0.4s;
-    }
-    .back-to-top:hover svg path {
-      stroke: #fff;
-    }
-
-    /* ════════ WHITE→DARK TRANSITION (before map) ════════ */
-    .white-to-dark-transition {
-      height: 120px;
-      background: linear-gradient(to bottom, var(--bg) 0%, #1a1f2e 100%);
-      margin-bottom: -1px;
-    }
-
-    /* ════════ HEADER DARK MODE (over zoom section) ════════ */
-    header.header-dark {
-      background: rgba(13,18,25,0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom-color: rgba(255,255,255,0.08);
-    }
-    header.header-dark .logo,
-    header.header-dark .nav-link {
-      color: rgba(255,255,255,0.7);
-    }
-    header.header-dark .nav-link:hover {
-      color: #fff;
-    }
-    header.header-dark .nav-cta {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.2);
-      color: #fff;
-    }
-    header.header-dark .nav-cta:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-    header.header-dark .logo-ja {
-      color: rgba(255,255,255,0.4);
-    }
-    header.header-dark .hamburger span {
-      background: rgba(255,255,255,0.8);
-    }
-
-    /* ════════ D-3: CONCIERGE MODAL IMAGE ════════ */
-    .concierge-detail-img {
-      width: 100%;
-      max-width: 520px;
-      height: 180px;
-      margin: 0 auto 2.5rem;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(14px);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .concierge-detail-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .concierge-detail-img--no-photo {
-      background: linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%);
-    }
-    .concierge-detail.open .concierge-detail-img {
-      animation: cDetailFadeUp 0.6s 0.05s ease forwards;
-    }
-    @media (max-width: 880px) {
-      .concierge-detail-img { height: 140px; }
-    }
-
-    /* ════════ D-4: SECTION BREAK IMAGE ════════ */
-    .section-break-img {
-      width: 100%;
-      overflow: hidden;
-      max-height: 300px;
-    }
-    .section-break-img img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ════════ S-1: REPRESENTATIVE ════════ */
-    #representative {
-      max-width: none;
-      padding: 5rem 2rem 6rem;
-      background: var(--bg-alt);
-    }
-    .rep-inner {
-      max-width: 920px;
-      margin: 3rem auto 0;
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .rep-photo {
-      width: 100%;
-      overflow: hidden;
-    }
-    .rep-photo img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .rep-photo-placeholder {
-      font-family: var(--serif-en);
-      font-size: 0.55rem;
-      letter-spacing: 0.3em;
-      color: var(--ink-faint);
-    }
-    .rep-name-ja {
-      display: block;
-      font-family: var(--serif-jp);
-      font-weight: 400;
-      font-size: 1.4rem;
-      letter-spacing: 0.08em;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-    }
-    .rep-name-en {
-      display: block;
-      font-family: var(--serif-en);
-      font-weight: 300;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      color: var(--ink-soft);
-      margin-bottom: 0.8rem;
-    }
-    .rep-role {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      margin-bottom: 2.4rem;
-      line-height: 1.8;
-    }
-    .rep-body {
-      font-size: 0.92rem;
-      line-height: 2.4;
-      color: var(--ink-soft);
-      letter-spacing: 0.04em;
-    }
-    .rep-body p { margin: 0 0 1.8rem; }
-    .rep-body p:last-child { margin-bottom: 0; }
-    .rep-credentials {
-      list-style: none;
-      padding: 2rem 0 0;
-      margin: 2.2rem 0 0;
-      border-top: 1px solid var(--ink-line);
-    }
-    .rep-credentials li {
-      font-family: var(--serif-en);
-      font-size: 0.66rem;
-      letter-spacing: 0.14em;
-      color: var(--ink-faint);
-      padding: 0.35rem 0 0.35rem 1.2rem;
-      position: relative;
-    }
-    .rep-credentials li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 0.5rem;
-      height: 1px;
-      background: var(--gold);
-    }
-    @media (max-width: 880px) {
-      .rep-inner {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        margin-top: 3rem;
-      }
-      .rep-photo { max-width: 300px; margin: 0 auto; }
-      .rep-role { font-size: 0.72rem; letter-spacing: 0; }
-    }
-
-    /* ════════ PRICING OVERVIEW ════════ */
-    #pricing {
-      text-align: center;
-    }
-    .pricing-intro {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      line-height: 2.2;
-      letter-spacing: 0.04em;
-      margin-bottom: 3.5rem;
-    }
-    .pricing-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      max-width: 780px;
-      margin: 0 auto 3rem;
-    }
-    .pricing-card {
-      border: 1px solid var(--ink-line);
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
-    .pricing-card-label {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-    .pricing-card-name {
-      display: block;
-      font-family: var(--serif-jp);
-      font-size: 1.05rem;
-      letter-spacing: 0.12em;
-      color: var(--ink);
-      margin-bottom: 1.2rem;
-    }
-    .pricing-card-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-    .pricing-card-list li {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      line-height: 2;
-      letter-spacing: 0.04em;
-      padding-left: 1rem;
-      position: relative;
-    }
-    .pricing-card-list li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 0.6rem;
-    }
-    .pricing-note {
-      font-size: 0.7rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.06em;
-      line-height: 2;
-    }
-    @media (max-width: 600px) {
-      .pricing-cards { grid-template-columns: 1fr; }
-    }
-
-    /* ════════ MEDICAL NETWORK ════════ */
-    #medical-network {
-      text-align: center;
-    }
-    .medical-intro {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      line-height: 2.2;
-      letter-spacing: 0.04em;
-      margin-bottom: 3.5rem;
-    }
-    .medical-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-      max-width: 840px;
-      margin: 0 auto 3rem;
-    }
-    .medical-item {
-      border: 1px solid var(--ink-line);
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-    .medical-item-num {
-      display: block;
-      font-family: var(--serif-en);
-      font-size: 1.6rem;
-      font-weight: 300;
-      letter-spacing: 0.05em;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-    .medical-item-label {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
-    }
-    .medical-note {
-      font-size: 0.7rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.06em;
-      line-height: 2;
-    }
-    @media (max-width: 600px) {
-      .medical-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* ════════ S-4: CTA SECTION ════════ */
-    #cta-final {
-      max-width: none;
-      background: var(--bg-cream);
-      padding: 7rem 2rem;
-      text-align: center;
-      border-top: 1px solid var(--ink-line);
-    }
-    #cta-final .section-label {
-      color: var(--ink-faint);
-    }
-    #cta-final .section-label.with-rule::before,
-    #cta-final .section-label.with-rule::after {
-      background: var(--ink-line);
-    }
-    .cta-headline {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: clamp(1.15rem, 2.6vw, 1.6rem);
-      letter-spacing: 0.18em;
-      color: var(--ink);
-      line-height: 2;
-      margin: 0 0 1.5rem;
-    }
-    .cta-sub {
-      font-size: 0.84rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.06em;
-      line-height: 2;
-      margin: 0 0 3.5rem;
-    }
-    .cta-btn {
-      display: inline-block;
-      font-family: var(--serif-jp);
-      font-size: 0.88rem;
-      letter-spacing: 0.18em;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 1.2rem 3.5rem;
-      text-decoration: none;
-      transition: background 0.4s, color 0.4s;
-    }
-    .cta-btn:hover {
-      background: var(--gold);
-      color: #fff;
-    }
-
-    /* ════════ D-5: JOIN STEP MOBILE COMPACT ════════ */
-    @media (max-width: 880px) {
-      .join-step-sub {
-        font-size: 0.6rem;
-        line-height: 1.7;
-        margin-top: 0.35rem;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
-      }
-      .join-step.sub-open .join-step-sub {
-        max-height: 200px;
-        opacity: 1;
-        margin-top: 0.5rem;
-      }
-      .join-step-text {
-        cursor: pointer;
-        position: relative;
-        padding-right: 1.4rem;
-      }
-      .join-step-text::after {
-        content: '+';
-        position: absolute;
-        right: -0.5rem;
-        top: -0.1rem;
-        font-family: var(--serif-en);
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: var(--gold);
-        transition: transform 0.3s;
-      }
-      .join-step.sub-open .join-step-text::after {
-        transform: rotate(45deg);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
-  <script>
-    // ローダー早期非表示（別ページから戻った際のフラッシュ防止）
-    if (sessionStorage.getItem('ea_visited')) {
-      document.documentElement.classList.add('ea-revisit');
-    }
-  </script>
-  <style>
-    html.ea-revisit #loader { display: none !important; }
-    html.ea-revisit body.loading, html.ea-revisit.loading { overflow: auto; }
-    /* ── LOCKDOWN: ヒーローオンリーモード ── */
-    .info-event-area,
-    #services,
-    .video-break,
-    #concierge,
-    .concierge-detail,
-    #track-record,
-    #philosophy,
-    .gold-divider,
-    #how-to-join,
-    #representative,
-    #cta-final,
-    .white-to-dark-transition,
-    footer,
-    .back-to-top,
-    .hero-scroll-hint { display: none !important; }
-
-    /* スクロール無効化（Hero 1画面のみ） */
-    html, body {
-      overflow: hidden !important;
-      height: 100vh;
-      height: 100svh;
-    }
-
-    /* PC版もハンバーガーメニューに統一 */
-    .hamburger { display: flex !important; }
-    .nav-links-pc { display: none !important; }
-
-    /* ハンバーガーメニュー内のコピーライト */
-    .mobile-nav-copy {
-      font-family: var(--serif-en);
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      color: var(--ink-faint);
-      display: block;
-    }
-
-    /* 第1期満員ライン */
-    .hero-cohort {
-      font-family: var(--serif-jp);
-      font-weight: 300;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      color: #ffffff !important;
-      margin: 1.2rem 0 0;
-      position: relative;
-    }
-    @media (max-width: 880px) {
-      .hero-cohort {
-        position: absolute;
-        bottom: 3rem;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 0.6rem;
-      }
-    }
-
-    /* Hero下端ステータスバー */
-    .hero-status-bar {
-      position: absolute;
-      bottom: 2rem;
-      left: 0;
-      right: 0;
-      z-index: 3;
-      text-align: center;
-      font-family: var(--serif-en);
-      font-size: 0.52rem;
-      letter-spacing: 0.45em;
-      color: rgba(255,255,255,0.3);
-      pointer-events: none;
-      opacity: 0;
-      animation: statusBarIn 1s 3s ease forwards;
-    }
-    @keyframes statusBarIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @media (max-width: 880px) {
-      .hero-status-bar {
-        font-size: 0.42rem;
-        letter-spacing: 0.35em;
-        bottom: 1.4rem;
-      }
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芦屋の完全会員制パーソナルトレーニング＆ヘルスケア | EXECUTIVE ASHIYA（エグゼクティブ芦屋）</title>
+    <meta name="description" content="芦屋発・経営者・富裕層向け完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。運動プログラム・栄養設計・コンディショニングを一体化し、健康寿命を守る。芦屋・西宮・神戸・大阪対応。">
+    <meta name="keywords" content="芦屋 パーソナルトレーニング,芦屋 コンディショニング,芦屋 富裕層 ヘルスケア,芦屋 会員制 ジム,経営者 健康管理,芦屋 栄養指導,エグゼクティブ芦屋,EXECUTIVE ASHIYA,芦屋 パーソナルジム,神戸 富裕層 トレーニング">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <!-- SEO: Geo -->
+    <meta name="geo.region" content="JP-28">
+    <meta name="geo.placename" content="芦屋市">
+    <meta name="geo.position" content="34.7358;135.3034">
+    <meta name="ICBM" content="34.7358, 135.3034">
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="EXECUTIVE ASHIYA（エグゼクティブ芦屋）">
+    <meta property="og:title" content="芦屋の完全会員制パーソナルトレーニング＆ヘルスケア | EXECUTIVE ASHIYA">
+    <meta property="og:description" content="芦屋発・経営者・富裕層向け完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。運動・栄養・コンディショニングを一体化。">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:url" content="https://executive-ashiya.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="芦屋の完全会員制パーソナルトレーニング | EXECUTIVE ASHIYA">
+    <meta name="twitter:description" content="芦屋発・経営者向け完全会員制ヘルスケアコンシェルジュ。パーソナルトレーニング・栄養設計・コンディショニングを一体化。">
+    <meta property="og:image" content="https://executive-ashiya.com/ogp.jpg">
+    <meta name="twitter:image" content="https://executive-ashiya.com/ogp.jpg">
+    <link rel="canonical" href="https://executive-ashiya.com/">
+    <link rel="alternate" hreflang="ja" href="https://executive-ashiya.com/">
+    <link rel="alternate" hreflang="en" href="https://executive-ashiya.com/?lang=en">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: "GT Ultra Regular"; src: url("https://framerusercontent.com/assets/E7NT7OKE4dhDFSJzDTwTGJfBWvg.woff2") format("woff2"); font-display: swap; font-weight: 400 }
+        @font-face { font-family: "GT Ultra Light"; src: url("https://framerusercontent.com/assets/n9Vhq2sZQxG7bR7IK2xHSs4VGs.woff") format("woff"); font-display: swap; font-weight: 300 }
+        @font-face { font-family: "PP Editorial New Ultralight"; src: url("https://framerusercontent.com/assets/Ml5YdxLwsCRqmN9FGRm5d77gY.woff") format("woff"); font-display: swap; font-weight: 200 }
+    </style>
 </head>
-<body class="loading">
-<script>document.documentElement.classList.add('loading');</script>
+<body>
 
-  <!-- ════════ LOADER ════════ -->
-  <div id="loader">
-    <span class="loader-en">EXECUTIVE ASHIYA</span>
-    <span class="loader-ja">エグゼクティブ芦屋</span>
-  </div>
-
-  <!-- ════════ NAV ════════ -->
-  <header>
-    <nav class="primary">
-      <a class="logo" href="#hero">
-        <span>EXECUTIVE ASHIYA<span class="logo-ja">エグゼクティブ芦屋</span></span>
-      </a>
-      <div class="nav-links-pc">
-        <a class="nav-link" href="invitation-request.html">ウェイティングリスト</a>
-        <div class="nav-dropdown" id="navDropdown">
-          <button class="nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-expanded="false">
-            運営情報
-            <svg viewBox="0 0 10 10"><path d="M2 4 L5 7 L8 4"/></svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="transparency.html#operations">運営体制</a>
-            <a href="transparency.html#scope">提供範囲</a>
-            <a href="transparency.html#experts">専門家体制</a>
-            <a href="transparency.html#medical">医療非関与</a>
-            <a href="transparency.html#medical">責任分界</a>
-          </div>
+<!-- ========== NAVIGATION ========== -->
+<nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+        <div class="nav-left">
+            <a href="./" class="nav-logo-text">
+                <span class="logo-en">EXECUTIVE ASHIYA</span>
+                <span class="logo-ja">エグゼクティブ芦屋</span>
+            </a>
         </div>
-      </div>
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="ja" onclick="switchLang('ja')">JP</button>
-        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
-      </div>
-      <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開く">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="メニュー">
-      <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="メニューを閉じる"></button>
-      <div class="mnav-brand">
-        <span class="mnav-brand-en">EXECUTIVE ASHIYA</span>
-      </div>
-      <div class="mnav-main">
-        <a href="invitation-request.html" onclick="closeMobileNav()" class="mnav-primary">ウェイティングリスト登録</a>
-        <a href="for-members.html" onclick="closeMobileNav()" class="mnav-primary">会員専用ページ</a>
-      </div>
-      <div class="mnav-section">
-        <a href="transparency.html#operations" class="mobile-nav-sub" onclick="closeMobileNav()">運営体制</a>
-        <a href="transparency.html#scope" class="mobile-nav-sub" onclick="closeMobileNav()">提供範囲</a>
-        <a href="transparency.html#experts" class="mobile-nav-sub" onclick="closeMobileNav()">専門家体制</a>
-        <a href="transparency.html#medical" class="mobile-nav-sub" onclick="closeMobileNav()">医療非関与・責任分界</a>
-      </div>
-      <div class="mnav-section">
-        <a href="mailto:info@executive-ashiya.com" class="mobile-nav-sub" onclick="closeMobileNav()">お問い合わせ</a>
-        <a href="privacy.html" class="mobile-nav-sub" onclick="closeMobileNav()">Privacy Policy</a>
-        <a href="tokushoho.html" class="mobile-nav-sub" onclick="closeMobileNav()">特定商取引法に基づく表記</a>
-      </div>
-      <div class="mnav-footer">
-        <span class="mobile-nav-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
-      </div>
-    </nav>
-  </header>
+        <div class="nav-right">
+            <a href="#serviceProgram">Services</a>
+            <a href="#conciergeCarousel">Concierge</a>
+            <a href="#founder">About</a>
+            <a href="#planningGuides">Process</a>
+            <a href="./invitation-request.html" class="nav-cta-link">Inquire</a>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+        <div class="nav-sp-right">
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
 
-  <!-- ════════ HERO ════════ -->
-  <section id="hero">
-    <video class="hero-video hero-video-pc" src="hero-bg.mp4" muted loop playsinline disableRemotePlayback webkit-playsinline preload="metadata"></video>
-    <canvas class="hero-canvas-sp" id="heroCanvasSp"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-      <h1 class="brand-en fade">EXECUTIVE ASHIYA</h1>
-      <p class="brand-ja fade">エ グ ゼ ク テ ィ ブ 芦 屋</p>
-      <p class="catch fade">健康寿命を、生涯最大の資産に。</p>
-      <a href="invitation-request.html" class="hero-cta fade">ウェイティングリスト登録</a>
-      <p class="hero-cohort fade">第1期：満員 ｜ 現在ウェイティングリスト受付中</p>
-      <a href="for-members.html" class="hero-members-link fade">会員専用ページ</a>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+        <a href="#serviceProgram">Services</a>
+        <a href="#conciergeCarousel">Concierge</a>
+        <a href="#founder">About</a>
+        <a href="#planningGuides">Process</a>
+        <a href="./invitation-request.html">Inquire</a>
+    </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+    <div class="hero-video-wrapper">
+        <video class="hero-video-pc" autoplay muted loop playsinline preload="metadata">
+            <source src="hero-bg.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video-sp" autoplay muted loop playsinline preload="metadata">
+            <source src="hero-bg-sp.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+        <h1 class="hero-brand-en">EXECUTIVE ASHIYA</h1>
+        <p class="hero-brand-ja">エ グ ゼ ク テ ィ ブ 芦 屋</p>
+        <p class="hero-catch">健康寿命を、生涯最大の資産に。</p>
+        <a href="./invitation-request.html" class="hero-cta-btn">ウェイティングリスト登録</a>
     </div>
     <div class="hero-status-bar">ASHIYA, HYOGO &mdash; MEMBERS ONLY &mdash; EST. 2026</div>
-  </section>
+</section>
 
-  <!-- ════════ INFORMATION & EVENT ════════ -->
-  <div class="info-event-area">
+<!-- ========== SERVICE OVERVIEW ========== -->
+<section class="service-overview" id="serviceOverview">
+    <div class="container">
+        <div class="service-content animate-on-scroll">
+            <h2 class="section-heading editorial">身体の変化に、先手を打つ。</h2>
+            <p class="section-body">多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。</p>
+        </div>
+    </div>
+</section>
 
-    <!-- お知らせ -->
-    <div class="ie-section">
-      <div class="ie-heading">
-        <span class="ie-heading-ja">お知らせ</span>
-        <span class="ie-heading-en">Information</span>
-      </div>
-      <div class="ie-cards-wrap">
-        <div class="ie-cards" id="newsCards">
-          <a href="#" class="ie-card fade">
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.06.11</span>
-              <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">第1期会員枠 満員のお知らせ</span>
-              <span class="ie-card-sub">多数のお申し込みをいただき、第1期の募集枠は満員となりました。現在ウェイティングリストにてお申し込みを承っております。</span>
+<!-- ========== SERVICE PROGRAM ========== -->
+<section class="service-program" id="serviceProgram">
+    <div class="section-header animate-on-scroll">
+        <h2 class="section-heading editorial">サービスプログラム</h2>
+        <p class="section-intro">すべてのプログラムは、あなたの身体データ・生活リズム・目標に合わせて完全個別に設計。<br>運動・食事・コンディショニングを一体化し、日常のパフォーマンスを根本から変えていきます。</p>
+    </div>
+    <div class="service-carousel" id="serviceCarousel">
+        <div class="carousel-track">
+            <!-- Card 1 -->
+            <div class="service-card" onclick="openDetail('training')" style="cursor:pointer">
+                <div class="card-image-link">
+                    <div class="card-image-slider">
+                        <img src="service-training.jpg" alt="Training & Movement" loading="lazy">
+                    </div>
+                </div>
+                <div class="card-text">
+                    <p class="card-subtitle">Training & Movement</p>
+                    <h3 class="card-title">運動プログラム</h3>
+                    <p class="card-desc">あなたの身体に合わせた完全個別メニュー。可動域・筋力・姿勢を整え、日常の動きを変える。</p>
+                </div>
+                <div class="card-button">
+                    <span class="btn-text-link">詳しく見る</span>
+                </div>
             </div>
-          </a>
-          <a href="news/2026-05-12-service-launch.html" class="ie-card fade">
-            <img class="ie-card-img" src="news-launch.jpg" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.05.12</span>
-              <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">EXECUTIVE ASHIYA 正式サービス開始のお知らせ</span>
-              <span class="ie-card-sub">完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。</span>
+            <!-- Card 2 -->
+            <div class="service-card" onclick="openDetail('nutrition')" style="cursor:pointer">
+                <div class="card-image-link">
+                    <div class="card-image-slider">
+                        <img src="service-nutrition.jpg" alt="Nutrition Design" loading="lazy">
+                    </div>
+                </div>
+                <div class="card-text">
+                    <p class="card-subtitle">Nutrition Design</p>
+                    <h3 class="card-title">栄養設計</h3>
+                    <p class="card-desc">検査データをもとに組み立てるオーダーメイドの食事プラン。何を、いつ、どれだけ摂るかを設計。</p>
+                </div>
+                <div class="card-button">
+                    <span class="btn-text-link">詳しく見る</span>
+                </div>
             </div>
-          </a>
-          <a href="news/2026-04-25-medical-network-expansion.html" class="ie-card fade">
-            <img class="ie-card-img" src="news-medical-network.avif" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.04.25</span>
-              <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">予約・調整サポート体制拡充のお知らせ</span>
-              <span class="ie-card-sub">各種検査・施設等の予約代行先を拡充。会員様のサポート体制がさらに充実します。</span>
+            <!-- Card 3 -->
+            <div class="service-card" onclick="openDetail('conditioning')" style="cursor:pointer">
+                <div class="card-image-link">
+                    <div class="card-image-slider">
+                        <img src="service-conditioning.jpg" alt="Conditioning" loading="lazy">
+                    </div>
+                </div>
+                <div class="card-text">
+                    <p class="card-subtitle">Conditioning</p>
+                    <h3 class="card-title">コンディショニング</h3>
+                    <p class="card-desc">疲労回復・可動域改善・自律神経の調整。忙しい日常のパフォーマンスを底上げする。</p>
+                </div>
+                <div class="card-button">
+                    <span class="btn-text-link">詳しく見る</span>
+                </div>
             </div>
-          </a>
-          <a href="news/2026-04-18-supplement-prescription.html" class="ie-card fade">
-            <img class="ie-card-img" src="news-supplement.webp" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.04.18</span>
-              <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">5月度オーダーメイドサプリメント提案受付開始</span>
-              <span class="ie-card-sub">お客様の生活データに基づくサプリメント提案を毎月更新。今月の注目成分はNMN・グルタチオン。</span>
+        </div>
+        <!-- Carousel Navigation -->
+        <div class="carousel-nav">
+            <div class="carousel-progress">
+                <div class="carousel-progress-bar" id="serviceProgressBar"></div>
             </div>
-          </a>
-          <a href="news/2026-04-10-sleep-investment.html" class="ie-card fade">
-            <img class="ie-card-img" src="news-sleep.webp" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.04.10</span>
-              <span class="ie-card-tag">COLUMN</span>
-              <span class="ie-card-title">なぜエグゼクティブは「睡眠」に投資するのか</span>
-              <span class="ie-card-sub">Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。</span>
+            <div class="carousel-arrows">
+                <button class="carousel-arrow prev" data-carousel="serviceCarousel" aria-label="Previous">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="carousel-arrow next" data-carousel="serviceCarousel" aria-label="Next">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
             </div>
-          </a>
-          <a href="news/2026-03-18-medical-network.html" class="ie-card fade">
-            <img class="ie-card-img" src="news-medical-facility.webp" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.03.18</span>
-              <span class="ie-card-tag">NEWS</span>
-              <span class="ie-card-title">予約・調整サポート体制の構築について</span>
-              <span class="ie-card-sub">お客様により包括的なサポートを提供するため、各種施設のご紹介体制を整備いたしました。</span>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MEMBER INVITE ========== -->
+<section class="member-invite" id="memberInvite">
+    <div class="member-invite-image">
+        <img src="member-invite-bg.jpg" alt="入会をお考えの方へ" loading="lazy">
+        <div class="family-overlay"></div>
+    </div>
+    <div class="family-content animate-on-scroll">
+        <h2 class="section-heading light editorial">入会をお考えの方へ</h2>
+        <p class="section-body light">完全会員制のため、まずはウェイティングリストへのご登録をお願いしております。担当より2営業日以内にご連絡いたします。</p>
+        <a href="./invitation-request.html" class="btn-outline light">ウェイティングリスト登録</a>
+    </div>
+</section>
+
+<!-- ========== CONCIERGE SERVICES ========== -->
+<section class="destinations" id="conciergeServices">
+    <div class="section-header animate-on-scroll">
+        <h2 class="section-heading light editorial">会員向け付帯サービス</h2>
+        <p class="section-intro light">メインプログラムに加え、会員の方には以下の情報提供・ご紹介サービスをご利用いただけます。サービスのご利用時は実費を申し受けます。</p>
+    </div>
+    <div class="concierge-carousel" id="conciergeCarousel">
+        <div class="carousel-track">
+            <!-- Medical Information -->
+            <div class="concierge-card" onclick="openDetail('medical')" style="cursor:pointer">
+                <div class="dest-image-link">
+                    <div class="dest-image">
+                        <img src="concierge-medical.jpg" alt="医療情報のご案内" loading="lazy">
+                    </div>
+                </div>
+                <div class="dest-text">
+                    <h3 class="dest-title">医療情報のご案内</h3>
+                    <p class="dest-desc">会員のご要望に応じた医療機関・専門家の情報提供。各種検査に関するご相談も承ります。</p>
+                </div>
+                <div class="card-button">
+                    <span class="btn-text-link light">詳しく見る</span>
+                </div>
             </div>
-          </a>
-          <a href="news/2026-03-12-private-training.html" class="ie-card fade">
-            <img class="ie-card-img" src="service-training.jpg" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.03.12</span>
-              <span class="ie-card-tag">COLUMN</span>
-              <span class="ie-card-title">完全出張パーソナルトレーニングの価値</span>
-              <span class="ie-card-sub">ジムに通う時代から、トレーナーが来る時代へ。完全出張パーソナルトレーニングが経営者に選ばれる理由を解説します。</span>
+            <!-- Aesthetic & Body Care -->
+            <div class="concierge-card" onclick="openDetail('aesthetic')" style="cursor:pointer">
+                <div class="dest-image-link">
+                    <div class="dest-image">
+                        <img src="concierge-aesthetic.jpg" alt="美容・ボディケア" loading="lazy">
+                    </div>
+                </div>
+                <div class="dest-text">
+                    <h3 class="dest-title">美容・ボディケア</h3>
+                    <p class="dest-desc">提携先の美容・ボディケアサービスのご紹介。ご希望に合わせた施設情報をご案内します。</p>
+                </div>
+                <div class="card-button">
+                    <span class="btn-text-link light">詳しく見る</span>
+                </div>
             </div>
-          </a>
-          <a href="news/2026-03-01-oura-ring-conditioning.html" class="ie-card fade">
-            <img class="ie-card-img" src="conditioning.jpg" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.03.01</span>
-              <span class="ie-card-tag">SERVICE</span>
-              <span class="ie-card-title">Oura Ring連携 24時間コンディションサポート開始</span>
-              <span class="ie-card-sub">Oura Ringデータをもとに、睡眠・心拍変動・活動量を専属トレーナーが24時間モニタリング。日々の体調変化に即時対応します。</span>
+            <!-- Culinary & Nutrition -->
+            <div class="concierge-card" onclick="openDetail('culinary')" style="cursor:pointer">
+                <div class="dest-image-link">
+                    <div class="dest-image">
+                        <img src="concierge-culinary.jpg" alt="食・栄養" loading="lazy">
+                    </div>
+                </div>
+                <div class="dest-text">
+                    <h3 class="dest-title">食・栄養</h3>
+                    <p class="dest-desc">提携レストランやパーソナルシェフのご紹介。栄養面を考慮した食の体験をご案内します。</p>
+                </div>
+                <div class="card-button">
+                    <span class="btn-text-link light">詳しく見る</span>
+                </div>
             </div>
-          </a>
-          <a href="news/2026-02-20-nutrition-program.html" class="ie-card fade">
-            <img class="ie-card-img" src="nutrition-design.jpg" alt="" loading="lazy" />
-            <div class="ie-card-body">
-              <span class="ie-card-date">2026.02.20</span>
-              <span class="ie-card-tag">SERVICE</span>
-              <span class="ie-card-title">管理栄養士によるフルオーダー食事管理プログラム提供開始</span>
-              <span class="ie-card-sub">体組成・生活データに基づき、管理栄養士が個別の食事プランを設計。毎月のデータに応じてプランを調整します。</span>
+        </div>
+        <div class="carousel-nav">
+            <div class="carousel-progress dark">
+                <div class="carousel-progress-bar" id="conciergeProgressBar"></div>
             </div>
-          </a>
+            <div class="carousel-arrows">
+                <button class="carousel-arrow prev" data-carousel="conciergeCarousel" aria-label="Previous">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="carousel-arrow next" data-carousel="conciergeCarousel" aria-label="Next">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
         </div>
-        <div class="ie-nav">
-          <button class="ie-nav-btn" id="newsPrev" aria-label="前へ">
-            <svg viewBox="0 0 10 10"><path d="M7 1 L3 5 L7 9"/></svg>
-          </button>
-          <button class="ie-nav-btn" id="newsNext" aria-label="次へ">
-            <svg viewBox="0 0 10 10"><path d="M3 1 L7 5 L3 9"/></svg>
-          </button>
+    </div>
+</section>
+
+<!-- ========== FOUNDER ========== -->
+<section class="founder-section" id="founder">
+    <div class="founder-section-visual">
+        <img src="founder.jpg" alt="代表 福田泰士" loading="lazy">
+    </div>
+    <div class="founder-section-content animate-on-scroll">
+        <div class="container-narrow">
+            <p class="founder-label">FOUNDER</p>
+            <h2 class="section-heading editorial">代表挨拶</h2>
+            <p class="founder-name">福田 泰士 <span class="founder-name-en">Taishi Fukuda</span></p>
+            <p class="section-body founder-body">私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。<span class="founder-num">5,000</span>名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、<span class="founder-brand">EXECUTIVE ASHIYA</span>を立ち上げました。</p>
         </div>
-      </div>
-      <a href="/news/" class="ie-more">
-        一覧を見る
-        <span class="ie-more-circle">
-          <svg viewBox="0 0 10 10"><path d="M3 1 L7 5 L3 9"/></svg>
-        </span>
-      </a>
     </div>
-
-  </div>
-
-  <!-- LOGO TICKER removed (trademark risk) -->
+</section>
 
 
-  <!-- ════════ SERVICES (CORE) ════════ -->
-  <section id="services">
-    <span class="section-label with-rule">SERVICES</span>
-    <h2 class="section-title fade">サービス内容</h2>
-
-    <div class="benefits-carousel" id="benefitsCarousel">
-      <div class="benefit-slide" onclick="openConcierge('training')" style="cursor:pointer">
-        <div class="benefit-slide-img benefit-slide-img--no-photo" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-        <div class="benefit-slide-overlay"></div>
-        <div class="benefit-slide-text">
-          <span class="benefit-slide-num">— 01 —</span>
-          <h3 class="benefit-slide-title">パーソナルトレーニング</h3>
-          <span class="benefit-slide-en">Personal Training</span>
-          <span class="benefit-slide-arrow">詳しく見る →</span>
-        </div>
-      </div>
-
-      <div class="benefit-slide" onclick="openConcierge('nutrition')" style="cursor:pointer">
-        <div class="benefit-slide-img benefit-slide-img--no-photo" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-        <div class="benefit-slide-overlay"></div>
-        <div class="benefit-slide-text">
-          <span class="benefit-slide-num">— 02 —</span>
-          <h3 class="benefit-slide-title">栄養設計</h3>
-          <span class="benefit-slide-en">Nutrition Design</span>
-          <span class="benefit-slide-arrow">詳しく見る →</span>
-        </div>
-      </div>
-
-      <div class="benefit-slide" onclick="openConcierge('monitoring')" style="cursor:pointer">
-        <div class="benefit-slide-img benefit-slide-img--no-photo" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-        <div class="benefit-slide-overlay"></div>
-        <div class="benefit-slide-text">
-          <span class="benefit-slide-num">— 03 —</span>
-          <h3 class="benefit-slide-title">ボディモニタリング</h3>
-          <span class="benefit-slide-en">Body Monitoring</span>
-          <span class="benefit-slide-arrow">詳しく見る →</span>
-        </div>
-      </div>
-
-      <div class="benefit-slide" onclick="openConcierge('conditioning')" style="cursor:pointer">
-        <div class="benefit-slide-img benefit-slide-img--no-photo" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-        <div class="benefit-slide-overlay"></div>
-        <div class="benefit-slide-text">
-          <span class="benefit-slide-num">— 04 —</span>
-          <h3 class="benefit-slide-title">コンディショニング</h3>
-          <span class="benefit-slide-en">Conditioning</span>
-          <span class="benefit-slide-arrow">詳しく見る →</span>
-        </div>
-      </div>
+<!-- ========== PLANNING GUIDES ========== -->
+<section class="planning-guides" id="planningGuides">
+    <div class="section-header animate-on-scroll">
+        <h2 class="section-heading editorial">入会までの流れ</h2>
+        <p class="section-intro">完全会員制のため、ご入会にはリクエストフォームからのお申し込みが必要です。</p>
     </div>
-
-    <div class="benefits-dots" id="benefitsDots">
-      <button class="benefits-dot active" data-index="0" aria-label="1"></button>
-      <button class="benefits-dot" data-index="1" aria-label="2"></button>
-      <button class="benefits-dot" data-index="2" aria-label="3"></button>
-      <button class="benefits-dot" data-index="3" aria-label="4"></button>
-    </div>
-  </section>
-
-  <div class="gold-divider"><hr /></div>
-
-
-
-  <!-- ════════ CONCIERGE / MEMBER PRIVILEGES ════════ -->
-  <section id="concierge">
-    <div class="concierge-inner">
-      <span class="section-label with-rule">MEMBER PRIVILEGES</span>
-      <h2 class="section-title fade">コンシェルジュサービス</h2>
-
-      <div class="concierge-grid">
-        <div class="concierge-card fade" data-concierge="medical" onclick="openConcierge('medical')">
-          <div class="concierge-card-bg" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-          <div class="concierge-card-overlay"></div>
-          <div class="concierge-card-body">
-            <span class="concierge-card-num">01</span>
-            <span class="concierge-card-en">Medical Access</span>
-            <span class="concierge-card-ja">医 療 ア ク セ ス</span>
-            <span class="concierge-card-arrow">詳しく見る →</span>
-          </div>
+    <div class="guides-grid">
+        <div class="guide-card animate-on-scroll">
+            <div class="guide-image">
+                <img src="step01-request.jpg" alt="STEP 01" loading="lazy">
+            </div>
+            <div class="guide-text">
+                <p class="guide-category">STEP 01</p>
+                <h3 class="guide-title">ご入会リクエスト送信</h3>
+                <p class="guide-desc">フォームよりお名前・必要事項をご記入ください。</p>
+            </div>
         </div>
+        <div class="guide-card animate-on-scroll">
+            <div class="guide-image">
+                <img src="step02-contact.jpg" alt="STEP 02" loading="lazy">
+            </div>
+            <div class="guide-text">
+                <p class="guide-category">STEP 02</p>
+                <h3 class="guide-title">担当よりご連絡</h3>
+                <p class="guide-desc">2営業日以内にメールまたはお電話にてご連絡いたします。</p>
+            </div>
+        </div>
+        <div class="guide-card animate-on-scroll">
+            <div class="guide-image">
+                <img src="step03-hearing.jpg" alt="STEP 03" loading="lazy">
+            </div>
+            <div class="guide-text">
+                <p class="guide-category">STEP 03</p>
+                <h3 class="guide-title">詳細ヒアリング・ご提案</h3>
+                <p class="guide-desc">健康目標・生活リズムをお伺いし、最適なプログラムをご提案します。</p>
+            </div>
+        </div>
+        <div class="guide-card animate-on-scroll">
+            <div class="guide-image">
+                <img src="step04-start.jpg" alt="STEP 04" loading="lazy">
+            </div>
+            <div class="guide-text">
+                <p class="guide-category">STEP 04</p>
+                <h3 class="guide-title">プログラム開始</h3>
+                <p class="guide-desc">初回セッション・各種データ測定からスタートします。</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <div class="concierge-card fade" data-concierge="aesthetic" onclick="openConcierge('aesthetic')">
-          <div class="concierge-card-bg" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-          <div class="concierge-card-overlay"></div>
-          <div class="concierge-card-body">
-            <span class="concierge-card-num">02</span>
-            <span class="concierge-card-en">Aesthetic &amp; Body Care</span>
-            <span class="concierge-card-ja">美 容 ・ ボ デ ィ ケ ア</span>
-            <span class="concierge-card-arrow">詳しく見る →</span>
-          </div>
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="ctaSection">
+    <div class="cta-background">
+        <img src="cta-bg.jpg" alt="" loading="lazy">
+        <div class="cta-overlay"></div>
+    </div>
+    <div class="cta-content animate-on-scroll">
+        <h2 class="cta-heading editorial">あなたの健康を、次のステージへ。</h2>
+        <p class="cta-body">すべては一通のリクエストから始まります。まずはお気軽にお問い合わせください。</p>
+        <a href="./invitation-request.html" class="btn-primary">ウェイティングリスト登録</a>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer" id="siteFooter">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <span class="footer-logo-text">EXECUTIVE ASHIYA</span>
+            </div>
+        </div>
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>サービス</h4>
+                <a href="#serviceProgram">サービスプログラム</a>
+                <a href="#conciergeCarousel">コンシェルジュ</a>
+                <a href="#founder">代表挨拶</a>
+            </div>
+            <div class="footer-col">
+                <h4>ご案内</h4>
+                <a href="#planningGuides">入会までの流れ</a>
+                <a href="./invitation-request.html">お問い合わせ</a>
+            </div>
+            <div class="footer-col">
+                <h4>法的情報</h4>
+                <a href="./privacy.html">プライバシーポリシー</a>
+                <a href="./tokushoho.html">特定商取引法に基づく表記</a>
+                <a href="./confidentiality.html">守秘について</a>
+                <a href="./transparency.html">運営体制・サービス提供範囲</a>
+            </div>
+            <div class="footer-col">
+                <h4>運営</h4>
+                <a href="https://refit-company.com/" target="_blank">株式会社ReFit</a>
+                <a href="mailto:info@executive-ashiya.com">info@executive-ashiya.com</a>
+            </div>
         </div>
 
-        <div class="concierge-card fade" data-concierge="culinary" onclick="openConcierge('culinary')">
-          <div class="concierge-card-bg" style="background:linear-gradient(135deg,#1C1F2E 0%,#2a2d3e 100%)"></div>
-          <div class="concierge-card-overlay"></div>
-          <div class="concierge-card-body">
-            <span class="concierge-card-num">03</span>
-            <span class="concierge-card-en">Culinary &amp; Nutrition</span>
-            <span class="concierge-card-ja">食 ・ 栄 養</span>
-            <span class="concierge-card-arrow">詳しく見る →</span>
-          </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</p>
         </div>
-      </div>
-
-      <p class="concierge-note fade">
-        上記サービスはExecutive Ashiya会員の特権として手配可能です。<br>ご利用時は実費を申し受けます。
-      </p>
     </div>
-  </section>
+</footer>
 
-  <!-- Concierge Detail Panels -->
-  <div class="concierge-detail" id="concierge-medical" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">01</span>
-      <span class="concierge-detail-en">Reservation Support</span>
-      <span class="concierge-detail-ja">予 約 ・ 調 整 サ ポ ー ト</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>会員のご希望に応じた各種施設の予約代行・日程調整</li>
-        <li>会員のご要望に応じた各種検査の手配サポート</li>
-        <li>会員のご状況に応じた各種専門家のご紹介</li>
-        <li>施設やサービスに関する情報提供およびご紹介</li>
-        <li>各種データを専属トレーナーが確認し、トレーニング負荷・栄養プランの調整に活用</li>
-      </ul>
+<!-- ========== DETAIL MODALS ========== -->
+<!-- Service: Training -->
+<div class="detail-modal" id="detail-training" onclick="closeDetail(event)">
+    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
+    <div class="detail-modal-inner">
+        <span class="detail-num">01</span>
+        <span class="detail-en">Personal Training</span>
+        <span class="detail-ja">パ ー ソ ナ ル ト レ ー ニ ン グ</span>
+        <div class="detail-line"></div>
+        <ul class="detail-list">
+            <li>専属トレーナーがご自宅またはオフィスへ訪問。月2〜4回・各60分の完全個別セッションを実施します</li>
+            <li>お身体の状態を丁寧に評価し、筋力・柔軟性・姿勢の改善を目的としたプログラムをオーダーメイドで設計します</li>
+            <li>体組成の定期測定により、変化を数値で確認。毎月レポートをお届けし、プログラムの見直しに活用します</li>
+            <li>ゴルフ・テニス等のスポーツに必要な身体づくりにも対応。日常のパフォーマンス向上をサポートします</li>
+        </ul>
     </div>
-  </div>
+</div>
 
-  <div class="concierge-detail" id="concierge-aesthetic" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">02</span>
-      <span class="concierge-detail-en">Aesthetic &amp; Body Care</span>
-      <span class="concierge-detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>芦屋・神戸・大阪の美容皮膚科・美容外科クリニックの優先予約代行。初回カウンセリングへのコンシェルジュ同行も可能</li>
-        <li>会員のご希望に応じて、美容鍼・各種施術等を目的別にコーディネート</li>
-        <li>国内外のプライベートスパ・リトリート施設（有馬・淡路・京都・沖縄等）の予約代行。ウェルネスプログラム付きステイのご提案</li>
-        <li>経験10年以上のボディケアセラピスト（整体・アロマ・リンパドレナージュ）をご自宅・滞在先へ派遣。定期ケアスケジュールも設計</li>
-        <li>専門家と連携し、体質・肌質・生活習慣に基づくスキンケア＋インナーケアの提案を一元設計</li>
-      </ul>
+<!-- Service: Nutrition -->
+<div class="detail-modal" id="detail-nutrition" onclick="closeDetail(event)">
+    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
+    <div class="detail-modal-inner">
+        <span class="detail-num">02</span>
+        <span class="detail-en">Nutrition Design</span>
+        <span class="detail-ja">栄 養 設 計</span>
+        <div class="detail-line"></div>
+        <ul class="detail-list">
+            <li>お身体の状態や生活リズムに合わせて、管理栄養士が個別の食事プランを作成します</li>
+            <li>目標やお身体のデータに応じたサプリメントをご提案。毎月ご自宅へお届けします</li>
+            <li>日々の食事内容を写真でフィードバック。月次レポートで振り返り、外食が多い方にも実践的な改善をご提案します</li>
+            <li>減量・体力づくり・体調管理など、目標に合わせた献立を定期的に更新。ご家族の食事との両立もサポートします</li>
+            <li>アレルギーや食事制限にも対応。出張先・旅行先での食事プランニングも承ります</li>
+        </ul>
     </div>
-  </div>
+</div>
 
-  <div class="concierge-detail" id="concierge-culinary" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">03</span>
-      <span class="concierge-detail-en">Culinary &amp; Nutrition</span>
-      <span class="concierge-detail-ja">食 ・ 栄 養</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>関西のミシュラン星付きシェフ（日本料理・フレンチ・イタリアン）によるプライベートダイニングをご自宅へ。記念日・接待利用にも対応</li>
-        <li>管理栄養士が体組成・生活リズムを踏まえ、減量・筋力増強・抗酸化等の目標別オーダーメイド献立を毎週更新</li>
-        <li>全国の契約農家からのオーガニック食材、海外直輸入サプリメント（NMN・グルタチオン等）、機能性食品の調達をワンストップで代行</li>
-        <li>神戸・大阪・京都の予約困難店・会員制レストランへの優先予約。ソムリエ手配やプライベートルームの確保も対応</li>
-        <li>アレルギー・食事制限（グルテンフリー・ケトジェニック等）に対応した、国内外の旅行先での食事プランニング・レストランリサーチ</li>
-      </ul>
+<!-- Service: Conditioning -->
+<div class="detail-modal" id="detail-conditioning" onclick="closeDetail(event)">
+    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
+    <div class="detail-modal-inner">
+        <span class="detail-num">03</span>
+        <span class="detail-en">Conditioning</span>
+        <span class="detail-ja">コ ン デ ィ シ ョ ニ ン グ</span>
+        <div class="detail-line"></div>
+        <ul class="detail-list">
+            <li>提携する整骨院・鍼灸院と連携し、ストレッチや施術を組み合わせた身体のケアをご提供します</li>
+            <li>トレーニング後の疲労をためないよう、筋肉や関節の違和感を早めにケア。次回セッションの質を高めます</li>
+            <li>デスクワークによる肩こり・腰痛・姿勢の崩れに対して、運動と施術の両面からアプローチします</li>
+            <li>出張や多忙な時期でも続けられるセルフケアメニューを動画付きでご提供します</li>
+            <li>施術の予約代行からトレーニング内容の調整まで一括管理。担当者同士が情報を共有し、一貫したケアを行います</li>
+        </ul>
     </div>
-  </div>
+</div>
 
-  <!-- Core Service Detail Panels -->
-  <div class="concierge-detail" id="concierge-training" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">01</span>
-      <span class="concierge-detail-en">Personal Training</span>
-      <span class="concierge-detail-ja">パ ー ソ ナ ル ト レ ー ニ ン グ</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>NSCA-CSCS・NASM-PES等の上位資格を保有する専属トレーナーが、ご自宅またはオフィスへ訪問。月2〜4回・各60分の完全個別セッションを実施</li>
-        <li>FMS（Functional Movement Screen）による筋骨格の精密評価をもとに、筋力強化・可動域改善・姿勢矯正を目的としたプログラムを設計</li>
-        <li>InBody体組成計による定期測定（筋肉量・体脂肪率・部位別バランス）で、プログラムの効果を数値で可視化。毎月レポートをお届け</li>
-        <li>セッション以外の日もLINEで運動指導を継続。自宅でできるストレッチ・セルフケアメニューを動画付きでご提供</li>
-        <li>ゴルフ・テニス等のスポーツパフォーマンス向上にも対応。日常的な身体づくりの範囲でサポートいたします</li>
-      </ul>
+<!-- Concierge: Medical -->
+<div class="detail-modal" id="detail-medical" onclick="closeDetail(event)">
+    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
+    <div class="detail-modal-inner">
+        <span class="detail-num">01</span>
+        <span class="detail-en">Medical Information</span>
+        <span class="detail-ja">医 療 情 報 の ご 案 内</span>
+        <div class="detail-line"></div>
+        <ul class="detail-list">
+            <li>会員のご希望に応じて、医療機関や専門家に関する情報をご提供します</li>
+            <li>各種検査や受診に関するご相談を承り、適切な機関をご案内します</li>
+            <li>ご予約の代行や日程調整など、受診に関する事務的なサポートを行います</li>
+            <li>医療機関から共有いただいたデータをもとに、トレーナーが運動・栄養プログラムの調整に活用します</li>
+        </ul>
+        <p class="detail-note">※ 当サービスは医療行為・診断・治療を行うものではありません。医療に関する最終的なご判断は、必ず医師等の専門家にご相談ください。情報提供およびご紹介は、医療法その他関連法令に基づき適切に行っております。</p>
     </div>
-  </div>
+</div>
 
-  <div class="concierge-detail" id="concierge-nutrition" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">02</span>
-      <span class="concierge-detail-en">Nutrition Design</span>
-      <span class="concierge-detail-ja">栄 養 設 計</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>体組成・生活データに基づき、管理栄養士が個別食事プランを作成</li>
-        <li>分子栄養学に基づくオーダーメイドサプリメントを毎月配送。ビタミンD・亜鉛・マグネシウム・オメガ3等を生活データに応じて提案</li>
-        <li>食事写真フィードバック＋月次栄養レポートで、日々の食事内容を継続的にモニタリング。外食が多い方にも実践的な改善提案</li>
-        <li>減量・筋力増強・抗酸化・腸内環境改善等、目標別のオーダーメイド献立を毎週更新。ご家族の食事との両立もサポート</li>
-        <li>アレルギー・食事制限（グルテンフリー・ケトジェニック・糖質制限等）に完全対応。出張先・旅行先の食事プランニングも実施</li>
-      </ul>
+<!-- Concierge: Aesthetic -->
+<div class="detail-modal" id="detail-aesthetic" onclick="closeDetail(event)">
+    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
+    <div class="detail-modal-inner">
+        <span class="detail-num">02</span>
+        <span class="detail-en">Aesthetic &amp; Body Care</span>
+        <span class="detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
+        <div class="detail-line"></div>
+        <ul class="detail-list">
+            <li>芦屋・神戸・大阪の美容皮膚科・美容外科クリニックの優先予約代行。初回カウンセリングへのコンシェルジュ同行も可能</li>
+            <li>会員のご希望に応じて、美容鍼・各種施術等を目的別にコーディネート</li>
+            <li>国内外のプライベートスパ・リトリート施設（有馬・淡路・京都・沖縄等）の予約代行。ウェルネスプログラム付きステイのご提案</li>
+            <li>経験10年以上のボディケアセラピスト（整体・アロマ・リンパドレナージュ）をご自宅・滞在先へ派遣。定期ケアスケジュールも設計</li>
+            <li>専門家と連携し、体質・肌質・生活習慣に基づくスキンケア＋インナーケアの提案を一元設計</li>
+        </ul>
     </div>
-  </div>
+</div>
 
-  <div class="concierge-detail" id="concierge-monitoring" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">03</span>
-      <span class="concierge-detail-en">Body Monitoring</span>
-      <span class="concierge-detail-ja">ボ デ ィ モ ニ タ リ ン グ</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>Oura Ring・Apple Watchによる睡眠スコア・HRV（心拍変動）・安静時心拍数・活動量の24時間リアルタイム追跡。データは専属トレーナーと常時共有</li>
-        <li>睡眠の質が低下した翌日は運動強度を自動調整、HRVが低下傾向の場合はリカバリーデイを提案。データドリブンなコンディション管理を実現</li>
-        <li>InBody体組成計による月次測定で筋肉量・体脂肪率・部位別バランス・体水分量を定量評価。推移グラフで長期的な変化を可視化</li>
-        <li>定期的な各種データをトレーナー・管理栄養士が確認し、トレーニング負荷と栄養プランを調整</li>
-        <li>月次コンディションレポートをお届け。睡眠・運動・栄養・ストレスの4軸で総合的な健康スコアを算出し、改善提案を添えてご報告</li>
-      </ul>
+<!-- Concierge: Culinary -->
+<div class="detail-modal" id="detail-culinary" onclick="closeDetail(event)">
+    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
+    <div class="detail-modal-inner">
+        <span class="detail-num">03</span>
+        <span class="detail-en">Culinary &amp; Nutrition</span>
+        <span class="detail-ja">食 ・ 栄 養</span>
+        <div class="detail-line"></div>
+        <ul class="detail-list">
+            <li>関西のミシュラン星付きシェフ（日本料理・フレンチ・イタリアン）によるプライベートダイニングをご自宅へ。記念日・接待利用にも対応</li>
+            <li>管理栄養士が体組成・生活リズムを踏まえ、減量・筋力増強・抗酸化等の目標別オーダーメイド献立を毎週更新</li>
+            <li>全国の契約農家からのオーガニック食材、海外直輸入サプリメント（NMN・グルタチオン等）、機能性食品の調達をワンストップで代行</li>
+            <li>神戸・大阪・京都の予約困難店・会員制レストランへの優先予約。ソムリエ手配やプライベートルームの確保も対応</li>
+            <li>アレルギー・食事制限（グルテンフリー・ケトジェニック等）に対応した、国内外の旅行先での食事プランニング・レストランリサーチ</li>
+        </ul>
     </div>
-  </div>
+</div>
 
-  <div class="concierge-detail" id="concierge-conditioning" onclick="closeConcierge(event)">
-    <button class="concierge-detail-close" onclick="closeConcierge(event, true)" aria-label="閉じる"></button>
-    <div class="concierge-detail-inner">
-      <div class="concierge-detail-img concierge-detail-img--no-photo"></div>
-      <span class="concierge-detail-num">04</span>
-      <span class="concierge-detail-en">Conditioning</span>
-      <span class="concierge-detail-ja">コ ン デ ィ シ ョ ニ ン グ</span>
-      <div class="concierge-detail-line"></div>
-      <ul class="concierge-detail-list">
-        <li>整骨院・鍼灸院との連携による、ストレッチ・筋膜リリース・鍼灸施術を組み合わせた包括的リカバリーケア</li>
-        <li>トレーニング後の疲労蓄積を防ぐコンディショニングプログラム。筋肉痛・関節の違和感を早期にケアし、次回セッションの質を担保</li>
-        <li>デスクワークによる慢性的な肩こり・腰痛・猫背を、トレーニングと施術の両面からアプローチ。根本原因の改善を目指す長期プランを設計</li>
-        <li>出張・多忙期の疲労回復に特化したセルフケアメニューを動画付きで提供。フォームローラー・ストレッチポール等のツール活用法も指導</li>
-        <li>施術の予約代行から、施術後のトレーニング調整まで一括管理。施術者とトレーナーが情報共有し、ケアの一貫性を維持</li>
-      </ul>
-    </div>
-  </div>
+<!-- Cookie Consent (SP only) -->
+<div class="cookie-consent" id="cookieConsent">
+    <p class="cookie-text">当サイトは、利便性向上のためにCookieを利用しています。「同意する」を選択すると使用に同意したことになります。Cookieはブラウザで制限／無効化できます。</p>
+    <button class="cookie-accept" id="cookieAccept">同意する</button>
+</div>
 
-
-  <!-- ════════ TRACK RECORD ════════ -->
-  <section class="track-record-section" id="track-record">
-    <div class="track-map" id="trackMap">
-      <div class="track-map-layer active" data-layer="japan"><img src="map-japan.png" alt="" /></div>
-      <div class="track-map-layer" data-layer="kansai"><img src="map-kansai.png" alt="" /></div>
-      <div class="track-map-layer" data-layer="ashiya"><img src="map-ashiya.png" alt="" /></div>
-      <div class="track-map-overlay"></div>
-      <div class="track-map-heading">
-        <span class="section-label with-rule">TRACK RECORD</span>
-        <h2 class="section-title section-title--en">Proven Results</h2>
-        <span class="section-title-ja section-title-ja--jp">確かな実績</span>
-      </div>
-      <div class="track-map-pin"><span></span></div>
-      <div class="track-map-label">ASHIYA, HYOGO — JAPAN</div>
-    </div>
-
-    <div class="track-toggle-wrap">
-      <button class="track-toggle-btn" id="trackToggle" onclick="toggleTrackContent()">
-        実績を見る
-        <svg viewBox="0 0 14 14"><path d="M2 5 L7 10 L12 5"/></svg>
-      </button>
-    </div>
-
-    <div class="track-content" id="trackContent">
-      <div class="track-stats">
-        <div class="track-stat-item">
-          <div class="track-stat-num" data-count="5000" data-suffix="+" data-comma="true">5,000+</div>
-          <span class="track-stat-label">TOTAL CLIENTS</span>
-          <p class="track-stat-sub">ReFit累計指導クライアント数</p>
-        </div>
-        <div class="track-stat-item">
-          <div class="track-stat-num" data-count="95" data-suffix="%">95%</div>
-          <span class="track-stat-label">SATISFACTION</span>
-          <p class="track-stat-sub">クライアント満足度</p>
-        </div>
-      </div>
-
-      <div class="track-nda">
-        <span class="track-nda-en">CONFIDENTIALITY</span>
-        <p class="track-nda-text">
-          すべてのお客様と<a href="confidentiality.html" class="text-link">秘密保持契約</a>を締結。<br>
-          ご利用の事実そのものが外部に知られることはありません。
-        </p>
-      </div>
-
-      <p class="track-note">* 数値は株式会社ReFit（代表・福田）の累計指導実績に基づきます。守秘義務契約により、クライアントの属性・氏名は一切公開しておりません。</p>
-    </div>
-  </section>
-
-  <!-- ════════ PHILOSOPHY ════════ -->
-  <section id="philosophy">
-    <span class="section-label with-rule">PHILOSOPHY</span>
-    <p class="philosophy-lead">身体の変化に、先手を打つ。</p>
-    <div class="philosophy-body">
-      <p>多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常コンディション管理に特化したサポートを提供しています。</p>
-      <p>体組成データに基づく栄養設計、FMS（Functional Movement Screen）による動作評価、専門家との連携。スポーツ科学・分子栄養学を組み合わせた<a href="method.html" class="text-link">方法論</a>で、経営者の日常コンディションを長期的に守ります。</p>
-    </div>
-  </section>
-
-  <!-- ════════ HOW TO JOIN ════════ -->
-  <section id="how-to-join">
-    <span class="section-label with-rule">HOW TO JOIN</span>
-    <h2 class="section-title">入会までの流れ</h2>
-    <span class="section-title-ja fade"></span>
-
-    <div class="join-steps">
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 01</span>
-        <span class="join-step-text">ご入会リクエスト送信</span>
-        <span class="join-step-sub">フォームよりお名前・必要事項をご記入</span>
-      </div>
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 02</span>
-        <span class="join-step-text">代表・福田よりご連絡</span>
-        <span class="join-step-sub">2営業日以内にメールまたはお電話にてご連絡いたします</span>
-      </div>
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 03</span>
-        <span class="join-step-text">詳細ヒアリング・ご提案</span>
-        <span class="join-step-sub">健康目標・生活リズム・既往歴をお伺いし、最適なプログラムと料金プランをご提案します</span>
-      </div>
-      <div class="join-step fade">
-        <span class="join-step-num">STEP 04</span>
-        <span class="join-step-text">ご契約・プログラム開始</span>
-        <span class="join-step-sub">NDA締結後、体組成測定・姿勢評価を行い、専属チームがサポートを開始します</span>
-      </div>
-    </div>
-
-    <p class="join-note fade">※ ご紹介の方は STEP 02 からスタートいただけます</p>
-  </section>
-
-  <div class="gold-divider"><hr /></div>
-
-  <!-- ════════ REPRESENTATIVE ════════ -->
-  <section id="representative">
-    <span class="section-label with-rule">FOUNDER</span>
-    <h2 class="section-title">代表挨拶</h2>
-
-    <div class="rep-inner">
-      <div class="rep-photo">
-        <img src="founder.jpg" alt="福田 泰士" loading="lazy" />
-      </div>
-      <div class="rep-text">
-        <span class="rep-name-ja">福田 泰士</span>
-        <span class="rep-name-en">Taishi Fukuda</span>
-        <span class="rep-role">EXECUTIVE ASHIYA 代表 / 株式会社ReFit 代表取締役</span>
-        <div class="rep-body">
-          <p>
-            私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。その後5,000名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。それは、一人ひとりの生活ごと対話し、寄り添い続ける存在です。
-          </p>
-          <p>
-            経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、Executive Ashiyaを立ち上げました。
-          </p>
-          <p>
-            トレーニング、栄養、生活習慣のすべてを一人ひとりに最適化し、会員様の日常コンディションを長期的にお守りします。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ CTA FINAL (S-4) ════════ -->
-  <section id="cta-final">
-    <span class="section-label with-rule">INVITATION</span>
-    <p class="cta-headline fade">
-      健康を生涯にわたり守る、<br>
-      専属チームをお届けします。
-    </p>
-    <p class="cta-sub fade">
-      まずはご入会リクエストフォームより、<br class="sp-only">お気軽にお問い合わせください。<br>
-      2営業日以内に代表・福田より直接ご連絡いたします。
-    </p>
-    <a href="invitation-request.html" class="cta-btn fade">ウェイティングリスト登録</a>
-    <p class="cta-faq fade">サービス内容・提供範囲・プライバシーに関する<br class="sp-only">ご質問は<a href="mailto:info@executive-ashiya.com">こちら</a></p>
-  </section>
-
-  <!-- ════════ BACK TO TOP ════════ -->
-  <button class="back-to-top" id="back-to-top" aria-label="ページトップへ戻る">
-    <svg viewBox="0 0 14 14"><path d="M7 12 L7 2 M2 7 L7 2 L12 7"/></svg>
-  </button>
-
-  <!-- ════════ FOOTER ════════ -->
-  <footer>
-    <span class="f-brand">EXECUTIVE ASHIYA</span>
-    <div class="f-links">
-      <a href="for-members.html">会員ログイン</a>
-      <a href="transparency.html">運営体制</a>
-      <a href="tokushoho.html">特定商取引法に基づく表記</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-      <a href="mailto:info@executive-ashiya.com">お問い合わせ</a>
-      <a href="transparency.html#medical">医療非関与について</a>
-    </div>
-    <div class="f-info">
-      運営：株式会社ReFit
-    </div>
-    <span class="f-copy">&copy; 2026 Executive Ashiya. All rights reserved.</span>
-  </footer>
-
-  <script>
-    // ── Hero video + Loader coordination ──
-    // Video is preloaded during loader, but playback starts only after loader dismisses.
-    var _heroVideoReady = false; // flag: loader has finished
-
-    (function() {
-      // === PC video ===
-      var pcVid = document.querySelector('.hero-video-pc');
-      if (pcVid) {
-        pcVid.muted = true;
-        pcVid.setAttribute('muted', '');
-        pcVid.setAttribute('playsinline', '');
-        pcVid.preload = 'auto';
-        // Don't autoplay yet — wait for loader
-      }
-
-      function playPC() {
-        if (!pcVid) return;
-        pcVid.muted = true;
-        pcVid.setAttribute('muted', '');
-        // Force load if needed, then play
-        if (pcVid.readyState === 0) pcVid.load();
-        var p = pcVid.play();
-        if (p && p.catch) p.catch(function() {
-          // Retry once after short delay
-          setTimeout(function() {
-            pcVid.muted = true;
-            pcVid.play().catch(function(){});
-          }, 200);
-        });
-      }
-
-      // === Mobile: canvas-rendered video ===
-      var canvas = document.getElementById('heroCanvasSp');
-      var vid, ctx, rafId = null, lastW = 0, lastH = 0;
-
-      if (canvas) {
-        ctx = canvas.getContext('2d');
-        vid = document.createElement('video');
-        vid.src = 'hero-bg-sp.mp4';
-        vid.muted = true;
-        vid.loop = true;
-        vid.playsInline = true;
-        vid.setAttribute('playsinline', '');
-        vid.setAttribute('webkit-playsinline', '');
-        vid.setAttribute('muted', '');
-        vid.preload = 'auto';
-        vid.style.display = 'none';
-        // Preload only — don't play yet
-        vid.load();
-
-        // No poster image — loader covers the initial load
-      }
-
-      function drawFrame() {
-        if (vid.readyState >= 2) {
-          var rect = canvas.getBoundingClientRect();
-          var w = Math.round(rect.width * (window.devicePixelRatio || 1));
-          var h = Math.round(rect.height * (window.devicePixelRatio || 1));
-          if (w !== lastW || h !== lastH) {
-            canvas.width = w;
-            canvas.height = h;
-            lastW = w;
-            lastH = h;
+<!-- ========== STRUCTURED DATA (SEO / AIO / LLMO) ========== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "HealthAndBeautyBusiness"],
+      "@id": "https://executive-ashiya.com/#business",
+      "name": "EXECUTIVE ASHIYA（エグゼクティブ芦屋）",
+      "alternateName": ["エグゼクティブ芦屋", "EXECUTIVE ASHIYA"],
+      "description": "芦屋発の完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。経営者・富裕層の健康寿命を運動・栄養・コンディショニングの三本柱で守る。",
+      "url": "https://executive-ashiya.com",
+      "email": "info@executive-ashiya.com",
+      "image": "https://executive-ashiya.com/ogp.jpg",
+      "logo": "https://executive-ashiya.com/favicon.svg",
+      "priceRange": "$$$$",
+      "currenciesAccepted": "JPY",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "芦屋市",
+        "addressRegion": "兵庫県",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.7358,
+        "longitude": 135.3034
+      },
+      "areaServed": [
+        { "@type": "City", "name": "芦屋市", "containedInPlace": { "@type": "State", "name": "兵庫県" } },
+        { "@type": "City", "name": "西宮市" },
+        { "@type": "City", "name": "神戸市" },
+        { "@type": "City", "name": "大阪市" }
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://executive-ashiya.com/#founder",
+        "name": "福田泰士",
+        "alternateName": "Taishi Fukuda",
+        "jobTitle": "代表",
+        "description": "5,000名以上の指導実績を持つパーソナルトレーナー。EXECUTIVE ASHIYA創業者。",
+        "worksFor": { "@id": "https://executive-ashiya.com/#business" }
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "株式会社ReFit",
+        "url": "https://refit-company.com"
+      },
+      "foundingDate": "2026",
+      "knowsAbout": [
+        "パーソナルトレーニング",
+        "コンディショニング",
+        "栄養設計",
+        "ヘルスケアコンシェルジュ",
+        "経営者の健康管理",
+        "富裕層向けウェルネス"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "EXECUTIVE ASHIYAサービス一覧",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://executive-ashiya.com/#training",
+              "name": "パーソナルトレーニング（運動プログラム）",
+              "alternateName": "Personal Training",
+              "description": "芦屋を拠点に、専属トレーナーがご自宅・オフィスへ訪問。月2〜4回・各60分の完全個別セッション。筋力・柔軟性・姿勢の改善を目的としたオーダーメイドプログラム。",
+              "provider": { "@id": "https://executive-ashiya.com/#business" },
+              "areaServed": "芦屋市・西宮市・神戸市・大阪市",
+              "serviceType": "パーソナルトレーニング"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://executive-ashiya.com/#nutrition",
+              "name": "栄養設計",
+              "alternateName": "Nutrition Design",
+              "description": "管理栄養士による完全個別の食事プラン設計。体組成データに基づくサプリメント提案、日々の食事フィードバック、月次レポートを提供。",
+              "provider": { "@id": "https://executive-ashiya.com/#business" },
+              "serviceType": "栄養指導"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://executive-ashiya.com/#conditioning",
+              "name": "コンディショニング",
+              "alternateName": "Conditioning",
+              "description": "提携する整骨院・鍼灸院と連携した身体ケア。疲労回復・可動域改善・自律神経の調整。デスクワークによる肩こり・腰痛・姿勢改善にも対応。",
+              "provider": { "@id": "https://executive-ashiya.com/#business" },
+              "serviceType": "コンディショニング"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "医療情報のご案内",
+              "description": "会員のご要望に応じた医療機関・専門家の情報提供。各種検査に関するご相談、予約代行、日程調整。",
+              "provider": { "@id": "https://executive-ashiya.com/#business" },
+              "serviceType": "ヘルスケアコンシェルジュ"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "美容・ボディケア",
+              "description": "芦屋・神戸・大阪の美容クリニック優先予約代行、プライベートスパ・リトリート施設の手配、ボディケアセラピスト派遣。",
+              "provider": { "@id": "https://executive-ashiya.com/#business" },
+              "serviceType": "ビューティーコンシェルジュ"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "食・栄養コンシェルジュ",
+              "description": "ミシュラン星付きシェフによるプライベートダイニング、予約困難店・会員制レストランへの優先予約、オーガニック食材・サプリメントの調達代行。",
+              "provider": { "@id": "https://executive-ashiya.com/#business" },
+              "serviceType": "フードコンシェルジュ"
+            }
           }
-          var vw = vid.videoWidth, vh = vid.videoHeight;
-          var cw = canvas.width, ch = canvas.height;
-          var scale = Math.max(cw / vw, ch / vh);
-          var sw = vw * scale, sh = vh * scale;
-          var ox = (cw - sw) / 2, oy = (ch - sh) / 2;
-          ctx.drawImage(vid, ox, oy, sw, sh);
-        }
-        rafId = requestAnimationFrame(drawFrame);
+        ]
       }
-
-      function startCanvas() {
-        if (!vid || !canvas) return;
-        vid.muted = true;
-        vid.setAttribute('muted', '');
-        // Reset animation loop
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-        if (vid.readyState === 0) vid.load();
-        var p = vid.play();
-        if (p && p.then) {
-          p.then(function() { drawFrame(); }).catch(function() {
-            setTimeout(function() {
-              vid.muted = true;
-              vid.play().then(function() { drawFrame(); }).catch(function(){});
-            }, 200);
-          });
-        }
-        drawFrame();
-      }
-
-      // Expose start function globally for loader to call
-      window._startHeroVideo = function() {
-        _heroVideoReady = true;
-        playPC();
-        startCanvas();
-        // Re-attach fallback listeners for tab switch etc.
-        document.addEventListener('visibilitychange', function() {
-          if (!document.hidden) { playPC(); if (vid && canvas && !rafId) startCanvas(); }
-        });
-        document.addEventListener('touchstart', function() { playPC(); startCanvas(); }, { once: true });
-        document.addEventListener('click', function() { playPC(); startCanvas(); }, { once: true });
-      };
-    })();
-
-    // Resume video on ANY page show (bfcache or normal navigation)
-    window.addEventListener('pageshow', function(e) {
-      window.scrollTo(0, 0);
-      // Always try to restart video on pageshow
-      if (window._startHeroVideo) window._startHeroVideo();
-    });
-
-    // Loader
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      const hasVisited = sessionStorage.getItem('ea_visited');
-      if (hasVisited) {
-        // No loader — scroll to top and start video immediately
-        window.scrollTo(0, 0);
-        loader.style.display = 'none';
-        document.body.classList.remove('loading');
-        document.documentElement.classList.remove('loading');
-        document.querySelectorAll('#hero .fade').forEach(el => el.classList.add('visible'));
-        window._startHeroVideo();
-        return;
-      }
-      sessionStorage.setItem('ea_visited', '1');
-      setTimeout(() => {
-        loader.classList.add('fade-out');
-        document.body.classList.remove('loading');
-        document.documentElement.classList.remove('loading');
-        // Start video from the beginning right when loader fades
-        window._startHeroVideo();
-        setTimeout(() => { loader.style.display = 'none'; }, 800);
-        const heroFades = document.querySelectorAll('#hero .fade');
-        heroFades.forEach((el, i) => {
-          setTimeout(() => { el.classList.add('visible'); }, 100 * (i + 1));
-        });
-      }, 1200);
-    });
-
-    // Nav scroll effect + dark mode over zoom section + hero transparent
-    const headerEl = document.querySelector('header');
-    const heroEl = document.getElementById('hero');
-    const zoomSpacer = document.getElementById('track-record');
-
-    function updateHeader() {
-      const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : 0;
-      const inHero = heroBottom > 60;
-
-      // Dark header when overlapping zoom section
-      let inZoom = false;
-      if (zoomSpacer) {
-        const zRect = zoomSpacer.getBoundingClientRect();
-        inZoom = zRect.top < 60 && zRect.bottom > 60;
-      }
-
-      if (inZoom) {
-        headerEl.classList.add('header-dark');
-        headerEl.classList.remove('scrolled', 'header-hero');
-      } else if (inHero) {
-        headerEl.classList.add('header-hero');
-        headerEl.classList.remove('scrolled', 'header-dark');
-      } else {
-        headerEl.classList.add('scrolled');
-        headerEl.classList.remove('header-hero', 'header-dark');
-      }
-    }
-
-    // 初期状態を設定
-    headerEl.classList.add('header-hero');
-    window.addEventListener('scroll', updateHeader, { passive: true });
-
-    // Mobile nav
-    function toggleMobileNav() {
-      const btn = document.getElementById('hamburger');
-      const nav = document.getElementById('mobile-nav');
-      btn.classList.toggle('open');
-      nav.classList.toggle('open');
-      const isOpen = nav.classList.contains('open');
-      btn.setAttribute('aria-expanded', isOpen);
-      btn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
-      // Stagger link animations
-      if (isOpen) {
-        var items = nav.querySelectorAll('.mnav-brand, .mnav-main a, .mnav-section-label, .mnav-section a, .mnav-footer');
-        items.forEach(function(el, i) {
-          el.style.transitionDelay = (0.04 * i + 0.3) + 's';
-        });
-      } else {
-        nav.querySelectorAll('.mnav-brand, .mnav-main a, .mnav-section-label, .mnav-section a, .mnav-footer').forEach(function(el) {
-          el.style.transitionDelay = '0s';
-        });
-      }
-    }
-    function closeMobileNav() {
-      const btn = document.getElementById('hamburger');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.setAttribute('aria-label', 'メニューを開く');
-      document.getElementById('mobile-nav').classList.remove('open');
-    }
-
-    // Nav dropdown
-    function toggleNavDropdown() {
-      var dd = document.getElementById('navDropdown');
-      var btn = dd.querySelector('.nav-dropdown-toggle');
-      dd.classList.toggle('open');
-      btn.setAttribute('aria-expanded', dd.classList.contains('open'));
-    }
-    // Close dropdown on outside click
-    document.addEventListener('click', function(e) {
-      var dd = document.getElementById('navDropdown');
-      if (dd && !dd.contains(e.target)) {
-        dd.classList.remove('open');
-        var btn = dd.querySelector('.nav-dropdown-toggle');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Fade in (includes stagger, gold-divider, section-label)
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade, .gold-divider, .section-label.with-rule').forEach(el => {
-      observer.observe(el);
-    });
-
-
-    // Count-up animation with odometer-style digit rolling
-    function animateCount(el) {
-      const target = parseFloat(el.dataset.count);
-      const suffix = el.dataset.suffix || '';
-      const isDecimal = el.dataset.decimal === 'true';
-      const useComma = el.dataset.comma === 'true';
-      const duration = 2200;
-      const start = performance.now();
-
-      // Set up digit containers
-      el.style.display = 'inline-flex';
-      el.style.justifyContent = 'center';
-      el.style.alignItems = 'baseline';
-      el.style.overflow = 'hidden';
-
-      function getDigits(val) {
-        let display;
-        if (isDecimal) { display = val.toFixed(1); }
-        else { display = useComma ? Math.round(val).toLocaleString('en-US') : Math.round(val).toString(); }
-        return display;
-      }
-
-      function update(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = eased * target;
-        const display = getDigits(current);
-
-        let html = '';
-        for (let i = 0; i < display.length; i++) {
-          const ch = display[i];
-          if (/\d/.test(ch)) {
-            const offset = progress < 1 ? (1 - progress) * 8 : 0;
-            html += '<span style="display:inline-block;transform:translateY(' + offset + 'px);transition:none;">' + ch + '</span>';
-          } else {
-            html += '<span style="display:inline-block;">' + ch + '</span>';
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://executive-ashiya.com/#website",
+      "url": "https://executive-ashiya.com",
+      "name": "EXECUTIVE ASHIYA（エグゼクティブ芦屋）",
+      "description": "芦屋発の完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ",
+      "publisher": { "@id": "https://executive-ashiya.com/#business" },
+      "inLanguage": ["ja", "en"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://executive-ashiya.com/#webpage",
+      "url": "https://executive-ashiya.com",
+      "name": "芦屋の完全会員制パーソナルトレーニング＆ヘルスケア | EXECUTIVE ASHIYA",
+      "isPartOf": { "@id": "https://executive-ashiya.com/#website" },
+      "about": { "@id": "https://executive-ashiya.com/#business" },
+      "description": "芦屋発・経営者・富裕層向け完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。運動プログラム・栄養設計・コンディショニングを一体化し、健康寿命を守る。",
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://executive-ashiya.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "EXECUTIVE ASHIYA（エグゼクティブ芦屋）とはどのようなサービスですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EXECUTIVE ASHIYA（エグゼクティブ芦屋）は、芦屋を拠点とする完全会員制のヘルスケアコンシェルジュサービスです。経営者・富裕層を対象に、パーソナルトレーニング（運動プログラム）、栄養設計、コンディショニングの3つを一体化し、健康寿命を長期的にサポートします。株式会社ReFitが運営しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "芦屋でパーソナルトレーニングを受けられますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。EXECUTIVE ASHIYAでは芦屋市を中心に、専属トレーナーがご自宅またはオフィスへ訪問し、月2〜4回・各60分の完全個別パーソナルトレーニングを提供しています。筋力・柔軟性・姿勢改善を目的としたオーダーメイドプログラムで、ゴルフ・テニス等のスポーツ対応も可能です。芦屋・西宮・神戸・大阪エリアに対応しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "対応エリアはどこですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "芦屋市を拠点に、西宮市・神戸市・大阪市を含む関西エリアに対応しています。トレーナーがご自宅やオフィスへ訪問するため、ジムに通う必要はありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "入会するにはどうすればいいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "完全会員制のため、まずウェイティングリストへのご登録をお願いしています。公式サイトのリクエストフォームからお申し込みいただくと、担当より2営業日以内にご連絡いたします。その後、詳細ヒアリングを経て最適なプログラムをご提案します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どのような方が利用していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主に芦屋・神戸・大阪エリアの経営者、医師、弁護士など、多忙な日々のなかで健康管理に課題をお持ちの方にご利用いただいています。判断力・集中力・体力を高い水準で保ち続けたい方に最適なサービスです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "コンディショニングとは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "コンディショニングとは、提携する整骨院・鍼灸院と連携し、ストレッチや施術を組み合わせた身体のケアです。トレーニング後の疲労回復、可動域改善、自律神経の調整に加え、デスクワークによる肩こり・腰痛・姿勢改善にも対応します。出張先でも続けられるセルフケアメニューも提供しています。"
           }
         }
-        html += '<span class="small">' + suffix + '</span>';
-        el.innerHTML = html;
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
+      ]
     }
-    const countObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          countObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+  ]
+}
+</script>
 
-    // Timeline animation: line grows, then dots appear one by one
-    const stepsContainer = document.querySelector('.join-steps');
-    if (stepsContainer) {
-      const steps = stepsContainer.querySelectorAll('.join-step');
-      const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Start line growing
-            stepsContainer.classList.add('line-active');
-            // Activate each dot sequentially
-            steps.forEach((step, i) => {
-              setTimeout(() => {
-                step.classList.add('dot-active');
-                step.classList.add('visible');
-              }, 600 * (i + 1));
-            });
-            timelineObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      timelineObserver.observe(stepsContainer);
-    }
-
-    // D-5: Join step accordion (mobile)
-    if (window.innerWidth <= 880) {
-      document.querySelectorAll('.join-step').forEach(function(step) {
-        var sub = step.querySelector('.join-step-sub');
-        if (!sub) return;
-        step.querySelector('.join-step-text').addEventListener('click', function() {
-          step.classList.toggle('sub-open');
-        });
-      });
-    }
-
-
-    // ════════ TRACK RECORD ACCORDION ════════
-    function toggleTrackContent() {
-      var content = document.getElementById('trackContent');
-      var btn = document.getElementById('trackToggle');
-      if (content.classList.contains('open')) {
-        content.classList.remove('open');
-        btn.classList.remove('open');
-        btn.innerHTML = '実績を見る <svg viewBox="0 0 14 14"><path d="M2 5 L7 10 L12 5"/></svg>';
-      } else {
-        content.classList.add('open');
-        btn.classList.add('open');
-        btn.innerHTML = '閉じる <svg viewBox="0 0 14 14"><path d="M2 5 L7 10 L12 5"/></svg>';
-        // Trigger count-up animations for newly visible stats
-        content.querySelectorAll('[data-count]').forEach(function(el) {
-          countObserver.observe(el);
-        });
-      }
-    }
-
-    // ════════ BACK TO TOP BUTTON ════════
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > window.innerHeight) backToTopBtn.classList.add('visible');
-        else backToTopBtn.classList.remove('visible');
-      }, { passive: true });
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-
-    // ════════ LANGUAGE TOGGLE ════════
-    (function() {
-      var translations = {
-        // Hero
-        '.catch': { ja: '健康寿命を、生涯最大の資産に。', en: 'Your health span — your greatest lifelong asset.' },
-        '.hero-cta': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
-        '.hero-cohort': { ja: '第1期：満員 ｜ 現在ウェイティングリスト受付中', en: 'First Cohort: Full ｜ Now accepting via waiting list' },
-        '.hero-members-link': { ja: '会員専用ページ', en: 'Members Page' },
-        // Footer
-        '.f-links a:nth-child(2)': { ja: '特定商取引法', en: 'Commercial Transactions Act' },
-        '.f-links a:nth-child(3)': { ja: 'お問い合わせ', en: 'Contact' }
-      };
-
-      var currentLang = 'ja';
-      // Restore saved language preference
-      try { var saved = localStorage.getItem('ea-lang'); if (saved === 'en') { setTimeout(function(){ window.switchLang('en'); }, 100); } } catch(e) {}
-
-      window.switchLang = function(lang) {
-        if (lang === currentLang) return;
-        currentLang = lang;
-        try { localStorage.setItem('ea-lang', lang); } catch(e) {}
-
-        // Update button states
-        document.querySelectorAll('.lang-btn').forEach(function(btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-
-        // Apply translations
-        Object.keys(translations).forEach(function(selector) {
-          var el = document.querySelector(selector);
-          if (!el) return;
-          var t = translations[selector];
-          var text = t[lang];
-          if (!text) return;
-
-          if (t.keepSvg) {
-            var svg = el.querySelector('svg');
-            el.textContent = text + ' ';
-            if (svg) el.appendChild(svg);
-          } else if (t.html) {
-            el.innerHTML = text;
-          } else {
-            el.textContent = text;
-          }
-        });
-
-        // ie-more needs special handling (contains child elements)
-        var ieMore = document.querySelector('.ie-more');
-        if (ieMore) {
-          var circle = ieMore.querySelector('.ie-more-circle');
-          if (circle) {
-            ieMore.childNodes[0].textContent = lang === 'en' ? 'View All ' : '一覧を見る ';
-          }
-        }
-
-        // Track record stat subs (use parent context)
-        var statSubs = document.querySelectorAll('.track-stat-sub');
-        var subTexts = {
-          ja: ['ReFit累計指導クライアント数', 'クライアント満足度'],
-          en: ['Total clients coached by ReFit', 'Client satisfaction rate']
-        };
-        statSubs.forEach(function(el, i) {
-          if (subTexts[lang][i]) el.textContent = subTexts[lang][i];
-        });
-
-        // Benefit slide arrows
-        document.querySelectorAll('.benefit-slide-arrow').forEach(function(el) {
-          el.textContent = lang === 'en' ? 'Learn More →' : '詳しく見る →';
-        });
-
-        // Concierge card arrows
-        document.querySelectorAll('.concierge-card-arrow').forEach(function(el) {
-          el.textContent = lang === 'en' ? 'Learn More →' : '詳しく見る →';
-        });
-
-        // News card titles and descriptions
-        var newsTranslations = [
-          { title: { ja: '第1期会員枠 満員のお知らせ', en: 'First Cohort Now Full' },
-            sub: { ja: '多数のお申し込みをいただき、第1期の募集枠は満員となりました。現在ウェイティングリストにてお申し込みを承っております。', en: 'Due to high demand, our first cohort is now full. We are currently accepting applications via our waiting list.' } },
-          { title: { ja: 'EXECUTIVE ASHIYA 正式サービス開始のお知らせ', en: 'EXECUTIVE ASHIYA Official Service Launch' },
-            sub: { ja: '完全出張型ヘルスケアコンシェルジュサービスとして、2026年6月1日より芦屋・神戸・大阪エリアでサービスを開始いたします。', en: 'Launching our fully mobile healthcare concierge service in the Ashiya, Kobe, and Osaka areas from June 1, 2026.' } },
-          { title: { ja: '予約・調整サポート体制拡充のお知らせ', en: 'Reservation Support Expansion' },
-            sub: { ja: '各種検査・施設等の予約代行先を拡充。会員様のサポート体制がさらに充実します。', en: 'Expanded reservation support for various facilities. Enhanced support system for members.' } },
-          { title: { ja: '5月度オーダーメイドサプリメント提案受付開始', en: 'May Custom Supplement Recommendations Now Open' },
-            sub: { ja: 'お客様の生活データに基づくサプリメント提案を毎月更新。今月の注目成分はNMN・グルタチオン。', en: 'Monthly personalized supplement recommendations based on lifestyle data. Featured ingredients: NMN & Glutathione.' } },
-          { title: { ja: 'なぜエグゼクティブは「睡眠」に投資するのか', en: 'Why Executives Invest in Sleep' },
-            sub: { ja: 'Oura Ringデータから見る経営者の睡眠パターンと、パフォーマンスへの影響を解説します。', en: 'Analyzing executive sleep patterns through Oura Ring data and their impact on performance.' } },
-          { title: { ja: '予約・調整サポート体制の構築について', en: 'Building Our Reservation Support System' },
-            sub: { ja: 'お客様により包括的なサポートを提供するため、各種施設のご紹介体制を整備いたしました。', en: 'Establishing a comprehensive referral system for various facilities to provide more comprehensive support.' } },
-          { title: { ja: '完全出張パーソナルトレーニングの価値', en: 'The Value of Fully Mobile Personal Training' },
-            sub: { ja: 'ジムに通う時代から、トレーナーが来る時代へ。完全出張パーソナルトレーニングが経営者に選ばれる理由を解説します。', en: 'From going to the gym to the trainer coming to you. Why executives choose fully mobile personal training.' } },
-          { title: { ja: 'Oura Ring連携 24時間コンディションサポート開始', en: 'Oura Ring Integration: 24/7 Conditioning Support Launched' },
-            sub: { ja: 'Oura Ringデータをもとに、睡眠・心拍変動・活動量を専属トレーナーが24時間モニタリング。日々の体調変化に即時対応します。', en: 'Your dedicated trainer monitors sleep, HRV, and activity data via Oura Ring around the clock, responding to daily condition changes immediately.' } },
-          { title: { ja: '管理栄養士によるフルオーダー食事管理プログラム提供開始', en: 'Full-Order Nutrition Program by Registered Dietitians Launched' },
-            sub: { ja: '体組成・生活データに基づき、管理栄養士が個別の食事プランを設計。毎月のデータに応じてプランを調整します。', en: 'Registered dietitians design personalized meal plans based on body composition and lifestyle data, adjusting monthly.' } }
-        ];
-        document.querySelectorAll('.ie-card').forEach(function(card, i) {
-          if (newsTranslations[i]) {
-            var title = card.querySelector('.ie-card-title');
-            var sub = card.querySelector('.ie-card-sub');
-            if (title) title.textContent = newsTranslations[i].title[lang];
-            if (sub) sub.textContent = newsTranslations[i].sub[lang];
-          }
-        });
-
-        // Concierge card labels
-        var conciergeLabels = [
-          { ja: '医 療 ア ク セ ス', en: 'Medical Access' },
-          { ja: '美 容 ・ ボ デ ィ ケ ア', en: 'Aesthetic & Body Care' },
-          { ja: '食 ・ 栄 養', en: 'Culinary & Nutrition' }
-        ];
-        document.querySelectorAll('.concierge-card-ja').forEach(function(el, i) {
-          if (conciergeLabels[i]) el.textContent = conciergeLabels[i][lang];
-        });
-
-        // Footer
-        var fInfo = document.querySelector('.f-info');
-        if (fInfo) {
-          fInfo.textContent = lang === 'en' ? 'Operated by ReFit, Inc.' : '\u904B\u55B6\uFF1A\u682A\u5F0F\u4F1A\u793EReFit';
-        }
-
-        // Mobile nav translations
-        var mobileLinks = document.querySelectorAll('.mobile-nav > a');
-        var mobileLabelsJa = ['\u30A6\u30A7\u30A4\u30C6\u30A3\u30F3\u30B0\u30EA\u30B9\u30C8\u767B\u9332', '\u4F1A\u54E1\u5C02\u7528\u30DA\u30FC\u30B8', '\u304A\u554F\u3044\u5408\u308F\u305B', 'Privacy Policy', '\u7279\u5B9A\u5546\u53D6\u5F15\u6CD5\u306B\u57FA\u3065\u304F\u8868\u8A18'];
-        var mobileLabelsEn = ['Join Waiting List', 'Members Page', 'Contact', 'Privacy Policy', 'Commercial Transactions Act'];
-        mobileLinks.forEach(function(el, i) {
-          if (i < mobileLabelsEn.length) {
-            el.textContent = lang === 'en' ? mobileLabelsEn[i] : mobileLabelsJa[i];
-          }
-        });
-
-        // html lang attribute
-        document.documentElement.lang = lang === 'en' ? 'en' : 'ja';
-
-        // Notify site-password overlay
-        if (typeof window._spSetLang === 'function') window._spSetLang(lang);
-      };
-    })();
-
-    // ════════ CONCIERGE DETAIL MODAL ════════
-    function openConcierge(id) {
-      const panel = document.getElementById('concierge-' + id);
-      if (!panel) return;
-      panel.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-      requestAnimationFrame(() => { panel.classList.add('open'); });
-    }
-    function closeConcierge(e, force) {
-      if (!force && e.target !== e.currentTarget) return;
-      const panel = e.target.closest('.concierge-detail');
-      if (!panel || panel.classList.contains('closing')) return;
-      panel.classList.add('closing');
-      document.body.style.overflow = '';
-      setTimeout(() => {
-        panel.classList.remove('open', 'closing');
-        panel.style.display = 'none';
-      }, 300);
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.concierge-detail.open').forEach(p => {
-          if (p.classList.contains('closing')) return;
-          p.classList.add('closing');
-          document.body.style.overflow = '';
-          setTimeout(() => {
-            p.classList.remove('open', 'closing');
-            p.style.display = 'none';
-          }, 300);
-        });
-      }
-    });
-
-    // ════════ HERO SCROLL HINT FADE ON SCROLL ════════
-    const scrollHint = document.querySelector('.hero-scroll-hint');
-    if (scrollHint) {
-      window.addEventListener('scroll', () => {
-        scrollHint.style.opacity = window.scrollY > 100 ? '0' : '';
-      }, { passive: true });
-    }
-
-
-
-    /* ── Track Record map auto-play ── */
-    (function(){
-      var map = document.getElementById('trackMap');
-      if (!map) return;
-      var layers = map.querySelectorAll('.track-map-layer');
-      var pin = map.querySelector('.track-map-pin');
-      var label = map.querySelector('.track-map-label');
-      var played = false;
-      function play() {
-        if (played) return;
-        played = true;
-        // Japan zooms
-        layers[0].classList.add('zoom');
-        // Kansai fades in at 1.5s
-        setTimeout(function(){ layers[0].style.opacity='0'; layers[1].classList.add('active'); layers[1].classList.add('zoom'); }, 1500);
-        // Ashiya fades in at 3s
-        setTimeout(function(){ layers[1].style.opacity='0'; layers[2].classList.add('active'); }, 3000);
-        // Pin + label at 3.5s
-        setTimeout(function(){ pin.classList.add('active'); label.classList.add('active'); }, 3500);
-      }
-      var obs = new IntersectionObserver(function(entries){ if(entries[0].isIntersecting) play(); }, { threshold: 0.3 });
-      obs.observe(map);
-    })();
-
-    /* ── News carousel nav (button-only, no swipe) ── */
-    (function(){
-      var cards = document.getElementById('newsCards');
-      var prev = document.getElementById('newsPrev');
-      var next = document.getElementById('newsNext');
-      if (!cards || !prev || !next) return;
-      var items = cards.querySelectorAll('.ie-card');
-      var total = items.length;
-      var currentIdx = 0;
-      function goTo(idx) {
-        if (idx < 0) idx = total - 1;
-        if (idx >= total) idx = 0;
-        currentIdx = idx;
-        var cardWidth = items[0].offsetWidth;
-        var gap = parseFloat(getComputedStyle(cards).gap) || 16;
-        var shift = currentIdx * (cardWidth + gap);
-        items.forEach(function(item) {
-          item.style.transform = 'translateX(-' + shift + 'px)';
-        });
-      }
-      next.addEventListener('click', function(){ goTo(currentIdx + 1); });
-      prev.addEventListener('click', function(){ goTo(currentIdx - 1); });
-    })();
-
-    // ── Benefits Carousel: drag + dots ──
-    (function() {
-      var carousel = document.getElementById('benefitsCarousel');
-      var dots = document.querySelectorAll('#benefitsDots .benefits-dot');
-      if (!carousel || !dots.length) return;
-
-      // Drag to scroll
-      var isDown = false, startX, scrollL;
-      carousel.addEventListener('mousedown', function(e) {
-        isDown = true;
-        carousel.classList.add('grabbing');
-        startX = e.pageX - carousel.offsetLeft;
-        scrollL = carousel.scrollLeft;
-      });
-      carousel.addEventListener('mouseleave', function() { isDown = false; carousel.classList.remove('grabbing'); });
-      carousel.addEventListener('mouseup', function() { isDown = false; carousel.classList.remove('grabbing'); });
-      carousel.addEventListener('mousemove', function(e) {
-        if (!isDown) return;
-        e.preventDefault();
-        var x = e.pageX - carousel.offsetLeft;
-        carousel.scrollLeft = scrollL - (x - startX);
-      });
-
-      // Dot sync on scroll
-      function updateDots() {
-        var slides = carousel.querySelectorAll('.benefit-slide');
-        var center = carousel.scrollLeft + carousel.clientWidth / 2;
-        var closest = 0, minDist = Infinity;
-        slides.forEach(function(s, i) {
-          var mid = s.offsetLeft - carousel.offsetLeft + s.offsetWidth / 2;
-          var d = Math.abs(center - mid);
-          if (d < minDist) { minDist = d; closest = i; }
-        });
-        dots.forEach(function(d, i) {
-          d.classList.toggle('active', i === closest);
-        });
-      }
-      carousel.addEventListener('scroll', updateDots, { passive: true });
-
-      // Click dot to scroll
-      dots.forEach(function(dot) {
-        dot.addEventListener('click', function() {
-          var idx = parseInt(dot.getAttribute('data-index'));
-          var slides = carousel.querySelectorAll('.benefit-slide');
-          if (slides[idx]) {
-            var target = slides[idx].offsetLeft - (carousel.clientWidth - slides[idx].offsetWidth) / 2;
-            carousel.scrollTo({ left: target, behavior: 'smooth' });
-          }
-        });
-      });
-    })();
-  </script>
+<script src="script.js"></script>
 </body>
 </html>

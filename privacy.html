@@ -3,75 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
   <title>プライバシーポリシー | EXECUTIVE ASHIYA</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@200;300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet" />
   <style>
+    @font-face { font-family: "PP Editorial New Ultralight"; src: url("https://framerusercontent.com/assets/Ml5YdxLwsCRqmN9FGRm5d77gY.woff") format("woff"); font-display: swap; font-weight: 200 }
+    @font-face { font-family: "GT Ultra Regular"; src: url("https://framerusercontent.com/assets/E7NT7OKE4dhDFSJzDTwTGJfBWvg.woff2") format("woff2"); font-display: swap; font-weight: 400 }
+    @font-face { font-family: "GT Ultra Light"; src: url("https://framerusercontent.com/assets/n9Vhq2sZQxG7bR7IK2xHSs4VGs.woff") format("woff"); font-display: swap; font-weight: 300 }
+
     :root {
-      --bg: #FFFFFF;
-      --gold: #8B6F1F;
-      --ink: #1C1F2E;
-      --ink-soft: rgba(28, 31, 46, 0.55);
-      --ink-faint: rgba(28, 31, 46, 0.22);
+      --dark-green: #1e392b;
+      --cream: #fbf9f3;
+      --text-brown: rgb(88, 80, 60);
+      --green-accent: rgb(43, 82, 62);
+      --font-editorial: "PP Editorial New Ultralight", Georgia, serif;
+      --font-body: "GT Ultra Regular", Georgia, serif;
+      --font-heading: "GT Ultra Light", Georgia, serif;
+      --font-jp: 'Noto Serif JP', '游明朝', serif;
     }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Noto Serif JP', serif;
+      background: var(--cream);
+      color: var(--text-brown);
+      font-family: var(--font-jp);
       font-weight: 300;
       line-height: 2.2;
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased;
     }
+    .page-header {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(88, 80, 60, 0.12);
+    }
+    .page-header-logo {
+      font-family: var(--font-editorial);
+      font-weight: 200;
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      color: var(--text-brown);
+      text-decoration: none;
+    }
+    .page-header-back {
+      font-family: var(--font-jp);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--green-accent);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .page-header-back:hover { opacity: 0.6; }
     .container {
       max-width: 700px;
       margin: 0 auto;
-      padding: 8rem 2rem;
+      padding: 6rem 2rem 8rem;
     }
-    .back-link {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 4rem;
-      transition: opacity 0.3s;
-    }
-    .back-link:hover { opacity: 0.6; }
     h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-editorial);
+      font-weight: 200;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: 0.08em;
+      color: var(--text-brown);
       margin-bottom: 4rem;
     }
     h2 {
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
+      font-family: var(--font-jp);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       margin: 3rem 0 1rem;
-      color: var(--ink);
+      color: var(--text-brown);
     }
     p, li {
       font-size: 0.85rem;
-      color: var(--ink-soft);
-      letter-spacing: 0.06em;
+      color: rgba(88, 80, 60, 0.75);
+      letter-spacing: 0.04em;
       line-height: 2.4;
     }
     ul { padding-left: 1.2rem; }
     li { margin-bottom: 0.5rem; }
+    .page-footer {
+      background: var(--dark-green);
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+    .page-footer-copy {
+      font-size: 0.7rem;
+      color: rgba(251, 249, 243, 0.5);
+      letter-spacing: 0.06em;
+    }
+    .date-note {
+      margin-top: 4rem;
+      font-size: 0.72rem;
+      color: rgba(88, 80, 60, 0.4);
+    }
+    @media (max-width: 640px) {
+      .page-header { padding: 1.2rem 1.4rem; }
+      .container { padding: 4rem 1.5rem 6rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link">&larr; BACK TO TOP</a>
+  <div class="page-header">
+    <a href="index.html" class="page-header-logo">EXECUTIVE ASHIYA</a>
+    <a href="index.html" class="page-header-back">&larr; トップページへ戻る</a>
+  </div>
 
+  <div class="container">
     <h1>Privacy Policy</h1>
 
     <h2>1. 個人情報の収集について</h2>
@@ -110,10 +153,11 @@
       変更後のポリシーは、当ページに掲載した時点から効力を生じるものとします。
     </p>
 
-    <p style="margin-top:4rem;color:var(--ink-faint);font-size:0.72rem;">
-      制定日：2026年3月19日
-    </p>
+    <p class="date-note">制定日：2026年3月19日</p>
   </div>
-  <script src="lang-toggle.js"></script>
+
+  <div class="page-footer">
+    <span class="page-footer-copy">&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</span>
+  </div>
 </body>
 </html>
