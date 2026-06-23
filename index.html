@@ -86,10 +86,10 @@
 <!-- ========== HERO ========== -->
 <section class="hero" id="hero">
     <div class="hero-video-wrapper">
-        <video class="hero-video-pc" autoplay muted loop playsinline preload="metadata">
+        <video class="hero-video-pc" autoplay muted loop playsinline preload="metadata" poster="ogp.jpg">
             <source src="hero-bg.mp4" type="video/mp4">
         </video>
-        <video class="hero-video-sp" autoplay muted loop playsinline preload="metadata">
+        <video class="hero-video-sp" autoplay muted loop playsinline preload="metadata" poster="ogp.jpg">
             <source src="hero-bg-sp.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -117,7 +117,7 @@
 <section class="service-program" id="serviceProgram">
     <div class="section-header animate-on-scroll">
         <h2 class="section-heading editorial">サービスプログラム</h2>
-        <p class="section-intro">すべてのプログラムは、あなたの身体データ・生活リズム・目標に合わせて完全個別に設計。<br>運動・食事・コンディショニングを一体化し、日常のパフォーマンスを根本から変えていきます。</p>
+        <p class="section-intro">あなたの身体データと目標に基づく完全個別設計。<br>運動・食事・コンディショニングを一体化します。</p>
     </div>
     <div class="service-carousel" id="serviceCarousel">
         <div class="carousel-track">
@@ -344,17 +344,19 @@
     </div>
     <div class="cta-content animate-on-scroll">
         <h2 class="cta-heading editorial">あなたの健康を、次のステージへ。</h2>
-        <p class="cta-body">すべては一通のリクエストから始まります。まずはお気軽にお問い合わせください。</p>
+        <p class="cta-body">次の一歩は、ここから。ご興味をお持ちの方は、ウェイティングリストへご登録ください。</p>
         <a href="./invitation-request.html" class="btn-primary">ウェイティングリスト登録</a>
     </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
 <footer class="site-footer" id="siteFooter">
+    <div class="footer-gold-line"></div>
     <div class="footer-inner">
         <div class="footer-top">
             <div class="footer-logo">
                 <span class="footer-logo-text">EXECUTIVE ASHIYA</span>
+                <p class="footer-tagline">COMPLETE HEALTH MANAGEMENT FOR EXECUTIVES</p>
             </div>
         </div>
         <div class="footer-columns">
@@ -386,6 +388,10 @@
 
         <div class="footer-bottom">
             <p class="copyright">&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</p>
+            <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                <span>BACK TO TOP</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M7 2L3 6M7 2L11 6" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
         </div>
     </div>
 </footer>

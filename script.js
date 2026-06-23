@@ -171,7 +171,7 @@ var translations = {
     '.service-overview .section-body': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。', en: 'Your body changes quietly amid busy days. To prevent it from being too late when you notice, we provide support specialized in daily condition management. With exercise, nutrition, and rest as the three pillars, specialists in each field comprehensively evaluate your body. Data-driven programs protect executives\' daily conditioning long-term.' },
     // Service Program
     '#serviceProgram .section-heading': { ja: 'サービスプログラム', en: 'Service Program' },
-    '#serviceProgram .section-intro': { ja: 'すべてのプログラムは、あなたの身体データ・生活リズム・目標に合わせて完全個別に設計。<br>運動・食事・コンディショニングを一体化し、日常のパフォーマンスを根本から変えていきます。', en: 'Every program is fully customized to your body data, lifestyle rhythm, and goals.<br>Integrating exercise, nutrition, and conditioning to fundamentally transform your daily performance.' },
+    '#serviceProgram .section-intro': { ja: 'あなたの身体データと目標に基づく完全個別設計。<br>運動・食事・コンディショニングを一体化します。', en: 'Fully personalized programs based on your body data and goals.<br>Integrating exercise, nutrition, and conditioning.' },
     // Service Cards
     '.service-card:nth-child(1) .card-title': { ja: '運動プログラム', en: 'Training Program' },
     '.service-card:nth-child(1) .card-desc': { ja: 'あなたの身体に合わせた完全個別メニュー。可動域・筋力・姿勢を整え、日常の動きを変える。', en: 'A fully personalized menu tailored to your body. Improving mobility, strength, and posture to transform your daily movement.' },
@@ -210,7 +210,7 @@ var translations = {
     '.guide-card:nth-child(4) .guide-desc': { ja: '初回セッション・各種データ測定からスタートします。', en: 'Starting with your first session and various data measurements.' },
     // CTA
     '.cta-heading': { ja: 'あなたの健康を、次のステージへ。', en: 'Take your health to the next stage.' },
-    '.cta-body': { ja: 'すべては一通のリクエストから始まります。まずはお気軽にお問い合わせください。', en: 'Everything begins with a single request. Please feel free to reach out.' },
+    '.cta-body': { ja: '次の一歩は、ここから。ご興味をお持ちの方は、ウェイティングリストへご登録ください。', en: 'Your next step starts here. Register on our waiting list to begin.' },
     '.btn-primary': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
     // Cookie
     // Footer
@@ -405,20 +405,91 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
     });
 });
 
+// ========== HERO VIDEO AUTOPLAY (iOS Low Power Mode対応) ==========
+(function() {
+    function getActiveVideo() {
+        var pc = document.querySelector('.hero-video-pc');
+        var sp = document.querySelector('.hero-video-sp');
+        if (!pc || !sp) return null;
+        // PC版が非表示ならSP版を返す
+        if (window.getComputedStyle(pc).display === 'none') return sp;
+        return pc;
+    }
+
+    var videoPlaying = false;
+
+    function attemptPlay(video) {
+        if (!video || videoPlaying) return;
+        video.muted = true;
+        video.playsInline = true;
+        var p = video.play();
+        if (p && typeof p.then === 'function') {
+            p.then(function() {
+                videoPlaying = true;
+            }).catch(function() {
+                // 自動再生失敗（低電力モード等）— poster画像が表示される
+                videoPlaying = false;
+            });
+        }
+    }
+
+    // 初回ロード時に再生試行
+    var video = getActiveVideo();
+    if (video) attemptPlay(video);
+
+    // ユーザー操作委譲: 画面のどこかをタップしたら動画再生を試行
+    function onFirstInteraction() {
+        if (videoPlaying) return;
+        var v = getActiveVideo();
+        if (v) {
+            v.play().then(function() {
+                videoPlaying = true;
+            }).catch(function() {});
+        }
+    }
+    document.body.addEventListener('click', onFirstInteraction, { once: true });
+    document.body.addEventListener('touchstart', onFirstInteraction, { once: true });
+
+    // suspendイベント監視
+    function watchSuspend(v) {
+        if (!v) return;
+        v.addEventListener('suspend', function() {
+            if (v.currentTime === 0 && v.paused) {
+                videoPlaying = false;
+            }
+        });
+    }
+    watchSuspend(document.querySelector('.hero-video-pc'));
+    watchSuspend(document.querySelector('.hero-video-sp'));
+})();
+
 // ========== COOKIE CONSENT ==========
 (function() {
-    const banner = document.getElementById('cookieConsent');
-    const btn = document.getElementById('cookieAccept');
+    var banner = document.getElementById('cookieConsent');
+    var btn = document.getElementById('cookieAccept');
     if (!banner || !btn) return;
 
-    if (localStorage.getItem('cookie_consent') === 'accepted') {
+    // localStorageの安全な読み書き
+    function getConsent() {
+        try { return localStorage.getItem('cookie_consent'); }
+        catch(e) { return null; }
+    }
+    function setConsent() {
+        try { localStorage.setItem('cookie_consent', 'accepted'); }
+        catch(e) {}
+    }
+
+    if (getConsent() === 'accepted') {
         banner.style.display = 'none';
         return;
     }
 
-    btn.addEventListener('click', () => {
-        localStorage.setItem('cookie_consent', 'accepted');
+    // アニメーション完了後にバナーが確実に表示されるよう保証
+    banner.style.visibility = 'visible';
+
+    btn.addEventListener('click', function() {
+        setConsent();
         banner.classList.add('hidden');
-        setTimeout(() => { banner.style.display = 'none'; }, 300);
+        setTimeout(function() { banner.style.display = 'none'; }, 300);
     });
 })();
