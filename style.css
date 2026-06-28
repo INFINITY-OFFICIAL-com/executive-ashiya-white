@@ -356,6 +356,7 @@ img {
     position: absolute;
     inset: 0;
     z-index: 0;
+    background: #0a0a0a;
 }
 
 .hero-video-wrapper video {
@@ -1783,7 +1784,7 @@ img {
     }
 
     .service-overview {
-        padding: 32px 0 80px;
+        padding: 56px 0 80px;
     }
 
     .service-content {
@@ -1825,7 +1826,8 @@ img {
     }
 
     .inline-form-inner .section-heading {
-        white-space: normal;
+        white-space: nowrap;
+        font-size: clamp(22px, 7vw, 32px);
     }
 
     .inline-form-inner .section-intro {
