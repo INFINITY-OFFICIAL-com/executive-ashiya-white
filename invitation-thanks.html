@@ -129,5 +129,19 @@
     <footer class="page-footer">
         <p>&copy; 2026 EXECUTIVE ASHIYA. All rights reserved.</p>
     </footer>
+    <script>
+    (function() {
+        try {
+            var lang = localStorage.getItem('ea_lang');
+            if (lang === 'en') {
+                document.documentElement.lang = 'en';
+                document.title = 'Submission Complete | EXECUTIVE ASHIYA';
+                document.querySelector('.thanks-heading').textContent = 'Thank you for registering';
+                document.querySelector('.thanks-body').innerHTML = 'Your waiting list registration has been received.<br>A representative will contact you within 2 business days.<br>Please wait for our response.';
+                document.querySelector('.back-btn').textContent = 'Back to Top Page';
+            }
+        } catch(e) {}
+    })();
+    </script>
 </body>
 </html>

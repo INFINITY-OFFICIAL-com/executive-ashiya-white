@@ -171,7 +171,7 @@ var translations = {
     '.service-overview .section-body': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。', en: 'Your body changes quietly amid busy days. To prevent it from being too late when you notice, we provide support specialized in daily condition management. With exercise, nutrition, and rest as the three pillars, specialists in each field comprehensively evaluate your body. Data-driven programs protect executives\' daily conditioning long-term.' },
     // Service Program
     '#serviceProgram .section-heading': { ja: 'サービスプログラム', en: 'Service Program' },
-    '#serviceProgram .section-intro': { ja: 'あなたの身体データと目標に基づく完全個別設計。<br>運動・食事・コンディショニングを一体化します。', en: 'Fully personalized programs based on your body data and goals.<br>Integrating exercise, nutrition, and conditioning.' },
+    '#serviceProgram .section-intro': { ja: 'すべてのプログラムは、あなたの身体データ・生活リズム・目標に合わせて完全個別に設計。<br>運動・食事・コンディショニングを一体化し、日常のパフォーマンスを根本から変えていきます。', en: 'Every program is fully customized to your body data, lifestyle rhythm, and goals.<br>Integrating exercise, nutrition, and conditioning to fundamentally transform your daily performance.' },
     // Service Cards
     '.service-card:nth-child(1) .card-title': { ja: '運動プログラム', en: 'Training Program' },
     '.service-card:nth-child(1) .card-desc': { ja: 'あなたの身体に合わせた完全個別メニュー。可動域・筋力・姿勢を整え、日常の動きを変える。', en: 'A fully personalized menu tailored to your body. Improving mobility, strength, and posture to transform your daily movement.' },
@@ -208,9 +208,21 @@ var translations = {
     '.guide-card:nth-child(3) .guide-desc': { ja: '健康目標・生活リズムをお伺いし、最適なプログラムをご提案します。', en: 'We listen to your health goals and lifestyle, then propose the optimal program.' },
     '.guide-card:nth-child(4) .guide-title': { ja: 'プログラム開始', en: 'Program Start' },
     '.guide-card:nth-child(4) .guide-desc': { ja: '初回セッション・各種データ測定からスタートします。', en: 'Starting with your first session and various data measurements.' },
+    // Pricing
+    '#pricingPlans .section-heading': { ja: '料金プラン', en: 'Pricing Plans' },
+    '#pricingPlans .section-intro': { ja: 'すべてのプランは年間契約・完全出張型です。', en: 'All plans are annual contracts with full home-visit service.' },
+    '.pricing-card.featured .pricing-plan-note': { ja: '初年度合計（入会金300万＋年会費900万・税込）', en: 'First year total (Enrollment ¥3M + Annual ¥9M, tax incl.)' },
+    '.pricing-card:not(.featured) .pricing-plan-note': { ja: '初年度合計（入会金150万＋年会費600万・税込）', en: 'First year total (Enrollment ¥1.5M + Annual ¥6M, tax incl.)' },
+    '.pricing-note': { ja: '※ 定員：年間最大5名 ／ 全スタッフNDA（秘密保持契約）締結 ／ 対応エリア：芦屋・西宮・神戸', en: '※ Capacity: max 5 clients/year ／ All staff under NDA ／ Areas: Ashiya, Nishinomiya, Kobe' },
+    '.pricing-card.featured .pricing-plan-btn': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
+    '.pricing-card:not(.featured) .pricing-plan-btn': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
+    // Inline Form
+    '#inlineForm .section-heading': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
+    '#inlineForm .section-intro': { ja: '完全会員制のため、まずはウェイティングリストへのご登録をお願いしております。<br>担当より2営業日以内にご連絡いたします。', en: 'As a fully members-only service, we ask that you first register on our waiting list.<br>A representative will contact you within 2 business days.' },
+    '#inline-submit-btn span': { ja: 'リクエストを送信する', en: 'Submit Request' },
     // CTA
     '.cta-heading': { ja: 'あなたの健康を、次のステージへ。', en: 'Take your health to the next stage.' },
-    '.cta-body': { ja: '次の一歩は、ここから。ご興味をお持ちの方は、ウェイティングリストへご登録ください。', en: 'Your next step starts here. Register on our waiting list to begin.' },
+    '.cta-body': { ja: 'すべては一通のリクエストから始まります。まずはお気軽にお問い合わせください。', en: 'Everything begins with a single request. Please feel free to reach out.' },
     '.btn-primary': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
     // Cookie
     // Footer
@@ -238,13 +250,13 @@ var modalTranslations = {
         num: '01', en: 'Personal Training',
         ja_title: 'パ ー ソ ナ ル ト レ ー ニ ン グ', en_title: 'P E R S O N A L  T R A I N I N G',
         ja_items: [
-            '専属トレーナーがご自宅またはオフィスへ訪問。月2〜4回・各60分の完全個別セッションを実施します',
+            '専属トレーナーがご自宅またはオフィスへ訪問。月2〜4回・各60〜90分の完全個別セッションを実施します',
             'お身体の状態を丁寧に評価し、筋力・柔軟性・姿勢の改善を目的としたプログラムをオーダーメイドで設計します',
             '体組成の定期測定により、変化を数値で確認。毎月レポートをお届けし、プログラムの見直しに活用します',
             'ゴルフ・テニス等のスポーツに必要な身体づくりにも対応。日常のパフォーマンス向上をサポートします'
         ],
         en_items: [
-            'A dedicated trainer visits your home or office. 2-4 fully personalized 60-minute sessions per month',
+            'A dedicated trainer visits your home or office. 2-4 fully personalized 60-90 minute sessions per month',
             'We carefully assess your physical condition and design a custom program aimed at improving strength, flexibility, and posture',
             'Regular body composition measurements to track changes numerically. Monthly reports delivered and used to refine your program',
             'We also support physical conditioning for golf, tennis, and other sports. Enhancing your daily performance'
@@ -272,14 +284,14 @@ var modalTranslations = {
         num: '03', en: 'Conditioning',
         ja_title: 'コ ン デ ィ シ ョ ニ ン グ', en_title: 'C O N D I T I O N I N G',
         ja_items: [
-            '提携する整骨院・鍼灸院と連携し、ストレッチや施術を組み合わせた身体のケアをご提供します',
+            '理学療法士が、提携する整骨院・鍼灸院とも連携しながら、ストレッチや施術を組み合わせた身体のケアをご提供します',
             'トレーニング後の疲労をためないよう、筋肉や関節の違和感を早めにケア。次回セッションの質を高めます',
             'デスクワークによる肩こり・腰痛・姿勢の崩れに対して、運動と施術の両面からアプローチします',
             '出張や多忙な時期でも続けられるセルフケアメニューを動画付きでご提供します',
             '施術の予約代行からトレーニング内容の調整まで一括管理。担当者同士が情報を共有し、一貫したケアを行います'
         ],
         en_items: [
-            'Working with partnered osteopathic and acupuncture clinics to provide body care combining stretching and treatment',
+            'A physical therapist provides body care combining stretching and treatment, coordinating with partnered osteopathic and acupuncture clinics',
             'Early care for muscle and joint discomfort to prevent post-training fatigue accumulation. Enhancing the quality of your next session',
             'Addressing desk work-related stiff shoulders, lower back pain, and posture issues through both exercise and treatment',
             'Self-care menus with video guides that can be continued even during business trips or busy periods',
@@ -394,8 +406,142 @@ function switchLang(lang) {
         }
     });
 
-    // Update HTML lang attribute
+    // Update inline form labels, placeholders, and consent
+    var formLabels = {
+        'if-name':    { ja: '氏名',            en: 'Full Name' },
+        'if-email':   { ja: 'メールアドレス',   en: 'Email Address' },
+        'if-phone':   { ja: '電話番号',         en: 'Phone Number' },
+        'if-area':    { ja: '居住エリア',       en: 'Area of Residence' },
+        'if-message': { ja: 'ご要望',           en: 'Message' },
+        'if-referrer': { ja: 'ご紹介者名',      en: 'Referrer Name' }
+    };
+    var formPlaceholders = {
+        'if-name':     { ja: '山田 太郎',                          en: 'Taro Yamada' },
+        'if-email':    { ja: 'your@email.com',                     en: 'your@email.com' },
+        'if-phone':    { ja: '090-1234-5678',                      en: '090-1234-5678' },
+        'if-message':  { ja: 'お気軽にご記入ください（任意）',       en: 'Please feel free to write (optional)' },
+        'if-referrer': { ja: 'ご紹介者がいる場合のみ（任意）',       en: 'Only if you have a referrer (optional)' }
+    };
+    Object.keys(formLabels).forEach(function(id) {
+        var input = document.getElementById(id);
+        if (!input) return;
+        var label = document.querySelector('label[for="' + id + '"]');
+        if (label) {
+            var reqSpan = label.querySelector('.inline-required');
+            label.textContent = formLabels[id][lang];
+            if (reqSpan) {
+                reqSpan.textContent = lang === 'ja' ? '必須' : 'Required';
+                label.appendChild(reqSpan);
+            }
+        }
+        if (formPlaceholders[id]) {
+            input.placeholder = formPlaceholders[id][lang];
+        }
+    });
+
+    // Update select options
+    var areaSelect = document.getElementById('if-area');
+    if (areaSelect) {
+        var areaOptions = {
+            ja: ['選択してください', '芦屋市', '西宮市', '宝塚市', '神戸市', '大阪府', '京都府', '関東', 'その他'],
+            en: ['Please select', 'Ashiya', 'Nishinomiya', 'Takarazuka', 'Kobe', 'Osaka', 'Kyoto', 'Kanto', 'Other']
+        };
+        var opts = areaSelect.querySelectorAll('option');
+        opts.forEach(function(opt, i) {
+            if (areaOptions[lang][i]) opt.textContent = areaOptions[lang][i];
+        });
+    }
+
+    // Update consent text
+    var consentLabel = document.querySelector('.inline-form-checkbox span');
+    if (consentLabel) {
+        if (lang === 'ja') {
+            consentLabel.innerHTML = 'ご登録内容は厳重に管理し、ご入会に関するご案内以外の目的には使用いたしません。<a href="./privacy.html">プライバシーポリシー</a>に同意のうえ、登録します。';
+        } else {
+            consentLabel.innerHTML = 'Your information will be strictly managed and will not be used for purposes other than membership inquiries. I agree to the <a href="./privacy.html">Privacy Policy</a> and register.';
+        }
+    }
+
+    // Update pricing plan list items
+    var platinumItems = {
+        ja: [
+            '月4回パーソナルセッション（各60〜90分）',
+            'フルオーダー食事管理',
+            'オーダーメイドサプリメント設計',
+            '理学療法士によるコンディショニング',
+            '体組成データ測定・月次レポート',
+            '提携医療機関のご紹介',
+            'コンシェルジュサービス 対応回数無制限',
+            '提携ホテルでのウェルネスセッション（年4回）',
+            '国内出張同行',
+            'メンバーズウェルカムギフト'
+        ],
+        en: [
+            '4 personal sessions/month (60-90 min each)',
+            'Fully customized meal management',
+            'Custom supplement design',
+            'Conditioning by physical therapist',
+            'Body composition measurement & monthly report',
+            'Referral to partnered medical institutions',
+            'Concierge service — unlimited requests',
+            'Wellness sessions at partnered hotels (4x/year)',
+            'Domestic business trip accompaniment',
+            'Members welcome gift'
+        ]
+    };
+    var executiveItems = {
+        ja: [
+            '月2回パーソナルセッション（各60〜90分）',
+            '週次食事ガイド＋月1回栄養カウンセリング',
+            '理学療法士によるコンディショニング',
+            '体組成データ測定・月次レポート',
+            '提携医療機関のご紹介',
+            'コンシェルジュサービス 対応回数無制限',
+            'メンバーズウェルカムギフト'
+        ],
+        en: [
+            '2 personal sessions/month (60-90 min each)',
+            'Weekly meal guide + monthly nutrition counseling',
+            'Conditioning by physical therapist',
+            'Body composition measurement & monthly report',
+            'Referral to partnered medical institutions',
+            'Concierge service — unlimited requests',
+            'Members welcome gift'
+        ]
+    };
+    var featuredCard = document.querySelector('.pricing-card.featured .pricing-plan-list');
+    if (featuredCard) {
+        var lis = featuredCard.querySelectorAll('li');
+        lis.forEach(function(li, i) {
+            if (platinumItems[lang][i]) li.textContent = platinumItems[lang][i];
+        });
+    }
+    var execCard = document.querySelector('.pricing-card:not(.featured) .pricing-plan-list');
+    if (execCard) {
+        var lis2 = execCard.querySelectorAll('li');
+        lis2.forEach(function(li, i) {
+            if (executiveItems[lang][i]) li.textContent = executiveItems[lang][i];
+        });
+    }
+
+    // Update pricing notes (both)
+    var pricingNotes = document.querySelectorAll('.pricing-note');
+    var notesJa = [
+        '※ 全スタッフNDA（秘密保持契約）締結 ／ 対応エリア：芦屋・西宮・神戸',
+        '※ 「提携医療機関のご紹介」は情報提供および予約代行であり、当サービスが医療行為・診断・治療を行うものではありません。「オーダーメイドサプリメント設計」は医薬品の処方ではなく、栄養学に基づく食品としてのサプリメントのご提案です。'
+    ];
+    var notesEn = [
+        '※ All staff under NDA ／ Areas: Ashiya, Nishinomiya, Kobe',
+        '※ "Referral to partnered medical institutions" is information provision and appointment booking; this service does not provide medical practice, diagnosis, or treatment. "Custom supplement design" is not pharmaceutical prescription but a nutrition-based dietary supplement proposal.'
+    ];
+    pricingNotes.forEach(function(note, i) {
+        if (lang === 'ja' && notesJa[i]) note.textContent = notesJa[i];
+        if (lang === 'en' && notesEn[i]) note.textContent = notesEn[i];
+    });
+
+    // Update HTML lang attribute & persist preference
     document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
+    try { localStorage.setItem('ea_lang', lang); } catch(e) {}
 }
 
 // Bind toggle buttons
@@ -405,91 +551,38 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
     });
 });
 
-// ========== HERO VIDEO AUTOPLAY (iOS Low Power Mode対応) ==========
+// ========== INLINE FORM ==========
 (function() {
-    function getActiveVideo() {
-        var pc = document.querySelector('.hero-video-pc');
-        var sp = document.querySelector('.hero-video-sp');
-        if (!pc || !sp) return null;
-        // PC版が非表示ならSP版を返す
-        if (window.getComputedStyle(pc).display === 'none') return sp;
-        return pc;
-    }
+    var loadedAt = document.getElementById('inline-form-loaded-at');
+    if (loadedAt) loadedAt.value = Date.now().toString();
 
-    var videoPlaying = false;
+    var form = document.getElementById('inline-invitation-form');
+    var submitBtn = document.getElementById('inline-submit-btn');
+    if (!form || !submitBtn) return;
 
-    function attemptPlay(video) {
-        if (!video || videoPlaying) return;
-        video.muted = true;
-        video.playsInline = true;
-        var p = video.play();
-        if (p && typeof p.then === 'function') {
-            p.then(function() {
-                videoPlaying = true;
-            }).catch(function() {
-                // 自動再生失敗（低電力モード等）— poster画像が表示される
-                videoPlaying = false;
-            });
-        }
-    }
-
-    // 初回ロード時に再生試行
-    var video = getActiveVideo();
-    if (video) attemptPlay(video);
-
-    // ユーザー操作委譲: 画面のどこかをタップしたら動画再生を試行
-    function onFirstInteraction() {
-        if (videoPlaying) return;
-        var v = getActiveVideo();
-        if (v) {
-            v.play().then(function() {
-                videoPlaying = true;
-            }).catch(function() {});
-        }
-    }
-    document.body.addEventListener('click', onFirstInteraction, { once: true });
-    document.body.addEventListener('touchstart', onFirstInteraction, { once: true });
-
-    // suspendイベント監視
-    function watchSuspend(v) {
-        if (!v) return;
-        v.addEventListener('suspend', function() {
-            if (v.currentTime === 0 && v.paused) {
-                videoPlaying = false;
-            }
-        });
-    }
-    watchSuspend(document.querySelector('.hero-video-pc'));
-    watchSuspend(document.querySelector('.hero-video-sp'));
+    var isSubmitting = false;
+    form.addEventListener('submit', function(e) {
+        if (isSubmitting) { e.preventDefault(); return; }
+        isSubmitting = true;
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').textContent = '送信中…';
+    });
 })();
 
 // ========== COOKIE CONSENT ==========
 (function() {
-    var banner = document.getElementById('cookieConsent');
-    var btn = document.getElementById('cookieAccept');
+    const banner = document.getElementById('cookieConsent');
+    const btn = document.getElementById('cookieAccept');
     if (!banner || !btn) return;
 
-    // localStorageの安全な読み書き
-    function getConsent() {
-        try { return localStorage.getItem('cookie_consent'); }
-        catch(e) { return null; }
-    }
-    function setConsent() {
-        try { localStorage.setItem('cookie_consent', 'accepted'); }
-        catch(e) {}
-    }
-
-    if (getConsent() === 'accepted') {
+    if (localStorage.getItem('cookie_consent') === 'accepted') {
         banner.style.display = 'none';
         return;
     }
 
-    // アニメーション完了後にバナーが確実に表示されるよう保証
-    banner.style.visibility = 'visible';
-
-    btn.addEventListener('click', function() {
-        setConsent();
+    btn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'accepted');
         banner.classList.add('hidden');
-        setTimeout(function() { banner.style.display = 'none'; }, 300);
+        setTimeout(() => { banner.style.display = 'none'; }, 300);
     });
 })();
