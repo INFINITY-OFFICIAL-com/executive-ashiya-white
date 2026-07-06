@@ -88,12 +88,7 @@
 <!-- ========== HERO ========== -->
 <section class="hero" id="hero">
     <div class="hero-video-wrapper">
-        <video class="hero-video-pc" autoplay muted loop playsinline preload="auto">
-            <source src="hero-bg.mp4" type="video/mp4">
-        </video>
-        <video class="hero-video-sp" autoplay muted loop playsinline preload="auto">
-            <source src="hero-bg-sp.mp4" type="video/mp4">
-        </video>
+        <video class="hero-video" id="heroVideo" muted loop playsinline preload="auto"></video>
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -599,7 +594,7 @@
     </div>
 </div>
 
-<!-- Cookie Consent (SP only) -->
+<!-- Cookie Consent -->
 <div class="cookie-consent" id="cookieConsent">
     <p class="cookie-text">当サイトは、利便性向上のためにCookieを利用しています。「同意する」を選択すると使用に同意したことになります。Cookieはブラウザで制限／無効化できます。</p>
     <button class="cookie-accept" id="cookieAccept">同意する</button>

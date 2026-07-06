@@ -141,6 +141,40 @@ function initScrollAnimations() {
 
 initScrollAnimations();
 
+// ========== HERO VIDEO (device-specific source + low power mode fallback) ==========
+(function() {
+    const video = document.getElementById('heroVideo');
+    if (!video) return;
+
+    // 画面幅に応じて片方の動画だけ読み込む（PC/SP両方のダウンロードを防ぐ）
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    video.poster = isMobile ? 'hero-poster-sp.jpg' : 'hero-poster.jpg';
+    video.src = isMobile ? 'hero-bg-sp.mp4' : 'hero-bg.mp4';
+
+    const tryPlay = function() {
+        if (!video.paused) return;
+        const p = video.play();
+        if (p && p.catch) p.catch(function() {});
+    };
+
+    tryPlay();
+
+    // iPhone低電力モード等で自動再生がブロックされた場合、
+    // 最初のタップ・スクロール（ユーザー操作起点）で再生を再試行する
+    ['touchstart', 'click', 'scroll'].forEach(function(evt) {
+        const retry = function() {
+            window.removeEventListener(evt, retry);
+            tryPlay();
+        };
+        window.addEventListener(evt, retry, { passive: true });
+    });
+
+    // タブ復帰時にも再試行
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) tryPlay();
+    });
+})();
+
 // ========== SMOOTH PARALLAX ON HERO ==========
 function initHeroParallax() {
     const hero = document.getElementById('hero');
@@ -575,13 +609,25 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
     const btn = document.getElementById('cookieAccept');
     if (!banner || !btn) return;
 
-    if (localStorage.getItem('cookie_consent') === 'accepted') {
+    // Safari(ITP)はlocalStorageを7日で消すことがあるため、有効期限1年のCookieを正とする
+    function hasConsent() {
+        if (document.cookie.split('; ').indexOf('cookie_consent=accepted') !== -1) return true;
+        try { return localStorage.getItem('cookie_consent') === 'accepted'; } catch (e) { return false; }
+    }
+
+    function saveConsent() {
+        document.cookie = 'cookie_consent=accepted; max-age=31536000; path=/; SameSite=Lax';
+        try { localStorage.setItem('cookie_consent', 'accepted'); } catch (e) {}
+    }
+
+    if (hasConsent()) {
+        saveConsent(); // 旧localStorage同意者もCookieに引き継ぐ
         banner.style.display = 'none';
         return;
     }
 
     btn.addEventListener('click', () => {
-        localStorage.setItem('cookie_consent', 'accepted');
+        saveConsent();
         banner.classList.add('hidden');
         setTimeout(() => { banner.style.display = 'none'; }, 300);
     });
