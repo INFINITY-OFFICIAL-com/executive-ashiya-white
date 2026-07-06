@@ -274,8 +274,8 @@ var translations = {
     '.footer-col:nth-child(3) a:nth-child(5)': { ja: '運営体制・サービス提供範囲', en: 'Operations & Service Scope' },
     '.footer-col:nth-child(4) h4': { ja: '運営', en: 'Company' },
     // Cookie
-    '.cookie-text': { ja: '当サイトは、利便性向上のためにCookieを利用しています。「同意する」を選択すると使用に同意したことになります。Cookieはブラウザで制限／無効化できます。', en: 'This site uses cookies to improve usability. By selecting "Accept," you consent to their use. Cookies can be restricted or disabled in your browser.' },
-    '.cookie-accept': { ja: '同意する', en: 'Accept' },
+    '.ea-info-text': { ja: '当サイトは、利便性向上のためにCookieを利用しています。「同意する」を選択すると使用に同意したことになります。Cookieはブラウザで制限／無効化できます。', en: 'This site uses cookies to improve usability. By selecting "Accept," you consent to their use. Cookies can be restricted or disabled in your browser.' },
+    '.ea-info-ok': { ja: '同意する', en: 'Accept' },
 };
 
 // Modal translations
@@ -605,8 +605,8 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
 
 // ========== COOKIE CONSENT ==========
 (function() {
-    const banner = document.getElementById('cookieConsent');
-    const btn = document.getElementById('cookieAccept');
+    const banner = document.getElementById('eaInfoBar');
+    const btn = document.getElementById('eaInfoOk');
     if (!banner || !btn) return;
 
     // Safari(ITP)はlocalStorageを7日で消すことがあるため、有効期限1年のCookieを正とする

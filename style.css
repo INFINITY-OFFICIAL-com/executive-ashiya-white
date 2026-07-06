@@ -1619,7 +1619,7 @@ img {
 
 /* ========== COOKIE CONSENT ========== */
 /* PC: 右下カード型 */
-.cookie-consent {
+.ea-info-bar {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -1637,11 +1637,11 @@ img {
     animation: cookieFadeUp 0.5s 1s ease forwards;
 }
 
-.cookie-consent.hidden {
+.ea-info-bar.hidden {
     animation: cookieFadeDown 0.3s ease forwards;
 }
 
-.cookie-text {
+.ea-info-text {
     font-family: 'Noto Serif JP', '游明朝', serif;
     font-size: 11px;
     line-height: 1.8;
@@ -1649,7 +1649,7 @@ img {
     letter-spacing: 0.02em;
 }
 
-.cookie-accept {
+.ea-info-ok {
     align-self: flex-end;
     font-family: 'Noto Serif JP', '游明朝', serif;
     font-size: 12px;
@@ -1662,7 +1662,7 @@ img {
     transition: opacity 0.3s;
 }
 
-.cookie-accept:hover {
+.ea-info-ok:hover {
     opacity: 0.85;
 }
 
@@ -1678,7 +1678,7 @@ img {
 
 /* SP: 画面下部の全幅バー型 */
 @media (max-width: 768px) {
-    .cookie-consent {
+    .ea-info-bar {
         right: 0;
         bottom: 0;
         left: 0;
@@ -1689,7 +1689,7 @@ img {
         animation: cookieSlideUp 0.5s 1s ease forwards;
     }
 
-    .cookie-consent.hidden {
+    .ea-info-bar.hidden {
         animation: cookieSlideDown 0.3s ease forwards;
     }
 
