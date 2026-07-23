@@ -6,7 +6,12 @@
     <title>芦屋の完全会員制パーソナルトレーニング＆ヘルスケア | EXECUTIVE ASHIYA（エグゼクティブ芦屋）</title>
     <meta name="description" content="芦屋発・経営者・富裕層向け完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。運動プログラム・栄養設計・コンディショニングを一体化し、健康寿命を守る。芦屋・西宮・神戸・大阪対応。">
     <meta name="keywords" content="芦屋 パーソナルトレーニング,芦屋 コンディショニング,芦屋 富裕層 ヘルスケア,芦屋 会員制 ジム,経営者 健康管理,芦屋 栄養指導,エグゼクティブ芦屋,EXECUTIVE ASHIYA,芦屋 パーソナルジム,神戸 富裕層 トレーニング">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicon-192.png">
     <link rel="stylesheet" href="style.css">
     <!-- SEO: Geo -->
     <meta name="geo.region" content="JP-28">
@@ -23,8 +28,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="芦屋の完全会員制パーソナルトレーニング | EXECUTIVE ASHIYA">
     <meta name="twitter:description" content="芦屋発・経営者向け完全会員制ヘルスケアコンシェルジュ。パーソナルトレーニング・栄養設計・コンディショニングを一体化。">
-    <meta property="og:image" content="https://executive-ashiya.com/ogp.jpg">
-    <meta name="twitter:image" content="https://executive-ashiya.com/ogp.jpg">
+    <meta property="og:image" content="https://executive-ashiya.com/ogp-v2.jpg">
+    <meta name="twitter:image" content="https://executive-ashiya.com/ogp-v2.jpg">
     <link rel="canonical" href="https://executive-ashiya.com/">
     <link rel="alternate" hreflang="ja" href="https://executive-ashiya.com/">
     <link rel="alternate" hreflang="en" href="https://executive-ashiya.com/?lang=en">
@@ -50,12 +55,12 @@
             </a>
         </div>
         <div class="nav-right">
-            <a href="#serviceProgram">Services</a>
-            <a href="#conciergeCarousel">Concierge</a>
-            <a href="./founder.html">About</a>
-            <a href="#pricingPlans">Pricing</a>
-            <a href="#planningGuides">Process</a>
-            <a href="#inlineForm" class="nav-cta-link">Inquire</a>
+            <a href="/services">Services</a>
+            <a href="/concierge">Concierge</a>
+            <a href="/about">About</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/process">Process</a>
+            <a href="/inquire" class="nav-cta-link">Inquire</a>
             <div class="lang-toggle">
                 <button class="lang-btn active" data-lang="ja">JP</button>
                 <button class="lang-btn" data-lang="en">EN</button>
@@ -76,12 +81,12 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-inner">
-        <a href="#serviceProgram">Services</a>
-        <a href="#conciergeCarousel">Concierge</a>
-        <a href="./founder.html">About</a>
-        <a href="#pricingPlans">Pricing</a>
-        <a href="#planningGuides">Process</a>
-        <a href="#inlineForm">Inquire</a>
+        <a href="/services">Services</a>
+        <a href="/concierge">Concierge</a>
+        <a href="/about">About</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/process">Process</a>
+        <a href="/inquire">Inquire</a>
     </div>
 </div>
 
@@ -119,7 +124,7 @@
     <div class="service-carousel" id="serviceCarousel">
         <div class="carousel-track">
             <!-- Card 1 -->
-            <div class="service-card" onclick="openDetail('training')" style="cursor:pointer">
+            <div class="service-card" onclick="location.href='/services#training'" style="cursor:pointer">
                 <div class="card-image-link">
                     <div class="card-image-slider">
                         <img src="service-training.jpg" alt="Training & Movement" loading="lazy">
@@ -131,11 +136,11 @@
                     <p class="card-desc">あなたの身体に合わせた完全個別メニュー。可動域・筋力・姿勢を整え、日常の動きを変える。</p>
                 </div>
                 <div class="card-button">
-                    <span class="btn-text-link">詳しく見る</span>
+                    <a href="/services#training" class="btn-text-link">詳しく見る</a>
                 </div>
             </div>
             <!-- Card 2 -->
-            <div class="service-card" onclick="openDetail('nutrition')" style="cursor:pointer">
+            <div class="service-card" onclick="location.href='/services#nutrition'" style="cursor:pointer">
                 <div class="card-image-link">
                     <div class="card-image-slider">
                         <img src="service-nutrition.jpg" alt="Nutrition Design" loading="lazy">
@@ -147,11 +152,11 @@
                     <p class="card-desc">検査データをもとに組み立てるオーダーメイドの食事プラン。何を、いつ、どれだけ摂るかを設計。</p>
                 </div>
                 <div class="card-button">
-                    <span class="btn-text-link">詳しく見る</span>
+                    <a href="/services#nutrition" class="btn-text-link">詳しく見る</a>
                 </div>
             </div>
             <!-- Card 3 -->
-            <div class="service-card" onclick="openDetail('conditioning')" style="cursor:pointer">
+            <div class="service-card" onclick="location.href='/services#conditioning'" style="cursor:pointer">
                 <div class="card-image-link">
                     <div class="card-image-slider">
                         <img src="service-conditioning.jpg" alt="Conditioning" loading="lazy">
@@ -163,7 +168,7 @@
                     <p class="card-desc">疲労回復・可動域改善・自律神経の調整。忙しい日常のパフォーマンスを底上げする。</p>
                 </div>
                 <div class="card-button">
-                    <span class="btn-text-link">詳しく見る</span>
+                    <a href="/services#conditioning" class="btn-text-link">詳しく見る</a>
                 </div>
             </div>
         </div>
@@ -182,6 +187,7 @@
             </div>
         </div>
     </div>
+    <p class="section-more animate-on-scroll"><a href="/services" class="link-more link-to-services">サービスプログラムを詳しく見る</a></p>
 </section>
 
 <!-- ========== MEMBER INVITE ========== -->
@@ -206,7 +212,7 @@
     <div class="concierge-carousel" id="conciergeCarousel">
         <div class="carousel-track">
             <!-- Medical Information -->
-            <div class="concierge-card" onclick="openDetail('medical')" style="cursor:pointer">
+            <div class="concierge-card" onclick="location.href='/concierge#medical'" style="cursor:pointer">
                 <div class="dest-image-link">
                     <div class="dest-image">
                         <img src="concierge-medical.jpg" alt="医療情報のご案内" loading="lazy">
@@ -217,11 +223,11 @@
                     <p class="dest-desc">会員のご要望に応じた医療機関・専門家の情報提供。各種検査に関するご相談も承ります。</p>
                 </div>
                 <div class="card-button">
-                    <span class="btn-text-link light">詳しく見る</span>
+                    <a href="/concierge#medical" class="btn-text-link light">詳しく見る</a>
                 </div>
             </div>
             <!-- Aesthetic & Body Care -->
-            <div class="concierge-card" onclick="openDetail('aesthetic')" style="cursor:pointer">
+            <div class="concierge-card" onclick="location.href='/concierge#aesthetic'" style="cursor:pointer">
                 <div class="dest-image-link">
                     <div class="dest-image">
                         <img src="concierge-aesthetic.jpg" alt="美容・ボディケア" loading="lazy">
@@ -232,11 +238,11 @@
                     <p class="dest-desc">提携先の美容・ボディケアサービスのご紹介。ご希望に合わせた施設情報をご案内します。</p>
                 </div>
                 <div class="card-button">
-                    <span class="btn-text-link light">詳しく見る</span>
+                    <a href="/concierge#aesthetic" class="btn-text-link light">詳しく見る</a>
                 </div>
             </div>
             <!-- Culinary & Nutrition -->
-            <div class="concierge-card" onclick="openDetail('culinary')" style="cursor:pointer">
+            <div class="concierge-card" onclick="location.href='/concierge#culinary'" style="cursor:pointer">
                 <div class="dest-image-link">
                     <div class="dest-image">
                         <img src="concierge-culinary.jpg" alt="食・栄養" loading="lazy">
@@ -247,7 +253,7 @@
                     <p class="dest-desc">提携レストランやパーソナルシェフのご紹介。栄養面を考慮した食の体験をご案内します。</p>
                 </div>
                 <div class="card-button">
-                    <span class="btn-text-link light">詳しく見る</span>
+                    <a href="/concierge#culinary" class="btn-text-link light">詳しく見る</a>
                 </div>
             </div>
         </div>
@@ -265,6 +271,7 @@
             </div>
         </div>
     </div>
+    <p class="section-more animate-on-scroll"><a href="/concierge" class="link-more light link-to-concierge">会員向け付帯サービスを詳しく見る</a></p>
 </section>
 
 
@@ -315,6 +322,7 @@
     </div>
     <p class="pricing-note animate-on-scroll">※ 全スタッフNDA（秘密保持契約）締結 ／ 対応エリア：芦屋・西宮・神戸</p>
     <p class="pricing-note animate-on-scroll">※ 「提携医療機関のご紹介」は情報提供および予約代行であり、当サービスが医療行為・診断・治療を行うものではありません。「オーダーメイドサプリメント設計」は医薬品の処方ではなく、栄養学に基づく食品としてのサプリメントのご提案です。</p>
+    <p class="section-more animate-on-scroll"><a href="/pricing" class="link-more link-to-pricing">料金プランを詳しく見る</a></p>
 </section>
 
 <!-- ========== PLANNING GUIDES ========== -->
@@ -365,6 +373,7 @@
             </div>
         </div>
     </div>
+    <p class="section-more animate-on-scroll"><a href="/process" class="link-more link-to-process">入会までの流れを詳しく見る</a></p>
 </section>
 
 <!-- ========== INLINE FORM ========== -->
@@ -456,21 +465,23 @@
         <div class="footer-columns">
             <div class="footer-col">
                 <h4>サービス</h4>
-                <a href="#serviceProgram">サービスプログラム</a>
-                <a href="#conciergeCarousel">コンシェルジュ</a>
-                <a href="./founder.html">代表挨拶</a>
+                <a href="/services">サービスプログラム</a>
+                <a href="/concierge">会員向け付帯サービス</a>
+                <a href="/pricing">料金プラン</a>
             </div>
             <div class="footer-col">
                 <h4>ご案内</h4>
-                <a href="#planningGuides">入会までの流れ</a>
-                <a href="#inlineForm">お問い合わせ</a>
+                <a href="/about">私たちについて</a>
+                <a href="/founder.html">代表挨拶</a>
+                <a href="/process">入会までの流れ</a>
+                <a href="/inquire">お問い合わせ</a>
             </div>
             <div class="footer-col">
                 <h4>法的情報</h4>
-                <a href="./privacy.html">プライバシーポリシー</a>
-                <a href="./tokushoho.html">特定商取引法に基づく表記</a>
-                <a href="./confidentiality.html">守秘について</a>
-                <a href="./transparency.html">運営体制・サービス提供範囲</a>
+                <a href="/privacy.html">プライバシーポリシー</a>
+                <a href="/tokushoho.html">特定商取引法に基づく表記</a>
+                <a href="/confidentiality.html">守秘について</a>
+                <a href="/transparency.html">運営体制・サービス提供範囲</a>
             </div>
             <div class="footer-col">
                 <h4>運営</h4>
@@ -485,114 +496,6 @@
         </div>
     </div>
 </footer>
-
-<!-- ========== DETAIL MODALS ========== -->
-<!-- Service: Training -->
-<div class="detail-modal" id="detail-training" onclick="closeDetail(event)">
-    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
-    <div class="detail-modal-inner">
-        <span class="detail-num">01</span>
-        <span class="detail-en">Personal Training</span>
-        <span class="detail-ja">パ ー ソ ナ ル ト レ ー ニ ン グ</span>
-        <div class="detail-line"></div>
-        <ul class="detail-list">
-            <li>専属トレーナーがご自宅またはオフィスへ訪問。月2〜4回・各60〜90分の完全個別セッションを実施します</li>
-            <li>お身体の状態を丁寧に評価し、筋力・柔軟性・姿勢の改善を目的としたプログラムをオーダーメイドで設計します</li>
-            <li>体組成の定期測定により、変化を数値で確認。毎月レポートをお届けし、プログラムの見直しに活用します</li>
-            <li>ゴルフ・テニス等のスポーツに必要な身体づくりにも対応。日常のパフォーマンス向上をサポートします</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Service: Nutrition -->
-<div class="detail-modal" id="detail-nutrition" onclick="closeDetail(event)">
-    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
-    <div class="detail-modal-inner">
-        <span class="detail-num">02</span>
-        <span class="detail-en">Nutrition Design</span>
-        <span class="detail-ja">栄 養 設 計</span>
-        <div class="detail-line"></div>
-        <ul class="detail-list">
-            <li>お身体の状態や生活リズムに合わせて、管理栄養士が個別の食事プランを作成します</li>
-            <li>目標やお身体のデータに応じたサプリメントをご提案。毎月ご自宅へお届けします</li>
-            <li>日々の食事内容を写真でフィードバック。月次レポートで振り返り、外食が多い方にも実践的な改善をご提案します</li>
-            <li>減量・体力づくり・体調管理など、目標に合わせた献立を定期的に更新。ご家族の食事との両立もサポートします</li>
-            <li>アレルギーや食事制限にも対応。出張先・旅行先での食事プランニングも承ります</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Service: Conditioning -->
-<div class="detail-modal" id="detail-conditioning" onclick="closeDetail(event)">
-    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
-    <div class="detail-modal-inner">
-        <span class="detail-num">03</span>
-        <span class="detail-en">Conditioning</span>
-        <span class="detail-ja">コ ン デ ィ シ ョ ニ ン グ</span>
-        <div class="detail-line"></div>
-        <ul class="detail-list">
-            <li>理学療法士が、提携する整骨院・鍼灸院とも連携しながら、ストレッチや施術を組み合わせた身体のケアをご提供します</li>
-            <li>トレーニング後の疲労をためないよう、筋肉や関節の違和感を早めにケア。次回セッションの質を高めます</li>
-            <li>デスクワークによる肩こり・腰痛・姿勢の崩れに対して、運動と施術の両面からアプローチします</li>
-            <li>出張や多忙な時期でも続けられるセルフケアメニューを動画付きでご提供します</li>
-            <li>施術の予約代行からトレーニング内容の調整まで一括管理。担当者同士が情報を共有し、一貫したケアを行います</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Concierge: Medical -->
-<div class="detail-modal" id="detail-medical" onclick="closeDetail(event)">
-    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
-    <div class="detail-modal-inner">
-        <span class="detail-num">01</span>
-        <span class="detail-en">Medical Information</span>
-        <span class="detail-ja">医 療 情 報 の ご 案 内</span>
-        <div class="detail-line"></div>
-        <ul class="detail-list">
-            <li>会員のご希望に応じて、医療機関や専門家に関する情報をご提供します</li>
-            <li>各種検査や受診に関するご相談を承り、適切な機関をご案内します</li>
-            <li>ご予約の代行や日程調整など、受診に関する事務的なサポートを行います</li>
-            <li>医療機関から共有いただいたデータをもとに、トレーナーが運動・栄養プログラムの調整に活用します</li>
-        </ul>
-        <p class="detail-note">※ 当サービスは医療行為・診断・治療を行うものではありません。医療に関する最終的なご判断は、必ず医師等の専門家にご相談ください。情報提供およびご紹介は、医療法その他関連法令に基づき適切に行っております。</p>
-    </div>
-</div>
-
-<!-- Concierge: Aesthetic -->
-<div class="detail-modal" id="detail-aesthetic" onclick="closeDetail(event)">
-    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
-    <div class="detail-modal-inner">
-        <span class="detail-num">02</span>
-        <span class="detail-en">Aesthetic &amp; Body Care</span>
-        <span class="detail-ja">美 容 ・ ボ デ ィ ケ ア</span>
-        <div class="detail-line"></div>
-        <ul class="detail-list">
-            <li>芦屋・神戸・大阪の美容皮膚科・美容外科クリニックの優先予約代行。初回カウンセリングへのコンシェルジュ同行も可能</li>
-            <li>会員のご希望に応じて、美容鍼・各種施術等を目的別にコーディネート</li>
-            <li>国内外のプライベートスパ・リトリート施設（有馬・淡路・京都・沖縄等）の予約代行。ウェルネスプログラム付きステイのご提案</li>
-            <li>経験10年以上のボディケアセラピスト（整体・アロマ・リンパドレナージュ）をご自宅・滞在先へ派遣。定期ケアスケジュールも設計</li>
-            <li>専門家と連携し、体質・肌質・生活習慣に基づくスキンケア＋インナーケアの提案を一元設計</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Concierge: Culinary -->
-<div class="detail-modal" id="detail-culinary" onclick="closeDetail(event)">
-    <button class="detail-modal-close" onclick="closeDetail(event, true)" aria-label="閉じる"></button>
-    <div class="detail-modal-inner">
-        <span class="detail-num">03</span>
-        <span class="detail-en">Culinary &amp; Nutrition</span>
-        <span class="detail-ja">食 ・ 栄 養</span>
-        <div class="detail-line"></div>
-        <ul class="detail-list">
-            <li>関西のミシュラン星付きシェフ（日本料理・フレンチ・イタリアン）によるプライベートダイニングをご自宅へ。記念日・接待利用にも対応</li>
-            <li>管理栄養士が体組成・生活リズムを踏まえ、減量・筋力増強・抗酸化等の目標別オーダーメイド献立を毎週更新</li>
-            <li>全国の契約農家からのオーガニック食材、海外直輸入サプリメント（NMN・グルタチオン等）、機能性食品の調達をワンストップで代行</li>
-            <li>神戸・大阪・京都の予約困難店・会員制レストランへの優先予約。ソムリエ手配やプライベートルームの確保も対応</li>
-            <li>アレルギー・食事制限（グルテンフリー・ケトジェニック等）に対応した、国内外の旅行先での食事プランニング・レストランリサーチ</li>
-        </ul>
-    </div>
-</div>
 
 <!-- Cookie Consent (クラス名は広告ブロッカーの非表示フィルター回避のため中立名) -->
 <div class="ea-info-bar" id="eaInfoBar">
@@ -613,8 +516,8 @@
       "description": "芦屋発の完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。経営者・富裕層の健康寿命を運動・栄養・コンディショニングの三本柱で守る。",
       "url": "https://executive-ashiya.com",
       "email": "info@executive-ashiya.com",
-      "image": "https://executive-ashiya.com/ogp.jpg",
-      "logo": "https://executive-ashiya.com/favicon.svg",
+      "image": "https://executive-ashiya.com/ogp-v2.jpg",
+      "logo": "https://executive-ashiya.com/favicon-512.png",
       "priceRange": "$$$$",
       "currenciesAccepted": "JPY",
       "paymentAccepted": "Cash, Credit Card, Bank Transfer",
@@ -733,12 +636,42 @@
       }
     },
     {
+      "@type": "Organization",
+      "@id": "https://executive-ashiya.com/#organization",
+      "name": "EXECUTIVE ASHIYA",
+      "alternateName": ["エグゼクティブ芦屋", "EXECUTIVE ASHIYA（エグゼクティブ芦屋）"],
+      "url": "https://executive-ashiya.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://executive-ashiya.com/favicon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://executive-ashiya.com/ogp-v2.jpg",
+      "email": "info@executive-ashiya.com",
+      "description": "芦屋発の完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ。経営者・富裕層の健康寿命を運動・栄養・コンディショニングの三本柱で守る。",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "芦屋市",
+        "addressRegion": "兵庫県",
+        "addressCountry": "JP"
+      },
+      "founder": { "@id": "https://executive-ashiya.com/#founder" },
+      "parentOrganization": {
+        "@type": "Organization",
+        "@id": "https://refit.co.jp/#organization",
+        "name": "株式会社ReFit",
+        "url": "https://refit.co.jp"
+      },
+      "subOrganization": { "@id": "https://executive-ashiya.com/#business" }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://executive-ashiya.com/#website",
       "url": "https://executive-ashiya.com",
       "name": "EXECUTIVE ASHIYA（エグゼクティブ芦屋）",
       "description": "芦屋発の完全会員制パーソナルトレーニング＆ヘルスケアコンシェルジュ",
-      "publisher": { "@id": "https://executive-ashiya.com/#business" },
+      "publisher": { "@id": "https://executive-ashiya.com/#organization" },
       "inLanguage": ["ja", "en"]
     },
     {

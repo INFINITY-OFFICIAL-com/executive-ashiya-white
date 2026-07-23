@@ -2,7 +2,8 @@
 const mainNav = document.getElementById('mainNav');
 
 function handleNavScroll() {
-    if (window.scrollY > 80) {
+    // ヒーローを持たない下層ページでは常に背景ありのナビを維持する
+    if (window.scrollY > 80 || !document.getElementById('hero')) {
         mainNav.classList.add('scrolled');
     } else {
         mainNav.classList.remove('scrolled');
@@ -262,11 +263,18 @@ var translations = {
     // Footer
     '.footer-col:nth-child(1) h4': { ja: 'サービス', en: 'Services' },
     '.footer-col:nth-child(1) a:nth-child(2)': { ja: 'サービスプログラム', en: 'Service Program' },
-    '.footer-col:nth-child(1) a:nth-child(3)': { ja: 'コンシェルジュ', en: 'Concierge' },
-    '.footer-col:nth-child(1) a:nth-child(4)': { ja: '代表挨拶', en: 'Founder\'s Message' },
+    '.footer-col:nth-child(1) a:nth-child(3)': { ja: '会員向け付帯サービス', en: 'Concierge Services' },
+    '.footer-col:nth-child(1) a:nth-child(4)': { ja: '料金プラン', en: 'Pricing Plans' },
     '.footer-col:nth-child(2) h4': { ja: 'ご案内', en: 'Information' },
-    '.footer-col:nth-child(2) a:nth-child(2)': { ja: '入会までの流れ', en: 'Membership Process' },
-    '.footer-col:nth-child(2) a:nth-child(3)': { ja: 'お問い合わせ', en: 'Contact' },
+    '.footer-col:nth-child(2) a:nth-child(2)': { ja: '私たちについて', en: 'About' },
+    '.footer-col:nth-child(2) a:nth-child(3)': { ja: '代表挨拶', en: 'Founder\'s Message' },
+    '.footer-col:nth-child(2) a:nth-child(4)': { ja: '入会までの流れ', en: 'Membership Process' },
+    '.footer-col:nth-child(2) a:nth-child(5)': { ja: 'お問い合わせ', en: 'Contact' },
+    // 本文中の下層ページ導線（トップページのみ）
+    '.link-to-services': { ja: 'サービスプログラムを詳しく見る', en: 'View Service Program' },
+    '.link-to-concierge': { ja: '会員向け付帯サービスを詳しく見る', en: 'View Concierge Services' },
+    '.link-to-pricing': { ja: '料金プランを詳しく見る', en: 'View Pricing Plans' },
+    '.link-to-process': { ja: '入会までの流れを詳しく見る', en: 'View Membership Process' },
     '.footer-col:nth-child(3) h4': { ja: '法的情報', en: 'Legal' },
     '.footer-col:nth-child(3) a:nth-child(2)': { ja: 'プライバシーポリシー', en: 'Privacy Policy' },
     '.footer-col:nth-child(3) a:nth-child(3)': { ja: '特定商取引法に基づく表記', en: 'Commercial Transaction Act' },

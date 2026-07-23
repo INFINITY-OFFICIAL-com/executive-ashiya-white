@@ -1923,3 +1923,219 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========== SUB PAGE : BREADCRUMB / PAGE HERO ========== */
+.breadcrumb {
+    background-color: var(--cream);
+    padding: 108px 0 0;
+}
+
+.breadcrumb-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    font-family: var(--font-jp);
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(88, 80, 60, 0.5);
+}
+
+.breadcrumb a {
+    color: rgba(88, 80, 60, 0.72);
+}
+
+.breadcrumb-sep {
+    margin: 0 10px;
+    color: rgba(88, 80, 60, 0.3);
+}
+
+.page-hero {
+    background-color: var(--cream);
+    padding: 0;
+}
+
+.page-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 40px 0;
+    text-align: center;
+}
+
+.page-hero-en {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 22px;
+}
+
+.page-hero-title {
+    font-family: var(--font-editorial);
+    font-weight: 200;
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-brown);
+    margin-bottom: 26px;
+}
+
+.page-hero-lead {
+    font-family: var(--font-jp);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+    color: rgba(88, 80, 60, 0.75);
+}
+
+.page-hero-line {
+    width: 1px;
+    height: 56px;
+    background: rgba(88, 80, 60, 0.22);
+    margin: 44px auto 0;
+}
+
+.page-hero + .service-program,
+.page-hero + .pricing-section,
+.page-hero + .planning-guides,
+.page-hero + .inline-form-section,
+.page-hero + .service-overview {
+    padding-top: 72px;
+}
+
+/* 本文中から下層ページへ導く控えめなテキストリンク */
+.section-more {
+    text-align: center;
+    margin-top: 56px;
+    padding: 0 40px;
+}
+
+.link-more {
+    display: inline-block;
+    font-family: var(--font-jp);
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--green-accent);
+    border-bottom: 1px solid rgba(43, 82, 62, 0.35);
+    padding-bottom: 6px;
+}
+
+.link-more.light {
+    color: rgba(251, 249, 243, 0.85);
+    border-bottom-color: rgba(251, 249, 243, 0.35);
+}
+
+/* ========== SUB PAGE : DETAIL BLOCK（モーダルと同一意匠の静的表示） ========== */
+.detail-block {
+    background-color: var(--dark-green);
+    padding: 96px 0;
+}
+
+.detail-block + .detail-block {
+    border-top: 1px solid rgba(251, 249, 243, 0.08);
+}
+
+.detail-block-inner {
+    max-width: 640px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.detail-block-visual {
+    max-width: 640px;
+    width: 90%;
+    margin: 0 auto 56px;
+}
+
+.detail-block-visual img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.detail-block .detail-list li {
+    opacity: 1;
+    transform: none;
+}
+
+.detail-block .detail-line {
+    width: 120px;
+    opacity: 1;
+}
+
+/* ========== SUB PAGE : ABOUT ========== */
+.about-company {
+    background-color: var(--cream);
+    padding: 0 0 120px;
+}
+
+.about-company-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 72px 40px 0;
+    border-top: 1px solid var(--border-warm);
+    text-align: center;
+}
+
+.about-company-label {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 24px;
+}
+
+.about-company-name {
+    font-family: var(--font-jp);
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--text-brown);
+    margin-bottom: 18px;
+}
+
+.about-company-body {
+    font-family: var(--font-jp);
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+    color: rgba(88, 80, 60, 0.72);
+    margin-bottom: 26px;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding-top: 92px;
+    }
+    .breadcrumb-inner {
+        padding: 0 24px;
+        font-size: 10px;
+    }
+    .page-hero-inner {
+        padding: 40px 24px 0;
+    }
+    .page-hero-line {
+        height: 40px;
+        margin-top: 32px;
+    }
+    .detail-block {
+        padding: 72px 0;
+    }
+    .detail-block-visual img {
+        height: 200px;
+    }
+    .about-company-inner {
+        padding: 56px 24px 0;
+    }
+    .section-more {
+        padding: 0 24px;
+    }
+}

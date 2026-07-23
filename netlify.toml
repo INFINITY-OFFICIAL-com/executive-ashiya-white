@@ -11,3 +11,34 @@
   from = "/invitation-thanks"
   to = "/invitation-thanks.html"
   status = 200
+
+# 下層ページ（拡張子なしURLで配信）
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/concierge"
+  to = "/concierge.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing.html"
+  status = 200
+
+[[redirects]]
+  from = "/process"
+  to = "/process.html"
+  status = 200
+
+[[redirects]]
+  from = "/inquire"
+  to = "/inquire.html"
+  status = 200
