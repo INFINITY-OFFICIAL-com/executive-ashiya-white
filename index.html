@@ -12,6 +12,9 @@
     <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/favicon-192.png">
+    <!-- ヒーローposterを最優先で先読み（黒画面防止・デバイス別） -->
+    <link rel="preload" as="image" href="/hero-poster.jpg" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/hero-poster-sp.jpg" media="(max-width: 768px)" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
     <!-- SEO: Geo -->
     <meta name="geo.region" content="JP-28">

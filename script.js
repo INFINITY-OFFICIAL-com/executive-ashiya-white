@@ -152,6 +152,14 @@ initScrollAnimations();
     video.poster = isMobile ? 'hero-poster-sp.jpg' : 'hero-poster.jpg';
     video.src = isMobile ? 'hero-bg-sp.mp4' : 'hero-bg.mp4';
 
+    // 実際に再生が始まったフレームでだけ動画を出す（それまではCSS背景のposterが見える）。
+    // これで「黒→2秒後に動画」ではなく「poster→動画へふわっと切替」になる。
+    const reveal = function() { video.classList.add('is-playing'); };
+    video.addEventListener('playing', reveal);
+    video.addEventListener('timeupdate', function onTU() {
+        if (video.currentTime > 0) { reveal(); video.removeEventListener('timeupdate', onTU); }
+    });
+
     const tryPlay = function() {
         if (!video.paused) return;
         const p = video.play();
