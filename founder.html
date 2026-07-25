@@ -33,6 +33,47 @@
         @font-face { font-family: "GT Ultra Light"; src: url("https://framerusercontent.com/assets/n9Vhq2sZQxG7bR7IK2xHSs4VGs.woff") format("woff"); font-display: swap; font-weight: 300 }
         @font-face { font-family: "PP Editorial New Ultralight"; src: url("https://framerusercontent.com/assets/Ml5YdxLwsCRqmN9FGRm5d77gY.woff") format("woff"); font-display: swap; font-weight: 200 }
     </style>
+    <!-- 構造化データ：代表 福田泰士＝株式会社ReFit代表取締役／EA創業者。共通@idでエンティティを統合し、公式SNSをsameAsで明示 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["ProfilePage", "WebPage"],
+          "@id": "https://executive-ashiya.com/founder#webpage",
+          "url": "https://executive-ashiya.com/founder",
+          "name": "代表挨拶 | EXECUTIVE ASHIYA",
+          "mainEntity": { "@id": "https://refit.co.jp/#founder" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://refit.co.jp/#organization",
+          "name": "株式会社ReFit",
+          "alternateName": ["ReFit", "ReFit Inc.", "リフィット"],
+          "url": "https://refit.co.jp/",
+          "founder": { "@id": "https://refit.co.jp/#founder" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://refit.co.jp/#founder",
+          "name": "福田泰士",
+          "alternateName": "ふくだ・たいし",
+          "givenName": "泰士",
+          "familyName": "福田",
+          "jobTitle": "代表取締役",
+          "image": "https://executive-ashiya.com/founder.jpg",
+          "worksFor": { "@id": "https://refit.co.jp/#organization" },
+          "knowsAbout": ["予防医療", "ヘルスケア", "健康経営", "パーソナルトレーニング", "ウェルネス", "栄養指導", "長寿科学"],
+          "sameAs": [
+            "https://www.instagram.com/taishi_fukuda/",
+            "https://x.com/taishi_fukuda",
+            "https://www.facebook.com/share/1EtS23C6wT/",
+            "https://note.com/taishi_fukuda"
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
