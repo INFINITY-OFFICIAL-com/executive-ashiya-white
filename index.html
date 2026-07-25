@@ -108,12 +108,28 @@
     <div class="hero-status-bar">ASHIYA, HYOGO &mdash; MEMBERS ONLY &mdash; EST. 2026</div>
 </section>
 
+<!-- ========== NEWS（原稿は news.json を編集） ========== -->
+<section class="news-section" id="news" hidden>
+    <div class="news-inner">
+        <div class="news-header animate-on-scroll">
+            <div class="news-header-left">
+                <p class="news-label-en">News</p>
+                <h2 class="news-heading editorial">お知らせ</h2>
+            </div>
+            <a href="/news" class="news-viewall">お知らせ一覧</a>
+        </div>
+        <div class="news-list" id="newsList" data-mode="compact" data-limit="4"></div>
+    </div>
+</section>
+
 <!-- ========== SERVICE OVERVIEW ========== -->
 <section class="service-overview" id="serviceOverview">
     <div class="container">
-        <div class="service-content animate-on-scroll">
-            <h2 class="section-heading editorial">身体の変化に、先手を打つ。</h2>
-            <p class="section-body">多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。</p>
+        <div class="service-content overview-wide animate-on-scroll">
+            <h2 class="section-heading editorial about-ea-heading">エグゼクティブ芦屋について</h2>
+            <p class="section-body overview-body overview-body-1"><span class="brand-inline">EXECUTIVE ASHIYA</span> は、兵庫県芦屋を拠点とする完全会員制のヘルスケアサービスです。<br>日々の判断力と体力を高い水準で保ち続けるための健康管理を、長期にわたって担います。</p>
+            <p class="section-body overview-body overview-body-2">トレーナー・管理栄養士・理学療法士がチームとして関わり、運動・栄養・コンディショニングを切り離さず、ひとつのプログラムとして設計。ご自宅やオフィスへ伺い、身体データと生活リズムに基づいて内容を組み立てます。</p>
+            <p class="section-body overview-body overview-body-3">私たちが担うのは、治療でも検診でもありません。医療行為を行うものではなく、日々のコンディションに寄り添い、<br>生活のなかで整え続けていく——日常の伴走をテーマとしたサービスです。</p>
         </div>
     </div>
 </section>
@@ -282,50 +298,33 @@
 <section class="pricing-section" id="pricingPlans">
     <div class="section-header animate-on-scroll">
         <h2 class="section-heading editorial">料金プラン</h2>
-        <p class="section-intro">すべてのプランは年間契約・完全出張型です。</p>
     </div>
-    <div class="pricing-grid">
-        <!-- PLATINUM -->
-        <div class="pricing-card featured animate-on-scroll">
-            <p class="pricing-plan-name">PLATINUM</p>
-            <p class="pricing-plan-price">&yen;12,000,000</p>
-            <p class="pricing-plan-note">初年度合計（入会金300万＋年会費900万・税込）</p>
-            <div class="pricing-plan-line"></div>
-            <ul class="pricing-plan-list">
-                <li>月4回パーソナルセッション（各60〜90分）</li>
-                <li>フルオーダー食事管理</li>
-                <li>オーダーメイドサプリメント設計</li>
-                <li>理学療法士によるコンディショニング</li>
-                <li>体組成データ測定・月次レポート</li>
-                <li>提携医療機関のご紹介</li>
-                <li>コンシェルジュサービス 対応回数無制限</li>
-                <li>提携ホテルでのウェルネスセッション（年4回）</li>
-                <li>国内出張同行</li>
-                <li>メンバーズウェルカムギフト</li>
-            </ul>
-            <a href="#inlineForm" class="pricing-plan-btn">ウェイティングリスト登録</a>
-        </div>
-        <!-- EXECUTIVE -->
-        <div class="pricing-card animate-on-scroll">
-            <p class="pricing-plan-name">EXECUTIVE</p>
-            <p class="pricing-plan-price">&yen;7,500,000</p>
-            <p class="pricing-plan-note">初年度合計（入会金150万＋年会費600万・税込）</p>
-            <div class="pricing-plan-line"></div>
-            <ul class="pricing-plan-list">
-                <li>月2回パーソナルセッション（各60〜90分）</li>
-                <li>週次食事ガイド＋月1回栄養カウンセリング</li>
-                <li>理学療法士によるコンディショニング</li>
-                <li>体組成データ測定・月次レポート</li>
-                <li>提携医療機関のご紹介</li>
-                <li>コンシェルジュサービス 対応回数無制限</li>
-                <li>メンバーズウェルカムギフト</li>
-            </ul>
-            <a href="#inlineForm" class="pricing-plan-btn">ウェイティングリスト登録</a>
-        </div>
+    <div class="plan-banners">
+        <!-- 個人向け（背景画像は仮：cta-bg.jpg） -->
+        <a href="/pricing" class="plan-banner animate-on-scroll">
+            <div class="plan-banner-image">
+                <img src="cta-bg.jpg" alt="" loading="lazy">
+                <div class="plan-banner-overlay"></div>
+            </div>
+            <div class="plan-banner-content">
+                <p class="plan-banner-en">Individual</p>
+                <h3 class="plan-banner-title">個人向けプラン</h3>
+                <span class="plan-banner-btn">詳細を見る</span>
+            </div>
+        </a>
+        <!-- 法人向け（背景画像は仮：member-invite-bg.jpg） -->
+        <a href="/pricing-corporate" class="plan-banner animate-on-scroll">
+            <div class="plan-banner-image">
+                <img src="member-invite-bg.jpg" alt="" loading="lazy">
+                <div class="plan-banner-overlay"></div>
+            </div>
+            <div class="plan-banner-content">
+                <p class="plan-banner-en">Corporate</p>
+                <h3 class="plan-banner-title">法人向けプラン</h3>
+                <span class="plan-banner-btn">詳細を見る</span>
+            </div>
+        </a>
     </div>
-    <p class="pricing-note animate-on-scroll">※ 全スタッフNDA（秘密保持契約）締結 ／ 対応エリア：芦屋・西宮・神戸</p>
-    <p class="pricing-note animate-on-scroll">※ 「提携医療機関のご紹介」は情報提供および予約代行であり、当サービスが医療行為・診断・治療を行うものではありません。「オーダーメイドサプリメント設計」は医薬品の処方ではなく、栄養学に基づく食品としてのサプリメントのご提案です。</p>
-    <p class="section-more animate-on-scroll"><a href="/pricing" class="link-more link-to-pricing">料金プランを詳しく見る</a></p>
 </section>
 
 <!-- ========== PLANNING GUIDES ========== -->
@@ -471,6 +470,7 @@
                 <a href="/services">サービスプログラム</a>
                 <a href="/concierge">会員向け付帯サービス</a>
                 <a href="/pricing">料金プラン</a>
+                <a href="/pricing-corporate">法人向けプラン</a>
             </div>
             <div class="footer-col">
                 <h4>ご案内</h4>
@@ -478,6 +478,7 @@
                 <a href="/founder.html">代表挨拶</a>
                 <a href="/process">入会までの流れ</a>
                 <a href="/inquire">お問い合わせ</a>
+                <a href="/news">お知らせ</a>
             </div>
             <div class="footer-col">
                 <h4>法的情報</h4>

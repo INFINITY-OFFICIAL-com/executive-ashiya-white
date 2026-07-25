@@ -1,0 +1,70 @@
+{
+  "_readme": "お知らせの原稿はこのファイルだけを編集してください。トップページと /news の両方に自動反映されます。items は新しい順に並べる必要はありません（date で自動ソートされます）。id は URL のアンカーになるため半角英数とハイフンのみ・重複不可。category は information（お知らせ）/ media（メディア掲載）/ event（イベント）のいずれか。date から30日以内は NEW バッジが自動表示されます。body を空にすると一覧ページで開かず見出しだけの表示になります。body には <br> や <a href=\"\"> などの簡単なHTMLが使えます。",
+  "items": [
+    {
+      "id": "2026-06-12-waiting-list",
+      "date": "2026-06-12",
+      "category": "information",
+      "title": {
+        "ja": "ウェイティングリスト受付開始のお知らせ",
+        "en": "Notice: Waiting List Registration Now Open"
+      },
+      "body": {
+        "ja": "第一期会員の満枠に伴い、次期の募集および空き枠が生じた際のご案内を目的としたウェイティングリストの受付を開始いたしました。<br>ご登録後、担当より2営業日以内にご連絡いたします。",
+        "en": "Following the closure of our first-term membership, we have opened a waiting list for the next term and for any openings that may arise.<br>A representative will contact you within two business days of registration."
+      }
+    },
+    {
+      "id": "2026-06-11-first-term-full",
+      "date": "2026-06-11",
+      "category": "information",
+      "title": {
+        "ja": "「EXECUTIVE ASHIYA」第一期会員 満枠および新規募集終了のお知らせ",
+        "en": "Notice: EXECUTIVE ASHIYA First-Term Membership Now Full — Applications Closed"
+      },
+      "body": {
+        "ja": "おかげさまで、第一期の創設メンバー（限定10口）は満枠となり、募集を終了いたしました。多数のお問い合わせを賜り、誠にありがとうございました。<br>次期の募集、および空き枠が生じた際のご案内方法につきましては、追ってお知らせいたします。",
+        "en": "Our first-term founding membership (limited to 10) has reached capacity, and applications are now closed. We sincerely thank everyone who reached out.<br>Details on the next term and on any openings that may arise will be announced in due course."
+      }
+    },
+    {
+      "id": "2026-06-01-service-launch",
+      "date": "2026-06-01",
+      "category": "information",
+      "title": {
+        "ja": "完全会員制ヘルスケアサービス「EXECUTIVE ASHIYA」提供開始のお知らせ",
+        "en": "Notice: Launch of EXECUTIVE ASHIYA, a Fully Members-Only Healthcare Service"
+      },
+      "body": {
+        "ja": "兵庫県芦屋市を拠点とする完全会員制ヘルスケアサービス「EXECUTIVE ASHIYA」の提供を開始いたしました。<br>第一期は招待制の創設メンバーとして、限定10口で会員を募集いたします。",
+        "en": "EXECUTIVE ASHIYA, a fully members-only healthcare service based in Ashiya, Hyogo, has officially launched.<br>For our first term, we are welcoming founding members by invitation only, limited to ten memberships."
+      }
+    },
+    {
+      "id": "2026-05-19-launch-release",
+      "date": "2026-05-19",
+      "category": "information",
+      "title": {
+        "ja": "「EXECUTIVE ASHIYA」2026年6月1日 正式ローンチ決定のお知らせ",
+        "en": "Notice: EXECUTIVE ASHIYA to Officially Launch on June 1, 2026"
+      },
+      "body": {
+        "ja": "完全会員制ヘルスケアサービス「EXECUTIVE ASHIYA」を、2026年6月1日より正式に開始することを発表いたしました。<br>運営：株式会社ReFit（代表取締役 福田泰士）",
+        "en": "We announced that EXECUTIVE ASHIYA, a fully members-only healthcare service, would officially begin operations on June 1, 2026.<br>Operated by ReFit Inc. (CEO: Taishi Fukuda)"
+      }
+    },
+    {
+      "id": "2026-05-15-site-open",
+      "date": "2026-05-15",
+      "category": "information",
+      "title": {
+        "ja": "「EXECUTIVE ASHIYA」公式サイト公開のお知らせ",
+        "en": "Notice: EXECUTIVE ASHIYA Official Website Now Open"
+      },
+      "body": {
+        "ja": "EXECUTIVE ASHIYA の公式サイトを公開いたしました。サービス内容・料金プラン・ご入会までの流れをご案内しております。",
+        "en": "The official EXECUTIVE ASHIYA website is now live, introducing our services, pricing plans, and membership process."
+      }
+    }
+  ]
+}

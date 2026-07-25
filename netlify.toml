@@ -42,3 +42,13 @@
   from = "/inquire"
   to = "/inquire.html"
   status = 200
+
+[[redirects]]
+  from = "/news"
+  to = "/news.html"
+  status = 200
+
+[[redirects]]
+  from = "/pricing-corporate"
+  to = "/pricing-corporate.html"
+  status = 200

@@ -210,8 +210,13 @@ var translations = {
     '.hero-catch': { ja: '健康寿命を、生涯最大の資産に。', en: 'Your health span — your greatest lifelong asset.' },
     '.hero-cta-btn': { ja: 'ウェイティングリスト登録', en: 'Join Waiting List' },
     // Service Overview
-    '.service-overview .section-heading': { ja: '身体の変化に、先手を打つ。', en: 'Stay ahead of your body\'s changes.' },
-    '.service-overview .section-body': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。', en: 'Your body changes quietly amid busy days. To prevent it from being too late when you notice, we provide support specialized in daily condition management. With exercise, nutrition, and rest as the three pillars, specialists in each field comprehensively evaluate your body. Data-driven programs protect executives\' daily conditioning long-term.' },
+    // about.html も同じセクションを使うため、トップの見出しだけ .about-ea-heading で切り分ける
+    '.service-overview .section-heading:not(.about-ea-heading)': { ja: '身体の変化に、先手を打つ。', en: 'Stay ahead of your body\'s changes.' },
+    '.about-ea-heading': { ja: 'エグゼクティブ芦屋について', en: 'About EXECUTIVE ASHIYA' },
+    '.overview-body-1': { ja: '<span class="brand-inline">EXECUTIVE ASHIYA</span> は、兵庫県芦屋を拠点とする完全会員制のヘルスケアサービスです。<br>日々の判断力と体力を高い水準で保ち続けるための健康管理を、長期にわたって担います。', en: '<span class="brand-inline">EXECUTIVE ASHIYA</span> is a fully members-only healthcare service based in Ashiya, Hyogo. We take long-term responsibility for the health management that sustains your judgment and physical capacity at a high level.' },
+    '.overview-body-3': { ja: '私たちが担うのは、治療でも検診でもありません。医療行為を行うものではなく、日々のコンディションに寄り添い、<br>生活のなかで整え続けていく——日常の伴走をテーマとしたサービスです。', en: 'What we provide is neither treatment nor medical examination. We do not perform medical practice; our theme is daily companionship — staying close to your condition and continuing to tune it within everyday life.' },
+    '.overview-body-2': { ja: 'トレーナー・管理栄養士・理学療法士がチームとして関わり、運動・栄養・コンディショニングを切り離さず、ひとつのプログラムとして設計。ご自宅やオフィスへ伺い、身体データと生活リズムに基づいて内容を組み立てます。', en: 'Trainers, registered dietitians, and physical therapists work as a single team, designing exercise, nutrition, and conditioning as one program rather than separate parts. We visit your home or office and build each program around your body data and daily rhythm.' },
+    '.service-overview .section-body:not(.overview-body)': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。', en: 'Your body changes quietly amid busy days. To prevent it from being too late when you notice, we provide support specialized in daily condition management. With exercise, nutrition, and rest as the three pillars, specialists in each field comprehensively evaluate your body. Data-driven programs protect executives\' daily conditioning long-term.' },
     // Service Program
     '#serviceProgram .section-heading': { ja: 'サービスプログラム', en: 'Service Program' },
     '#serviceProgram .section-intro': { ja: 'すべてのプログラムは、あなたの身体データ・生活リズム・目標に合わせて完全個別に設計。<br>運動・食事・コンディショニングを一体化し、日常のパフォーマンスを根本から変えていきます。', en: 'Every program is fully customized to your body data, lifestyle rhythm, and goals.<br>Integrating exercise, nutrition, and conditioning to fundamentally transform your daily performance.' },
@@ -253,7 +258,10 @@ var translations = {
     '.guide-card:nth-child(4) .guide-desc': { ja: '初回セッション・各種データ測定からスタートします。', en: 'Starting with your first session and various data measurements.' },
     // Pricing
     '#pricingPlans .section-heading': { ja: '料金プラン', en: 'Pricing Plans' },
-    '#pricingPlans .section-intro': { ja: 'すべてのプランは年間契約・完全出張型です。', en: 'All plans are annual contracts with full home-visit service.' },
+    // トップの料金プラン入口（左右2分割バナー）
+    '.plan-banner:nth-child(1) .plan-banner-title': { ja: '個人向けプラン', en: 'Individual Plans' },
+    '.plan-banner:nth-child(2) .plan-banner-title': { ja: '法人向けプラン', en: 'Corporate Plans' },
+    '.plan-banner-btn': { ja: '詳細を見る', en: 'View Details' },
     '.pricing-card.featured .pricing-plan-note': { ja: '初年度合計（入会金300万＋年会費900万・税込）', en: 'First year total (Enrollment ¥3M + Annual ¥9M, tax incl.)' },
     '.pricing-card:not(.featured) .pricing-plan-note': { ja: '初年度合計（入会金150万＋年会費600万・税込）', en: 'First year total (Enrollment ¥1.5M + Annual ¥6M, tax incl.)' },
     '.pricing-note': { ja: '※ 定員：年間最大5名 ／ 全スタッフNDA（秘密保持契約）締結 ／ 対応エリア：芦屋・西宮・神戸', en: '※ Capacity: max 5 clients/year ／ All staff under NDA ／ Areas: Ashiya, Nishinomiya, Kobe' },
@@ -273,11 +281,16 @@ var translations = {
     '.footer-col:nth-child(1) a:nth-child(2)': { ja: 'サービスプログラム', en: 'Service Program' },
     '.footer-col:nth-child(1) a:nth-child(3)': { ja: '会員向け付帯サービス', en: 'Concierge Services' },
     '.footer-col:nth-child(1) a:nth-child(4)': { ja: '料金プラン', en: 'Pricing Plans' },
+    '.footer-col:nth-child(1) a:nth-child(5)': { ja: '法人向けプラン', en: 'Corporate Plans' },
     '.footer-col:nth-child(2) h4': { ja: 'ご案内', en: 'Information' },
     '.footer-col:nth-child(2) a:nth-child(2)': { ja: '私たちについて', en: 'About' },
     '.footer-col:nth-child(2) a:nth-child(3)': { ja: '代表挨拶', en: 'Founder\'s Message' },
     '.footer-col:nth-child(2) a:nth-child(4)': { ja: '入会までの流れ', en: 'Membership Process' },
     '.footer-col:nth-child(2) a:nth-child(5)': { ja: 'お問い合わせ', en: 'Contact' },
+    '.footer-col:nth-child(2) a:nth-child(6)': { ja: 'お知らせ', en: 'News' },
+    // News（お知らせ）
+    '#news .news-heading': { ja: 'お知らせ', en: 'News' },
+    '.news-viewall': { ja: 'お知らせ一覧', en: 'View All' },
     // 本文中の下層ページ導線（トップページのみ）
     '.link-to-services': { ja: 'サービスプログラムを詳しく見る', en: 'View Service Program' },
     '.link-to-concierge': { ja: '会員向け付帯サービスを詳しく見る', en: 'View Concierge Services' },
@@ -589,6 +602,9 @@ function switchLang(lang) {
         if (lang === 'en' && notesEn[i]) note.textContent = notesEn[i];
     });
 
+    // Update news list (news.json から描画しているため再描画で言語を切り替える)
+    renderNewsList();
+
     // Update HTML lang attribute & persist preference
     document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
     try { localStorage.setItem('ea_lang', lang); } catch(e) {}
@@ -617,6 +633,231 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
         submitBtn.disabled = true;
         submitBtn.querySelector('span').textContent = '送信中…';
     });
+})();
+
+// ========== NEWS（お知らせ / 原稿は news.json のみを編集） ==========
+// information はラベルを表示しない（既定カテゴリのため）。media / event のみ枕を出す
+var NEWS_CATEGORY_LABELS = {
+    media: { ja: 'メディア掲載', en: 'Media' },
+    event: { ja: 'イベント', en: 'Event' }
+};
+var NEWS_NEW_DAYS = 30; // 公開からこの日数以内は NEW バッジを表示
+var newsItems = null;
+
+// { ja: '', en: '' } 形式・素の文字列のどちらも受け付ける
+function newsText(field, lang) {
+    if (!field) return '';
+    if (typeof field === 'string') return field;
+    return field[lang] || field.ja || field.en || '';
+}
+
+// 公開から NEW_DAYS 以内かどうか
+function isNewsFresh(dateStr) {
+    var parts = String(dateStr).split('-');
+    if (parts.length !== 3) return false;
+    var d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    if (isNaN(d.getTime())) return false;
+    var diff = Date.now() - d.getTime();
+    return diff >= 0 && diff <= NEWS_NEW_DAYS * 24 * 60 * 60 * 1000;
+}
+
+function buildNewsMeta(item, lang) {
+    var meta = document.createElement('div');
+    meta.className = 'news-item-meta';
+
+    var date = document.createElement('span');
+    date.className = 'news-date';
+    date.textContent = String(item.date).replace(/-/g, '.');
+    meta.appendChild(date);
+
+    var label = NEWS_CATEGORY_LABELS[item.category];
+    if (label) {
+        var cat = document.createElement('span');
+        cat.className = 'news-cat news-cat--' + item.category;
+        cat.textContent = label[lang] || label.ja;
+        meta.appendChild(cat);
+    }
+
+    if (isNewsFresh(item.date)) {
+        var badge = document.createElement('span');
+        badge.className = 'news-new';
+        badge.textContent = 'NEW';
+        meta.appendChild(badge);
+    }
+    return meta;
+}
+
+function renderNewsList() {
+    var list = document.getElementById('newsList');
+    if (!list || !newsItems) return;
+
+    var lang = currentLang;
+    var mode = list.getAttribute('data-mode') || 'compact';
+    var limit = parseInt(list.getAttribute('data-limit'), 10);
+    var section = document.getElementById('news');
+
+    // 言語切替で再描画するため、開いているアコーディオンを覚えておく
+    var openIds = [];
+    list.querySelectorAll('.news-entry.open').forEach(function(el) {
+        openIds.push(el.getAttribute('data-news-id'));
+    });
+
+    var items = newsItems.slice();
+    if (!isNaN(limit)) items = items.slice(0, limit);
+
+    list.innerHTML = '';
+
+    if (!items.length) {
+        if (mode === 'compact') {
+            if (section) section.hidden = true;
+            return;
+        }
+        var empty = document.createElement('p');
+        empty.className = 'news-empty';
+        empty.textContent = lang === 'ja' ? '現在お知らせはございません。' : 'There are no announcements at this time.';
+        list.appendChild(empty);
+        list.classList.add('loaded');
+        return;
+    }
+
+    items.forEach(function(item) {
+        var title = newsText(item.title, lang);
+        var body = newsText(item.body, lang);
+
+        if (mode === 'compact') {
+            var link = document.createElement('a');
+            link.className = 'news-item';
+            link.href = '/news#' + item.id;
+            link.appendChild(buildNewsMeta(item, lang));
+
+            var titleEl = document.createElement('p');
+            titleEl.className = 'news-title';
+            titleEl.textContent = title;
+            link.appendChild(titleEl);
+
+            list.appendChild(link);
+            return;
+        }
+
+        // mode === 'full'（一覧ページ）: 本文をアコーディオンで開閉
+        var entry = document.createElement('div');
+        entry.className = 'news-entry';
+        entry.id = item.id;
+        entry.setAttribute('data-news-id', item.id);
+
+        var head = document.createElement('button');
+        head.type = 'button';
+        head.className = 'news-entry-head';
+        head.appendChild(buildNewsMeta(item, lang));
+
+        var headTitle = document.createElement('p');
+        headTitle.className = 'news-title';
+        headTitle.textContent = title;
+        head.appendChild(headTitle);
+        entry.appendChild(head);
+
+        if (body) {
+            var bodyWrap = document.createElement('div');
+            bodyWrap.className = 'news-entry-body';
+            var bodyInner = document.createElement('div');
+            bodyInner.className = 'news-entry-body-inner';
+            bodyInner.innerHTML = body; // news.json は運営側が書くため簡単なHTMLを許可
+            bodyWrap.appendChild(bodyInner);
+            entry.appendChild(bodyWrap);
+
+            head.setAttribute('aria-expanded', 'false');
+            head.addEventListener('click', function() {
+                toggleNewsEntry(entry);
+            });
+        } else {
+            head.classList.add('static');
+            head.disabled = true;
+        }
+
+        list.appendChild(entry);
+
+        if (openIds.indexOf(item.id) !== -1) openNewsEntry(entry, false);
+    });
+
+    list.classList.add('loaded');
+    if (section) section.hidden = false;
+}
+
+function openNewsEntry(entry, animate) {
+    var body = entry.querySelector('.news-entry-body');
+    if (!body) return;
+    entry.classList.add('open');
+    var head = entry.querySelector('.news-entry-head');
+    if (head) head.setAttribute('aria-expanded', 'true');
+    if (animate === false) body.style.transition = 'none';
+    body.style.maxHeight = body.scrollHeight + 'px';
+    if (animate === false) {
+        // 次フレームでトランジションを戻す
+        requestAnimationFrame(function() { body.style.transition = ''; });
+    }
+}
+
+function closeNewsEntry(entry) {
+    var body = entry.querySelector('.news-entry-body');
+    if (!body) return;
+    entry.classList.remove('open');
+    var head = entry.querySelector('.news-entry-head');
+    if (head) head.setAttribute('aria-expanded', 'false');
+    body.style.maxHeight = '';
+}
+
+function toggleNewsEntry(entry) {
+    if (entry.classList.contains('open')) {
+        closeNewsEntry(entry);
+    } else {
+        openNewsEntry(entry, true);
+    }
+}
+
+// /news#id で来たときに該当のお知らせを開く
+function openNewsFromHash() {
+    var hash = location.hash ? location.hash.slice(1) : '';
+    if (!hash) return;
+    var entry = document.querySelector('.news-entry[data-news-id="' + hash.replace(/"/g, '') + '"]');
+    if (!entry) return;
+    openNewsEntry(entry, true);
+    entry.classList.add('highlight');
+    setTimeout(function() { entry.classList.remove('highlight'); }, 2400);
+    entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+(function() {
+    var list = document.getElementById('newsList');
+    if (!list) return;
+
+    fetch('/news.json', { cache: 'no-cache' })
+        .then(function(res) {
+            if (!res.ok) throw new Error('news.json: ' + res.status);
+            return res.json();
+        })
+        .then(function(data) {
+            var items = (data && data.items) ? data.items : [];
+            newsItems = items
+                .filter(function(item) { return item && item.id && item.date; })
+                .sort(function(a, b) { return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0); });
+            renderNewsList();
+            if (list.getAttribute('data-mode') === 'full') {
+                openNewsFromHash();
+                window.addEventListener('hashchange', openNewsFromHash);
+            }
+        })
+        .catch(function(err) {
+            console.error('[news]', err);
+            var section = document.getElementById('news');
+            if (section) section.hidden = true; // トップページでは黙って非表示にする
+            if (list.getAttribute('data-mode') === 'full') {
+                var msg = document.createElement('p');
+                msg.className = 'news-empty';
+                msg.textContent = 'お知らせを読み込めませんでした。時間をおいて再度お試しください。';
+                list.appendChild(msg);
+                list.classList.add('loaded');
+            }
+        });
 })();
 
 // ========== COOKIE CONSENT ==========
