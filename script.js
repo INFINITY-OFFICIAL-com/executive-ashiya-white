@@ -213,10 +213,13 @@ var translations = {
     // about.html も同じセクションを使うため、トップの見出しだけ .about-ea-heading で切り分ける
     '.service-overview .section-heading:not(.about-ea-heading)': { ja: '身体の変化に、先手を打つ。', en: 'Stay ahead of your body\'s changes.' },
     '.about-ea-heading': { ja: 'エグゼクティブ芦屋について', en: 'About EXECUTIVE ASHIYA' },
+    '.overview-body-lead': { ja: '<span class="brand-inline">EXECUTIVE ASHIYA</span> は、兵庫県芦屋を拠点とする完全会員制のヘルスケアサービスです。トレーナー・管理栄養士・理学療法士がチームとして関わり、運動・栄養・コンディショニングをひとつのプログラムとして設計します。', en: '<span class="brand-inline">EXECUTIVE ASHIYA</span> is a fully members-only healthcare service based in Ashiya, Hyogo. Trainers, registered dietitians, and physical therapists work as one team, designing exercise, nutrition, and conditioning as a single program.' },
+    '.overview-body-lead2': { ja: '治療でも検診でもなく、日々のコンディションに寄り添い、生活のなかで整え続けていく——日常の伴走をテーマとしたサービスです。', en: 'Neither treatment nor medical examination — our theme is daily companionship, staying close to your condition and continuing to tune it within everyday life.' },
+    '.about-split-link': { ja: '詳しく見る', en: 'Learn more' },
     '.overview-body-1': { ja: '<span class="brand-inline">EXECUTIVE ASHIYA</span> は、兵庫県芦屋を拠点とする完全会員制のヘルスケアサービスです。<br>日々の判断力と体力を高い水準で保ち続けるための健康管理を、長期にわたって担います。', en: '<span class="brand-inline">EXECUTIVE ASHIYA</span> is a fully members-only healthcare service based in Ashiya, Hyogo. We take long-term responsibility for the health management that sustains your judgment and physical capacity at a high level.' },
     '.overview-body-3': { ja: '私たちが担うのは、治療でも検診でもありません。医療行為を行うものではなく、日々のコンディションに寄り添い、<br>生活のなかで整え続けていく——日常の伴走をテーマとしたサービスです。', en: 'What we provide is neither treatment nor medical examination. We do not perform medical practice; our theme is daily companionship — staying close to your condition and continuing to tune it within everyday life.' },
     '.overview-body-2': { ja: 'トレーナー・管理栄養士・理学療法士がチームとして関わり、運動・栄養・コンディショニングを切り離さず、ひとつのプログラムとして設計。ご自宅やオフィスへ伺い、身体データと生活リズムに基づいて内容を組み立てます。', en: 'Trainers, registered dietitians, and physical therapists work as a single team, designing exercise, nutrition, and conditioning as one program rather than separate parts. We visit your home or office and build each program around your body data and daily rhythm.' },
-    '.service-overview .section-body:not(.overview-body)': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、経営者の日常コンディションを長期的に守ります。', en: 'Your body changes quietly amid busy days. To prevent it from being too late when you notice, we provide support specialized in daily condition management. With exercise, nutrition, and rest as the three pillars, specialists in each field comprehensively evaluate your body. Data-driven programs protect executives\' daily conditioning long-term.' },
+    '.service-overview .section-body:not(.overview-body)': { ja: '多忙な日々のなかで、身体は静かに変化していきます。気づいたときには手遅れ——そうならないために、私たちは日常のコンディション管理に特化したサポートを提供しています。運動・栄養・休養の三本柱を軸に、各分野の専門家があなたの身体を総合的に評価。データに基づいたプログラムで、日々のコンディションを長期的に守ります。', en: 'Your body changes quietly amid busy days. To prevent it from being too late when you notice, we provide support specialized in daily condition management. With exercise, nutrition, and rest as the three pillars, specialists in each field comprehensively evaluate your body. Data-driven programs protect your daily conditioning long-term.' },
     // Service Program
     '#serviceProgram .section-heading': { ja: 'サービスプログラム', en: 'Service Program' },
     '#serviceProgram .section-intro': { ja: 'すべてのプログラムは、あなたの身体データ・生活リズム・目標に合わせて完全個別に設計。<br>運動・食事・コンディショニングを一体化し、日常のパフォーマンスを根本から変えていきます。', en: 'Every program is fully customized to your body data, lifestyle rhythm, and goals.<br>Integrating exercise, nutrition, and conditioning to fundamentally transform your daily performance.' },
@@ -283,7 +286,7 @@ var translations = {
     '.footer-col:nth-child(1) a:nth-child(4)': { ja: '料金プラン', en: 'Pricing Plans' },
     '.footer-col:nth-child(1) a:nth-child(5)': { ja: '法人向けプラン', en: 'Corporate Plans' },
     '.footer-col:nth-child(2) h4': { ja: 'ご案内', en: 'Information' },
-    '.footer-col:nth-child(2) a:nth-child(2)': { ja: '私たちについて', en: 'About' },
+    '.footer-col:nth-child(2) a:nth-child(2)': { ja: 'エグゼクティブ芦屋について', en: 'About' },
     '.footer-col:nth-child(2) a:nth-child(3)': { ja: '代表挨拶', en: 'Founder\'s Message' },
     '.footer-col:nth-child(2) a:nth-child(4)': { ja: '入会までの流れ', en: 'Membership Process' },
     '.footer-col:nth-child(2) a:nth-child(5)': { ja: 'お問い合わせ', en: 'Contact' },
@@ -418,8 +421,6 @@ var modalTranslations = {
 };
 
 // Founder body translation
-var founderBodyJa = '私が身体づくりの世界に踏み出した原点は、自分自身の変化でした。<span class="founder-num">5,000</span>名以上の方と向き合うなかで、知識やトレーニングだけでは届かない領域があることを知りました。経営の最前線に立つ方々が、判断力・集中力・体力のすべてを高い水準で保ち続けるために、本当に必要な仕組みとは何か。その問いへの答えとして、<span class="founder-brand">EXECUTIVE ASHIYA</span>を立ち上げました。';
-var founderBodyEn = 'The starting point of my journey into physical wellness was my own transformation. Through working with over <span class="founder-num">5,000</span> individuals, I learned that knowledge and training alone cannot reach every domain. What systems are truly needed for those at the forefront of business to maintain high standards of judgment, focus, and physical strength? <span class="founder-brand">EXECUTIVE ASHIYA</span> was founded as my answer to that question.';
 
 function switchLang(lang) {
     if (lang === currentLang) return;
@@ -444,12 +445,6 @@ function switchLang(lang) {
             }
         });
     });
-
-    // Update founder body
-    var founderBody = document.querySelector('.founder-body');
-    if (founderBody) {
-        founderBody.innerHTML = lang === 'ja' ? founderBodyJa : founderBodyEn;
-    }
 
     // Update modals
     Object.keys(modalTranslations).forEach(function(id) {

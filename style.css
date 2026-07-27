@@ -87,6 +87,23 @@ img {
     color: var(--cream);
 }
 
+/* 各セクションの英字ラベル（About / Services / Concierge …）。色は本文と同じブラウン */
+.section-label-en {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-brown);
+    margin-bottom: 10px;
+}
+
+/* 濃色背景のセクション用 */
+.section-label-en.light {
+    color: rgba(251, 249, 243, 0.75);
+}
+
+
 .section-intro {
     font-family: var(--font-body);
     font-size: clamp(15px, 1.2vw, 17px);
@@ -538,6 +555,107 @@ img {
     margin-top: 22px;
 }
 
+/* ---- トップの About：写真＋要約の左右2カラム ---- */
+.about-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    grid-template-areas:
+        "media head"
+        "media text";
+    align-content: center;
+    column-gap: 72px;
+    text-align: left;
+}
+
+.about-split-head { grid-area: head; align-self: end; }
+.about-split-head .section-label-en { margin-bottom: 14px; }
+.about-split-media { grid-area: media; align-self: center; }
+.about-split-text  { grid-area: text; align-self: start; }
+
+/* ---- 写真スライド：下のゲージが左から右へ満ちきると次の写真へ切り替わる ----
+   1周 = 11秒（1枚あたり5.5秒）。ゲージは5.5秒で0→100%になり、その瞬間を中心に0.7秒かけて
+   クロスフェードする。-0.35s のマイナスディレイで、読み込み直後にフェード途中から
+   始まらないよう両方を同じだけ前倒ししている。 */
+.about-slideshow {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.about-slideshow img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 1枚目は敷きっぱなしにして、2枚目の不透明度だけを動かす */
+.about-slideshow img:nth-child(2) {
+    opacity: 0;
+    animation: aboutSlideFade 11s linear -0.35s infinite;
+}
+
+@keyframes aboutSlideFade {
+    0%    { opacity: 0.5; }
+    3.2%  { opacity: 0; }
+    46.8% { opacity: 0; }
+    53.2% { opacity: 1; }
+    96.8% { opacity: 1; }
+    100%  { opacity: 0.5; }
+}
+
+.about-slide-gauge {
+    position: relative;
+    width: 96px;
+    height: 1px;
+    margin: 20px auto 0;
+    background-color: rgba(88, 80, 60, 0.22);
+    overflow: hidden;
+}
+
+.about-slide-gauge span {
+    position: absolute;
+    inset: 0;
+    background-color: var(--green-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: aboutGaugeFill 5.5s linear -0.35s infinite;
+}
+
+@keyframes aboutGaugeFill {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-slideshow img:nth-child(2),
+    .about-slide-gauge span {
+        animation: none;
+    }
+    .about-slide-gauge {
+        display: none;
+    }
+}
+
+/* 2カラム内では見出しが折り返せるようにする（nowrap だと列幅を超える） */
+.service-overview .about-split .about-ea-heading {
+    white-space: normal;
+    text-align: left;
+    font-size: clamp(26px, 2.6vw, 38px);
+    margin-bottom: 28px;
+}
+
+.service-overview .about-split .overview-body {
+    text-align: left;
+    max-width: 520px;
+    margin: 0;
+}
+
+.about-split-link {
+    margin-top: 32px;
+}
+
 /* ========== SERVICE PROGRAM ========== */
 .service-program {
     padding: 100px 0 120px;
@@ -856,44 +974,45 @@ img {
 }
 
 /* ========== FOUNDER ========== */
-.founder-section:first-of-type {
-    padding-top: 80px;
-}
-
+/* 見出し → 写真 → 本文 の縦一列。写真が横長（2048×1366）で、左右2カラムだと
+   横方向に大きく切り取られてしまうため、原寸比のまま全体を見せる構成にしている */
 .founder-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 80vh;
+    display: block;
+    /* このページは breadcrumb を持たず、固定ナビ（高さ76px）の直下に来るため
+       上余白でナビぶんを確保する（breadcrumb の 108px と同等） */
+    padding: 132px 0 110px;
     background: var(--cream);
 }
 
+.founder-head {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.founder-head .section-heading {
+    margin-bottom: 0;
+}
+
+/* 写真の幅は本文カラム（container-narrow の内寸720px）と揃える */
 .founder-section-visual {
-    position: relative;
-    overflow: hidden;
-    padding: 48px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--cream);
+    max-width: 800px;
+    margin: 0 auto 56px;
+    padding: 0 40px;
 }
 
 .founder-section-visual video,
 .founder-section-visual img {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 20% center;
+    height: auto;
     border-radius: 4px;
 }
 
 .founder-section-content {
-    display: flex;
-    align-items: center;
-    padding: 80px 60px;
-}
-
-.founder-section-content .section-heading {
-    margin-bottom: 24px;
+    display: block;
+    padding: 0;
 }
 
 .founder-section-content .section-body {
@@ -932,6 +1051,42 @@ img {
 .brand-inline {
     font-family: 'Noto Serif JP', '游明朝', serif;
     font-style: normal;
+}
+
+/* 代表挨拶の本文は複数段落。<p>を内包するので .founder-body は div */
+.founder-body p + p {
+    margin-top: 20px;
+}
+
+/* ---- 肩書・所属：氏名の直下に置く小さな信用情報ブロック ----
+   本文カラムが画面の約半分しかなく横一列だと折り返して区切り線が崩れるため、縦積みにする */
+.founder-titles {
+    list-style: none;
+    margin: 0 0 30px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border-warm);
+    border-bottom: 1px solid var(--border-warm);
+}
+
+.founder-titles li {
+    position: relative;
+    padding-left: 15px;
+    font-family: var(--font-jp);
+    font-weight: 300;
+    font-size: 13.5px;
+    line-height: 1.95;
+    letter-spacing: 0.02em;
+    color: rgba(88, 80, 60, 0.88);
+}
+
+.founder-titles li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 1px;
+    background-color: var(--green-accent);
 }
 
 /* ========== PLANNING GUIDES ========== */
@@ -1772,23 +1927,6 @@ img {
 }
 
 @media (max-width: 1024px) {
-    .founder-section {
-        grid-template-columns: 1fr;
-    }
-
-    .founder-section-visual {
-        min-height: auto;
-        padding: 40px 32px;
-        background: var(--cream);
-    }
-
-    .founder-section-visual img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        border-radius: 4px;
-    }
-
     .service-card,
     .concierge-card {
         flex: 0 0 320px;
@@ -1801,11 +1939,52 @@ img {
         text-align: center;
     }
 
-    /* スマホでも「エグゼクティブ芦屋について」を必ず1行に収める（12文字ぶんを画面幅から逆算） */
-    .service-overview .about-ea-heading {
+    /* スマホでも「エグゼクティブ芦屋について」を必ず1行に収める。
+       以前は font-size: 6.2vw 固定 + nowrap で、.container(40px) のパディング内に収まらず
+       はみ出して中央からずれていたため、12文字ぶんを実際の画面幅から逆算する */
+    .service-overview .about-ea-heading,
+    .service-overview .about-split .about-ea-heading {
         white-space: nowrap;
-        font-size: clamp(20px, 6.2vw, 30px);
-        margin-bottom: 34px;
+        font-size: clamp(18px, calc((100vw - 96px) / 12), 30px);
+        margin-bottom: 26px;
+        text-align: center;
+    }
+
+    /* 見出しブロックと写真の間隔は .about-split の row-gap で取る */
+    .service-overview .about-split .about-ea-heading {
+        margin-bottom: 0;
+    }
+
+    /* スマホは 見出し → 写真 → 本文 の縦積み・中央揃え */
+    .about-split {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "head"
+            "media"
+            "text";
+        row-gap: 28px;
+        column-gap: 0;
+        text-align: center;
+    }
+
+    .about-split-head,
+    .about-split-media,
+    .about-split-text {
+        align-self: auto;
+    }
+
+    .about-slideshow {
+        aspect-ratio: 3 / 2;
+    }
+
+    .service-overview .about-split .overview-body {
+        text-align: center;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-split-link {
+        margin-top: 26px;
     }
 
     /* PC用の強制改行はスマホでは無効化する */
@@ -1861,6 +2040,10 @@ img {
         text-align: center;
         font-size: 0.95rem;
         letter-spacing: 0.2em;
+        /* ボタンだけ少し下げる。margin だと flex 中央寄せの .hero が高さを取り直して
+           ブランド名やキャッチコピーまで動くので、レイアウトに影響しない相対位置で逃がす */
+        position: relative;
+        top: 16px;
     }
 
     .service-overview {
@@ -1964,8 +2147,27 @@ img {
         padding: 60px 24px;
     }
 
-    .founder-section-content {
-        padding: 60px 24px;
+    .founder-section {
+        padding: 112px 0 80px;
+    }
+
+    .founder-head {
+        margin-bottom: 32px;
+        padding: 0 24px;
+    }
+
+    .founder-section-visual {
+        margin-bottom: 36px;
+        padding: 0 24px;
+    }
+
+    /* 見出し・写真・本文の左右余白を24pxに揃える */
+    .founder-section-content .container-narrow {
+        padding: 0 24px;
+    }
+
+    .founder-titles li {
+        font-size: 13px;
     }
 
     .footer-inner {
@@ -2476,7 +2678,7 @@ a.plan-banner:hover .plan-banner-btn::after {
     font-weight: 400;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--green-accent);
+    color: var(--text-brown);
     margin-bottom: 8px;
 }
 
@@ -2625,6 +2827,16 @@ a.news-item:hover::after {
     font-size: 15px;
     line-height: 1.7;
     color: var(--text-brown);
+}
+
+/* トップページの4件は一覧ページより文字を濃くして読みやすくする */
+a.news-item .news-title {
+    color: rgb(62, 56, 40);
+    font-weight: 400;
+}
+
+a.news-item .news-date {
+    color: rgba(88, 80, 60, 0.9);
 }
 
 /* --- アコーディオン（一覧ページ） --- */
